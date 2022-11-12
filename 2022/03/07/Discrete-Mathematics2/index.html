@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="https://gitee.com/JaggarFang/image/raw/master/pic1/logo000.png"/>
+	<link rel="shortcut icon" href="https://gitee.com/JaggarFang/image/raw/master/pic1/logo000.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="Jaggar" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">Jaggar</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://gitee.com/JaggarFang/image/raw/master/pic1/离散封面.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Discrete Mathematics</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="图的基本概念"><a href="#图的基本概念" class="headerlink" title="图的基本概念"></a>图的基本概念</h2><h3 id="无向图与有向图"><a href="#无向图与有向图" class="headerlink" title="无向图与有向图"></a>无向图与有向图</h3><p>无序对：$(a,b)$</p>
+<p>无序积：$A&amp;B&#x3D;{(x,y)|x\in A,y\in B}$</p>
+<p>​		注意重复</p>
+<p><strong>多重集合</strong></p>
+<p>定义：元素可以重复出现</p>
+<p>重复度：元素出现次数</p>
+<p>​		默认是单重集合</p>
+<p><strong>无向图</strong></p>
+<p>定义：$G&#x3D;&lt;V,E&gt;$，其中V为顶点集，不为空；E为边集，为 $V&amp;V$ 的多重子集（两点之间有多条路径）。</p>
+<p>​	用$e_k&#x3D;(v_i,v_j)$表示边</p>
+<p><strong>有向图</strong></p>
+<p>定义：$D&#x3D;&lt;V,E&gt;$ ，其中V为顶点集，不为空；E为边集，为 $V\times V$ 的多重子集（两点之间有多条路径）。</p>
+<p>​	用 $e_k&#x3D;&lt;v_i,v_j&gt;$ 表示边<br>​        </p>
+<pre><code>G泛指图，D只能表示有向图
+有限图：V，E都是有穷集合的图
+顶点个数n，G为n阶图
+若E为空，则G为零图，n阶零图；有/无向图
+顶点个数1，G为平凡图
+</code></pre>
+<p><strong>顶点和边的关联与相邻</strong></p>
+<p>$v_i$，$v_j$为$e_j$的端点，$e_k$与$v_{i&#x2F;j}$关联</p>
+<p>$v_i&#x3D;v_j$，$e_k$为环，关联次数为2</p>
+<p>$v_i \ne v_j$，$e_k$为环，关联次数为1</p>
+<p>不是其端点，关联次数为0</p>
+<p>$v_i$，$v_j$端点相邻</p>
+<p>$e_k$，$e_l$边相邻，有公共端点</p>
+<p>对于有向图，端点分为始点、终点</p>
+<p>始点和终点一样，则边平行</p>
+<h3 id="顶点的度数与握手定理"><a href="#顶点的度数与握手定理" class="headerlink" title="顶点的度数与握手定理"></a>顶点的度数与握手定理</h3><p><strong>顶点的度数</strong></p>
+<p>度：作为端点次数之和</p>
+<p>悬挂顶点：度数为1</p>
+<p>悬挂边：与悬挂顶点关联的边</p>
+<p>G的最大度、最小度</p>
+<p>对于有向图：</p>
+<p>​	出度$d^+(v)$</p>
+<p>​	入度$d^-(v)$</p>
+<p>​	度数$d(v)&#x3D;d^+(v)+d^-(v)$<br>​    </p>
+<p><strong>握手定理</strong></p>
+<p>定理：任何图的所有顶点度数之和等于边数的2倍。</p>
+<p>推论：任何图都有偶数个奇度顶点     用$V_1$表示奇度顶点集，$V_2$表示偶度顶点集</p>
+<p>定理：所有顶点的入度之和&#x3D;出度之和&#x3D;边数</p>
+<p><strong>图的度数列</strong></p>
+<p>直接从$v_1$到$v_n$，列出度数</p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://example.com/2022/03/07/Discrete-Mathematics2/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2022/03/07/Discrete-Mathematics2/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+			<ul>
+				<li>
+					<img src="https://gitee.com/JaggarFang/image/raw/master/pic1/备案smaller.png"></img>
+					<a  href="https://beian.miit.gov.cn/" target="_blank" >浙ICP备2022006390号</a>
+				</li>
+			</ul>	
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
