@@ -1,0 +1,531 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png"/>
+	<link rel="shortcut icon" href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="Jaggar" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg1.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">Jaggar</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/矩阵封面.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >矩阵代数与应用-2.特殊矩阵</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h1 id="2-特殊矩阵"><a href="#2-特殊矩阵" class="headerlink" title="2 特殊矩阵"></a>2 特殊矩阵</h1><h2 id="2-1-三角矩阵"><a href="#2-1-三角矩阵" class="headerlink" title="2.1 三角矩阵"></a>2.1 三角矩阵</h2><h3 id="2-1-1-对角矩阵与反对角矩阵"><a href="#2-1-1-对角矩阵与反对角矩阵" class="headerlink" title="2.1.1 对角矩阵与反对角矩阵"></a>2.1.1 对角矩阵与反对角矩阵</h3><p>$$<br>D&#x3D;<br>\begin{bmatrix}<br>d_1&amp;  &amp;&amp;\<br>&amp; d_2&amp; &amp;\<br>&amp; &amp; \ddots&amp;\<br>&amp;&amp;&amp;d_n<br>\end{bmatrix}<br>&#x3D;diag(d_1,d_2,\cdots,d_n)<br>\quad<br>\overline{D}&#x3D;<br>\begin{bmatrix}<br>&amp;&amp;&amp;d_1\<br>&amp;&amp;d_2&amp;\<br>&amp;\cdots&amp;&amp;\<br>d_n\<br>\end{bmatrix}<br>$$</p>
+<h3 id="2-1-2-上三角矩阵与下三角矩阵"><a href="#2-1-2-上三角矩阵与下三角矩阵" class="headerlink" title="2.1.2 上三角矩阵与下三角矩阵"></a>2.1.2 <strong>上三角矩阵与下三角矩阵</strong></h3><p>$$<br>R&#x3D;<br>\begin{bmatrix}<br><em>&amp;</em>&amp;\cdots&amp;<em>\<br>&amp;</em>&amp;\cdots&amp;<em>\<br>&amp;&amp;\ddots&amp;\vdots\<br>&amp;&amp;&amp;</em><br>\end{bmatrix}<br>\qquad<br>L&#x3D;<br>\begin{bmatrix}<br>*&amp;&amp;&amp;\<br><em>&amp;</em>&amp;\<br>\vdots&amp;\vdots&amp;\ddots&amp;\<br><em>&amp;</em>&amp;\cdots&amp;*\<br>\end{bmatrix}<br>$$</p>
+<ul>
+<li>当对角元素为1时，成为单位上（下）三角矩阵</li>
+<li>运算的封闭性：上下三角矩阵的运算（加、减、乘、幂、逆）之后还是上下三角矩阵</li>
+<li>上下三角阵的行列式等于对角线元素之积</li>
+<li>上下三角阵的特征值等于其各对角线元素</li>
+<li>若$A_{n\times n}$为正定方阵，则A可以分解$A&#x3D;LL^H$（Cholesky分解）</li>
+</ul>
+<h2 id="2-2-基本矩阵"><a href="#2-2-基本矩阵" class="headerlink" title="2.2 基本矩阵"></a>2.2 基本矩阵</h2><p>$$<br>E_{ij}^{(m\times n)}&#x3D;e_i^{(m)}(e_j^{(n)})^T\<br>e_i 是m维单位向量，第i个分量为1，else 为0<br>$$</p>
+<p><strong>性质</strong></p>
+<ul>
+<li><p>$E_{ij}^{(m\times n)}E_{kl}^{(n\times r)}&#x3D;\delta_{jk}E_{il}^{(m\times r)}$</p>
+<ul>
+<li>$$<br>\delta(x)&#x3D;\left{<br>\begin{array}<br>\left<br>\infty ,\qquad x&#x3D;0\<br>0,\qquad \ else<br>\end{array}<br>\right.<br>$$</li>
+</ul>
+</li>
+<li><p>$(E_{ij}^{(m\times n)})^T&#x3D;E_{ji}^{(n\times m)}$ </p>
+</li>
+<li><p>$A&#x3D;\sum_{i&#x3D;1}^{m}\sum_{j&#x3D;1}^{n}a_{ij}E_{ij}^{(m\times n)}$ 任何矩阵都可以由基本矩阵线性变换得到</p>
+</li>
+<li><p>$E_{ij}^{(s\times m)}AE_{kl}^{(n\times r)}&#x3D;a_{jk}E_{il}^{(s\times r)}$ </p>
+</li>
+<li><p>$det(E_{ij}^{(m\times n)})&#x3D;0,(m&#x3D;n&gt;1)$</p>
+</li>
+</ul>
+<p><strong>两个向量的外积</strong><br>$$<br>a\and b&#x3D;ab^T<br>$$</p>
+<h2 id="2-3-正交矩阵和酉矩阵"><a href="#2-3-正交矩阵和酉矩阵" class="headerlink" title="2.3 正交矩阵和酉矩阵"></a>2.3 正交矩阵和酉矩阵</h2><h3 id="2-3-1-正交矩阵"><a href="#2-3-1-正交矩阵" class="headerlink" title="2.3.1 正交矩阵"></a>2.3.1 <strong>正交矩阵</strong></h3><p>$$<br>QQ^T&#x3D;Q^TQ&#x3D;I\<br>QQ^T&#x3D;Q^TQ&#x3D;I_m\ 或 \ QQ^T&#x3D;Q^TQ&#x3D;I_n	\qquad 半正交矩阵<br>$$</p>
+<h3 id="2-3-2-酉矩阵（方阵）"><a href="#2-3-2-酉矩阵（方阵）" class="headerlink" title="2.3.2 酉矩阵（方阵）"></a>2.3.2 酉矩阵（方阵）</h3><p>正交矩阵推广到复数域<br>$$<br>UU^H&#x3D;U^HU&#x3D;I\<br>UU^H&#x3D;I_m\ 或\ U^HU&#x3D;I_n	\qquad 仿酉矩阵<br>$$</p>
+<ul>
+<li><p>$U\in R^{m\times m}$为酉矩阵，等价于$U$为正交矩阵</p>
+</li>
+<li><p>$U$为酉矩阵，</p>
+<ul>
+<li>等价于$U^{-1}&#x3D;U^H$</li>
+<li>等价于$U$的行列为标准正交的向量</li>
+<li>$U^T,U^H,U^*,U^{-1},U^i$ 也是酉矩阵</li>
+<li>若$U和V$为酉矩阵<ul>
+<li>$UV$为酉矩阵</li>
+<li>$U\bigoplus V$为酉矩阵</li>
+<li>$U\bigotimes V$为酉矩阵</li>
+</ul>
+</li>
+<li>$det(U)&#x3D;±1$</li>
+<li>$rank(U)&#x3D;m$</li>
+<li>$UU^H&#x3D;U^HU\qquad$ $B&#x3D;U^HAU$与$A$<strong>酉等价</strong></li>
+<li>$|\lambda|&#x3D;1$</li>
+<li>$x_{m\times 1}\Rightarrow||Ux||_2&#x3D;||x||_2 \qquad$ 线性变换$Ux$为$x$的<strong>酉变换</strong></li>
+<li>$A_{m\times n}\Rightarrow||UA||_F&#x3D;||A||_F$</li>
+<li>$A_{n\times m}&#x3D;||AU||_F&#x3D;||A||_F\qquad$ (等距变换)</li>
+</ul>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220310212455201.png" alt="image-20220310212455201"></p>
+</li>
+</ul>
+<p><strong>正规矩阵</strong>：$A^HA&#x3D;AA^H$</p>
+<h3 id="2-3-3-等价矩阵"><a href="#2-3-3-等价矩阵" class="headerlink" title="2.3.3 等价矩阵"></a>2.3.3 等价矩阵</h3><p>存在非奇异矩阵$P,Q$ ，使得$B&#x3D;PAQ$</p>
+<h3 id="2-3-4-相似矩阵"><a href="#2-3-4-相似矩阵" class="headerlink" title="2.3.4 相似矩阵"></a>2.3.4 相似矩阵</h3><p>若存在非奇异矩阵$S\in C^{n\times n}$，使得$B&#x3D;S^{-1}AS$，则称矩阵$B\in C^{n\times n}$与$A\in C^{n\times n}$相似，简记$B\sim A$</p>
+<p><strong>相似变换</strong>，$A\rightarrow S^{-1}AS$</p>
+<ul>
+<li>自反性</li>
+<li>对称性</li>
+<li>传递性</li>
+<li>若$B\sim A$，则$B^k\sim A^k$</li>
+<li>若$B\sim A$，且均可逆，则$B^{-1}\sim A^{-1}$</li>
+<li>若$B\sim A$，则$det(B)&#x3D;det(A)$</li>
+<li>若$B\sim A$，则$tr(B)&#x3D;tr(A)$</li>
+</ul>
+<h3 id="2-3-5-相合矩阵"><a href="#2-3-5-相合矩阵" class="headerlink" title="2.3.5 相合矩阵"></a>2.3.5 相合矩阵</h3><p>若$A,B,C\in C^{n\times n}$，且$C$非奇异，则称$B&#x3D;C^{H}AC$与$A$相合（实相合、复相合）</p>
+<p><strong>相合变换</strong>，$A\rightarrow C^{H}AC$</p>
+<ul>
+<li>自反性</li>
+<li>对称性</li>
+<li>传递性</li>
+</ul>
+<p><strong>合同</strong>：一个二次型在不同坐标变换下的表示</p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/990617dff6d64fb7c1ab179538d42141.png" alt="img"></p>
+<h2 id="2-4-置换矩阵"><a href="#2-4-置换矩阵" class="headerlink" title="2.4 置换矩阵"></a>2.4 置换矩阵</h2><h3 id="2-4-1-Hermitian矩阵"><a href="#2-4-1-Hermitian矩阵" class="headerlink" title="2.4.1 Hermitian矩阵"></a>2.4.1 Hermitian矩阵</h3><p><strong>定义</strong>：复共轭对称。最简单的是$I$</p>
+<p><strong>性质</strong>：$A+A^H,AA^H,A^HA,A^k,A^{-1},\alpha A+\beta B,AB+BA,j(AB-BA)$ 也是Hermitian矩阵</p>
+<p><strong>正定性判定</strong>：（Hermitian为正定，当且仅当满足以下任一条件）</p>
+<ol>
+<li>$x^HAx&gt;0$</li>
+<li>$\lambda_i&gt;0$</li>
+<li>$\exist 非奇异R,A&#x3D;R^R$</li>
+<li>$\forall 非奇异P,P^HAP为正定$</li>
+</ol>
+<h3 id="2-4-2-置换矩阵与互换矩阵"><a href="#2-4-2-置换矩阵与互换矩阵" class="headerlink" title="2.4.2 置换矩阵与互换矩阵"></a>2.4.2 置换矩阵与互换矩阵</h3><p>每一行和每一列有且仅有一个非零<strong>元素1</strong>的正方矩阵</p>
+<p><strong>性质</strong></p>
+<ul>
+<li>$P^T$ 为另一个置换矩阵</li>
+<li>$P^TP&#x3D;PP^T&#x3D;I$</li>
+<li>$P^{-1}&#x3D;P^T$</li>
+</ul>
+<p>置换矩阵<strong>右乘对列重新排列；左乘对行重新排列。</strong></p>
+<p><strong>互换矩阵（反射矩阵、后向单位矩阵）</strong></p>
+<p>交叉对角线上全为1，其余全为0<br>$$<br>\mathbf{J}&#x3D;<br>\begin{bmatrix}<br>0&amp;&amp;&amp;1\<br>&amp;&amp;1\<br>&amp;\dots\<br>1&amp;&amp;&amp;0<br>\end{bmatrix}<br>$$</p>
+<ul>
+<li>$J^T&#x3D;J$</li>
+<li>$J^2&#x3D;I$</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JA=<span class="built_in">flipud</span>(A);</span><br><span class="line">AJ=<span class="built_in">fliplr</span>(A);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>位移矩阵</strong></p>
+<p><strong>定义</strong><br>$$<br>P&#x3D;<br>\begin{bmatrix}<br>0&amp;1&amp;0&amp;\cdots&amp;0\<br>0&amp;0&amp;1&amp;\cdots&amp;0\<br>\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\<br>0&amp;0&amp;0&amp;\cdots&amp;1\<br>1&amp;0&amp;0&amp;\cdots&amp;0\<br>\end{bmatrix}<br>$$<br>对首行或者最后一列进行移动</p>
+<p><strong>交换矩阵</strong></p>
+<p>对向量（矩阵）的各行、各列进行等间隔有规律的重排<br>$$<br>K_{mn}&#x3D;\sum_{j&#x3D;1}^{n}{(e_j^T\bigotimes I_{m}\bigotimes e_j)}\k_{mn}vec(A)&#x3D;vec(A^T)<br>$$</p>
+<h3 id="2-4-3-广义置换矩阵与选择矩阵"><a href="#2-4-3-广义置换矩阵与选择矩阵" class="headerlink" title="2.4.3 广义置换矩阵与选择矩阵"></a>2.4.3 广义置换矩阵与选择矩阵</h3><p>每一行和每一列有且仅有一个<strong>非零元素（可不为0，区别于置换矩阵）</strong>的正方矩阵</p>
+<p>可以被分解为一个置换矩阵和一个非奇异的对角矩阵之积<br>$$<br>\begin{array}[cccc]<br>\le\<br>G&amp;&#x3D;&amp;PD\<br>&amp;&#x3D;&amp;P<br>\begin{bmatrix}<br>a&amp;&amp;&amp;&amp;0\<br>&amp;b&amp;&amp;&amp;\<br>&amp;&amp;c&amp;&amp;\<br>&amp;&amp;&amp;d&amp;\<br>0&amp;&amp;&amp;&amp;e\<br>\end{bmatrix}<br>\end{array}<br>$$</p>
+<p><strong>选择矩阵</strong><br>$$<br>J_1&#x3D;[I_{m-1},0_{m-1}]\<br>J_2&#x3D;[0_{m-1},I_{m-1}]\<br>$$<br>左乘$X$ 得到前、后$m-1$ 行<br>$$<br>J_1&#x3D;<br>\begin{bmatrix}<br>I_{n-1}\0_{n-1}<br>\end{bmatrix}<br>\<br>J_2&#x3D;<br>\begin{bmatrix}<br>0_{n-1}\I_{n-1}\<br>\end{bmatrix}<br>$$<br>右乘$X$ 得到前、后$m-1$ 列</p>
+<p><strong>note</strong>：</p>
+<p>通过矩阵相乘的行列关系加以记忆左右乘</p>
+<h2 id="2-5-Vandermonde矩阵和Fourier矩阵"><a href="#2-5-Vandermonde矩阵和Fourier矩阵" class="headerlink" title="2.5 Vandermonde矩阵和Fourier矩阵"></a>2.5 Vandermonde矩阵和Fourier矩阵</h2><p>Fourier矩阵是Vandermonde矩阵的一个特例</p>
+<h3 id="2-5-1-Vandermonde矩阵"><a href="#2-5-1-Vandermonde矩阵" class="headerlink" title="2.5.1 Vandermonde矩阵"></a>2.5.1 Vandermonde矩阵</h3><p>$$<br>A&#x3D;<br>\begin{bmatrix}<br>1&amp;1&amp;\cdots&amp;1\<br>x_1&amp;x_2&amp;\cdots&amp;x_n\<br>x_1^2&amp;x_2^2&amp;\cdots&amp;x_n^2\<br>\vdots&amp;\vdots&amp;\vdots&amp;\vdots\<br>x_1^{n-1}&amp;x_2^{n-1}&amp;\cdots&amp;x_n^{n-1}\<br>\end{bmatrix}<br>\ or\ A^T<br>$$</p>
+<p><strong>性质</strong>：若$x_1, x_2, \cdots ,x_n$ 不相同，则矩阵一定满秩，因为它的各行（列）线性无关</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%范得蒙(Vandermonde)矩阵：最后一列全为1，倒数第二列为一个指定的向量，其他各列是其后列与倒数第二列的点乘积. 可以用一个指定向量生成一个范得蒙矩阵. MATLAB函数vander(V)生成以向量V为基础向量的范得蒙矩阵.</span></span><br><span class="line"></span><br><span class="line">clear all</span><br><span class="line">N=<span class="number">8</span>;</span><br><span class="line">w=<span class="built_in">exp</span>(<span class="number">-1</span><span class="built_in">i</span>*<span class="number">2</span>*<span class="built_in">pi</span>/N);</span><br><span class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:N</span><br><span class="line">    V(ii)=w^(ii<span class="number">-1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">A=<span class="built_in">vander</span>(V&#x27;);</span><br><span class="line"><span class="built_in">real</span>(A)</span><br><span class="line"><span class="built_in">imag</span>(A)</span><br><span class="line"></span><br><span class="line"><span class="comment">%flipud函数和fliplr函数（上下翻转，左右翻转）</span></span><br><span class="line">J=<span class="built_in">flipud</span>(<span class="built_in">eye</span>(<span class="number">8</span>))</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-5-2-Fourier矩阵"><a href="#2-5-2-Fourier矩阵" class="headerlink" title="2.5.2 Fourier矩阵"></a>2.5.2 Fourier矩阵</h3><p>$$<br>X_k&#x3D;\sum_{n&#x3D;0}^{N-1}x_ne^{-j\frac{2\pi nk}{N}}&#x3D;\sum_{n&#x3D;0}^{N-1}x_n\omega^{nk}<br>$$</p>
+<p>$$<br>\begin{bmatrix}<br>X_0\X_1\\vdots\X_{N-1}<br>\end{bmatrix}&#x3D;<br>\begin{bmatrix}<br>1&amp; 1&amp; \cdots &amp; 1\<br>1&amp;\omega &amp; \cdots &amp;\omega^{N-1}\<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\<br>1&amp; \omega&amp; \cdots &amp; \omega^{(N-1)(N-1)}\<br>\end{bmatrix}<br>\begin{bmatrix}<br>x_0\x_1\\vdots\x_{N-1}<br>\end{bmatrix}<br>$$</p>
+<p>简记为<br>$$<br>\hat{x}&#x3D;Fx<br>$$<br>根据定义，有<br>$$<br>F^HF&#x3D;FF^H&#x3D;NI\<br>\Downarrow\<br>F^{-1}&#x3D;\frac{1}{N}F^H&#x3D;\frac{1}{N}F^*<br>$$<br><strong>性质</strong>：</p>
+<ol>
+<li><p>各行各列都是等比数列</p>
+</li>
+<li><p>是对称的</p>
+</li>
+<li><p>$F^{-1}&#x3D;\frac{1}{N}F^*$</p>
+</li>
+<li><p>$F^4&#x3D;I$</p>
+</li>
+<li><p>$\sqrt{n}F&#x3D;C+jS$<br>$$<br>C_{ij}&#x3D;\cos{\frac{2\pi}{n}(i-1)(j-1)}\<br>S_{ij}&#x3D;\sin{\frac{2\pi}{n}(i-1)(j-1)}<br>$$</p>
+</li>
+<li><p>$CS&#x3D;SC,C^2+S^2&#x3D;nI$</p>
+</li>
+<li><p>归一化Fourier矩阵是对称的Vandermonde矩阵，也是正交矩阵</p>
+</li>
+<li><p>高斯函数的傅里叶变换还是高斯函数.在傅里叶变换下，高斯函数在函<br>数集合中的地位, 相当于整数1在实数中的地位.</p>
+</li>
+</ol>
+<h2 id="2-6-对称矩阵"><a href="#2-6-对称矩阵" class="headerlink" title="2.6 对称矩阵"></a>2.6 对称矩阵</h2><p><strong>对称矩阵</strong><br>$$<br>A&#x3D;A^T<br>$$<br><strong>反对称矩阵</strong><br>$$<br>A&#x3D;-A^T<br>$$<br><strong>斜对称矩阵</strong><br>$$<br>A_{n\times n}&#x3D;(A_{ij}&#x3D;(a_{n-j+1,n-i+1}))<br>$$</p>
+<ol>
+<li>$A^T,A^{-1}$ 也是斜对称矩阵</li>
+<li>$JA^TJ&#x3D;A,(JA)^T&#x3D;JA$</li>
+</ol>
+<p><strong>中心对称</strong><br>$$<br>A_{n\times n}&#x3D;(A_{ij})&#x3D;(a_{n-i+1,n-j+1})<br>$$</p>
+<ol>
+<li><p>$A^T$ 也是中心对称</p>
+</li>
+<li><p>$JA^TJ&#x3D;A$</p>
+</li>
+<li><p>任一$2n$ 阶中心对称矩阵可写成<br>$$<br>A&#x3D;<br>\begin{bmatrix}<br>X&amp;TJ\<br>JY&amp;JXJ<br>\end{bmatrix}<br>$$</p>
+</li>
+<li><p>$$<br>det(A)&#x3D;det(X+Y)det(X-Y)\<br>A^{-1}&#x3D;<br>\begin{bmatrix}<br>C&amp;RJ\<br>JR&amp;ICJ<br>\end{bmatrix}\<br>C&#x3D;\frac{1}{2}[(X+Y)^{-1}+(X-Y)^{-1}]\<br>R&#x3D;\frac{1}{2}[(X+Y)^{-1}-(X-Y)^{-1}]<br>$$</p>
+</li>
+</ol>
+<p><strong>复共轭对称矩阵</strong>A<br>$$<br>&#x3D;A^H<br>$$<br><strong>反Hermitian矩阵</strong><br>$$<br>A&#x3D;-A^H<br>$$<br><strong>斜复共轭对称矩阵</strong></p>
+<p><strong>中心复共轭对称矩阵</strong></p>
+<h2 id="2-7-Hadamard矩阵"><a href="#2-7-Hadamard矩阵" class="headerlink" title="2.7 Hadamard矩阵"></a>2.7 Hadamard矩阵</h2><p>所有元素取±1，且$H_nH_n^T&#x3D;H_N^TH_n&#x3D;nI_n$，$H_n$称为n阶Hadamard矩阵</p>
+<ul>
+<li>每一行或列两两正交，$\frac{1}{\sqrt{n}}H_n$为标准正交矩阵</li>
+<li>第一行和第一列的所有元素为+1的Hadamard矩阵，称为<strong>规范化Hadamard矩阵</strong></li>
+<li>阶数$n&gt;2时,n&#x3D;4k,k\in Z$</li>
+<li>$det|H_n|&#x3D;±n^{\frac{n}{2}}$</li>
+</ul>
+<p><strong>定理</strong>：令$n&#x3D;2^k,k&#x3D;1,2,\dots,则$<br>$$<br>\overline H_{2n}&#x3D;\frac{1}{\sqrt{2}}<br>\begin{bmatrix}<br>H_n&amp;H_n\<br>H_n&amp;-H_n\<br>\end{bmatrix}<br>，其中\overline H_2&#x3D;\frac{1}{\sqrt{2}}<br>\begin{bmatrix}<br>1&amp;1\<br>1&amp;-1\<br>\end{bmatrix}<br>$$</p>
+<h2 id="2-8-Toeplitz矩阵与Hankel矩阵"><a href="#2-8-Toeplitz矩阵与Hankel矩阵" class="headerlink" title="2.8 Toeplitz矩阵与Hankel矩阵"></a>2.8 Toeplitz矩阵与Hankel矩阵</h2><h3 id="2-8-1-Toeplitz矩阵"><a href="#2-8-1-Toeplitz矩阵" class="headerlink" title="2.8.1 Toeplitz矩阵"></a>2.8.1 Toeplitz矩阵</h3><p>$$<br>A&#x3D;\begin{bmatrix}<br>a_0&amp;a_{-1}&amp;a_{-2}&amp;\cdots&amp;a_{-n}\<br>a_1&amp;a_0&amp;a_{-1}&amp;\cdots &amp;a_{-n+1}\<br>a_2&amp;a_1&amp;a_{0}&amp;\ddots &amp;\vdots\<br>\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;a_{-1}\<br>a_n&amp;a_{n-1}&amp;\cdots&amp;a_1 &amp;a_0\<br>\end{bmatrix}<br>$$</p>
+<p>任何一条对角线元素相同</p>
+<p>对称Toeplitz矩阵仅由第一行元素就能推出，记$A&#x3D;Toep[a_0,a_1,\cdots,a_n]$</p>
+<p>复Toeplitz矩阵，复共轭对称</p>
+<p><strong>性质</strong>：</p>
+<ol>
+<li>线性组合、转置仍为Toeplitz矩阵</li>
+<li>相对于交叉对角线对称</li>
+</ol>
+<h3 id="2-8-2-Hankel矩阵"><a href="#2-8-2-Hankel矩阵" class="headerlink" title="2.8.2 Hankel矩阵"></a>2.8.2 Hankel矩阵</h3><p>$$<br>A&#x3D;\begin{bmatrix}<br>a_0&amp;a_{1}&amp;a_{2}&amp;\cdots&amp;a_{n}\<br>a_{1}&amp;a_2&amp;a_{3}&amp;\cdots &amp;a_{n+1}\<br>a_{2}&amp;a_3&amp;a_4&amp;\ddots &amp;a_{n+2}\<br>\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\<br>a_{n}&amp;a_{n+1}&amp;a_{n+2}&amp;\cdots&amp;a_{2n}\<br>\end{bmatrix}<br>$$</p>
+<p>交叉对角线元素相同</p>
+<h3 id="2-8-3-关系"><a href="#2-8-3-关系" class="headerlink" title="2.8.3 关系"></a>2.8.3 关系</h3><p>$$<br>HJ&#x3D;T\<br>TJ&#x3D;H<br>$$</p>
+<p>$J$ 是互换矩阵</p>
+<h3 id="2-8-4-循环矩阵"><a href="#2-8-4-循环矩阵" class="headerlink" title="2.8.4 循环矩阵"></a>2.8.4 循环矩阵</h3><p><strong>右循环矩阵</strong><br>$$<br>C_R&#x3D;(c_{ij})<br>$$<br><img src="./figures/image-20220505204239719.png" alt="image-20220505204239719" style="zoom: 33%;" /></p>
+<p><strong>左循环矩阵</strong><br>$$<br>C_L&#x3D;(c_{ij})<br>$$<br><img src="./figures/image-20220505204334046.png" alt="image-20220505204334046" style="zoom:33%;" /></p>
+<ol>
+<li>右循环矩阵是一特殊的Toeplitz矩阵.</li>
+<li>左循环矩阵是一特殊的Hankel矩阵.</li>
+<li>循环矩阵可由其第一行（列）元素完全确定</li>
+<li>运算封闭</li>
+<li>若$A,B$ 同为左或右循环矩阵，则$AB$ 为右循环矩阵</li>
+<li>$AB&#x3D;BA$</li>
+</ol>
+<img src="./figures/image-20220505205328755.png" alt="image-20220505205328755" style="zoom: 25%;" />
+
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220505205407119.png" alt="image-20220505205407119" style="zoom:25%;" />
+
+<p>由于可以用傅里叶变换快速求解循环矩阵方程，在数值分析中有重要应用。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 1、根据定义式生成</span></span><br><span class="line">n=<span class="number">8</span>; A=<span class="built_in">rand</span>(<span class="number">1</span>,n);</span><br><span class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:n</span><br><span class="line">    <span class="keyword">for</span> jj=<span class="number">1</span>:n</span><br><span class="line">        <span class="keyword">if</span> jj-ii&gt;=<span class="number">0</span></span><br><span class="line">            B(ii,jj)=A(jj-ii+<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            B(ii,jj)=A(n+jj-ii+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">disp</span>(B);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 2、利用hankel()、toeplitz()函数</span></span><br><span class="line">n=<span class="number">9</span>;</span><br><span class="line">rng(<span class="number">0</span>);</span><br><span class="line">c=<span class="built_in">rand</span>(<span class="number">1</span>,n);</span><br><span class="line">cc=[c  c];</span><br><span class="line">A=<span class="built_in">hankel</span>(cc);		<span class="comment">% toeplitz(cc);</span></span><br><span class="line">B=A(<span class="number">1</span>:n,<span class="number">1</span>:n);</span><br><span class="line"><span class="built_in">disp</span>(B);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-8-最小二乘拟合"><a href="#2-8-最小二乘拟合" class="headerlink" title="2.8 最小二乘拟合"></a>2.8 最小二乘拟合</h2><p>在解决一元线性回归的问题中，常用到最小二乘拟合。</p>
+<p>估计值：$y_i&#x3D;wx_i+b$</p>
+<p>拟合误差&#x2F;残差：$y_i-\widehat{y_i}&#x3D;y_i-(wx_i+b)$</p>
+<p>最佳拟合直线应该使所有点残差累计值最小，定义均方误差如下<br>$$<br>\begin{array}[ccc]<br>\le\</p>
+<p>argmin\ Loss&amp;&#x3D;&amp;\frac{1}{2n}\sum_{i&#x3D;1}^{n}{(y_i-\widehat{y_i})^2}<br>\<br> &amp;&#x3D;&amp;\frac{1}{2n}\sum_{i&#x3D;1}^{n}{(y_i-(wx_i+b))^2}<br>\end{array}<br>$$<br>求极值问题$\Rightarrow$ 极值点的偏导数为零，即<br>$$<br>\begin{array}</p>
+<p>\frac{\partial Loss}{\partial w}&#x3D;\sum_{i&#x3D;1}^{n}{(y_i-wx_i-b)(-x_i)&#x3D;0}\</p>
+<p>\</p>
+<p>\frac{\partial Loss}{\partial b}&#x3D;\sum_{i&#x3D;1}^{n}{(y_i-wx_i-b)(-1)&#x3D;0}\</p>
+<p>\end{array}<br>$$</p>
+<p>解得，<br>$$<br>\begin{array}</p>
+<p>\leftflush</p>
+<p>w&#x3D;\frac{n\sum_{i&#x3D;1}^{n}{x_iy_i}-\sum_{i&#x3D;1}^{n}{x_i}\sum_{i&#x3D;1}^{n}{y_i}}{n\sum_{i&#x3D;1}^{n}{x_i^2}-(\sum_{i&#x3D;1}^{n}{x_i})^2}\</p>
+<p>\</p>
+<p>b&#x3D;\frac{\sum_{i&#x3D;1}^{n}{y_i}-w\sum_{i&#x3D;1}^{n}{x_i}}{n}\</p>
+<p>\end{array}<br>$$</p>
+<p>用矩阵形式表示为，<br>$$<br>\begin{array}</p>
+<p>\leftflush</p>
+<p>w&#x3D;\frac{\sum_{i&#x3D;1}^{n}{(x_i-\overline{x})(y_i-\overline{y})}}{\sum_{i&#x3D;1}^{n}{(x_i-\overline{x})^2}}\</p>
+<p>\</p>
+<p>b&#x3D;\overline{y}-w\overline{x}\</p>
+<p>\end{array}<br>$$</p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/16517518202690.jpg"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/16517518352638.jpg"></p>
+<p>对于一元线性回归，适用于以下模型：</p>
+<ol>
+<li>$Y&#x3D;a+bX+\epsilon$</li>
+<li>$Y&#x3D;\alpha\cdot e^{\beta X}\cdot \epsilon\Rightarrow \ln{Y}&#x3D;\alpha+\beta X+\epsilon$</li>
+<li>$Y&#x3D;\alpha X^\beta\cdot\epsilon\Rightarrow \ln{Y}&#x3D;\alpha+\beta\ln{X}+\epsilon$</li>
+<li>$Y&#x3D;\alpha+\beta h(x) +\epsilon$</li>
+</ol>
+<p>对于多元线性回归，适用于以下模型：</p>
+<ol>
+<li>$Y&#x3D;b_0+b_1x_1+b_2x_2+\cdots+b_px_p$</li>
+<li>$Y&#x3D;b_0+b_1x+b_2x^2+\cdots+b_px^p$</li>
+<li>$\sin(x)&#x3D;b_0+b_1x+b_2x^2+\cdots$</li>
+<li>$\cos(x)&#x3D;b_1+2b_2x+3b_3x^2+\cdots$</li>
+<li>$e^x&#x3D;1+\frac{x}{1!}+\frac{x^2}{2!}+\cdots$</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">N=<span class="number">7</span>;<span class="comment">%阶数，N+1个系数</span></span><br><span class="line">M=<span class="number">20</span>;<span class="comment">%数据采样点个数</span></span><br><span class="line">x=<span class="built_in">rand</span>(M,<span class="number">1</span>);</span><br><span class="line">y=<span class="built_in">sin</span>(<span class="built_in">pi</span>/<span class="number">2</span>*x);</span><br><span class="line"></span><br><span class="line"><span class="comment">% 基于方法二</span></span><br><span class="line">a=<span class="built_in">zeros</span>(<span class="number">1</span>,<span class="number">2</span>*N+<span class="number">1</span>);</span><br><span class="line">b=<span class="built_in">zeros</span>(N+<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> k=<span class="number">1</span>:<span class="number">2</span>*N+<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> ii=<span class="number">1</span>:M</span><br><span class="line">        a(k)=a(k)+x(ii)^(k<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">for</span> k=<span class="number">1</span>:N+<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> ii=<span class="number">1</span>:M</span><br><span class="line">        b(k)=b(k)+y(ii)*x(ii)^(k<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">H=<span class="built_in">zeros</span>(N+<span class="number">1</span>,N+<span class="number">1</span>);</span><br><span class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:N+<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> jj=<span class="number">1</span>:N+<span class="number">1</span></span><br><span class="line">        H(ii,jj)=a(ii+jj<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">disp</span>(H); A=H\b; <span class="built_in">disp</span>(A&#x27;); </span><br><span class="line"></span><br><span class="line"><span class="comment">% 基于方法一</span></span><br><span class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:N+<span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> jj=<span class="number">1</span>:M</span><br><span class="line">		X(ii,jj)=x(jj)^(ii<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">X=X&#x27;;	</span><br><span class="line">X&#x27;*X;	<span class="comment">% Hankel</span></span><br><span class="line">B=inv(X&#x27;*X)*X&#x27;*y;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-9-特殊矩阵运算"><a href="#2-9-特殊矩阵运算" class="headerlink" title="2.9 特殊矩阵运算"></a>2.9 特殊矩阵运算</h2><h3 id="2-9-1-向量化函数与矩阵化函数"><a href="#2-9-1-向量化函数与矩阵化函数" class="headerlink" title="2.9.1 向量化函数与矩阵化函数"></a>2.9.1 向量化函数与矩阵化函数</h3><p><strong>列向量化函数</strong><br>$$<br>A&#x3D;<br>\begin{bmatrix}<br>a_{11}&amp;\cdots&amp;a_{1n}\<br>\vdots&amp;\vdots&amp;\vdots\<br>a_{m1}&amp;\vdots&amp;a_{mn}<br>\end{bmatrix}<br><em>{m\times n}<br>\rightarrow<br>vec(A)&#x3D;<br>\begin{bmatrix}<br>a</em>{11}\<br>\vdots\<br>a_{m1}\<br>\vdots\<br>a_{1n}\<br>\vdots\<br>a_{mn}<br>\end{bmatrix}<br>$$<br><strong>行向量化函数</strong><br>$$<br>A&#x3D;<br>\begin{bmatrix}<br>a_{11}&amp;\cdots&amp;a_{1n}\<br>\vdots&amp;\vdots&amp;\vdots\<br>a_{m1}&amp;\vdots&amp;a_{mn}<br>\end{bmatrix}<br><em>{m\times n}<br>\rightarrow<br>rvec(A)&#x3D;<br>\begin{bmatrix}<br>a</em>{11},<br>\cdots,<br>a_{1n},<br>\cdots,<br>a_{m1},<br>\cdots,<br>a_{mn},<br>\end{bmatrix}<br>$$<br><strong>矩阵化函数</strong><br>$$<br>unvec_{m,n}(a)&#x3D;A_{m\times n}&#x3D;<br>\begin{bmatrix}<br>a_1&amp;a_{m+1}&amp;\cdots&amp;a_{m(n-1)+1}\<br>a_2&amp;a_{m+2}&amp;\cdots&amp;a_{m(n-1)+2}\<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots\<br>a_m&amp;a_{2m}&amp;\cdots&amp;a_{mn}\<br>\end{bmatrix}<br>\Rightarrow<br>vec(A_{m\times n})&#x3D;a<br>$$<br><strong>向量化算子和行向量化算子的关系</strong><br>$$<br>rvect(A)&#x3D;(vec(A^T))^T,rvec(A^T)&#x3D;(rvec(A))^T<br>$$</p>
+<ul>
+<li>交换矩阵</li>
+</ul>
+<p>$$<br>K_{mn}vec(A)&#x3D;vec(A^T)\<br>K_{mn}&#x3D;\sum_{j&#x3D;1}^{n}{(a_j^T\bigotimes I_m\bigotimes e_j)}<br>$$</p>
+<h3 id="2-9-2-Kronecker积"><a href="#2-9-2-Kronecker积" class="headerlink" title="2.9.2 Kronecker积"></a>2.9.2 Kronecker积</h3><ul>
+<li><p>$m\times n$矩阵$A$和$p\times q$矩阵$B$的<strong>右Kronecker积</strong><br>$$<br>A\bigotimes B&#x3D;[a_{ij}B]&#x3D;<br>\begin{bmatrix}<br>a_{11}B&amp;a_{12}B&amp;\cdots&amp;a_{1n}B\<br>a_{21}B&amp;a_{22}B&amp;\cdots&amp;a_{2n}B\<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots\<br>a_{m1}B&amp;a_{12}B&amp;\cdots&amp;a_{mn}B\<br>\end{bmatrix}<br>$$</p>
+</li>
+<li><p>$m\times n$矩阵$A$和$p\times q$矩阵$B$的<strong>左Kronecker积</strong><br>$$<br>[A\bigotimes B]<em>{left}&#x3D;[Ab</em>{ij}]&#x3D;<br>\begin{bmatrix}<br>Ab_{11}&amp;Ab_{12}&amp;\cdots&amp;Ab_{1q}\<br>Ab_{21}&amp;Ab_{22}&amp;\cdots&amp;Ab_{2q}\<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots\<br>Ab_{p1}&amp;Ab_{p2}&amp;\cdots&amp;Ab_{pq}\<br>\end{bmatrix}<br>$$</p>
+</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kron(A,B);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>性质</strong></p>
+<ul>
+<li>没有交换律</li>
+<li>$AB\bigotimes CD&#x3D;(A\bigotimes C)(B\bigotimes D)$</li>
+<li>有分配律（加减乘）</li>
+<li>$(A\bigotimes B)^\dagger&#x3D;A^\dagger \bigotimes B^\dagger$</li>
+<li>若$A$和$B$是可逆方阵，则$(A\bigotimes B)^{-1}&#x3D;A^{-1}\bigotimes B^{-1}$</li>
+<li>$(A\bigotimes B)^T&#x3D;A^T\bigotimes B^T$；$(A\bigotimes B)^H&#x3D;A^H\bigotimes B^H$</li>
+<li>$rank(A\bigotimes B)&#x3D;rank(A)rank(B)$</li>
+<li>对于$A_{m\times m},B_{n\times n}$，有$det(A\bigotimes B)&#x3D;(det(A))^m(det(B))^n$</li>
+<li>$tr(A\bigotimes B)&#x3D;tr(A)tr(B)$</li>
+</ul>
+<p><strong>定理</strong><br>$$<br>vec(ABC)&#x3D;(C^T\bigotimes A)vec(B)<br>$$<br><strong>广义Kronecker积</strong><br>$$<br>{A}_N\bigotimes B&#x3D;<br>\begin{bmatrix}<br>A_1\bigotimes b_1\<br>A_2\bigotimes b_2\<br>\vdots\<br>A_N\bigotimes b_N\<br>\end{bmatrix},b_i是第i行<br>$$<br>广义Kronecker积在滤波器组的分析、Haar变换和Hadamard变换的快速算法的推导中有着重要的作用.</p>
+<h3 id="2-9-3-Khatri-Rao积"><a href="#2-9-3-Khatri-Rao积" class="headerlink" title="2.9.3 Khatri-Rao积"></a><strong>2.9.3 Khatri-Rao积</strong></h3><p>$$<br>A*B&#x3D;[a_1\bigotimes b_1,a_2\bigotimes b_2,\cdots,a_n\bigotimes b_n],a_i,b_i是第i列<br>$$</p>
+<ol>
+<li>结合律</li>
+<li>交换律</li>
+<li>$(A\bigotimes B)(C* D)&#x3D;AC*BD$</li>
+</ol>
+<h3 id="2-9-4-Hadamard积"><a href="#2-9-4-Hadamard积" class="headerlink" title="2.9.4 Hadamard积"></a><strong>2.9.4 Hadamard积</strong></h3><p>也称Schur积、对应元素乘积<br>$$<br>A\bigodot B&#x3D;[a_{ij}b_{ij}]<br>$$</p>
+<ol>
+<li>交换律、结合律、分配率</li>
+<li>注意不是脱靴规则，转置按原来顺序</li>
+<li>$c(A\bigodot B)&#x3D;(cA)\bigodot B&#x3D;A\bigodot (cB)$</li>
+<li>$A\bigodot I&#x3D;I\bigodot A&#x3D;diag(A)$</li>
+<li>$(A\bigoplus B)\bigodot (C\bigoplus D)&#x3D;(A\bigodot C)\bigoplus(B\bigodot D)$</li>
+<li>$tr(A^T(B\bigoplus C))&#x3D;tr((A^T\bigodot B^T)C)$</li>
+<li>$(DA)\bigodot (BD)&#x3D;D(A\bigodot B)D,D是对角矩阵$</li>
+<li>若$A,B$ 是（半）正定，则$A\bigodot B $ 也是</li>
+</ol>
+<h3 id="2-9-5-矩阵直和"><a href="#2-9-5-矩阵直和" class="headerlink" title="2.9.5 矩阵直和"></a>2.9.5 矩阵直和</h3><p>$$<br>A\bigoplus B&#x3D;<br>\begin{bmatrix}<br>A&amp;0_{m\times n}\<br>0_{n\times m}&amp;B\<br>\end{bmatrix}<br>$$</p>
+<ol>
+<li>$c(A\bigoplus B)&#x3D;cA\bigoplus cB$</li>
+<li>没有交换律</li>
+<li>不是拖鞋规则</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">blkdiag</span>(A,B);</span><br></pre></td></tr></table></figure>
+
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220505213028196.png" alt="image-20220505213028196" style="zoom:33%;" />
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://example.com/2022/03/06/Appliance2/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2022/03/06/Appliance2/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+			<ul>
+				<li>
+					<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/备案smaller.png"></img>
+					<a  href="https://beian.miit.gov.cn/" target="_blank" >浙ICP备2022006390号</a>
+				</li>
+			</ul>	
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
