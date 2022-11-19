@@ -190,7 +190,7 @@
 </ul>
 <h2 id="1-2-RDF"><a href="#1-2-RDF" class="headerlink" title="1.2 RDF"></a>1.2 RDF</h2><p><strong>RDF是资源描述框架（Resource Description Framework），可以有Turtle和RDF&#x2F;XML语法</strong></p>
 <p><strong>RDF在语义Web中的位置</strong></p>
-<p><img src="/.%5Cfigures%5Cimage-20221107161441466.png" alt="image-20221107161441466"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221107161441466.png" alt="image-20221107161441466"></p>
 <h3 id="1-2-1-Motivation"><a href="#1-2-1-Motivation" class="headerlink" title="1.2.1 Motivation"></a>1.2.1 Motivation</h3><ul>
 <li>RDF使用有向图作为数据模型，而不是层次化结构。分散存储、管理、合并</li>
 </ul>
@@ -208,7 +208,7 @@
 <li>没有数据类型的字面体 当作字符串进行处理</li>
 </ul>
 <p><strong>图表示</strong></p>
-<p><img src="/.%5Cfigures%5Cimage-20221111104135055.png" alt="image-20221111104135055"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111104135055.png" alt="image-20221111104135055"></p>
 <p><strong>Subject — Predicate — Object</strong></p>
 <p>主语：URIs、空结点</p>
 <p>谓语：URIs</p>
@@ -247,13 +247,13 @@
 
 <ul>
 <li><p>通过属性标签内<code>rdf:resource</code>值表示的URIs表示宾语</p>
-<p><img src="/./figures/servlet_5489333720961548064.png" alt="graph representation of RDF data"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/servlet_5489333720961548064.png" alt="graph representation of RDF data"></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;uri&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ex:publishBy</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;http://crcpress.com/uri&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rdf:Description</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>通过属性值代替文字Literals<strong>（注意：这是文字可以这么操作）</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;uri&quot;</span> <span class="attr">ex:title</span>=<span class="string">&quot;BOOK&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="/.%5Cfigures%5Cservlet_6396642660472088677.png" alt="graph representation of RDF data"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/servlet_6396642660472088677.png" alt="graph representation of RDF data"></p>
 <p><strong>（❌错误示例）</strong></p>
 </li>
 <li><p>命名空间不能出现在属性里 </p>
@@ -436,19 +436,19 @@
 <ul>
 <li>如果物化命题只被本身引用，可以用空白节点代替</li>
 </ul>
-<p><img src="/.%5Cfigures%5Cimage-20221111105759655.png" alt="image-20221111105759655"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111105759655.png" alt="image-20221111105759655"></p>
 <blockquote>
 <p>Note that in most cases, statements including forms of “to be” are best translated into a <code>rdf:type</code> statement.</p>
 </blockquote>
 <ul>
 <li><p>Romeo thought that Juliet was dead.</p>
-<p><img src="/./figures/image-20221116101701331.png" alt="image-20221116101701331"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221116101701331.png" alt="image-20221116101701331"></p>
 </li>
 <li><p>John believes that Mary wants to marry him.</p>
 <p><img src="/./figures/image-20221116102146110.png" alt="image-20221116102146110"></p>
 </li>
 <li><p>The dwarf noticed that somebody had been eating from his plate.</p>
-<p><img src="/./figures/image-20221116102221490.png" alt="image-20221116102221490"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221116102221490.png" alt="image-20221116102221490"></p>
 </li>
 </ul>
 <h3 id="2-1-7-Supplementary-Information-in-RDFs"><a href="#2-1-7-Supplementary-Information-in-RDFs" class="headerlink" title="2.1.7 Supplementary Information in RDFs"></a>2.1.7 Supplementary Information in RDFs</h3><blockquote>
@@ -459,16 +459,16 @@
 <h3 id="2-1-8-Simple-Ontologies-in-RDFs"><a href="#2-1-8-Simple-Ontologies-in-RDFs" class="headerlink" title="2.1.8 Simple Ontologies in RDFs"></a>2.1.8 Simple Ontologies in RDFs</h3><blockquote>
 <p>一个本体实例，必考</p>
 </blockquote>
-<p><img src="/.%5Cfigures%5Cimage-20221111105927800.png" alt="image-20221111105927800"></p>
-<p><img src="/.%5Cfigures%5Cimage-20221111105951908.png" alt="image-20221111105951908"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111105927800.png" alt="image-20221111105927800"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111105951908.png" alt="image-20221111105951908"></p>
 <ul>
 <li><p>XML的多视图</p>
 <blockquote>
 <p>不考</p>
 </blockquote>
-<p><img src="/.%5Cfigures%5Cimage-20221108194345121.png" alt="image-20221108194345121"></p>
-<p><img src="/.%5Cfigures%5Cimage-20221108194405241.png" alt="image-20221108194405241"></p>
-<p><img src="/.%5Cfigures%5Cimage-20221108194434758.png" alt="image-20221108194434758"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108194345121.png" alt="image-20221108194345121"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108194405241.png" alt="image-20221108194405241"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108194434758.png" alt="image-20221108194434758"></p>
 </li>
 </ul>
 <h2 id="2-2-RDF-s-形式语义"><a href="#2-2-RDF-s-形式语义" class="headerlink" title="2.2 RDF(s)形式语义"></a>2.2 RDF(s)形式语义</h2><p><strong>为什么定义语义</strong></p>
@@ -497,7 +497,7 @@
 <li>Syntax：没有“意义”</li>
 <li>Semantics：有“意义”</li>
 </ul>
-<p><img src="/.%5Cfigures%5Cimage-20221108195227283.png" alt="image-20221108195227283"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108195227283.png" alt="image-20221108195227283"></p>
 <p><strong>逻辑语义（Semantic of Logic）</strong></p>
 <ul>
 <li><p>模型论和证明论 </p>
@@ -512,7 +512,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/.%5Cfigures%5Cimage-20221108195635187.png" alt="image-20221108195635187"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108195635187.png" alt="image-20221108195635187"></p>
 </li>
 </ul>
 <p><strong>什么样的语义是好的</strong></p>
@@ -536,7 +536,7 @@
 </ul>
 </li>
 </ul>
-<img src=".\figures\image-20221108200201309.png" alt="image-20221108200201309" style="zoom:67%;" />
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108200201309.png" alt="image-20221108200201309" style="zoom:67%;" />
 
 <ul>
 <li><strong>p1和p2命题推出p3，则p3的模型是p1和p2模型的交集</strong></li>
@@ -549,7 +549,7 @@
 <li><p>通过获取RDF(S)术语的含义来定义模型。</p>
 </li>
 <li><p>RDF(s)模型语义分为三层：</p>
-<img src=".\figures\image-20221108200524064.png" alt="image-20221108200524064" style="zoom:67%;" /></li>
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108200524064.png" alt="image-20221108200524064" style="zoom:67%;" /></li>
 </ul>
 <blockquote>
 <p><strong>不懂</strong>不考</p>
@@ -566,7 +566,7 @@
 <li></li>
 </ul>
 <h2 id="3-1-本体论"><a href="#3-1-本体论" class="headerlink" title="3.1 本体论"></a>3.1 本体论</h2><p><strong>语义表达三角形</strong>：概念、符号和实体</p>
-<p><img src="/./figures/image-20221113191811696.png" alt="image-20221113191811696"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221113191811696.png" alt="image-20221113191811696"></p>
 <ul>
 <li><p>概念Concept</p>
 <ul>
@@ -746,8 +746,8 @@ $('.btn_click_load').click(function() {
 -->
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://example.com/2022/11/20/SemanticWeb/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2022/11/20/SemanticWeb/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://example.com/2022/11/20/1.%20SemanticWeb/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2022/11/20/1.%20SemanticWeb/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 
