@@ -1,0 +1,524 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png"/>
+	<link rel="shortcut icon" href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="Jaggar" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg1.jpg') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">Jaggar</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+                    <li>
+                        <a title="github" href="/%5Bobject%20Object%5D" target="_blank" rel="noopener">
+                            <i class="icon fa fa-github"></i>
+                        </a>
+                    </li>
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221121143624664.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >操作系统实验</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="1-Linux基本命令"><a href="#1-Linux基本命令" class="headerlink" title="1. Linux基本命令"></a>1. Linux基本命令</h2><ul>
+<li>man</li>
+<li>-help</li>
+<li>pwd<ul>
+<li>显示当前目录</li>
+<li>Print Working Directory</li>
+</ul>
+</li>
+<li>date</li>
+<li>who<ul>
+<li>显示当前注册到系统的每个用户信息</li>
+<li>who am i 显示当前用户</li>
+</ul>
+</li>
+<li>env</li>
+<li>vmstat和top<ul>
+<li>显示系统状态</li>
+</ul>
+</li>
+<li>clear</li>
+</ul>
+<p><strong>文件操作</strong></p>
+<ul>
+<li><p>cat</p>
+<ul>
+<li>显示或创建 cat &gt;</li>
+</ul>
+</li>
+<li><p>more</p>
+<ul>
+<li>分页浏览</li>
+</ul>
+</li>
+<li><p>head [-行数]</p>
+<ul>
+<li>显示头部</li>
+</ul>
+</li>
+<li><p>tail [-行数]</p>
+<ul>
+<li>显示尾部</li>
+</ul>
+</li>
+<li><p>cp p1.c p2.c</p>
+<ul>
+<li>复制p1.c到p2.c</li>
+</ul>
+</li>
+<li><p>ln p1.c p3.c</p>
+<ul>
+<li>链接p1.c和p3.c</li>
+<li>会同时修改</li>
+</ul>
+</li>
+<li><p>mv</p>
+<ul>
+<li>mv p2.c p22.c 重命名</li>
+<li>mv p22.c ..&#x2F; 移动文件</li>
+</ul>
+</li>
+<li><p>rm</p>
+</li>
+<li><p>ls</p>
+<ul>
+<li><p>ls -l <strong>存取控制权限</strong></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221119135345290.png" alt="image-20221119135345290"></p>
+<ul>
+<li>第一部分——权限<ul>
+<li><code>-</code> 表示文件，<code>d</code> 表示文件夹，<code>l</code> 表示软链接</li>
+<li>3位+3位+3位（用户权限、用户组权限、其他用户权限）</li>
+<li><code>r</code> 读，<code>w</code> 写，<code>x</code> 执行</li>
+</ul>
+</li>
+<li>第二部分——用户</li>
+<li>第三部分——用户组</li>
+</ul>
+</li>
+<li><p>chown改变文件的所有者</p>
+</li>
+<li><p>chgrp改变文件的组标识</p>
+</li>
+<li><p>chmod改变文件权限</p>
+</li>
+</ul>
+</li>
+<li><p>cd</p>
+</li>
+<li><p>mkdir</p>
+</li>
+<li><p>rmdir</p>
+<ul>
+<li>删除目录</li>
+</ul>
+</li>
+</ul>
+<p><strong>进程管理</strong></p>
+<ul>
+<li>ps</li>
+<li>kill</li>
+<li>wait</li>
+<li>sleep</li>
+</ul>
+<p><strong>vi操作</strong></p>
+<ul>
+<li><code>:r p1.c</code>	复制</li>
+<li><code>set nu</code> 显示行号</li>
+</ul>
+<h2 id="2-Shell语言编程"><a href="#2-Shell语言编程" class="headerlink" title="2. Shell语言编程"></a>2. Shell语言编程</h2><ol>
+<li><p><code>vi test.sh</code></p>
+</li>
+<li><p><code>i</code> 输入</p>
+<ul>
+<li>方法一</li>
+</ul>
+<ol>
+<li>chmod +x test.sh</li>
+<li>.&#x2F;test.sh</li>
+</ol>
+<ul>
+<li>方法二</li>
+</ul>
+<ol>
+<li>&#x2F;bin&#x2F;sh test.sh</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><p>定义变量</p>
+<ul>
+<li>直接定义<code>your_name=&quot;Jaggar&quot;</code></li>
+<li>调用变量<code>$your_name</code></li>
+</ul>
+</li>
+<li><p>参数传递</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Shell 参数传递&quot;</span><br><span class="line">echo &quot;执行的文件名：$0&quot;</span><br><span class="line">echo &quot;第一个参数：$1&quot;</span><br><span class="line">echo &quot;第二个参数：$2&quot;</span><br><span class="line">echo &quot;第三个参数：$3&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">运行./test3.sh 1 2 3 结果：</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Shell 参数传递</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行的文件名：./test3.sh</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">第一个参数：1</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">第二个参数：2</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">第三个参数：3</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">!/bin/bash</span></span><br><span class="line">echo &quot;执行的文件名：$0&quot;</span><br><span class="line">echo &quot;第一个参数：$1&quot;</span><br><span class="line">echo &quot;第二个参数：$2&quot;</span><br><span class="line">echo &quot;第三个参数：$3&quot;</span><br><span class="line">echo &quot;参数个数为：$#&quot;</span><br><span class="line">echo &quot;传递的参数作为一个字符串显示为：$*&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">运行/bin/sh test4.sh 1 2结果：</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行的文件名：test4.sh</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">第一个参数：1</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">第二个参数：2</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">第三个参数：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">参数个数为：2</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">传递的参数作为一个字符串显示为：1 2</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">!/bin/bash</span></span><br><span class="line">echo &quot;\$*演示&quot;</span><br><span class="line">for i in &quot;$*&quot;;do</span><br><span class="line">        echo $i</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">echo &quot;\$@演示&quot;</span><br><span class="line">for i in &quot;$@&quot;;do</span><br><span class="line">        echo $i</span><br><span class="line">done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">$*演示</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1 2 3</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="variable">$@</span>演示</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">3</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>$*</code>认为只传递了一个参数</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-main函数"><a href="#3-main函数" class="headerlink" title="3. main函数"></a>3. main函数</h2><p><strong>完整格式</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span> *argv[],<span class="type">char</span> **envp)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;输入参数有%d个\n&quot;</span>,argc);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;argc;i++)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;第%d个:%s\n&quot;</span>,i,argv[i]);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ./a.out 1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输入参数有4个</span></span><br><span class="line"><span class="comment">第0个:./a.out</span></span><br><span class="line"><span class="comment">第1个:1</span></span><br><span class="line"><span class="comment">第2个:2</span></span><br><span class="line"><span class="comment">第3个:3</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ./a.out I love OS</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输入参数有4个</span></span><br><span class="line"><span class="comment">第0个:./a.out</span></span><br><span class="line"><span class="comment">第1个:I</span></span><br><span class="line"><span class="comment">第2个:love</span></span><br><span class="line"><span class="comment">第3个:OS</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ./a.out &quot;I love OS&quot; &quot;me 2&quot;</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输入参数有3个</span></span><br><span class="line"><span class="comment">第0个:./a.out</span></span><br><span class="line"><span class="comment">第1个:I love OS</span></span><br><span class="line"><span class="comment">第2个:me 2</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc,<span class="type">char</span> *argv[])</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> i;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>,getenv(argv[<span class="number">1</span>]));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>返回值</strong></p>
+<p><code>void exit(int status)</code>  返回给父进程的状态值。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">32</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">23</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ./a.out</span></span><br><span class="line"><span class="comment">// echo $?</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">32</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">        <span class="comment">//exit(32);</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">23</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ./a.out</span></span><br><span class="line"><span class="comment">// echo $?</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">23</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>exec</strong></p>
+<p>exec(路径，标识符，参数，NULL)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Start/n&quot;</span>);</span><br><span class="line">        execl(<span class="string">&quot;/bin/ls&quot;</span>,<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-l&quot;</span>,<span class="literal">NULL</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;terminate\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">总用量 28</span></span><br><span class="line"><span class="comment">-rwxr-xr-x 1 root root 8656 11月 10 11:15 a.out</span></span><br><span class="line"><span class="comment">-rw-r--r-- 1 root root  157 11月 10 11:03 exec1.c</span></span><br><span class="line"><span class="comment">-rw-r--r-- 1 root root  162 11月 10 11:06 exec2.c</span></span><br><span class="line"><span class="comment">-rw-r--r-- 1 root root  173 11月 10 11:14 exec3.c</span></span><br><span class="line"><span class="comment">-rw-r--r-- 1 root root  169 11月  9 11:16 p1.c</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Start/n&quot;</span>);</span><br><span class="line">        execl(<span class="string">&quot;/bin/ls&quot;</span>,<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-al&quot;</span>,<span class="string">&quot;../Lab2&quot;</span>,<span class="literal">NULL</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;terminate\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">总用量 28</span></span><br><span class="line"><span class="comment">drwxr-xr-x 2 root root 4096 11月  9 10:44 .</span></span><br><span class="line"><span class="comment">drwxr-xr-x 6 root root 4096 11月  9 10:55 ..</span></span><br><span class="line"><span class="comment">-rw-r--r-- 1 root root   68 11月  8 21:39 test2.sh</span></span><br><span class="line"><span class="comment">-rwxr-xr-x 1 root root  174 11月  9 10:29 test3.sh</span></span><br><span class="line"><span class="comment">-rw-r--r-- 1 root root  214 11月  9 10:38 test4.sh</span></span><br><span class="line"><span class="comment">-rw-r--r-- 1 root root  110 11月  9 10:44 test5.sh</span></span><br><span class="line"><span class="comment">-rwxr-xr-x 1 root root   33 11月  8 14:17 test.sh</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-进程管理类（1）"><a href="#4-进程管理类（1）" class="headerlink" title="4. 进程管理类（1）"></a>4. 进程管理类（1）</h2><p><strong>fork()</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(fork()==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;I am son process\n&quot;</span>);</span><br><span class="line">                execl(<span class="string">&quot;/bin/ls&quot;</span>,<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-al&quot;</span>,<span class="string">&quot;/bin/ls&quot;</span>,<span class="literal">NULL</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;I am parent process\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>getpid()、getppid()</strong></p>
+<ul>
+<li><p>父进程的pid是子进程的ppid</p>
+</li>
+<li><p>父进程的ppid是bash的pid</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> pid;</span><br><span class="line">        <span class="keyword">if</span>(fork()==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;I am child process,pid=%d,ppid=%d\n&quot;</span>,getpid(),getppid());</span><br><span class="line">                execl(<span class="string">&quot;bin/ps&quot;</span>,<span class="string">&quot;ps&quot;</span>,<span class="literal">NULL</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;I am parent process,pid=%d,ppid=%d\n&quot;</span>,getpid(),getppid());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Because parent process is finished by the time the child asks for its parent’s pid.</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> pid;</span><br><span class="line">	<span class="keyword">if</span>((pid=fork())==<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;step 1:I am child process,pid:%d,ppid:%d,pid:%d\n&quot;</span>,</span><br><span class="line">			getpid(),getppid(),pid);</span><br><span class="line">		sleep(<span class="number">10</span>);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;step 2:I am child process,pid:%d,ppid:%d,pid:%d\n&quot;</span>,</span><br><span class="line">			getpid(),getppid(),pid);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;I am parent process,pid:%d,ppid:%d,pid:%d\n&quot;</span>,</span><br><span class="line">			getpid(),getppid(),pid);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[root@jaggar Lab4]# ./a.out</span></span><br><span class="line"><span class="comment">I am parent process,pid:24070,ppid:23805,pid:24071</span></span><br><span class="line"><span class="comment">[root@jaggar Lab4]# step 1:I am child process,pid:24071,ppid:1,pid:0</span></span><br><span class="line"><span class="comment">step 2:I am child process,pid:24071,ppid:1,pid:0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>**fork()**在父进程中返回子进程的pid，在子进程中返回0说明创建进程成功，并且执行子进程</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> pid;</span><br><span class="line">        <span class="keyword">if</span>((pid=fork())==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;I am child process,pid=%d,ppid=%d,return pid=%d\n&quot;</span>,getpid(),getppid(),pid);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;I am parent process,pid=%d,ppid=%d,return pid=%d\n&quot;</span>,getpid(),getppid(),pid);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">I am parent process,pid=17501,ppid=17462,return pid=17502</span></span><br><span class="line"><span class="comment">I am child process,pid=17502,ppid=17501,return pid=0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> pid;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,pid=fork());</span><br><span class="line">        <span class="keyword">if</span>(pid==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;I am child process,pid=%d,ppid=%d,return pid=%d\n&quot;</span>,getpid(),getppid(),pid);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;I am parent process,pid=%d,ppid=%d,return pid=%d\n&quot;</span>,getpid(),getppid(),pid);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">17546</span></span><br><span class="line"><span class="comment">I am parent process,pid=17545,ppid=17462,return pid=17546</span></span><br><span class="line"><span class="comment">0</span></span><br><span class="line"><span class="comment">I am child process,pid=17546,ppid=17545,return pid=0</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>wait()</strong></p>
+<ul>
+<li>父进程等子进程运行完</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(fork()==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;child process\n&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                wait(<span class="literal">NULL</span>);</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;parent process start\n&quot;</span>);</span><br><span class="line">                <span class="comment">//wait(NULL);</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;parent process end\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">child process</span></span><br><span class="line"><span class="comment">parent process start</span></span><br><span class="line"><span class="comment">parent process end</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/wait.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(fork()==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;child process\n&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">//wait(NULL);</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;parent process start\n&quot;</span>);</span><br><span class="line">                wait(<span class="literal">NULL</span>);</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;parent process end\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">parent process start</span></span><br><span class="line"><span class="comment">child process</span></span><br><span class="line"><span class="comment">parent process end</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>查看子进程是否正常退出</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;wait.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> status=<span class="number">-1</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Started\n&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span>(fork()==<span class="number">0</span>)</span><br><span class="line">                execl(<span class="string">&quot;/bin/ls&quot;</span>,<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-al&quot;</span>,<span class="string">&quot;/bin/ls&quot;</span>,<span class="literal">NULL</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">                wait(&amp;status);</span><br><span class="line">        <span class="comment">// printf(&quot;Terminated:%d\n&quot;,WEXITSTATUS(status));</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;exit status:%d\n&quot;</span>,WEXITSTATUS(status));</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;if exit:%d\n&quot;</span>,WIFEXITED(status));</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;status=%d\n&quot;</span>,status);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Started</span></span><br><span class="line"><span class="comment">-rwxr-xr-x. 1 root root 117656 11月  6 2016 /bin/ls</span></span><br><span class="line"><span class="comment">exit status:0</span></span><br><span class="line"><span class="comment">if exit:1</span></span><br><span class="line"><span class="comment">status=0    </span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-进程管理类（2）"><a href="#5-进程管理类（2）" class="headerlink" title="5. 进程管理类（2）"></a>5. 进程管理类（2）</h2><ul>
+<li>进程图像？？？</li>
+</ul>
+<p><strong>exec()</strong></p>
+<ul>
+<li><p>execl()</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        execl(<span class="string">&quot;/bin/ls&quot;</span>,<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-al&quot;</span>,<span class="literal">NULL</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>execv()</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">char</span> *argv[]=&#123;<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-al&quot;</span>&#125;;</span><br><span class="line">        execv(<span class="string">&quot;/bin/ls&quot;</span>,argv);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>execle()</p>
+<ul>
+<li>这个e干嘛的？</li>
+</ul>
+</li>
+<li><p>execve()</p>
+<ul>
+<li>这个e干嘛的？</li>
+</ul>
+</li>
+<li><p>execlp()</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        execlp(<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-al&quot;</span>,<span class="literal">NULL</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>execvp()</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">char</span> *argv[]=&#123;<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-al&quot;</span>&#125;;</span><br><span class="line">        execvp(<span class="string">&quot;ls&quot;</span>,argv);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><img src="/.%5Cfigures%5Cexec" alt="img"></p>
+<h2 id="6-C调用Shell"><a href="#6-C调用Shell" class="headerlink" title="6. C调用Shell"></a>6. C调用Shell</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        system(<span class="string">&quot;./p1.sh&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        execl(<span class="string">&quot;/bin/bash&quot;</span>,<span class="string">&quot;bash&quot;</span>,<span class="string">&quot;./p1.sh&quot;</span>,<span class="literal">NULL</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Hello\n&quot;</span>);</span><br><span class="line">        execl(<span class="string">&quot;/bin/sh&quot;</span>,<span class="string">&quot;sh&quot;</span>,<span class="string">&quot;./p1.sh&quot;</span>,<span class="literal">NULL</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="7-管道通信"><a href="#7-管道通信" class="headerlink" title="7. 管道通信"></a>7. 管道通信</h2><p><code>|</code></p>
+<p>一个命令的输出作为另一个命令的输入</p>
+<p><code>ls --help | more</code></p>
+<p><code>ls | sort</code></p>
+<p><strong>write()和read()</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> p[<span class="number">2</span>];</span><br><span class="line">        pipe(p);        <span class="comment">// CREATE PIPE, PIPE[0] IS READ PORT, PIPE[1] IS WRITE PORT</span></span><br><span class="line">        <span class="keyword">if</span>(fork()==<span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;child process satrt\n&quot;</span>);</span><br><span class="line">                <span class="type">char</span> c[]=<span class="string">&quot;hello, i am child&quot;</span>;</span><br><span class="line">                write(p[<span class="number">1</span>],c,<span class="keyword">sizeof</span>(c));</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;child end\n&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;this is parent process, and wait child process\n&quot;</span>);</span><br><span class="line">                wait();</span><br><span class="line">                <span class="type">char</span> ans[<span class="number">100</span>];</span><br><span class="line">                read(p[<span class="number">0</span>],ans,<span class="keyword">sizeof</span>(ans));</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;i am parent, and i got \&quot;%s\&quot; in the PIPE\n&quot;</span>,ans);</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;parent end\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">this is parent process, and wait child process</span></span><br><span class="line"><span class="comment">child process satrt</span></span><br><span class="line"><span class="comment">child end</span></span><br><span class="line"><span class="comment">i am parent, and i got &quot;hello, i am child&quot; in the PIPE</span></span><br><span class="line"><span class="comment">parent end</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>stdio</strong></p>
+<p>貌似只能连续字符串？</p>
+<ul>
+<li>那是因为<code>scanf()</code>吧？</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> p[<span class="number">2</span>];</span><br><span class="line">        pipe(p);        <span class="comment">// CREATE PIPE, PIPE[0] IS READ PORT, PIPE[1] IS WRITE PORT</span></span><br><span class="line">        <span class="keyword">if</span>(fork()==<span class="number">0</span>)&#123;</span><br><span class="line">                close(p[<span class="number">0</span>]);</span><br><span class="line">                close(<span class="number">1</span>);</span><br><span class="line">                dup(p[<span class="number">1</span>]);</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;i am child\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                close(p[<span class="number">1</span>]);</span><br><span class="line">                close(<span class="number">0</span>);</span><br><span class="line">                dup(p[<span class="number">0</span>]);</span><br><span class="line">                <span class="type">char</span> c[<span class="number">100</span>];</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,c);</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;in parent, i got \&quot;%s\&quot; \n&quot;</span>,c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">in parent, i got &quot;i&quot;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 改成</span></span><br><span class="line">read(p[<span class="number">0</span>],c,<span class="keyword">sizeof</span>(c));</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">in parent, i got &quot;i am child��&quot;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[root@jaggar Lab7]<span class="meta"># cat pipeline.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">int</span> p[<span class="number">2</span>];</span><br><span class="line">        pipe(p);        <span class="comment">// CREATE PIPE, PIPE[0] IS READ PORT, PIPE[1] IS WRITE PORT</span></span><br><span class="line">        <span class="keyword">if</span>(fork()==<span class="number">0</span>)&#123;  <span class="comment">// CHILD PROCESS</span></span><br><span class="line">                <span class="comment">// printf(&quot;child process start/n&quot;);</span></span><br><span class="line">                close(<span class="number">0</span>);       <span class="comment">// CLOSE STANDARD INPUT</span></span><br><span class="line">                dup(p[<span class="number">0</span>]);      <span class="comment">// DUPLICATE PIPE READ PORT TO STANDARD INPUT</span></span><br><span class="line">                close(p[<span class="number">0</span>]);    <span class="comment">// CLOSE ORIGINAL PIPE</span></span><br><span class="line">                close(p[<span class="number">1</span>]);</span><br><span class="line">                execl(<span class="string">&quot;/usr/bin/sort&quot;</span>,<span class="string">&quot;sort&quot;</span>,<span class="literal">NULL</span>);</span><br><span class="line">                <span class="comment">// printf(&quot;child process end/n&quot;);</span></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;          <span class="comment">// PARENT PROCESS</span></span><br><span class="line">                <span class="comment">// printf(&quot;parent process start/n&quot;);</span></span><br><span class="line">                <span class="comment">// wait();</span></span><br><span class="line">                close(<span class="number">1</span>);       <span class="comment">// CLOSE STANDARD OUTPUT</span></span><br><span class="line">                dup(p[<span class="number">1</span>]);      <span class="comment">// DUPLICATE PIPE WRITE PORT TO STANDARD OUTPUT</span></span><br><span class="line">                close(p[<span class="number">0</span>]);    <span class="comment">// CLOSE ORIGINAL PIPE</span></span><br><span class="line">                close(p[<span class="number">1</span>]);</span><br><span class="line">                execl(<span class="string">&quot;/bin/ls&quot;</span>,<span class="string">&quot;ls&quot;</span>,<span class="string">&quot;-al&quot;</span>,<span class="literal">NULL</span>);</span><br><span class="line">                <span class="comment">// printf(&quot;parent process end/n&quot;);</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">drwxr-xr-x 10 root root 4096 11月 13 14:21 ..</span></span><br><span class="line"><span class="comment">drwxr-xr-x  2 root root 4096 11月 13 15:35 .</span></span><br><span class="line"><span class="comment">-rw-r--r--  1 root root  373 11月 13 15:14 pipe1.c</span></span><br><span class="line"><span class="comment">-rw-r--r--  1 root root  443 11月 13 15:30 pipe2.c</span></span><br><span class="line"><span class="comment">-rw-r--r--  1 root root  509 11月 13 14:57 tmp2.c</span></span><br><span class="line"><span class="comment">-rw-r--r--  1 root root  519 11月 13 15:08 tmp.c</span></span><br><span class="line"><span class="comment">-rw-r--r--  1 root root  762 11月 13 15:35 pipeline.c</span></span><br><span class="line"><span class="comment">-rw-r--r--  1 root root  827 11月 13 15:07 tmp3.c</span></span><br><span class="line"><span class="comment">-rwxr-xr-x  1 root root 8808 11月 13 15:35 a.out</span></span><br><span class="line"><span class="comment">总用量 44</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="8-signal"><a href="#8-signal" class="headerlink" title="8. signal"></a>8. signal</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">f</span><span class="params">(<span class="type">int</span> sig_id)</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Recieved signal %d\n&quot;</span>,sig_id);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(fork()==<span class="number">0</span>)&#123;</span><br><span class="line">                sleep(<span class="number">1</span>);</span><br><span class="line">                kill(getppid(),<span class="number">31</span>);</span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                signal(<span class="number">31</span>,f);</span><br><span class="line">                signal(<span class="number">2</span>,f);</span><br><span class="line">                <span class="keyword">for</span>(;;)</span><br><span class="line">                ;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[root@jaggar Lab8]# ./a.out</span></span><br><span class="line"><span class="comment">Recieved signal 31</span></span><br><span class="line"><span class="comment">^CRecieved signal 2</span></span><br><span class="line"><span class="comment">^CRecieved signal 2</span></span><br><span class="line"><span class="comment">^Z</span></span><br><span class="line"><span class="comment">[2]+  已停止               ./a.out</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="9-mmap"><a href="#9-mmap" class="headerlink" title="9. mmap"></a>9. mmap</h2><p>将用户空间的一段内存区域映射到内核空间，映射成功后，用户对这段内存区域的修改可以直接反映到内核空间，同样，内核空间对这段区域的修改也直接反映用户空间</p>
+<p><code>void * mmap(void *start, size_t length, int prot , int flags, int fd, off_t offset)</code></p>
+<p>start：要映射到的内存区域的起始地址，通常都是用NULL（NULL即为0）。NULL表示由内核来指定该内存地址length：要映射的内存区域的大小<br>prot：期望的内存保护标志，不能与文件的打开模式冲突。是以下的某个值，可以通过or运算合理地组合在一起<br>PROT_EXEC &#x2F;&#x2F;页内容可以被执行<br>PROT_READ &#x2F;&#x2F;页内容可以被读取<br>PROT_WRITE &#x2F;&#x2F;页可以被写入<br>PROT_NONE &#x2F;&#x2F;页不可访问</p>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+    <!-- 使用 DISQUS_CLICK -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+
+<!-- add animation -->
+<style>
+	.disqus_click_btn {
+            line-height: 30px;
+            margin: 0;
+            min-width: 50px;
+            padding: 0 14px;
+            display: inline-block;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            overflow: hidden;
+            will-change: box-shadow;
+            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+            outline: 0;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 0;
+            background: rgba(158, 158, 158, .2);
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            color: #fff;
+            background-color: #7EC0EE;
+            text-shadow: 0
+        }
+</style>
+	
+<div class="btn_click_load" id="disqus_bt"> 
+    <button class="disqus_click_btn">点击查看评论</button>
+</div>
+
+<!--
+<script type="text/javascript">
+$('.btn_click_load').click(function() {
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    document.getElementById('disqus_bt').style.display = "none";
+});
+</script>
+-->
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://example.com/2022/11/21/Lab_OS/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://example.com/2022/11/21/Lab_OS/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+
+<script type="text/javascript">
+    $('.btn_click_load').click(function() {  //click to load comments
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document;
+            var s = d.createElement('script');
+            s.src = '//http-miccall-tech.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        $('.btn_click_load').css('display','none');
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+
+        </div>
+        <!-- Copyright 版权 start -->
+                <div id="copyright">
+            <ul>
+                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
+                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
+            </ul>
+            
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+			
+			<ul>
+				<li>
+					<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/备案smaller.png"></img>
+					<a  href="https://beian.miit.gov.cn/" target="_blank" >浙ICP备2022006390号</a>
+				</li>
+			</ul>	
+        </div>
+    </div>
+</body>
+
+
+
+ 	
+</html>
