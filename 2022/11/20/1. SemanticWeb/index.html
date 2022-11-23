@@ -1,135 +1,325 @@
-<!DOCTYPE HTML>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
 
 <head>
-	<link rel="bookmark"  type="image/x-icon"  href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png"/>
-	<link rel="shortcut icon" href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png">
-	
-			    <title>
-    Hexo
-    </title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="/css/mic_main.css" />
-    <link rel="stylesheet" href="/css/dropdownMenu.css" />
-    <meta name="keywords" content="Jaggar" />
-    
-    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	 
-    <noscript>
-        <link rel="stylesheet" href="/css/noscript.css" />
-    </noscript>
-    <style type="text/css">
-        body:before {
-          content: ' ';
-          position: fixed;
-          top: 0;
-          background: url('/img/bg1.jpg') center 0 no-repeat;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          background-size: cover; 
-        }
-    </style>
-
-			    
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="0. 期末考试计915 答疑 &#x2F;&#x2F; 15选择&#x2F;&#x2F; 20填空&#x2F;&#x2F; 10判断&#x2F;&#x2F; 画图 物化三元组*2&#x3D;9&#x2F;&#x2F; 查询语言12 cypher or ？&#x2F;&#x2F; 三元组写描述逻辑&#x2F;&#x2F; 基于xml rdf填空&#x2F;&#x2F; 本体建模  1. 语义网概述">
+<meta property="og:type" content="article">
+<meta property="og:title" content="语义网">
+<meta property="og:url" content="http://example.com/2022/11/20/1.%20SemanticWeb/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="0. 期末考试计915 答疑 &#x2F;&#x2F; 15选择&#x2F;&#x2F; 20填空&#x2F;&#x2F; 10判断&#x2F;&#x2F; 画图 物化三元组*2&#x3D;9&#x2F;&#x2F; 查询语言12 cypher or ？&#x2F;&#x2F; 三元组写描述逻辑&#x2F;&#x2F; 基于xml rdf填空&#x2F;&#x2F; 本体建模  1. 语义网概述">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221107161441466.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111104135055.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/servlet_5489333720961548064.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/servlet_6396642660472088677.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111105759655.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221116101701331.png">
+<meta property="og:image" content="http://example.com/figures/image-20221116102146110.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221116102221490.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111105927800.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111105951908.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108194345121.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108194405241.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108194434758.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108195227283.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108195635187.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108200201309.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108200524064.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221113191811696.png">
+<meta property="article:published_time" content="2022-11-19T16:19:00.000Z">
+<meta property="article:modified_time" content="2022-11-19T17:44:43.391Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Study">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221107161441466.png">
+  
+  
+  
+  <title>语义网 - Hexo</title>
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.scrollex.min.js"></script>
-    <script src="/js/jquery.scrolly.min.js"></script>
-    <script src="/js/skel.min.js"></script>
-    <script src="/js/util.js"></script>
-    <script src="/js/main.js"></script>
-	
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"5483baa78e864c8a0efbf18a0f7ef02f","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?5483baa78e864c8a0efbf18a0f7ef02f";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
     
-		
-<!-- Layouts -->
 
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
 
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-<!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
-<link rel="stylesheet" href="/css/typo.css" />
-<!-- 文章页 -->
-<body class="is-loading">
-    <!-- Wrapper 外包 s-->
-    <div id="wrapper" class="fade-in">
-        <!-- Intro 头部显示 s -->
-        <!-- Intro 头部显示 e -->
-        <!-- Header 头部logo start -->
-        <header id="header">
-    <a href="/" class="logo">Jaggar</a>
-</header>
-        <!-- Nav 导航条 start -->
-        <nav id="nav" class="special" >
-            <ul class="menu links" >
-			<!-- Homepage  主页  --> 
-			<li >
-	            <a href="/" rel="nofollow">主页</a>
-	        </li>
-			<!-- categories_name  分类   --> 
-	        
-	        <!-- archives  归档   --> 
-	        
-	        
-		        <!-- Pages 自定义   -->
-		        
-		        <li>
-		            <a href="/gallery/" title="图库">
-		                图库
-		            </a>
-		        </li>
-		        
-		        <li>
-		            <a href="/tag/" title="标签">
-		                标签
-		            </a>
-		        </li>
-		        
-
-
-            </ul>
-            <!-- icons 图标   -->
-			<ul class="icons">
-                    
-                    <li>
-                        <a title="github" href="/%5Bobject%20Object%5D" target="_blank" rel="noopener">
-                            <i class="icon fa fa-github"></i>
-                        </a>
-                    </li>
-                    
-			</ul>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 </nav>
 
-        <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221120013011148.png);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >语义网</h2></a>
-            </div>
-            <!-- Post -->
-            <div class="typo" style="padding: 3rem;">
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="语义网"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-20 00:19" pubdate>
+          November 20, 2022 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          103 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">语义网</h1>
+            
+            
+              <div class="markdown-body">
+                
                 <h1 id="0-期末考试"><a href="#0-期末考试" class="headerlink" title="0. 期末考试"></a>0. 期末考试</h1><p>计915 答疑</p>
 <p>&#x2F;&#x2F; 15选择<br>&#x2F;&#x2F; 20填空<br>&#x2F;&#x2F; 10判断<br>&#x2F;&#x2F; 画图 物化三元组*2&#x3D;9<br>&#x2F;&#x2F; 查询语言12 cypher or ？<br>&#x2F;&#x2F; 三元组写描述逻辑<br>&#x2F;&#x2F; 基于xml rdf填空<br>&#x2F;&#x2F; 本体建模 </p>
 <h1 id="1-语义网概述"><a href="#1-语义网概述" class="headerlink" title="1. 语义网概述"></a>1. 语义网概述</h1><ul>
@@ -196,7 +386,7 @@
 </ul>
 <h2 id="1-2-RDF"><a href="#1-2-RDF" class="headerlink" title="1.2 RDF"></a>1.2 RDF</h2><p><strong>RDF是资源描述框架（Resource Description Framework），可以有Turtle和RDF&#x2F;XML语法</strong></p>
 <p><strong>RDF在语义Web中的位置</strong></p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221107161441466.png" alt="image-20221107161441466"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221107161441466.png" srcset="/img/loading.gif" lazyload alt="image-20221107161441466"></p>
 <h3 id="1-2-1-Motivation"><a href="#1-2-1-Motivation" class="headerlink" title="1.2.1 Motivation"></a>1.2.1 Motivation</h3><ul>
 <li>RDF使用有向图作为数据模型，而不是层次化结构。分散存储、管理、合并</li>
 </ul>
@@ -214,7 +404,7 @@
 <li>没有数据类型的字面体 当作字符串进行处理</li>
 </ul>
 <p><strong>图表示</strong></p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111104135055.png" alt="image-20221111104135055"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111104135055.png" srcset="/img/loading.gif" lazyload alt="image-20221111104135055"></p>
 <p><strong>Subject — Predicate — Object</strong></p>
 <p>主语：URIs、空结点</p>
 <p>谓语：URIs</p>
@@ -234,32 +424,32 @@
 </ol>
 </li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;http://semantic-web-book.org/uri&gt;</span><br><span class="line">	&lt;http://example.org/pubishedBy&gt; &lt;http://crcpress.com/uri&gt; .</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs turtle">&lt;http://semantic-web-book.org/uri&gt;<br>	&lt;http://example.org/pubishedBy&gt; &lt;http://crcpress.com/uri&gt; .<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>前缀缩写</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@prefix book: &lt;http://semantic-web-book.org/&gt; .</span><br><span class="line">@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix ex: &lt;http://example.org/&gt; .</span><br><span class="line">@prefix crc: &lt;http://crcpress.com/&gt;</span><br><span class="line"></span><br><span class="line">book:uri	ex:pubishedBy 	crc:uri .</span><br><span class="line">book:uri 	ex:title &quot;BOOK&quot; .</span><br><span class="line">crc:uri		ex:name			&quot;CRC press&quot; .</span><br><span class="line">crc:uri		ex:name			&quot;CRC&quot; .</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs turtle">@prefix book: &lt;http://semantic-web-book.org/&gt; .<br>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .<br>@prefix ex: &lt;http://example.org/&gt; .<br>@prefix crc: &lt;http://crcpress.com/&gt;<br><br>book:uri	ex:pubishedBy 	crc:uri .<br>book:uri 	ex:title &quot;BOOK&quot; .<br>crc:uri		ex:name			&quot;CRC press&quot; .<br>crc:uri		ex:name			&quot;CRC&quot; .<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>简化相同谓语和宾语 <strong>注意逗号、分号</strong></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@prefix book: &lt;http://semantic-web-book.org/&gt; .</span><br><span class="line">@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix ex: &lt;http://example.org/&gt; .</span><br><span class="line">@prefix crc: &lt;http://crcpress.com/&gt;</span><br><span class="line"></span><br><span class="line">book:uri 	ex:pubishedBy 	crc:uri	;</span><br><span class="line">			ex:title &quot;BOOK&quot;	.</span><br><span class="line">crc:uri		ex:name			&quot;CRC press&quot;,&quot;CRC&quot; .</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs turtle">@prefix book: &lt;http://semantic-web-book.org/&gt; .<br>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .<br>@prefix ex: &lt;http://example.org/&gt; .<br>@prefix crc: &lt;http://crcpress.com/&gt;<br><br>book:uri 	ex:pubishedBy 	crc:uri	;<br>			ex:title &quot;BOOK&quot;	.<br>crc:uri		ex:name			&quot;CRC press&quot;,&quot;CRC&quot; .<br></code></pre></td></tr></table></figure>
 
 
 
 <p><strong>RDF&#x2F;XML</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rdf:RDF</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">xml:base</span>=<span class="string">&quot;http://semantic-web-book.org/&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ex</span>=<span class="string">&quot;http://example.org/&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:rdf</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;uri&quot;</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">ex:publishedBy</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;http://crcpress.com/uri&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ex:publishedBy</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">rdf:Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rdf:RDF</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">rdf:RDF</span> </span><br><span class="hljs-tag">    <span class="hljs-attr">xml:base</span>=<span class="hljs-string">&quot;http://semantic-web-book.org/&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:ex</span>=<span class="hljs-string">&quot;http://example.org/&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:rdf</span>=<span class="hljs-string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span><br>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;uri&quot;</span>&gt;</span><br>    	<span class="hljs-tag">&lt;<span class="hljs-name">ex:publishedBy</span>&gt;</span><br>        	<span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;http://crcpress.com/uri&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">ex:publishedBy</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">rdf:Description</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">rdf:RDF</span>&gt;</span> <br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><p>通过属性标签内<code>rdf:resource</code>值表示的URIs表示宾语</p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/servlet_5489333720961548064.png" alt="graph representation of RDF data"></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;uri&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ex:publishBy</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;http://crcpress.com/uri&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rdf:Description</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/servlet_5489333720961548064.png" srcset="/img/loading.gif" lazyload alt="graph representation of RDF data"></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;uri&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">ex:publishBy</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;http://crcpress.com/uri&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">rdf:Description</span>&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>通过属性值代替文字Literals<strong>（注意：这是文字可以这么操作）</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;uri&quot;</span> <span class="attr">ex:title</span>=<span class="string">&quot;BOOK&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;uri&quot;</span> <span class="hljs-attr">ex:title</span>=<span class="hljs-string">&quot;BOOK&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/servlet_6396642660472088677.png" alt="graph representation of RDF data"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/servlet_6396642660472088677.png" srcset="/img/loading.gif" lazyload alt="graph representation of RDF data"></p>
 <p><strong>（❌错误示例）</strong></p>
 </li>
 <li><p>命名空间不能出现在属性里 </p>
@@ -271,7 +461,7 @@
 </li>
 </ul>
 </blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">rdf</span>:RDF[ <span class="meta">&lt;!ENTITY <span class="keyword">book</span> <span class="string">&#x27;http://semantic-web-book.org/&#x27;</span>&gt;</span> ]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rdf:RDF</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ex</span>=<span class="string">&quot;http://example.org/&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:rdf</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;<span class="symbol">&amp;book;</span>uri&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ex:publishBy</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;http://crcpress.com/uri&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">rdf:Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rdf:RDF</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">rdf</span>:RDF[ <span class="hljs-meta">&lt;!ENTITY <span class="hljs-keyword">book</span> <span class="hljs-string">&#x27;http://semantic-web-book.org/&#x27;</span>&gt;</span> ]&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">rdf:RDF</span> </span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:ex</span>=<span class="hljs-string">&quot;http://example.org/&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:rdf</span>=<span class="hljs-string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span><br>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;<span class="hljs-symbol">&amp;book;</span>uri&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">ex:publishBy</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;http://crcpress.com/uri&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">rdf:Description</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">rdf:RDF</span>&gt;</span> <br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>或者使用基础命名空间<code>xml:base</code>，如上面都是</li>
@@ -282,13 +472,13 @@
 <ul>
 <li><code>xsd</code></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;</span><br><span class="line">@prefix book: &lt;http://semantic-web-book.org/&gt; .</span><br><span class="line">@prefix ex: &lt;http://example.org/&gt; .</span><br><span class="line"></span><br><span class="line">book:uri 	ex:title			&quot;BOOK&quot;^^xsd:string	;</span><br><span class="line">			ex:publicationDate	&quot;2004-02-01&quot;^^xsd:date	.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs turtle">@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;<br>@prefix book: &lt;http://semantic-web-book.org/&gt; .<br>@prefix ex: &lt;http://example.org/&gt; .<br><br>book:uri 	ex:title			&quot;BOOK&quot;^^xsd:string	;<br>			ex:publicationDate	&quot;2004-02-01&quot;^^xsd:date	.<br></code></pre></td></tr></table></figure>
 
 <p><strong>RDF&#x2F;XML</strong></p>
 <ul>
 <li><code>rdf:datatype</code></li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rdf:RDF</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">xml:base</span>=<span class="string">&quot;http://semantic-web-book.org/&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ex</span>=<span class="string">&quot;http://example.org/&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:rdf</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;uri&quot;</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">ex:title</span> <span class="attr">rdf:datatype</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema#string&quot;</span>&gt;</span>				BOOK</span><br><span class="line">        <span class="tag">&lt;/<span class="name">ex:title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ex:publicationDate</span> <span class="attr">rdf:datatype</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema#date&quot;</span>&gt;</span></span><br><span class="line">        	2004-02-10</span><br><span class="line">        <span class="tag">&lt;/<span class="name">ex:publicationDate</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">rdf:Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rdf:RDF</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">rdf:RDF</span> </span><br><span class="hljs-tag">    <span class="hljs-attr">xml:base</span>=<span class="hljs-string">&quot;http://semantic-web-book.org/&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:ex</span>=<span class="hljs-string">&quot;http://example.org/&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:rdf</span>=<span class="hljs-string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span><br>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;uri&quot;</span>&gt;</span><br>    	<span class="hljs-tag">&lt;<span class="hljs-name">ex:title</span> <span class="hljs-attr">rdf:datatype</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema#string&quot;</span>&gt;</span>				BOOK<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">ex:title</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">ex:publicationDate</span> <span class="hljs-attr">rdf:datatype</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema#date&quot;</span>&gt;</span><br>        	2004-02-10<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">ex:publicationDate</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">rdf:Description</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">rdf:RDF</span>&gt;</span> <br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><p>通常采用XML Schema</p>
@@ -304,27 +494,27 @@
 <li><p><code>rdf:XMLLiteral</code>是RDF唯一的内嵌数据类型，允许嵌入形式良好的XML片段作为RDF的文字*</p>
 </li>
 </ul>
-<h3 id="1-2-5-n-ary-relationships"><a href="#1-2-5-n-ary-relationships" class="headerlink" title="1.2.5 n-ary relationships"></a>1.2.5 n-ary relationships</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix ex: &lt;http://example.org/&gt; .</span><br><span class="line"></span><br><span class="line">ex:Chutney		ex:hasIngredient	ex:ingredient1	.</span><br><span class="line">ex:ingredient1	rdf:value			ex:greenMango	;</span><br><span class="line">				ex:amount			&quot;1lb&quot;	.</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-5-n-ary-relationships"><a href="#1-2-5-n-ary-relationships" class="headerlink" title="1.2.5 n-ary relationships"></a>1.2.5 n-ary relationships</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs turtle">@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .<br>@prefix ex: &lt;http://example.org/&gt; .<br><br>ex:Chutney		ex:hasIngredient	ex:ingredient1	.<br>ex:ingredient1	rdf:value			ex:greenMango	;<br>				ex:amount			&quot;1lb&quot;	.<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><p>空白节点</p>
 <ul>
 <li><code>_:id1</code></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix ex: &lt;http://example.org/&gt; .</span><br><span class="line"></span><br><span class="line">ex:Chutney		ex:hasIngredient	_:id1	.</span><br><span class="line">_:id1			rdf:value			ex:greenMango	;</span><br><span class="line">				ex:amount			&quot;1lb&quot;	.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs turtle">@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .<br>@prefix ex: &lt;http://example.org/&gt; .<br><br>ex:Chutney		ex:hasIngredient	_:id1	.<br>_:id1			rdf:value			ex:greenMango	;<br>				ex:amount			&quot;1lb&quot;	.<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>精简</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .</span><br><span class="line">@prefix ex: &lt;http://example.org/&gt; .</span><br><span class="line"></span><br><span class="line">ex:Chutney		ex:hasIngredient	</span><br><span class="line">				[rdf:value		ex:greenMango; ex:amount	&quot;1lb&quot;].</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs turtle">@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .<br>@prefix ex: &lt;http://example.org/&gt; .<br><br>ex:Chutney		ex:hasIngredient	<br>				[rdf:value		ex:greenMango; ex:amount	&quot;1lb&quot;].<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="1-2-6-Empty-nodes"><a href="#1-2-6-Empty-nodes" class="headerlink" title="1.2.6 Empty nodes"></a>1.2.6 Empty nodes</h3><p>将1.2.5中的turtle语法转成RDF&#x2F;XML，需要引入空节点概念</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rdf:RDF</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ex</span>=<span class="string">&quot;http://example.org/&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:rdf</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;http://example.org/Chutney&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ex:hasIngredient</span> <span class="attr">rdf:nodeID</span>=<span class="string">&quot;id1&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">rdf:Description</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:nodeID</span>=<span class="string">&quot;id1&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ex:ingredient</span>	<span class="attr">rdf:resource</span>=<span class="string">&quot;http://example.org/greenMango&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ex:amount</span>&gt;</span>1lb<span class="tag">&lt;/<span class="name">ex:amount</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">rdf:Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rdf:RDF</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">rdf:RDF</span> </span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:ex</span>=<span class="hljs-string">&quot;http://example.org/&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:rdf</span>=<span class="hljs-string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span><br>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;http://example.org/Chutney&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">ex:hasIngredient</span> <span class="hljs-attr">rdf:nodeID</span>=<span class="hljs-string">&quot;id1&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">rdf:Description</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:nodeID</span>=<span class="hljs-string">&quot;id1&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">ex:ingredient</span>	<span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;http://example.org/greenMango&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">ex:amount</span>&gt;</span>1lb<span class="hljs-tag">&lt;/<span class="hljs-name">ex:amount</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">rdf:Description</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">rdf:RDF</span>&gt;</span> <br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>简化，采用<code>rdf:parseType=&quot;Resource&quot;</code></li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rdf:RDF</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ex</span>=<span class="string">&quot;http://example.org/&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:rdf</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;http://example.org/Chutney&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ex:hasIngredient</span> <span class="attr">rdf:parseType</span>=<span class="string">&quot;Resource&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ex:ingredient</span>	<span class="attr">rdf:resource</span>=<span class="string">&quot;http://example.org/greenMango&quot;</span>/&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">ex:amount</span>&gt;</span>1lb<span class="tag">&lt;/<span class="name">ex:amount</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;/<span class="name">ex:hasIngredient</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">rdf:Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rdf:RDF</span>&gt;</span> </span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">rdf:RDF</span> </span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:ex</span>=<span class="hljs-string">&quot;http://example.org/&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:rdf</span>=<span class="hljs-string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span><br>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;http://example.org/Chutney&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">ex:hasIngredient</span> <span class="hljs-attr">rdf:parseType</span>=<span class="hljs-string">&quot;Resource&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">ex:ingredient</span>	<span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;http://example.org/greenMango&quot;</span>/&gt;</span><br>        	<span class="hljs-tag">&lt;<span class="hljs-name">ex:amount</span>&gt;</span>1lb<span class="hljs-tag">&lt;/<span class="hljs-name">ex:amount</span>&gt;</span>    <br>        <span class="hljs-tag">&lt;/<span class="hljs-name">ex:hasIngredient</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">rdf:Description</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">rdf:RDF</span>&gt;</span> <br></code></pre></td></tr></table></figure>
 
 <h3 id="1-2-7-Lists"><a href="#1-2-7-Lists" class="headerlink" title="1.2.7 Lists"></a>1.2.7 Lists</h3><blockquote>
 <p><em>容器不考</em></p>
@@ -334,13 +524,13 @@
 <p><code>&lt;rdf:Seq&gt;&lt;rdf:li rdf:resource=&quot;&quot;/&gt; &lt;/rdf:Seq&gt; </code>  顺序，可重复</p>
 <p><code>&lt;rdf:Bag&gt;</code>	无序，可重复</p>
 <p><code>&lt;rdf:Alt&gt;</code>	可替换</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rdf:RDF</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">xml:base</span>=<span class="string">&quot;http://semantic-web-book.org/&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ex</span>=<span class="string">&quot;http://example.org/&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:rdf</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;uri&quot;</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">ex:authors</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">rdf:Seq</span>&gt;</span></span><br><span class="line">            	<span class="tag">&lt;<span class="name">rdf:li</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;uri/A&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">rdf:li</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;uri/B&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">rdf:li</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;uri/C&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">rdf:Seq</span>&gt;</span></span><br><span class="line">       	<span class="tag">&lt;/<span class="name">ex:author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">rdf:Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rdf:RDF</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">rdf:RDF</span> </span><br><span class="hljs-tag">    <span class="hljs-attr">xml:base</span>=<span class="hljs-string">&quot;http://semantic-web-book.org/&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:ex</span>=<span class="hljs-string">&quot;http://example.org/&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:rdf</span>=<span class="hljs-string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span><br>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;uri&quot;</span>&gt;</span><br>    	<span class="hljs-tag">&lt;<span class="hljs-name">ex:authors</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">rdf:Seq</span>&gt;</span><br>            	<span class="hljs-tag">&lt;<span class="hljs-name">rdf:li</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;uri/A&quot;</span>/&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">rdf:li</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;uri/B&quot;</span>/&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">rdf:li</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;uri/C&quot;</span>/&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">rdf:Seq</span>&gt;</span><br>       	<span class="hljs-tag">&lt;/<span class="hljs-name">ex:author</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">rdf:Description</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">rdf:RDF</span>&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>closed list</p>
 <p><code>rdf:parseType=&quot;Collection&quot;</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rdf:RDF</span> </span></span><br><span class="line"><span class="tag">    <span class="attr">xml:base</span>=<span class="string">&quot;http://semantic-web-book.org/&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:ex</span>=<span class="string">&quot;http://example.org/&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:rdf</span>=<span class="string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;uri&quot;</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">ex:authors</span> <span class="attr">rdf:parseType</span>=<span class="string">&quot;Collection&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;uri/A&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;uri/B&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;uri/C&quot;</span>/&gt;</span></span><br><span class="line">       	<span class="tag">&lt;/<span class="name">ex:authors</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">rdf:Description</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rdf:RDF</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">rdf:RDF</span> </span><br><span class="hljs-tag">    <span class="hljs-attr">xml:base</span>=<span class="hljs-string">&quot;http://semantic-web-book.org/&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:ex</span>=<span class="hljs-string">&quot;http://example.org/&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:rdf</span>=<span class="hljs-string">&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;</span>&gt;</span><br>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;uri&quot;</span>&gt;</span><br>    	<span class="hljs-tag">&lt;<span class="hljs-name">ex:authors</span> <span class="hljs-attr">rdf:parseType</span>=<span class="hljs-string">&quot;Collection&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;uri/A&quot;</span>/&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;uri/B&quot;</span>/&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;uri/C&quot;</span>/&gt;</span><br>       	<span class="hljs-tag">&lt;/<span class="hljs-name">ex:authors</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">rdf:Description</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">rdf:RDF</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@prefix book: &lt;http://semantic-web-book.org/&gt;	.</span><br><span class="line">book:uri	&lt;http://example.org/authors&gt;</span><br><span class="line">			(book:uri/A		book:uri/B		book:uri/C)	.</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs turtle">@prefix book: &lt;http://semantic-web-book.org/&gt;	.<br>book:uri	&lt;http://example.org/authors&gt;<br>			(book:uri/A		book:uri/B		book:uri/C)	.<br></code></pre></td></tr></table></figure></li>
 </ol>
 <h1 id="2-RDF和RDFs"><a href="#2-RDF和RDFs" class="headerlink" title="2. RDF和RDFs"></a>2. RDF和RDFs</h1><ul>
 <li>最后一题 rdfs本体建模</li>
@@ -390,10 +580,10 @@
 </li>
 <li><p>实例化</p>
 <p><code>rdf:type</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rdf:Description</span> <span class="attr">rdf:about</span>=<span class="string">&quot;<span class="symbol">&amp;ex;</span>A&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">rdf:type</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;<span class="symbol">&amp;ex;</span>B&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rdf:Description</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">rdf:Description</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;<span class="hljs-symbol">&amp;ex;</span>A&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">rdf:type</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;<span class="hljs-symbol">&amp;ex;</span>B&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">rdf:Description</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>简化</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ex:B</span> <span class="attr">rdf:about</span>=<span class="string">&quot;&amp;;A&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">ex:B</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;&amp;;A&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>子类</p>
 <p><code>rdfs:subClassOf</code></p>
@@ -437,44 +627,44 @@
 <p>重点</p>
 </blockquote>
 <p><strong>Turtle</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ex:detective	ex:supposes		ex:theory	.</span><br><span class="line">ex:theory		ex:subject		ex:bulter	.</span><br><span class="line">ex:theory		ex:predicate	ex:hasKilled.</span><br><span class="line">ex:theory		ex:object		ex:gardener	.</span><br><span class="line">ex:theory		rdf:type		rdf:Statement.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs turtle">ex:detective	ex:supposes		ex:theory	.<br>ex:theory		ex:subject		ex:bulter	.<br>ex:theory		ex:predicate	ex:hasKilled.<br>ex:theory		ex:object		ex:gardener	.<br>ex:theory		rdf:type		rdf:Statement.<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>如果物化命题只被本身引用，可以用空白节点代替</li>
 </ul>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111105759655.png" alt="image-20221111105759655"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111105759655.png" srcset="/img/loading.gif" lazyload alt="image-20221111105759655"></p>
 <blockquote>
 <p>Note that in most cases, statements including forms of “to be” are best translated into a <code>rdf:type</code> statement.</p>
 </blockquote>
 <ul>
 <li><p>Romeo thought that Juliet was dead.</p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221116101701331.png" alt="image-20221116101701331"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221116101701331.png" srcset="/img/loading.gif" lazyload alt="image-20221116101701331"></p>
 </li>
 <li><p>John believes that Mary wants to marry him.</p>
-<p><img src="/./figures/image-20221116102146110.png" alt="image-20221116102146110"></p>
+<p><img src="/./figures/image-20221116102146110.png" srcset="/img/loading.gif" lazyload alt="image-20221116102146110"></p>
 </li>
 <li><p>The dwarf noticed that somebody had been eating from his plate.</p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221116102221490.png" alt="image-20221116102221490"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221116102221490.png" srcset="/img/loading.gif" lazyload alt="image-20221116102221490"></p>
 </li>
 </ul>
 <h3 id="2-1-7-Supplementary-Information-in-RDFs"><a href="#2-1-7-Supplementary-Information-in-RDFs" class="headerlink" title="2.1.7 Supplementary Information in RDFs"></a>2.1.7 Supplementary Information in RDFs</h3><blockquote>
 <p>不考</p>
 </blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rdf:Class</span> <span class="attr">rdf:about</span>=<span class="string">&quot;<span class="symbol">&amp;ex;</span>Primates&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">rdfs:label</span> <span class="attr">xml:lang</span>=<span class="string">&#x27;en&#x27;</span>&gt;</span>primates<span class="tag">&lt;/<span class="name">rdfs:label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rdfs:comment</span>&gt;</span></span><br><span class="line">    	abcdefg123456</span><br><span class="line">    <span class="tag">&lt;/<span class="name">rdfs:comment</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rdfs:seeAlso</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;<span class="symbol">&amp;wikipedia;</span>Primates&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rdfs:subClassOf</span> <span class="attr">rdfs:resource</span>=<span class="string">&quot;<span class="symbol">&amp;ex;</span>Mammalia&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">rdf:Class</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">rdf:Class</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;<span class="hljs-symbol">&amp;ex;</span>Primates&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">rdfs:label</span> <span class="hljs-attr">xml:lang</span>=<span class="hljs-string">&#x27;en&#x27;</span>&gt;</span>primates<span class="hljs-tag">&lt;/<span class="hljs-name">rdfs:label</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdfs:comment</span>&gt;</span><br>    	abcdefg123456<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">rdfs:comment</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdfs:seeAlso</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;<span class="hljs-symbol">&amp;wikipedia;</span>Primates&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdfs:subClassOf</span> <span class="hljs-attr">rdfs:resource</span>=<span class="hljs-string">&quot;<span class="hljs-symbol">&amp;ex;</span>Mammalia&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">rdf:Class</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="2-1-8-Simple-Ontologies-in-RDFs"><a href="#2-1-8-Simple-Ontologies-in-RDFs" class="headerlink" title="2.1.8 Simple Ontologies in RDFs"></a>2.1.8 Simple Ontologies in RDFs</h3><blockquote>
 <p>一个本体实例，必考</p>
 </blockquote>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111105927800.png" alt="image-20221111105927800"></p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111105951908.png" alt="image-20221111105951908"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111105927800.png" srcset="/img/loading.gif" lazyload alt="image-20221111105927800"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221111105951908.png" srcset="/img/loading.gif" lazyload alt="image-20221111105951908"></p>
 <ul>
 <li><p>XML的多视图</p>
 <blockquote>
 <p>不考</p>
 </blockquote>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108194345121.png" alt="image-20221108194345121"></p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108194405241.png" alt="image-20221108194405241"></p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108194434758.png" alt="image-20221108194434758"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108194345121.png" srcset="/img/loading.gif" lazyload alt="image-20221108194345121"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108194405241.png" srcset="/img/loading.gif" lazyload alt="image-20221108194405241"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108194434758.png" srcset="/img/loading.gif" lazyload alt="image-20221108194434758"></p>
 </li>
 </ul>
 <h2 id="2-2-RDF-s-形式语义"><a href="#2-2-RDF-s-形式语义" class="headerlink" title="2.2 RDF(s)形式语义"></a>2.2 RDF(s)形式语义</h2><p><strong>为什么定义语义</strong></p>
@@ -503,7 +693,7 @@
 <li>Syntax：没有“意义”</li>
 <li>Semantics：有“意义”</li>
 </ul>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108195227283.png" alt="image-20221108195227283"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108195227283.png" srcset="/img/loading.gif" lazyload alt="image-20221108195227283"></p>
 <p><strong>逻辑语义（Semantic of Logic）</strong></p>
 <ul>
 <li><p>模型论和证明论 </p>
@@ -518,7 +708,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108195635187.png" alt="image-20221108195635187"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108195635187.png" srcset="/img/loading.gif" lazyload alt="image-20221108195635187"></p>
 </li>
 </ul>
 <p><strong>什么样的语义是好的</strong></p>
@@ -542,7 +732,7 @@
 </ul>
 </li>
 </ul>
-<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108200201309.png" alt="image-20221108200201309" style="zoom:67%;" />
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108200201309.png" srcset="/img/loading.gif" lazyload alt="image-20221108200201309" style="zoom:67%;" />
 
 <ul>
 <li><strong>p1和p2命题推出p3，则p3的模型是p1和p2模型的交集</strong></li>
@@ -555,7 +745,7 @@
 <li><p>通过获取RDF(S)术语的含义来定义模型。</p>
 </li>
 <li><p>RDF(s)模型语义分为三层：</p>
-<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108200524064.png" alt="image-20221108200524064" style="zoom:67%;" /></li>
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221108200524064.png" srcset="/img/loading.gif" lazyload alt="image-20221108200524064" style="zoom:67%;" /></li>
 </ul>
 <blockquote>
 <p><strong>不懂</strong>不考</p>
@@ -572,7 +762,7 @@
 <li></li>
 </ul>
 <h2 id="3-1-本体论"><a href="#3-1-本体论" class="headerlink" title="3.1 本体论"></a>3.1 本体论</h2><p><strong>语义表达三角形</strong>：概念、符号和实体</p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221113191811696.png" alt="image-20221113191811696"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221113191811696.png" srcset="/img/loading.gif" lazyload alt="image-20221113191811696"></p>
 <ul>
 <li><p>概念Concept</p>
 <ul>
@@ -625,22 +815,22 @@
 <h3 id="3-3-3-OWL语言大纲"><a href="#3-3-3-OWL语言大纲" class="headerlink" title="3.3.3 OWL语言大纲"></a>3.3.3 OWL语言大纲</h3><h3 id="3-3-3-OWL文档结构"><a href="#3-3-3-OWL文档结构" class="headerlink" title="3.3.3 OWL文档结构"></a>3.3.3 OWL文档结构</h3><p><strong>基本元素</strong></p>
 <ul>
 <li><p>个体</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Region</span> <span class="attr">rdf:ID</span>=<span class="string">&quot;CentralCoastRegion&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">Region</span> <span class="hljs-attr">rdf:ID</span>=<span class="hljs-string">&quot;CentralCoastRegion&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>类和个体</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">owl:Class</span> <span class="attr">rdf:ID</span>=<span class="string">&quot;Grape&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">owl:Class</span> <span class="attr">rdf:ID</span>=<span class="string">&quot;WineGrape&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">rdfs:subClassOf</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;#Grape&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">owl:Class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">WineGrape</span> <span class="attr">rdf:ID</span>=<span class="string">&quot;CabernetSauvignonGrape&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">owl:Class</span> <span class="hljs-attr">rdf:ID</span>=<span class="hljs-string">&quot;Grape&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">owl:Class</span> <span class="hljs-attr">rdf:ID</span>=<span class="hljs-string">&quot;WineGrape&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">rdfs:subClassOf</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;#Grape&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">owl:Class</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">WineGrape</span> <span class="hljs-attr">rdf:ID</span>=<span class="hljs-string">&quot;CabernetSauvignonGrape&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>简单属性</p>
 <ul>
 <li>ObjectProperty，对象属性</li>
 <li>DatatypeProperty，数据类型属性</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">owl:ObjectProperty</span> <span class="attr">rdf:ID</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">rdfs:domain</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rdfs:range</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rdfs:subPropertyOf</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">owl:ObjectProperty</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">owl:ObjectProperty</span> <span class="hljs-attr">rdf:ID</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">rdfs:domain</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdfs:range</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdfs:subPropertyOf</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">owl:ObjectProperty</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><strong>在OWL中，一个定义域或值域可被用来推断一个类型</strong></li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">owl:Class</span> <span class="attr">rdf:ID</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">rdfs:subClassOf</span>	<span class="attr">rdf:resource</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">rdfs:subClassOf</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">owl:Restriction</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">owl:onProperty</span>	<span class="attr">rdf:resource</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">owl:minCardinality</span>	<span class="attr">rdf:datatype</span>=<span class="string">&quot;<span class="symbol">&amp;xsd;</span>nonNegativeInteger&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">owl:minCardinality</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">owl:Restriction</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">rdfs:subClassOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">owl:Class</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">owl:Class</span> <span class="hljs-attr">rdf:ID</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">rdfs:subClassOf</span>	<span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">rdfs:subClassOf</span>&gt;</span><br>    	<span class="hljs-tag">&lt;<span class="hljs-name">owl:Restriction</span>&gt;</span><br>        	<span class="hljs-tag">&lt;<span class="hljs-name">owl:onProperty</span>	<span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;&quot;</span>/&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">owl:minCardinality</span>	<span class="hljs-attr">rdf:datatype</span>=<span class="hljs-string">&quot;<span class="hljs-symbol">&amp;xsd;</span>nonNegativeInteger&quot;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">owl:minCardinality</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">owl:Restriction</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">rdfs:subClassOf</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">owl:Class</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <ul>
 <li><code>owl:onProperty</code> 指的是这个类的有一个这样的属性，然后给出这个属性的一些约束，比如数量上的<code>owl:minCardinality</code> 和<code>owl:maxCardnality</code> ；再比如<code>owl:allValuesFrom</code> 和<code>owl:someValuesFrom</code> (相当于at least one)</li>
@@ -665,7 +855,7 @@
 </ul>
 </li>
 <li><p>不同的个体</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">owl:AllDifferent</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">owl:distinctMembers</span> <span class="attr">rdf:...</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">owl:AllDifferent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">owl:AllDifferent</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">owl:distinctMembers</span> <span class="hljs-attr">rdf:...</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">owl:AllDifferent</span>&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>并交补运算</p>
 <ul>
@@ -673,7 +863,7 @@
 <li><code>owl:intersectionOf</code></li>
 <li><code>owl:complementOf</code> 与其他集合运算符联合使用</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">owl:Class</span> <span class="attr">rdf:ID</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">owl:intersectionOf</span> <span class="attr">rdf:parseType</span>=<span class="string">&quot;Collection&quot;</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">owl:Class</span> <span class="attr">rdf:about</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">owl:Restriction</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">owl:onProperty</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">owl:hasValue</span> <span class="attr">rdf:resource</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">owl:Restriction</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">owl:intersectionOf</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">owl:Class</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">owl:Class</span> <span class="hljs-attr">rdf:ID</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">owl:intersectionOf</span> <span class="hljs-attr">rdf:parseType</span>=<span class="hljs-string">&quot;Collection&quot;</span>&gt;</span><br>    	<span class="hljs-tag">&lt;<span class="hljs-name">owl:Class</span> <span class="hljs-attr">rdf:about</span>=<span class="hljs-string">&quot;&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">owl:Restriction</span>&gt;</span><br>        	<span class="hljs-tag">&lt;<span class="hljs-name">owl:onProperty</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;&quot;</span>/&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">owl:hasValue</span> <span class="hljs-attr">rdf:resource</span>=<span class="hljs-string">&quot;&quot;</span>/&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">owl:Restriction</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">owl:intersectionOf</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">owl:Class</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 
 </li>
@@ -691,114 +881,348 @@
 <p><strong>命名空间</strong></p>
 <p><code>&lt;!DOCTYPE owl[&lt;!ENTITY vin &quot;&quot;&gt;]&gt;</code></p>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Study/">#Study</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>语义网</div>
+      <div>http://example.com/2022/11/20/1. SemanticWeb/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>November 20, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/11/20/2.%20KnowledgeGraph/" title="知识图谱">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">知识图谱</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/12/pet/" title="My pet">
+                        <span class="hidden-mobile">My pet</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
             </div>
 
-            <!-- Post Comments -->
             
-    <!-- 使用 DISQUS_CLICK -->
-<div id="disqus-comment">
-    <div id="disqus_thread"></div>
-
-<!-- add animation -->
-<style>
-	.disqus_click_btn {
-            line-height: 30px;
-            margin: 0;
-            min-width: 50px;
-            padding: 0 14px;
-            display: inline-block;
-            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0;
-            overflow: hidden;
-            will-change: box-shadow;
-            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
-            outline: 0;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-            vertical-align: middle;
-            border: 0;
-            background: rgba(158, 158, 158, .2);
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-            color: #fff;
-            background-color: #7EC0EE;
-            text-shadow: 0
-        }
-</style>
-	
-<div class="btn_click_load" id="disqus_bt"> 
-    <button class="disqus_click_btn">点击查看评论</button>
-</div>
-
-<!--
-<script type="text/javascript">
-$('.btn_click_load').click(function() {
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-
-    document.getElementById('disqus_bt').style.display = "none";
-});
-</script>
--->
-<script type="text/javascript">
-    var disqus_config = function () {
-        this.page.url = 'http://example.com/2022/11/20/1.%20SemanticWeb/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2022/11/20/1.%20SemanticWeb/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-</script>
-
-<script type="text/javascript">
-    $('.btn_click_load').click(function() {  //click to load comments
-        (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document;
-            var s = d.createElement('script');
-            s.src = '//http-miccall-tech.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', + new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-        $('.btn_click_load').css('display','none');
-    });
-</script>
-</div>
-<style>
-    #disqus-comment{
-        background-color: #eee;
-        padding: 2pc;
-    }
-</style>
-
-
+          </article>
         </div>
-        <!-- Copyright 版权 start -->
-                <div id="copyright">
-            <ul>
-                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
-                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
-            </ul>
-            
-                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-			
-			<ul>
-				<li>
-					<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/备案smaller.png"></img>
-					<a  href="https://beian.miit.gov.cn/" target="_blank" >浙ICP备2022006390号</a>
-				</li>
-			</ul>	
-        </div>
+      </div>
     </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
-
-
-
- 	
 </html>

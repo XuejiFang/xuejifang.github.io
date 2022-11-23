@@ -1,139 +1,328 @@
-<!DOCTYPE HTML>
-<html>
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
 
 <head>
-	<link rel="bookmark"  type="image/x-icon"  href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png"/>
-	<link rel="shortcut icon" href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png">
-	
-			    <title>
-    Hexo
-    </title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="/css/mic_main.css" />
-    <link rel="stylesheet" href="/css/dropdownMenu.css" />
-    <meta name="keywords" content="Jaggar" />
-    
-    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	 
-    <noscript>
-        <link rel="stylesheet" href="/css/noscript.css" />
-    </noscript>
-    <style type="text/css">
-        body:before {
-          content: ' ';
-          position: fixed;
-          top: 0;
-          background: url('/img/bg1.jpg') center 0 no-repeat;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          background-size: cover; 
-        }
-    </style>
-
-			    
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1 代数与矩阵基础数、向量、矩阵、张量……  典型问题 解线性方程组 信号滤波 控制系统设计 傅立叶变换 最优化问题求解  1.1 代数与矩阵的基本概念代数代数——以符号代表数及数量等。 代数结构类型——只关心各种关系及其性质，而对于“数本身是什么”这样的问题并不关心。常见的如，群、环、域、模、线性空间等。（近世代数） 1.1.1 符号表示R：实数集合；C：复数集合 $R(C)^{m \times">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵代数与应用">
+<meta property="og:url" content="http://example.com/2022/03/06/Appliance/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1 代数与矩阵基础数、向量、矩阵、张量……  典型问题 解线性方程组 信号滤波 控制系统设计 傅立叶变换 最优化问题求解  1.1 代数与矩阵的基本概念代数代数——以符号代表数及数量等。 代数结构类型——只关心各种关系及其性质，而对于“数本身是什么”这样的问题并不关心。常见的如，群、环、域、模、线性空间等。（近世代数） 1.1.1 符号表示R：实数集合；C：复数集合 $R(C)^{m \times">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220311162514213.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220503095821898.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220503100553366.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220503103804366.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220506131637061.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220506132632851.png">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220507103058023.png">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=A%5Cin+%5Cmathbb%7BR%7D%5E%7Bm%5Ctimes+n%7D">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=A=U%5CSigma+V%5ET">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=k+%3C+r=+%5Cmathsf%7Brank%7D(A)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=A_k+=+%5Csum_%7Bi=1%7D%5Ek+%5Csigma_i+%5Cmathbf+u_i+%5Cmathbf+v_i%5ET,">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=B">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=k">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=A_k">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cmin_%7B%5Cmathsf%7Brank%7D(B)=k%7D%7C%7CA-B%7C%7C_2+=+%7C%7C+A+-+A_k%7C%7C_2+=+%5Csigma_%7Bk+1%7D.">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=%5Cmin_%7B%5Cmathsf%7Brank%7D(B)=k%7D%7C%7CA-B%7C%7C_F+=+%7C%7C+A+-+A_k%7C%7C_F+=+%5Csqrt%7B%5Csigma_%7Bk+1%7D%5E2+++%5Ccdots+++%5Csigma_p%5E2%7D.">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220507125436462.png">
+<meta property="article:published_time" content="2022-03-06T12:58:25.000Z">
+<meta property="article:modified_time" content="2022-11-18T16:35:49.852Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Study">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220311162514213.png">
+  
+  
+  
+  <title>矩阵代数与应用 - Hexo</title>
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery.scrollex.min.js"></script>
-    <script src="/js/jquery.scrolly.min.js"></script>
-    <script src="/js/skel.min.js"></script>
-    <script src="/js/util.js"></script>
-    <script src="/js/main.js"></script>
-	
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"5483baa78e864c8a0efbf18a0f7ef02f","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?5483baa78e864c8a0efbf18a0f7ef02f";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
 <meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
     
-		
-<!-- Layouts -->
 
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
 
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-<!--  代码渲染  -->
-<link rel="stylesheet" href="/css/prism_coy.css" />
-<link rel="stylesheet" href="/css/typo.css" />
-<!-- 文章页 -->
-<body class="is-loading">
-    <!-- Wrapper 外包 s-->
-    <div id="wrapper" class="fade-in">
-        <!-- Intro 头部显示 s -->
-        <!-- Intro 头部显示 e -->
-        <!-- Header 头部logo start -->
-        <header id="header">
-    <a href="/" class="logo">Jaggar</a>
-</header>
-        <!-- Nav 导航条 start -->
-        <nav id="nav" class="special" >
-            <ul class="menu links" >
-			<!-- Homepage  主页  --> 
-			<li >
-	            <a href="/" rel="nofollow">主页</a>
-	        </li>
-			<!-- categories_name  分类   --> 
-	        
-	        <!-- archives  归档   --> 
-	        
-	        
-		        <!-- Pages 自定义   -->
-		        
-		        <li>
-		            <a href="/gallery/" title="图库">
-		                图库
-		            </a>
-		        </li>
-		        
-		        <li>
-		            <a href="/tag/" title="标签">
-		                标签
-		            </a>
-		        </li>
-		        
-
-
-            </ul>
-            <!-- icons 图标   -->
-			<ul class="icons">
-                    
-                    <li>
-                        <a title="github" href="/%5Bobject%20Object%5D" target="_blank" rel="noopener">
-                            <i class="icon fa fa-github"></i>
-                        </a>
-                    </li>
-                    
-			</ul>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 </nav>
 
-        <div id="main" >
-            <div class ="post_page_title_img" style="height: 25rem;background-image: url(https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/矩阵封面.jpg);background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
-                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >矩阵代数与应用</h2></a>
-            </div>
-            <!-- Post -->
-            <div class="typo" style="padding: 3rem;">
-                <h1 id="1-代数与矩阵基础"><a href="#1-代数与矩阵基础" class="headerlink" title="1 代数与矩阵基础"></a>1 代数与矩阵基础</h1><pre><code>数、向量、矩阵、张量……
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="矩阵代数与应用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-06 20:58" pubdate>
+          March 6, 2022 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          21k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          172 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">矩阵代数与应用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-代数与矩阵基础"><a href="#1-代数与矩阵基础" class="headerlink" title="1 代数与矩阵基础"></a>1 代数与矩阵基础</h1><pre><code class="hljs">数、向量、矩阵、张量……
 </code></pre>
 <p><strong>典型问题</strong></p>
-<pre><code>解线性方程组
+<pre><code class="hljs">解线性方程组
 信号滤波
 控制系统设计
 傅立叶变换
@@ -158,14 +347,14 @@
 </ul>
 <h3 id="1-1-3-随机向量的统计描述"><a href="#1-1-3-随机向量的统计描述" class="headerlink" title="1.1.3 随机向量的统计描述"></a>1.1.3 随机向量的统计描述</h3><p>定义随机向量$x(\xi)&#x3D;[x_1(\xi),\cdots,x_m(\xi)]^T$ </p>
 <p><strong>均值向量</strong><br>$$<br>\mu_x&#x3D;E{x(\xi)}&#x3D;<br>\begin{bmatrix}<br>E{x_1(\xi)} \<br>\vdots\<br>E{x_m(\xi)}<br>\end{bmatrix}<br>&#x3D;\begin{bmatrix}<br>\mu_1 \<br>\vdots \<br>\mu_m<br>\end{bmatrix}<br>$$</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">A=<span class="built_in">rand</span>(<span class="number">10</span>,<span class="number">1000</span>);    <span class="comment">% 10个随机变量，每个随机变量有1000个样本</span></span><br><span class="line">S=<span class="built_in">size</span>(A);</span><br><span class="line">tic</span><br><span class="line">B=sum(A,<span class="number">2</span>);			<span class="comment">% sum(,dim)</span></span><br><span class="line">toc					<span class="comment">% 计算时间</span></span><br><span class="line">B=B/S(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">disp</span>(S);</span><br><span class="line"><span class="built_in">disp</span>(B);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs matlab">A=<span class="hljs-built_in">rand</span>(<span class="hljs-number">10</span>,<span class="hljs-number">1000</span>);    <span class="hljs-comment">% 10个随机变量，每个随机变量有1000个样本</span><br>S=<span class="hljs-built_in">size</span>(A);<br>tic<br>B=sum(A,<span class="hljs-number">2</span>);			<span class="hljs-comment">% sum(,dim)</span><br>toc					<span class="hljs-comment">% 计算时间</span><br>B=B/S(<span class="hljs-number">2</span>);<br><span class="hljs-built_in">disp</span>(S);<br><span class="hljs-built_in">disp</span>(B);<br></code></pre></td></tr></table></figure>
 
 <p><strong>自相关矩阵</strong><br>$$<br>R_x&#x3D;<br>E{x(\xi)x(\xi)^H}&#x3D;<br>\begin{bmatrix}<br>r_{11}&amp;r_{12}&amp;\cdots&amp;r_{1m}\<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots\<br>r_{m1}&amp;r_{m2}&amp;\cdots&amp;r_{mm}<br>\end{bmatrix}<br>$$<br>式中，$r_{ii}&#x3D;E{|x_i(\xi)|^2}$ 表示$x_i(\xi)$ 的自相关函数，而$r_{ij}&#x3D;E{x_i(\xi)x_{j}^*(\xi)}$ 表示$x_i(\xi)$和$x_{j}(\xi)$ 之间的互相关函数。<br>$$<br>\begin{array}[ccc]<br>\left\<br>r_{i,j}&amp;&#x3D;&amp;E(x_i(\xi)*x_j(\xi)’)\quad 向量形式\<br>&amp;&#x3D;&amp;\frac{1}{m}\sum_{k&#x3D;1}^{m}{x_{i,k}(\xi)*x_{j,k}({\xi})}\quad 标量推导\<br>&amp;&#x3D;&amp;A(i,:)*A(j,:)&#x2F;S(2)\quad In\ Matlab\<br>\end{array}<br>$$</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">rng(<span class="number">0</span>);             <span class="comment">% 设置随机种子</span></span><br><span class="line">A=<span class="built_in">rand</span>(<span class="number">5</span>,<span class="number">1000</span>);    	<span class="comment">% 5个随机变量，每个随机变量有1000个样本</span></span><br><span class="line">S=<span class="built_in">size</span>(A);</span><br><span class="line">R=<span class="built_in">zeros</span>(S(<span class="number">1</span>),S(<span class="number">1</span>));<span class="comment">%B=zeros(1,S(2));</span></span><br><span class="line">B=<span class="built_in">mean</span>(A,<span class="number">1</span>);    </span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:S(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:S(<span class="number">1</span>)</span><br><span class="line">        R(<span class="built_in">i</span>,<span class="built_in">j</span>)=(A(<span class="built_in">i</span>,:))*(A(<span class="built_in">j</span>,:))&#x27;;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">disp</span>(R/S(<span class="number">2</span>));   </span><br><span class="line"><span class="built_in">disp</span>(A*A&#x27;/S(<span class="number">2</span>));	<span class="comment">% 更简单计算方式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% for i=1:S(2)</span></span><br><span class="line"><span class="comment">%     R=R+A(:,i)*A(:,i)&#x27;;</span></span><br><span class="line"><span class="comment">% end</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs matlab">rng(<span class="hljs-number">0</span>);             <span class="hljs-comment">% 设置随机种子</span><br>A=<span class="hljs-built_in">rand</span>(<span class="hljs-number">5</span>,<span class="hljs-number">1000</span>);    	<span class="hljs-comment">% 5个随机变量，每个随机变量有1000个样本</span><br>S=<span class="hljs-built_in">size</span>(A);<br>R=<span class="hljs-built_in">zeros</span>(S(<span class="hljs-number">1</span>),S(<span class="hljs-number">1</span>));<span class="hljs-comment">%B=zeros(1,S(2));</span><br>B=<span class="hljs-built_in">mean</span>(A,<span class="hljs-number">1</span>);    <br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:S(<span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:S(<span class="hljs-number">1</span>)<br>        R(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>)=(A(<span class="hljs-built_in">i</span>,:))*(A(<span class="hljs-built_in">j</span>,:))&#x27;;<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><span class="hljs-built_in">disp</span>(R/S(<span class="hljs-number">2</span>));   <br><span class="hljs-built_in">disp</span>(A*A&#x27;/S(<span class="hljs-number">2</span>));	<span class="hljs-comment">% 更简单计算方式</span><br><br><span class="hljs-comment">% for i=1:S(2)</span><br><span class="hljs-comment">%     R=R+A(:,i)*A(:,i)&#x27;;</span><br><span class="hljs-comment">% end</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>自协方差矩阵</strong><br>$$<br>C_x&#x3D;E{[x(\xi)-\mu_x][x(\xi)-\mu_x]^H}&#x3D;<br>\begin{bmatrix}<br>c_{11}&amp;c_{12}&amp;\cdots&amp;c_{1m}\<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots\<br>c_{m1}&amp;c_{m2}&amp;\cdots&amp;c_{mm}\<br>\end{bmatrix}<br>$$<br>其中，$c_{ii}&#x3D;E{|x_i(\xi)-\mu_i|^2}$ 表示$x_i(\xi)$ 的方差$\sigma_i^2$ ，而$c_{ij}&#x3D;E{[x(\xi)-\mu_x][x(\xi)-\mu_x]^<em>}&#x3D;E{x_i(\xi)x_{j}^</em>(\xi)}-\mu_i\mu_j^*&#x3D;c_{ji}^*$ 表示随机变量 $x_i(\xi)$和$x_{j}(\xi)$ 之间的协方差。</p>
 <p>容易看出，自相关矩阵和自协方差矩阵均为复共轭对称（Hermitian）矩阵，即<br>$$<br>R_x^H&#x3D;R_x\qquad C_x^H&#x3D;C_x<br>$$<br>之间的关系：<br>$$<br>C_x&#x3D;R_x-\mu_x\mu_x^H<br>$$<br>因此，自协方差矩阵可以这么求，</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rng(<span class="number">0</span>);<span class="comment">%设置随机数种</span></span><br><span class="line">A=<span class="built_in">randn</span>(<span class="number">5</span>,<span class="number">1000</span>); </span><br><span class="line">S=<span class="built_in">size</span>(A);</span><br><span class="line">U=<span class="built_in">mean</span>(A,<span class="number">2</span>);</span><br><span class="line">C=A*A&#x27;/S(<span class="number">2</span>)-U*U&#x27;;</span><br><span class="line"><span class="built_in">disp</span>(C);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs matlab">rng(<span class="hljs-number">0</span>);<span class="hljs-comment">%设置随机数种</span><br>A=<span class="hljs-built_in">randn</span>(<span class="hljs-number">5</span>,<span class="hljs-number">1000</span>); <br>S=<span class="hljs-built_in">size</span>(A);<br>U=<span class="hljs-built_in">mean</span>(A,<span class="hljs-number">2</span>);<br>C=A*A&#x27;/S(<span class="hljs-number">2</span>)-U*U&#x27;;<br><span class="hljs-built_in">disp</span>(C);<br></code></pre></td></tr></table></figure>
 
 <p><strong>互相关矩阵</strong><br>$$<br>R_{xy}&#x3D;<br>E{x(\xi)y(\xi)^H}&#x3D;<br>\begin{bmatrix}<br>r_{x1,y1}&amp;r_{x1,y2}&amp;\cdots&amp;r_{x1,ym}\<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots\<br>r_{xm,y1}&amp;r_{xm,y2}&amp;\cdots&amp;r_{xm,ym}<br>\end{bmatrix}<br>$$</p>
 <p><strong>互协方差矩阵</strong><br>$$<br>C_{xy}&#x3D;E{[x(\xi)-\mu_x][y(\xi)-\mu_y]^H}<br>&#x3D;R_{xy}-\mu_x\mu_y^H<br>&#x3D;<br>\begin{bmatrix}<br>c_{x1,y1}&amp;c_{x1,y2}&amp;\cdots&amp;c_{x1,ym}\<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots\<br>c_{xm,y1}&amp;c_{xm,y2}&amp;\cdots&amp;c_{xm,ym}<br>\end{bmatrix}<br>$$</p>
@@ -194,9 +383,9 @@
 <li><p>$k≠0$乘某行（列）$D_i(k)A$</p>
 </li>
 <li><p>某行（列）乘以k后加到另一行（列）$T_{ij}(k)A$</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P,D,T是由单位阵得到的</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><span class="hljs-built_in">P,</span>D,T是由单位阵得到的<br></code></pre></td></tr></table></figure></li>
 </ol>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220311162514213.png" alt="image-20220311162514213"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220311162514213.png" srcset="/img/loading.gif" lazyload alt="image-20220311162514213"></p>
 <h2 id="1-3-矩阵及其性能指标"><a href="#1-3-矩阵及其性能指标" class="headerlink" title="1.3 矩阵及其性能指标"></a>1.3 矩阵及其性能指标</h2><p>$$<br>\begin{array}[cccc]\leftflush<br>奇异&amp;行列式为0\<br>非奇异&#x3D;可逆\<br>线性无关&amp;满秩（方阵）\<br>正定&amp;二次型\ge 0 &amp;所有特征值\ge 0 \<br>\end{array}<br>$$</p>
 <h3 id="1-3-0-线性变换"><a href="#1-3-0-线性变换" class="headerlink" title="1.3.0 线性变换"></a>1.3.0 线性变换</h3><p><strong>定义</strong>：令$U$和$V$是两个向量空间，$L$是从$U$到$V$的一个函数，$L[a_1x_1+a_2x_2]&#x3D;a_1L[x_1]+a_2L[x_2]$，$L$称为线性算子</p>
 <p><strong>定理</strong>：设$U&#x3D;{u_1,u_2,\dots,u_n}$ 和$V&#x3D;{v_1,v_2,\dots,v_m}$ 分别为$n$ 维向量空间$U$ 和$m$ 维向量空间$V$的一组基，则对每一个线性变换$L:U\rightarrow V$ 存在一个$m\times n$ 矩阵$A$ ，使得对$\forall r\in U$，有<br>$$<br>[L(r)]_V&#x3D;A[r]_U<br>$$<br>其中$[\cdot]_U$ 和$[\cdot]_V$ 分别表示各自相应向量在基$U$ 和$V$ 下的<strong>坐标表示</strong></p>
@@ -219,7 +408,7 @@
 <h3 id="1-3-2-行列式"><a href="#1-3-2-行列式" class="headerlink" title="1.3.2 行列式"></a>1.3.2 行列式</h3><p>$$<br>det(A)&#x3D;|A|<br>$$</p>
 <p><strong>求法</strong></p>
 <p>按行（列）展开，代数余子式</p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220503095821898.png" alt="image-20220503095821898"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220503095821898.png" srcset="/img/loading.gif" lazyload alt="image-20220503095821898"></p>
 <p><strong>解线性方程</strong></p>
 <p>增广矩阵</p>
 <p>克拉默法则</p>
@@ -256,7 +445,7 @@
 </ul>
 <p><strong>作为一个性能指标，行列式在一定程度上刻画了矩阵的奇异性</strong></p>
 <p><strong>（非奇异，方阵行列式$\ne 0$ ，满秩，齐次方程唯一零解，非齐次方程唯一解）</strong></p>
-<h3 id="1-3-3-秩"><a href="#1-3-3-秩" class="headerlink" title="1.3.3 秩"></a>1.3.3 秩</h3><p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220503100553366.png" alt="image-20220503100553366"></p>
+<h3 id="1-3-3-秩"><a href="#1-3-3-秩" class="headerlink" title="1.3.3 秩"></a>1.3.3 秩</h3><p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220503100553366.png" srcset="/img/loading.gif" lazyload alt="image-20220503100553366"></p>
 <p><strong>定理</strong></p>
 <ol>
 <li>向量组中最大的线性无关个数</li>
@@ -298,7 +487,7 @@
 <p>​	<strong>半负定（非正定）矩阵</strong>：若二次型$x^HAx\le 0,\forall x\ne 0$</p>
 <p>​	<strong>不定矩阵</strong>：若二次型$x^HAx$ 既可能取正也可能取负</p>
 <p><strong>作为一个性能指标，二次型刻画Hermitian矩阵的正定性</strong></p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 生成正定矩阵</span></span><br><span class="line">n=<span class="number">10</span>;</span><br><span class="line">A=<span class="built_in">rand</span>(n,n);</span><br><span class="line">B=A&#x27;*A;</span><br><span class="line">eig(B);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 生成正定矩阵</span><br>n=<span class="hljs-number">10</span>;<br>A=<span class="hljs-built_in">rand</span>(n,n);<br>B=A&#x27;*A;<br>eig(B);<br></code></pre></td></tr></table></figure>
 
 <p>证明$A^H*A$ 为正定矩阵</p>
 <p>只要证明$x^HA^H*Ax&gt; 0$ </p>
@@ -341,7 +530,7 @@
 <li><p>$tr(AB)&#x3D;tr(BA)$ when $B&#x3D;A^H$ ,$tr(A^HA)&#x3D;tr(AA^H)&#x3D;\sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{n}{|a_{ij}|^2}$</p>
 </li>
 </ul>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220503103804366.png" alt="image-20220503103804366"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220503103804366.png" srcset="/img/loading.gif" lazyload alt="image-20220503103804366"></p>
 <p><strong>作为一个性能指标，矩阵的迹反映矩阵所有特征值之和</strong></p>
 <h2 id="1-4-内积与范数"><a href="#1-4-内积与范数" class="headerlink" title="1.4 内积与范数"></a>1.4 内积与范数</h2><p><strong>什么是范数</strong></p>
 <p>距离的定义是一个宽泛的概念，只要满足非负、自反、三角不等式就可以称之为距离。范数是一种强化的距离概念，它在定义上比距离多了一条数乘的运算法则。有时为了便于理解，我们可以把范数当作距离来理解。</p>
@@ -377,7 +566,7 @@
 <p><strong>复随机向量</strong>：$&lt;x(\xi),y(\xi)&gt;&#x3D;E{x^H(\xi)y(\xi)}$</p>
 <p><strong>Euclidean距离</strong>：$||x-y||_2&#x3D;\sqrt{(x_1-y_1)^2+\cdots+(x_n-y_n)^2}$<br><strong>夹角</strong>：$\cos \theta&#x3D;\frac{&lt;x,y&gt;}{\sqrt{&lt;x,x&gt;}\sqrt{&lt;y,y&gt;}}$</p>
 <p><strong>正交</strong>：$\theta&#x3D;\frac{\pi}{2}$</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">p=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:<span class="number">1000</span></span><br><span class="line">    <span class="keyword">for</span> jj=<span class="number">1</span>:<span class="number">1000</span></span><br><span class="line">        AA(ii,jj)=((<span class="built_in">abs</span>(ii<span class="number">-500</span>))^p+(<span class="built_in">abs</span>(jj<span class="number">-500</span>))^p)^(<span class="number">1</span>/p);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">colormap(<span class="string">&quot;hot&quot;</span>);</span><br><span class="line">imagesc(AA);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs matlab">p=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span> ii=<span class="hljs-number">1</span>:<span class="hljs-number">1000</span><br>    <span class="hljs-keyword">for</span> jj=<span class="hljs-number">1</span>:<span class="hljs-number">1000</span><br>        AA(ii,jj)=((<span class="hljs-built_in">abs</span>(ii<span class="hljs-number">-500</span>))^p+(<span class="hljs-built_in">abs</span>(jj<span class="hljs-number">-500</span>))^p)^(<span class="hljs-number">1</span>/p);<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br>colormap(<span class="hljs-string">&quot;hot&quot;</span>);<br>imagesc(AA);<br></code></pre></td></tr></table></figure>
 
 <p><strong>向量的相似度</strong></p>
 <ol>
@@ -402,11 +591,11 @@
 <li>一组向量线性相关，则一定存在其中某些向量可以由其他向量线性表出</li>
 <li>然而，并不意味着所有向量均可由其他向量线性表出</li>
 </ol>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dot</span> - 点积</span><br><span class="line">   此 MATLAB 函数 返回 A 和 B 的标量点积。</span><br><span class="line"></span><br><span class="line">   C = <span class="built_in">dot</span>(A,B)</span><br><span class="line">   C = <span class="built_in">dot</span>(A,B,dim)</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-built_in">dot</span> - 点积<br>   此 MATLAB 函数 返回 A 和 B 的标量点积。<br><br>   C = <span class="hljs-built_in">dot</span>(A,B)<br>   C = <span class="hljs-built_in">dot</span>(A,B,dim)<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">norm(x, <span class="number">1</span>);</span><br><span class="line">norm(x, <span class="number">2</span>);</span><br><span class="line">norm(x, <span class="built_in">inf</span>);		<span class="comment">% 找最大值</span></span><br><span class="line">norm(x, -<span class="built_in">inf</span>);		<span class="comment">% 找最小值</span></span><br><span class="line">norm(x, p);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">norm(x, <span class="hljs-number">1</span>);<br>norm(x, <span class="hljs-number">2</span>);<br>norm(x, <span class="hljs-built_in">inf</span>);		<span class="hljs-comment">% 找最大值</span><br>norm(x, -<span class="hljs-built_in">inf</span>);		<span class="hljs-comment">% 找最小值</span><br>norm(x, p);<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">d1 = pdist2(x,y,<span class="string">&#x27;Euclidean&#x27;</span>);	</span><br><span class="line">d2 = pdist2(x,y,<span class="string">&#x27;seuclidean&#x27;</span>);</span><br><span class="line">d3 = pdist2(x,y,<span class="string">&#x27;mahalanobis&#x27;</span>);</span><br><span class="line">d4 = pdist2(x,y,<span class="string">&#x27;cityblock&#x27;</span>);</span><br><span class="line">d5 = pdist2(x,y,<span class="string">&#x27;minkowski&#x27;</span>,p);</span><br><span class="line">d6 = pdist2(x,y,<span class="string">&#x27;chebychev&#x27;</span>);</span><br><span class="line">d7 = pdist2(x,y,<span class="string">&#x27;cosine&#x27;</span>);</span><br><span class="line">d8 = pdist2(x,y,<span class="string">&#x27;correlation&#x27;</span>);</span><br><span class="line">d9 = pdist2(x,y,<span class="string">&#x27;hamming&#x27;</span>);</span><br><span class="line">d10 = pdist2(x,y,<span class="string">&#x27;jaccard&#x27;</span>);</span><br><span class="line">d11 = pdist2(x,y,<span class="string">&#x27;spearman&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs matlab">d1 = pdist2(x,y,<span class="hljs-string">&#x27;Euclidean&#x27;</span>);	<br>d2 = pdist2(x,y,<span class="hljs-string">&#x27;seuclidean&#x27;</span>);<br>d3 = pdist2(x,y,<span class="hljs-string">&#x27;mahalanobis&#x27;</span>);<br>d4 = pdist2(x,y,<span class="hljs-string">&#x27;cityblock&#x27;</span>);<br>d5 = pdist2(x,y,<span class="hljs-string">&#x27;minkowski&#x27;</span>,p);<br>d6 = pdist2(x,y,<span class="hljs-string">&#x27;chebychev&#x27;</span>);<br>d7 = pdist2(x,y,<span class="hljs-string">&#x27;cosine&#x27;</span>);<br>d8 = pdist2(x,y,<span class="hljs-string">&#x27;correlation&#x27;</span>);<br>d9 = pdist2(x,y,<span class="hljs-string">&#x27;hamming&#x27;</span>);<br>d10 = pdist2(x,y,<span class="hljs-string">&#x27;jaccard&#x27;</span>);<br>d11 = pdist2(x,y,<span class="hljs-string">&#x27;spearman&#x27;</span>);<br></code></pre></td></tr></table></figure>
 
 <h3 id="1-4-2-矩阵的内积与范数"><a href="#1-4-2-矩阵的内积与范数" class="headerlink" title="1.4.2 矩阵的内积与范数"></a>1.4.2 矩阵的内积与范数</h3><p><strong>内积</strong></p>
 <ul>
@@ -465,33 +654,33 @@
 <p><strong>三角（LU）分解</strong></p>
 <p>对于任意矩阵$A$ ，都存在分解：$PA&#x3D;LU$ 。</p>
 <p>$P$ 为行置换阵，$L$ 为对角线上为1的下三角阵，$U$ 是上三角阵</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[L,U,P]=lu(A)</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[L,U,P]=lu(A)<br></code></pre></td></tr></table></figure>
 
 <p><strong>Cholesky分解（乔里斯基）</strong></p>
 <p>设$A$ 为$n$ 阶实对称正定矩阵，则存在非奇异下三角矩阵$L$ ，使<br>$$<br>A&#x3D;LL^T<br>$$<br>若限定$L$ 的对角元素为正，则这种分解是唯一的</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A=<span class="built_in">rand</span>(<span class="number">4</span>,<span class="number">4</span>);</span><br><span class="line">B=A&#x27;*A;			<span class="comment">%得到正定阵</span></span><br><span class="line">R=chol(B);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">A=<span class="hljs-built_in">rand</span>(<span class="hljs-number">4</span>,<span class="hljs-number">4</span>);<br>B=A&#x27;*A;			<span class="hljs-comment">%得到正定阵</span><br>R=chol(B);<br></code></pre></td></tr></table></figure>
 
 
 
 <h3 id="3-0-3-Schur分解"><a href="#3-0-3-Schur分解" class="headerlink" title="3.0.3 Schur分解"></a>3.0.3 Schur分解</h3><p>设$A\in C^{n\times n}$ 的特征值为$λ_1,λ_2,\cdots,λ_n$ ，则存在酉矩阵$P$ ，使得<br>$$<br>P^{-1}AP&#x3D;P^HAP&#x3D;<br>\begin{bmatrix}<br>λ_1&amp;*&amp;\cdots&amp;*\<br>&amp;λ_2&amp;\ddots&amp;\vdots\<br>&amp;&amp;\ddots\<br>&amp;&amp;&amp;λ_n<br>\end{bmatrix}<br>$$<br><strong>Schur分解</strong><br>$$<br>A&#x3D;PRP^H<br>$$</p>
 <p><strong>命题</strong></p>
 <p>任意一个$n$ 阶方阵$X$ 可以分解为$X&#x3D;URU’$ ，$U$ 为酉矩阵，$R$ 为上三角schur矩阵且其对角线上的元素为$X$ 的特征值</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[U,R]=schur(X,<span class="string">&#x27;complex&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[U,R]=schur(X,<span class="hljs-string">&#x27;complex&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 <p>任意一个$n$ 阶方阵$X$ 可以分解为$X&#x3D;URU’$ ，$U$ 为正交矩阵，$R$ 为实拟上三角矩阵</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[U,R]=schur(X,<span class="string">&#x27;real&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[U,R]=schur(X,<span class="hljs-string">&#x27;real&#x27;</span>)<br></code></pre></td></tr></table></figure>
 
 <p><strong>note</strong>：</p>
 <p>这里的$U$ 即上面的$P^{-1}AP&#x3D;P^HAP$ ，$R$ 即为$P$ </p>
 <h3 id="3-0-4-QR分解"><a href="#3-0-4-QR分解" class="headerlink" title="3.0.4 QR分解"></a>3.0.4 QR分解</h3><p>设实（复）矩阵$A_{m\times n}$ 的$n$ 个列线性无关$(n\le m)$ ，则存在半正交矩阵$Q_{m\times n}$ 和实（复）非奇异上三角矩阵$R_{n\times n}$ ，使得<br>$$<br>A&#x3D;QR<br>$$<br>除去相差一个对角线元素的绝对值全等于1的对角矩阵因子外，该分解是唯一的</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Q,R]=qr(X);</span><br><span class="line">[Q,R,E]=qr(X);	<span class="comment">%列置换矩阵E，XE=QR</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[Q,R]=qr(X);<br>[Q,R,E]=qr(X);	<span class="hljs-comment">%列置换矩阵E，XE=QR</span><br></code></pre></td></tr></table></figure>
 
 <p>一个对角线元素的绝对值全为1的对角矩阵<br>$$<br>P&#x3D;\begin{pmatrix}<br>\alpha_1&amp;0&amp;\cdots&amp;0\<br>0&amp;\alpha_2&amp;\cdots&amp;0\<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots\<br>0&amp;0&amp;\cdots&amp;\alpha_n<br>\end{pmatrix}<br>,|a_i|&#x3D;1\<br>\<br>\Rightarrow A&#x3D;QPR<br>$$</p>
 <h3 id="3-0-5-其他矩阵分解"><a href="#3-0-5-其他矩阵分解" class="headerlink" title="3.0.5 其他矩阵分解"></a>3.0.5 其他矩阵分解</h3><p><strong>特征值分解</strong><br>$$<br>X&#x3D;VDV^H<br>$$<br>任意一个$n$ 阶可对角化方阵$X$ 可以分解为$XV&#x3D;VD$ ，其中$D$ 为$X$ 的特征值对角矩阵，$V$ 为$X$ 的特征向量矩阵</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[V,D]=eig(X);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[V,D]=eig(X);<br></code></pre></td></tr></table></figure>
 
 <p><strong>奇异值分解</strong><br>$$<br>A&#x3D;USV^H<br>$$<br>任意一个$m\times n$ 维的矩阵$X$ 可以分解为$X&#x3D;USV’$ ，$U$ 和$V$ 均为正交（酉）矩阵，$S$ 为$m\times n$ 维的对角矩阵，其对角线元素为$X$ 的从大到小排序的非奇异值</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[U,S,V]=svd(X);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[U,S,V]=svd(X);<br></code></pre></td></tr></table></figure>
 
 <p><strong>note</strong>:</p>
 <p><strong>奇异值</strong> 是矩阵$A^HA$ 的特征值的算术平方根</p>
@@ -555,7 +744,7 @@
 <li><p>相似矩阵有相同的特征值</p>
 </li>
 <li><p>若$A$ 的特征值互不相同，则一定可以找到一个相似矩阵使得$S^{-1}AS&#x3D;D$ （特征值分解）</p>
-<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220506131637061.png" alt="image-20220506131637061" style="zoom: 50%;" /></li>
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220506131637061.png" srcset="/img/loading.gif" lazyload alt="image-20220506131637061" style="zoom: 50%;" /></li>
 </ol>
 <p><strong>可对角化</strong></p>
 <p>矩阵与一对角矩阵相似</p>
@@ -564,7 +753,7 @@
 <p><strong>推论</strong></p>
 <p>有$n$ 个不同的特征值，则可对角化</p>
 <p><strong>定理</strong></p>
-<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220506132632851.png" alt="image-20220506132632851" style="zoom: 50%;" />
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220506132632851.png" srcset="/img/loading.gif" lazyload alt="image-20220506132632851" style="zoom: 50%;" />
 
 
 
@@ -592,7 +781,7 @@
 <li>分析降维后的数据（分析）</li>
 </ol>
 <h1 id="4-奇异值分解"><a href="#4-奇异值分解" class="headerlink" title="4 奇异值分解"></a>4 奇异值分解</h1><h2 id="4-1-数值稳定性与条件数"><a href="#4-1-数值稳定性与条件数" class="headerlink" title="4.1 数值稳定性与条件数"></a>4.1 数值稳定性与条件数</h2><p>方程$AX&#x3D;b$ 的解$X$ </p>
-<p>若$b$ 有微小扰动，则解的相对扰动为<br>$$<br>\frac{||\delta X||_2}{||X||_2}\le (||A||_2\cdot||A^{-1}||_2)\frac{||\delta b||_2}{||b||_2}<br>$$<br>若$A$ 有微小扰动，则解的相对扰动为<br>$$<br>\frac{||\delta X||_2}{||X+\delta X||_2}\le (||A||_2\cdot||A^{-1}||_2)\frac{||\delta A||_2}{||A||_2}<br>$$<br><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220507103058023.png" alt="image-20220507103058023"></p>
+<p>若$b$ 有微小扰动，则解的相对扰动为<br>$$<br>\frac{||\delta X||_2}{||X||_2}\le (||A||_2\cdot||A^{-1}||_2)\frac{||\delta b||_2}{||b||_2}<br>$$<br>若$A$ 有微小扰动，则解的相对扰动为<br>$$<br>\frac{||\delta X||_2}{||X+\delta X||_2}\le (||A||_2\cdot||A^{-1}||_2)\frac{||\delta A||_2}{||A||_2}<br>$$<br><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220507103058023.png" srcset="/img/loading.gif" lazyload alt="image-20220507103058023"></p>
 <p><strong>数值稳定性</strong></p>
 <p>定义矩阵的<strong>条件数</strong><br>$$<br>cond(A)&#x3D;||A||_2\cdot||A^{-1}||_2<br>$$<br><strong>性质</strong></p>
 <ol>
@@ -641,9 +830,9 @@
 <li><p><strong>Moore-Penrose逆矩阵（摩尔-彭罗斯广义逆）</strong><br>$$<br>A^\dagger&#x3D;V\Sigma^\dagger U^H<br>$$</p>
 </li>
 </ol>
-<h3 id="4-2-4-Eckart-Young定理"><a href="#4-2-4-Eckart-Young定理" class="headerlink" title="4.2.4 Eckart-Young定理"></a>4.2.4 <strong>Eckart-Young定理</strong></h3><p>Suppose a matrix <img src="https://www.zhihu.com/equation?tex=A%5Cin+%5Cmathbb%7BR%7D%5E%7Bm%5Ctimes+n%7D" alt="[公式]"> has an SVD-decomposition <img src="https://www.zhihu.com/equation?tex=A=U%5CSigma+V%5ET" alt="[公式]"> . Let <img src="https://www.zhihu.com/equation?tex=k+%3C+r=+%5Cmathsf%7Brank%7D(A)" alt="[公式]"> and truncated matrix<br> <img src="https://www.zhihu.com/equation?tex=A_k+=+%5Csum_%7Bi=1%7D%5Ek+%5Csigma_i+%5Cmathbf+u_i+%5Cmathbf+v_i%5ET," alt="[公式]"><br>then, for any matrix <img src="https://www.zhihu.com/equation?tex=B" alt="[公式]"> of rank <img src="https://www.zhihu.com/equation?tex=k" alt="[公式]"> , the minimal error is achieved with <img src="https://www.zhihu.com/equation?tex=A_k" alt="[公式]"> :<br> <img src="https://www.zhihu.com/equation?tex=%5Cmin_%7B%5Cmathsf%7Brank%7D(B)=k%7D%7C%7CA-B%7C%7C_2+=+%7C%7C+A+-+A_k%7C%7C_2+=+%5Csigma_%7Bk+1%7D." alt="[公式]"><br>The same holds for Frobenius norm as well<br> <img src="https://www.zhihu.com/equation?tex=%5Cmin_%7B%5Cmathsf%7Brank%7D(B)=k%7D%7C%7CA-B%7C%7C_F+=+%7C%7C+A+-+A_k%7C%7C_F+=+%5Csqrt%7B%5Csigma_%7Bk+1%7D%5E2+++%5Ccdots+++%5Csigma_p%5E2%7D." alt="[公式]"></p>
+<h3 id="4-2-4-Eckart-Young定理"><a href="#4-2-4-Eckart-Young定理" class="headerlink" title="4.2.4 Eckart-Young定理"></a>4.2.4 <strong>Eckart-Young定理</strong></h3><p>Suppose a matrix <img src="https://www.zhihu.com/equation?tex=A%5Cin+%5Cmathbb%7BR%7D%5E%7Bm%5Ctimes+n%7D" srcset="/img/loading.gif" lazyload alt="[公式]"> has an SVD-decomposition <img src="https://www.zhihu.com/equation?tex=A=U%5CSigma+V%5ET" srcset="/img/loading.gif" lazyload alt="[公式]"> . Let <img src="https://www.zhihu.com/equation?tex=k+%3C+r=+%5Cmathsf%7Brank%7D(A)" srcset="/img/loading.gif" lazyload alt="[公式]"> and truncated matrix<br> <img src="https://www.zhihu.com/equation?tex=A_k+=+%5Csum_%7Bi=1%7D%5Ek+%5Csigma_i+%5Cmathbf+u_i+%5Cmathbf+v_i%5ET," srcset="/img/loading.gif" lazyload alt="[公式]"><br>then, for any matrix <img src="https://www.zhihu.com/equation?tex=B" srcset="/img/loading.gif" lazyload alt="[公式]"> of rank <img src="https://www.zhihu.com/equation?tex=k" srcset="/img/loading.gif" lazyload alt="[公式]"> , the minimal error is achieved with <img src="https://www.zhihu.com/equation?tex=A_k" srcset="/img/loading.gif" lazyload alt="[公式]"> :<br> <img src="https://www.zhihu.com/equation?tex=%5Cmin_%7B%5Cmathsf%7Brank%7D(B)=k%7D%7C%7CA-B%7C%7C_2+=+%7C%7C+A+-+A_k%7C%7C_2+=+%5Csigma_%7Bk+1%7D." srcset="/img/loading.gif" lazyload alt="[公式]"><br>The same holds for Frobenius norm as well<br> <img src="https://www.zhihu.com/equation?tex=%5Cmin_%7B%5Cmathsf%7Brank%7D(B)=k%7D%7C%7CA-B%7C%7C_F+=+%7C%7C+A+-+A_k%7C%7C_F+=+%5Csqrt%7B%5Csigma_%7Bk+1%7D%5E2+++%5Ccdots+++%5Csigma_p%5E2%7D." srcset="/img/loading.gif" lazyload alt="[公式]"></p>
 <p><strong>矩阵的低秩逼近解决：降维的可能性，“降维后信息损失有多大？”等问题？</strong></p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220507125436462.png" alt="image-20220507125436462"></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220507125436462.png" srcset="/img/loading.gif" lazyload alt="image-20220507125436462"></p>
 <h3 id="4-2-4-矩阵奇异值与条件数的关系"><a href="#4-2-4-矩阵奇异值与条件数的关系" class="headerlink" title="4.2.4 矩阵奇异值与条件数的关系"></a>4.2.4 矩阵奇异值与条件数的关系</h3><p>$$<br>cond(A)&#x3D;\frac{\sigma_1}{\sigma_p},p&#x3D;min{m,n}\ge rank(A)<br>$$</p>
 <ol>
 <li>条件数大于等于1</li>
@@ -664,16 +853,16 @@
 </li>
 </ol>
 <h2 id="4-3-应用"><a href="#4-3-应用" class="headerlink" title="4.3 应用"></a>4.3 应用</h2><h3 id="4-3-1-基于奇异值分解的图像压缩"><a href="#4-3-1-基于奇异值分解的图像压缩" class="headerlink" title="4.3.1 基于奇异值分解的图像压缩"></a>4.3.1 基于奇异值分解的图像压缩</h3><p><strong>压缩比</strong><br>$$<br>\rho&#x3D;\frac{m\times n}{k(m+n+1)},k\le \min{m,n}<br>$$</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%读原图像</span></span><br><span class="line">X=imread(<span class="string">&#x27;test.jpg&#x27;</span>);</span><br><span class="line">Y=rgb2gray(X);</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>);imshow(Y);</span><br><span class="line"></span><br><span class="line"><span class="comment">%奇异值分解</span></span><br><span class="line">[U,D,V]=svd(double(Y));</span><br><span class="line"></span><br><span class="line">SS=<span class="built_in">size</span>(D);</span><br><span class="line"></span><br><span class="line">M=<span class="built_in">zeros</span>(SS(<span class="number">1</span>),SS(<span class="number">2</span>));</span><br><span class="line">H=<span class="built_in">min</span>(SS(<span class="number">1</span>),SS(<span class="number">2</span>));</span><br><span class="line">dd=<span class="built_in">fix</span>(H/<span class="number">9</span>);</span><br><span class="line">d=<span class="built_in">fix</span>(<span class="built_in">sqrt</span>(dd));</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> L=<span class="number">1</span>:d*d</span><br><span class="line">MM=M;</span><br><span class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:(L)*<span class="number">9</span></span><br><span class="line">    MM(ii,ii)=<span class="number">1</span>;    </span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">rho=SS(<span class="number">1</span>)*SS(<span class="number">2</span>)/((SS(<span class="number">1</span>)+SS(<span class="number">2</span>)+<span class="number">1</span>)*L);</span><br><span class="line"></span><br><span class="line"><span class="comment">%基于特征值分解进行图像重建（还原）</span></span><br><span class="line">GG=U*(MM.*D)*V&#x27;;</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">3</span>),subplot(d,d,L),</span><br><span class="line">imshow(uint8(<span class="built_in">abs</span>(GG)));</span><br><span class="line">title([<span class="string">&#x27;L=&#x27;</span>,num2str(L*<span class="number">9</span>),<span class="string">&#x27;, rho=&#x27;</span>,num2str(rho)]);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">ZZ=<span class="built_in">zeros</span>(d,d);</span><br><span class="line">flag=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span> ii=<span class="number">1</span>:d</span><br><span class="line">    <span class="keyword">for</span> jj=<span class="number">1</span>:d</span><br><span class="line">        ZZ(ii,jj)=<span class="built_in">abs</span>(D(flag,flag));</span><br><span class="line">        flag=flag+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">disp</span>(ZZ); </span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">%读原图像</span><br>X=imread(<span class="hljs-string">&#x27;test.jpg&#x27;</span>);<br>Y=rgb2gray(X);<br><span class="hljs-built_in">figure</span>(<span class="hljs-number">1</span>);imshow(Y);<br><br><span class="hljs-comment">%奇异值分解</span><br>[U,D,V]=svd(double(Y));<br><br>SS=<span class="hljs-built_in">size</span>(D);<br><br>M=<span class="hljs-built_in">zeros</span>(SS(<span class="hljs-number">1</span>),SS(<span class="hljs-number">2</span>));<br>H=<span class="hljs-built_in">min</span>(SS(<span class="hljs-number">1</span>),SS(<span class="hljs-number">2</span>));<br>dd=<span class="hljs-built_in">fix</span>(H/<span class="hljs-number">9</span>);<br>d=<span class="hljs-built_in">fix</span>(<span class="hljs-built_in">sqrt</span>(dd));<br><br><span class="hljs-keyword">for</span> L=<span class="hljs-number">1</span>:d*d<br>MM=M;<br><span class="hljs-keyword">for</span> ii=<span class="hljs-number">1</span>:(L)*<span class="hljs-number">9</span><br>    MM(ii,ii)=<span class="hljs-number">1</span>;    <br><span class="hljs-keyword">end</span><br>rho=SS(<span class="hljs-number">1</span>)*SS(<span class="hljs-number">2</span>)/((SS(<span class="hljs-number">1</span>)+SS(<span class="hljs-number">2</span>)+<span class="hljs-number">1</span>)*L);<br><br><span class="hljs-comment">%基于特征值分解进行图像重建（还原）</span><br>GG=U*(MM.*D)*V&#x27;;<br><span class="hljs-built_in">figure</span>(<span class="hljs-number">3</span>),subplot(d,d,L),<br>imshow(uint8(<span class="hljs-built_in">abs</span>(GG)));<br>title([<span class="hljs-string">&#x27;L=&#x27;</span>,num2str(L*<span class="hljs-number">9</span>),<span class="hljs-string">&#x27;, rho=&#x27;</span>,num2str(rho)]);<br><span class="hljs-keyword">end</span><br><br>ZZ=<span class="hljs-built_in">zeros</span>(d,d);<br>flag=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span> ii=<span class="hljs-number">1</span>:d<br>    <span class="hljs-keyword">for</span> jj=<span class="hljs-number">1</span>:d<br>        ZZ(ii,jj)=<span class="hljs-built_in">abs</span>(D(flag,flag));<br>        flag=flag+<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-built_in">disp</span>(ZZ); <br></code></pre></td></tr></table></figure>
 
 <h3 id="4-3-2-基于奇异值分解的数字水印技术"><a href="#4-3-2-基于奇异值分解的数字水印技术" class="headerlink" title="4.3.2 基于奇异值分解的数字水印技术"></a>4.3.2 基于奇异值分解的数字水印技术</h3><ol>
 <li>水印信息</li>
 <li>水印嵌入算法</li>
 <li>水印提取、检测和验证算法</li>
 </ol>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">clear;clc;</span><br><span class="line">AA=imread(<span class="string">&#x27;A.jpg&#x27;</span>);           <span class="comment">% 原图</span></span><br><span class="line">WW=imread(<span class="string">&#x27;test.jpg&#x27;</span>);             <span class="comment">% 水印</span></span><br><span class="line">A(:,:)=AA(:,:,<span class="number">1</span>);               <span class="comment">% 嵌入在第一个通道</span></span><br><span class="line">W=rgb2gray(WW);</span><br><span class="line"></span><br><span class="line">SW=<span class="built_in">size</span>(W);</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">1</span>),imagesc(AA);</span><br><span class="line">[U,S,V]=svd(double(A));</span><br><span class="line">SS=<span class="built_in">size</span>(S);</span><br><span class="line">WWW=<span class="built_in">zeros</span>(SS(<span class="number">1</span>),SS(<span class="number">2</span>));</span><br><span class="line">WWW(<span class="number">1</span>:SW(<span class="number">1</span>),<span class="number">1</span>:SW(<span class="number">2</span>))=W(:,:);    <span class="comment">% 放在了左上角</span></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">2</span>),imagesc(WWW);</span><br><span class="line">a=<span class="number">0.01</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">%嵌入数字水印</span></span><br><span class="line">L=a*double(WWW)+S;</span><br><span class="line">[U1,S1,V1]=svd(double(L));</span><br><span class="line">AW=U*S1*V&#x27;;</span><br><span class="line"><span class="comment">%AW=U*L*V&#x27;;</span></span><br><span class="line">AA(:,:,<span class="number">1</span>)=AW(:,:);</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">3</span>),imagesc(AA);</span><br><span class="line">imsave;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[Up,Sp,Vp]=svd(double(AW));</span><br><span class="line"><span class="comment">%F=U*Sp*V&#x27;;</span></span><br><span class="line">F=U1*Sp*V1&#x27;;</span><br><span class="line"><span class="comment">%F=Sp;</span></span><br><span class="line">WE=(F-S)/a;</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">4</span>),imagesc(WE);</span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs matlab">clear;clc;<br>AA=imread(<span class="hljs-string">&#x27;A.jpg&#x27;</span>);           <span class="hljs-comment">% 原图</span><br>WW=imread(<span class="hljs-string">&#x27;test.jpg&#x27;</span>);             <span class="hljs-comment">% 水印</span><br>A(:,:)=AA(:,:,<span class="hljs-number">1</span>);               <span class="hljs-comment">% 嵌入在第一个通道</span><br>W=rgb2gray(WW);<br><br>SW=<span class="hljs-built_in">size</span>(W);<br><span class="hljs-built_in">figure</span>(<span class="hljs-number">1</span>),imagesc(AA);<br>[U,S,V]=svd(double(A));<br>SS=<span class="hljs-built_in">size</span>(S);<br>WWW=<span class="hljs-built_in">zeros</span>(SS(<span class="hljs-number">1</span>),SS(<span class="hljs-number">2</span>));<br>WWW(<span class="hljs-number">1</span>:SW(<span class="hljs-number">1</span>),<span class="hljs-number">1</span>:SW(<span class="hljs-number">2</span>))=W(:,:);    <span class="hljs-comment">% 放在了左上角</span><br><span class="hljs-built_in">figure</span>(<span class="hljs-number">2</span>),imagesc(WWW);<br>a=<span class="hljs-number">0.01</span>;<br><br><br><span class="hljs-comment">%嵌入数字水印</span><br>L=a*double(WWW)+S;<br>[U1,S1,V1]=svd(double(L));<br>AW=U*S1*V&#x27;;<br><span class="hljs-comment">%AW=U*L*V&#x27;;</span><br>AA(:,:,<span class="hljs-number">1</span>)=AW(:,:);<br><span class="hljs-built_in">figure</span>(<span class="hljs-number">3</span>),imagesc(AA);<br>imsave;<br><br><br>[Up,Sp,Vp]=svd(double(AW));<br><span class="hljs-comment">%F=U*Sp*V&#x27;;</span><br>F=U1*Sp*V1&#x27;;<br><span class="hljs-comment">%F=Sp;</span><br>WE=(F-S)/a;<br><span class="hljs-built_in">figure</span>(<span class="hljs-number">4</span>),imagesc(WE);<br></code></pre></td></tr></table></figure>
 
-<h3 id="4-3-3-数据的主成分分析"><a href="#4-3-3-数据的主成分分析" class="headerlink" title="4.3.3 数据的主成分分析"></a>4.3.3 数据的主成分分析</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[coeff,score,latent,tsquared,explained] = pca(ingredients,<span class="string">&#x27;Algorithm&#x27;</span>,<span class="string">&#x27;svd&#x27;</span>,<span class="string">&#x27;Centered&#x27;</span>,<span class="built_in">true</span>)</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;--用Matlab函数pca( )进行主成分分析---结束&#x27;</span>);</span><br><span class="line"></span><br><span class="line">X：原始数据，列表示一个变量，每行</span><br><span class="line">表示一个个案.</span><br><span class="line">coeff：Hotelling变换矩阵(U).</span><br><span class="line">score：Hotelling变换结果(Y).</span><br><span class="line">latent：各主成分对应的奇异(特征)值.</span><br><span class="line">tsquared：Hotelling T2统计量.</span><br><span class="line">explained：成分比重.</span><br></pre></td></tr></table></figure>
+<h3 id="4-3-3-数据的主成分分析"><a href="#4-3-3-数据的主成分分析" class="headerlink" title="4.3.3 数据的主成分分析"></a>4.3.3 数据的主成分分析</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[coeff,score,latent,tsquared,explained] = pca(ingredients,<span class="hljs-string">&#x27;Algorithm&#x27;</span>,<span class="hljs-string">&#x27;svd&#x27;</span>,<span class="hljs-string">&#x27;Centered&#x27;</span>,<span class="hljs-built_in">true</span>)<br><span class="hljs-built_in">disp</span>(<span class="hljs-string">&#x27;--用Matlab函数pca( )进行主成分分析---结束&#x27;</span>);<br><br>X：原始数据，列表示一个变量，每行<br>表示一个个案.<br>coeff：Hotelling变换矩阵(U).<br>score：Hotelling变换结果(Y).<br>latent：各主成分对应的奇异(特征)值.<br>tsquared：Hotelling T2统计量.<br>explained：成分比重.<br></code></pre></td></tr></table></figure>
 
 
 
@@ -721,114 +910,348 @@
 <li><strong>Moore-Penrose逆矩阵</strong>：满足1，2，3，4</li>
 </ul>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Study/">#Study</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>矩阵代数与应用</div>
+      <div>http://example.com/2022/03/06/Appliance/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>March 6, 2022</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/06/Appliance2/" title="矩阵代数与应用-2.特殊矩阵">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">矩阵代数与应用-2.特殊矩阵</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/05/March-2022/" title="March,2022">
+                        <span class="hidden-mobile">March,2022</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
             </div>
 
-            <!-- Post Comments -->
             
-    <!-- 使用 DISQUS_CLICK -->
-<div id="disqus-comment">
-    <div id="disqus_thread"></div>
-
-<!-- add animation -->
-<style>
-	.disqus_click_btn {
-            line-height: 30px;
-            margin: 0;
-            min-width: 50px;
-            padding: 0 14px;
-            display: inline-block;
-            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0;
-            overflow: hidden;
-            will-change: box-shadow;
-            transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
-            outline: 0;
-            cursor: pointer;
-            text-decoration: none;
-            text-align: center;
-            vertical-align: middle;
-            border: 0;
-            background: rgba(158, 158, 158, .2);
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-            color: #fff;
-            background-color: #7EC0EE;
-            text-shadow: 0
-        }
-</style>
-	
-<div class="btn_click_load" id="disqus_bt"> 
-    <button class="disqus_click_btn">点击查看评论</button>
-</div>
-
-<!--
-<script type="text/javascript">
-$('.btn_click_load').click(function() {
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'http-miccall-tech'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-
-    document.getElementById('disqus_bt').style.display = "none";
-});
-</script>
--->
-<script type="text/javascript">
-    var disqus_config = function () {
-        this.page.url = 'http://example.com/2022/03/06/Appliance/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://example.com/2022/03/06/Appliance/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-</script>
-
-<script type="text/javascript">
-    $('.btn_click_load').click(function() {  //click to load comments
-        (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document;
-            var s = d.createElement('script');
-            s.src = '//http-miccall-tech.disqus.com/embed.js';
-            s.setAttribute('data-timestamp', + new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-        $('.btn_click_load').css('display','none');
-    });
-</script>
-</div>
-<style>
-    #disqus-comment{
-        background-color: #eee;
-        padding: 2pc;
-    }
-</style>
-
-
+          </article>
         </div>
-        <!-- Copyright 版权 start -->
-                <div id="copyright">
-            <ul>
-                <li>&copy;Powered By <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" style="border-bottom: none;">hexo</a></li>
-                <li>Design: <a target="_blank" rel="noopener" href="http://miccall.tech " style="border-bottom: none;">miccall</a></li>
-            </ul>
-            
-                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-			
-			<ul>
-				<li>
-					<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/备案smaller.png"></img>
-					<a  href="https://beian.miit.gov.cn/" target="_blank" >浙ICP备2022006390号</a>
-				</li>
-			</ul>	
-        </div>
+      </div>
     </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
-
-
-
- 	
 </html>
