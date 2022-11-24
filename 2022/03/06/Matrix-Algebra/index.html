@@ -1,0 +1,2633 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png">
+  <link rel="icon" href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Hakii fang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1 代数与矩阵基础 数、向量、矩阵、张量…… 典型问题 解线性方程组 信号滤波 控制系统设计 傅立叶变换 最优化问题求解 1.1 代数与矩阵的基本概念 代数代数——以符号代表数及数量等。 代数结构类型——只关心各种关系及其性质，而对于“数本身是什么”这样的问题并不关心。常见的如，群、环、域、模、线性空间等。（近世代数） 1.1.1 符号表示 R：实数集合；C：复数集合 \">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵代数与应用">
+<meta property="og:url" content="http://example.com/2022/03/06/Matrix-Algebra/index.html">
+<meta property="og:site_name" content="Hakii">
+<meta property="og:description" content="1 代数与矩阵基础 数、向量、矩阵、张量…… 典型问题 解线性方程组 信号滤波 控制系统设计 傅立叶变换 最优化问题求解 1.1 代数与矩阵的基本概念 代数代数——以符号代表数及数量等。 代数结构类型——只关心各种关系及其性质，而对于“数本身是什么”这样的问题并不关心。常见的如，群、环、域、模、线性空间等。（近世代数） 1.1.1 符号表示 R：实数集合；C：复数集合 \">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/20221124145928.png">
+<meta property="article:published_time" content="2022-03-06T12:58:25.000Z">
+<meta property="article:modified_time" content="2022-11-24T07:00:03.809Z">
+<meta property="article:author" content="Hakii fang">
+<meta property="article:tag" content="基础学科">
+<meta property="article:tag" content="矩阵代数">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/20221124145928.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>矩阵代数与应用 - Hakii</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"5483baa78e864c8a0efbf18a0f7ef02f","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?5483baa78e864c8a0efbf18a0f7ef02f";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="矩阵代数与应用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-06 20:58" pubdate>
+          2022年3月6日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          32k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          265 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">矩阵代数与应用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="代数与矩阵基础">1 代数与矩阵基础</h1>
+<pre><code class="hljs">数、向量、矩阵、张量……</code></pre>
+<p><strong>典型问题</strong></p>
+<pre><code class="hljs">解线性方程组
+信号滤波
+控制系统设计
+傅立叶变换
+最优化问题求解</code></pre>
+<h2 id="代数与矩阵的基本概念">1.1 代数与矩阵的基本概念</h2>
+<p>代数代数——以符号代表数及数量等。</p>
+<p>代数结构类型——只关心各种关系及其性质，而对于“数本身是什么”这样的问题并不关心。常见的如，群、环、域、模、线性空间等。（近世代数）</p>
+<h3 id="符号表示">1.1.1 符号表示</h3>
+<p>R：实数集合；C：复数集合</p>
+<p><span class="math inline">\(R(C)^{m \times n}\)</span>：所有<span
+class="math inline">\(m \times n\)</span>实（复）数矩阵的全体</p>
+<p>向量：用小写字母表示</p>
+<p>矩阵：用大写字母表示（黑体表示变换）</p>
+<h3 id="向量矩阵的基本运算">1.1.2 向量/矩阵的基本运算</h3>
+<ul>
+<li><p>加减运算</p></li>
+<li><p>数乘运算</p></li>
+<li><p>矩阵乘法 <span
+class="math inline">\(AB={\sum_{k=1}^{n}(a_{ik}b_{kj}})_{m \times
+p}\)</span> 注意与<span class="math inline">\(A.*B\)</span>区别</p></li>
+<li><p>转置<span class="math inline">\(A^T\)</span>与复共轭转置 <span
+class="math inline">\(A^H\)</span></p>
+<p><span class="math inline">\((AB)^T=B^TA^T\)</span> <span
+class="math inline">\((AB)^H=B^HA^H\)</span> （脱靴规则）</p></li>
+</ul>
+<h3 id="随机向量的统计描述">1.1.3 随机向量的统计描述</h3>
+<p>定义随机向量<span
+class="math inline">\(x(\xi)=[x_1(\xi),\cdots,x_m(\xi)]^T\)</span></p>
+<p><strong>均值向量</strong> <span class="math display">\[
+\mu_x=E\{x(\xi)\}=
+\begin{bmatrix}
+E\{x_1(\xi)\} \\
+\vdots\\
+E\{x_m(\xi)\}
+\end{bmatrix}
+=\begin{bmatrix}
+\mu_1 \\
+\vdots \\
+\mu_m
+\end{bmatrix}
+\]</span></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs matlab">A=<span class="hljs-built_in">rand</span>(<span class="hljs-number">10</span>,<span class="hljs-number">1000</span>);    <span class="hljs-comment">% 10个随机变量，每个随机变量有1000个样本</span><br>S=<span class="hljs-built_in">size</span>(A);<br>tic<br>B=sum(A,<span class="hljs-number">2</span>);			<span class="hljs-comment">% sum(,dim)</span><br>toc					<span class="hljs-comment">% 计算时间</span><br>B=B/S(<span class="hljs-number">2</span>);<br><span class="hljs-built_in">disp</span>(S);<br><span class="hljs-built_in">disp</span>(B);<br></code></pre></td></tr></table></figure>
+<p><strong>自相关矩阵</strong> <span class="math display">\[
+R_x=
+E\{x(\xi)x(\xi)^H\}=
+\begin{bmatrix}
+r_{11}&amp;r_{12}&amp;\cdots&amp;r_{1m}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+r_{m1}&amp;r_{m2}&amp;\cdots&amp;r_{mm}
+\end{bmatrix}
+\]</span> 式中，<span
+class="math inline">\(r_{ii}=E\{|x_i(\xi)|^2\}\)</span> 表示<span
+class="math inline">\(x_i(\xi)\)</span> 的自相关函数，而<span
+class="math inline">\(r_{ij}=E\{x_i(\xi)x_{j}^*(\xi)\}\)</span>
+表示<span class="math inline">\(x_i(\xi)\)</span>和<span
+class="math inline">\(x_{j}(\xi)\)</span> 之间的互相关函数。 <span
+class="math display">\[
+\begin{array}[ccc]
+\left\\
+r_{i,j}&amp;=&amp;E(x_i(\xi)*x_j(\xi)&#39;)\quad 向量形式\\
+&amp;=&amp;\frac{1}{m}\sum_{k=1}^{m}{x_{i,k}(\xi)*x_{j,k}({\xi})}\quad
+标量推导\\
+&amp;=&amp;A(i,:)*A(j,:)/S(2)\quad In\ Matlab\\
+\end{array}
+\]</span></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs matlab">rng(<span class="hljs-number">0</span>);             <span class="hljs-comment">% 设置随机种子</span><br>A=<span class="hljs-built_in">rand</span>(<span class="hljs-number">5</span>,<span class="hljs-number">1000</span>);    	<span class="hljs-comment">% 5个随机变量，每个随机变量有1000个样本</span><br>S=<span class="hljs-built_in">size</span>(A);<br>R=<span class="hljs-built_in">zeros</span>(S(<span class="hljs-number">1</span>),S(<span class="hljs-number">1</span>));<span class="hljs-comment">%B=zeros(1,S(2));</span><br>B=<span class="hljs-built_in">mean</span>(A,<span class="hljs-number">1</span>);    <br><span class="hljs-keyword">for</span> <span class="hljs-built_in">i</span>=<span class="hljs-number">1</span>:S(<span class="hljs-number">1</span>)<br>    <span class="hljs-keyword">for</span> <span class="hljs-built_in">j</span>=<span class="hljs-number">1</span>:S(<span class="hljs-number">1</span>)<br>        R(<span class="hljs-built_in">i</span>,<span class="hljs-built_in">j</span>)=(A(<span class="hljs-built_in">i</span>,:))*(A(<span class="hljs-built_in">j</span>,:))&#x27;;<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><span class="hljs-built_in">disp</span>(R/S(<span class="hljs-number">2</span>));   <br><span class="hljs-built_in">disp</span>(A*A&#x27;/S(<span class="hljs-number">2</span>));	<span class="hljs-comment">% 更简单计算方式</span><br><br><span class="hljs-comment">% for i=1:S(2)</span><br><span class="hljs-comment">%     R=R+A(:,i)*A(:,i)&#x27;;</span><br><span class="hljs-comment">% end</span><br></code></pre></td></tr></table></figure>
+<p><strong>自协方差矩阵</strong> <span class="math display">\[
+C_x=E\{[x(\xi)-\mu_x][x(\xi)-\mu_x]^H\}=
+\begin{bmatrix}
+c_{11}&amp;c_{12}&amp;\cdots&amp;c_{1m}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+c_{m1}&amp;c_{m2}&amp;\cdots&amp;c_{mm}\\
+\end{bmatrix}
+\]</span> 其中，<span
+class="math inline">\(c_{ii}=E\{|x_i(\xi)-\mu_i|^2\}\)</span> 表示<span
+class="math inline">\(x_i(\xi)\)</span> 的方差<span
+class="math inline">\(\sigma_i^2\)</span> ，而<span
+class="math inline">\(c_{ij}=E\{[x(\xi)-\mu_x][x(\xi)-\mu_x]^*\}=E\{x_i(\xi)x_{j}^*(\xi)\}-\mu_i\mu_j^*=c_{ji}^*\)</span>
+表示随机变量 <span class="math inline">\(x_i(\xi)\)</span>和<span
+class="math inline">\(x_{j}(\xi)\)</span> 之间的协方差。</p>
+<p>容易看出，自相关矩阵和自协方差矩阵均为复共轭对称（Hermitian）矩阵，即
+<span class="math display">\[
+R_x^H=R_x\qquad C_x^H=C_x
+\]</span> 之间的关系： <span class="math display">\[
+C_x=R_x-\mu_x\mu_x^H
+\]</span> 因此，自协方差矩阵可以这么求，</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs matlab">rng(<span class="hljs-number">0</span>);<span class="hljs-comment">%设置随机数种</span><br>A=<span class="hljs-built_in">randn</span>(<span class="hljs-number">5</span>,<span class="hljs-number">1000</span>); <br>S=<span class="hljs-built_in">size</span>(A);<br>U=<span class="hljs-built_in">mean</span>(A,<span class="hljs-number">2</span>);<br>C=A*A&#x27;/S(<span class="hljs-number">2</span>)-U*U&#x27;;<br><span class="hljs-built_in">disp</span>(C);<br></code></pre></td></tr></table></figure>
+<p><strong>互相关矩阵</strong> <span class="math display">\[
+R_{xy}=
+E\{x(\xi)y(\xi)^H\}=
+\begin{bmatrix}
+r_{x1,y1}&amp;r_{x1,y2}&amp;\cdots&amp;r_{x1,ym}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+r_{xm,y1}&amp;r_{xm,y2}&amp;\cdots&amp;r_{xm,ym}
+\end{bmatrix}
+\]</span></p>
+<p><strong>互协方差矩阵</strong> <span class="math display">\[
+C_{xy}=E\{[x(\xi)-\mu_x][y(\xi)-\mu_y]^H\}
+=R_{xy}-\mu_x\mu_y^H
+=
+\begin{bmatrix}
+c_{x1,y1}&amp;c_{x1,y2}&amp;\cdots&amp;c_{x1,ym}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+c_{xm,y1}&amp;c_{xm,y2}&amp;\cdots&amp;c_{xm,ym}
+\end{bmatrix}
+\]</span></p>
+<p><strong>相关系数</strong> <span class="math display">\[
+\rho=\frac{c_{xy}}{\sqrt{E\{|x(\xi)-\mu_x|^2\}E\{|y(\xi)-\mu_y|^2\}}}
+=\frac{c_{xy}}{\sigma_x\sigma_y}
+\]</span> <strong>性质</strong></p>
+<ul>
+<li>正交：<span class="math inline">\(R=0\)</span> ，<span
+class="math inline">\(R(X,Y)=E[X,Y]\)</span> 为相关函数</li>
+<li>不相关：<span class="math inline">\(E[XY]=E[X]E[Y]\)</span></li>
+<li>独立：<span class="math inline">\(p(XY)=p_X(x)p_Y(y)\)</span>
+，联合分布等于它们各自的独立分布的乘积</li>
+</ul>
+<p><strong>结论</strong></p>
+<ul>
+<li>独立<span class="math inline">\(\rightarrow\)</span> 不相关</li>
+<li>对于高斯随机变量，二者等价</li>
+</ul>
+<p><strong>伪随机数算法</strong></p>
+<ol type="1">
+<li><p><strong>线性同余</strong> <span class="math display">\[
+\left\{
+\begin{array}
+\leftflush
+x_n=(ax_{x-1}+b)\ mod\ m \\
+\xi_n=\frac{x_n}{m}
+\end{array}
+\right.
+\]</span></p></li>
+<li><p><strong>一般分布</strong></p>
+<p>若<span class="math inline">\(P(\xi\le x)=F(x)\)</span> ，则 <span
+class="math display">\[
+P(F(x)\le \xi)=P(\xi\le F^{-1}(x))=x
+\]</span> <strong>分布函数的反函数</strong></p></li>
+</ol>
+<h2 id="矩阵的初等变换">1.2 矩阵的初等变换</h2>
+<ol type="1">
+<li><p>交换两行（列）<span
+class="math inline">\(P_{ij}A\)</span></p></li>
+<li><p><span class="math inline">\(k≠0\)</span>乘某行（列）<span
+class="math inline">\(D_i(k)A\)</span></p></li>
+<li><p>某行（列）乘以k后加到另一行（列）<span
+class="math inline">\(T_{ij}(k)A\)</span></p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><span class="hljs-built_in">P,</span>D,T是由单位阵得到的<br></code></pre></td></tr></table></figure></li>
+</ol>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220311162514213.png" srcset="/img/loading.gif" lazyload
+alt="image-20220311162514213" />
+<figcaption aria-hidden="true">image-20220311162514213</figcaption>
+</figure>
+<h2 id="矩阵及其性能指标">1.3 矩阵及其性能指标</h2>
+<p><span class="math display">\[
+\begin{array}[cccc]\leftflush
+奇异&amp;行列式为0\\
+非奇异=可逆\\
+线性无关&amp;满秩（方阵）\\
+正定&amp;二次型\ge 0 &amp;所有特征值\ge 0 \\
+\end{array}
+\]</span></p>
+<h3 id="线性变换">1.3.0 线性变换</h3>
+<p><strong>定义</strong>：令<span
+class="math inline">\(U\)</span>和<span
+class="math inline">\(V\)</span>是两个向量空间，<span
+class="math inline">\(L\)</span>是从<span
+class="math inline">\(U\)</span>到<span
+class="math inline">\(V\)</span>的一个函数，<span
+class="math inline">\(L[a_1x_1+a_2x_2]=a_1L[x_1]+a_2L[x_2]\)</span>，<span
+class="math inline">\(L\)</span>称为线性算子</p>
+<p><strong>定理</strong>：设<span
+class="math inline">\(U=\{u_1,u_2,\dots,u_n\}\)</span> 和<span
+class="math inline">\(V=\{v_1,v_2,\dots,v_m\}\)</span> 分别为<span
+class="math inline">\(n\)</span> 维向量空间<span
+class="math inline">\(U\)</span> 和<span
+class="math inline">\(m\)</span> 维向量空间<span
+class="math inline">\(V\)</span>的一组基，则对每一个线性变换<span
+class="math inline">\(L:U\rightarrow V\)</span> 存在一个<span
+class="math inline">\(m\times n\)</span> 矩阵<span
+class="math inline">\(A\)</span> ，使得对<span
+class="math inline">\(\forall r\in U\)</span>，有 <span
+class="math display">\[
+[L(r)]_V=A[r]_U
+\]</span> 其中<span class="math inline">\([\cdot]_U\)</span> 和<span
+class="math inline">\([\cdot]_V\)</span> 分别表示各自相应向量在基<span
+class="math inline">\(U\)</span> 和<span
+class="math inline">\(V\)</span> 下的<strong>坐标表示</strong></p>
+<p>而<span class="math inline">\(a_j=[L(u_j)]_V,j=1,2,\dots,n\)</span>
+，且<span class="math inline">\(A\)</span> 称为<span
+class="math inline">\(L\)</span> 相对应于<span
+class="math inline">\(U\)</span> 和<span
+class="math inline">\(V\)</span> 的<strong>表示矩阵</strong></p>
+<p><strong>矩阵代数 <span class="math inline">\(\Rightarrow\)</span>
+研究线性变换</strong></p>
+<p>设<span class="math inline">\(U=\{u_1,u_2,\dots,u_n\}\)</span>
+，<span class="math inline">\(\widetilde U=\{\widetilde u _1,\widetilde
+u_2,\dots,\widetilde u_n\}\)</span> 是选定的两组<span
+class="math inline">\(R^n\)</span> 上的基</p>
+<p><span class="math inline">\(V=\{v_1,v_2,\dots,v_m\}\)</span> ，<span
+class="math inline">\(\widetilde V =\{\widetilde v_1,\widetilde
+v_2,\dots,\widetilde v_m\}\)</span> 是选定的两组<span
+class="math inline">\(R^m\)</span> 上的基</p>
+<p>则矢量<strong>X</strong> 和<strong>Y</strong> 在<span
+class="math inline">\(R_n\)</span> 和 <span
+class="math inline">\(R^m\)</span> 上有如下表示</p>
+<p><span
+class="math inline">\(\mathbf{X}=x_1\mu_1+x_2\mu_2+\cdots+x_n\mu_n=\sum_{i=1}^{n}{x_i\mu
+_i}=(\mu_1,\mu_2,\cdots,\mu_n)\begin{pmatrix}x_1\\x_2\\ \vdots\\x_n
+\end{pmatrix}=UX\)</span></p>
+<p><span class="math inline">\(\mathbf{X}=\widetilde x_1\widetilde
+\mu_1+\widetilde x_2\widetilde \mu_2+\cdots+\widetilde x_n\widetilde
+\mu_n=\sum_{i=1}^{n}{\widetilde x_i\widetilde \mu _i}=(\widetilde
+\mu_1,\widetilde \mu_2,\cdots,\widetilde \mu_n)\begin{pmatrix}\widetilde
+x_1\\\widetilde x_2\\ \vdots\\\widetilde x_n \end{pmatrix}=\widetilde
+U\widetilde X\)</span></p>
+<p><span
+class="math inline">\(\mathbf{Y}=y_1\nu_1+y_2\nu_2+\cdots+y_n\nu_n=\sum_{i=1}^{n}{y_i\nu
+_i}=(\nu_1,\nu_2,\cdots,\nu_n)\begin{pmatrix}y_1\\y_2\\ \vdots\\y_n
+\end{pmatrix}=VY\)</span></p>
+<p><span class="math inline">\(\mathbf{Y}=\widetilde y_1\widetilde
+\nu_1+\widetilde y_2\widetilde \nu_2+\cdots+\widetilde y_n\widetilde
+\nu_n=\sum_{i=1}^{m}{\widetilde y_i\widetilde \nu _i}=(\widetilde
+\nu_1,\widetilde \nu_2,\cdots,\widetilde \nu_n)\begin{pmatrix}\widetilde
+y_1\\\widetilde y_2\\ \vdots\\\widetilde y_n \end{pmatrix}=\widetilde
+V\widetilde Y\)</span></p>
+<p><strong>简记为<span
+class="math inline">\(L(U)=VA\)</span></strong></p>
+<p><strong>推论</strong>：在<span class="math inline">\(U\)</span>
+中<span class="math inline">\((\widetilde
+\mu_1,\dots,\widetilde\mu_n)=(\mu_1,\dots,\mu_n)P\)</span> ,在<span
+class="math inline">\(V\)</span> 中<span
+class="math inline">\((\widetilde
+\nu_1,\dots,\widetilde\nu_n)=(\nu_1,\dots,\nu_n)Q\)</span> ，则 <span
+class="math display">\[
+\widetilde A=Q^{-1}AP
+\]</span> <strong>等价</strong>：<span
+class="math inline">\(B=Q^{-1}AP\)</span> ，<span
+class="math inline">\(Q\)</span> <span class="math inline">\(P\)</span>
+为非奇异阵，称<span class="math inline">\(B\)</span> 等价于<span
+class="math inline">\(A\)</span> ，表示为<span
+class="math inline">\(B\cong A\)</span></p>
+<p>​ <strong>等价的矩阵表示相同的线性变换</strong>（<span
+class="math inline">\(A\)</span> 经有限次初等变换成<span
+class="math inline">\(B\)</span> ）</p>
+<p><strong>定理</strong>：设<span
+class="math inline">\(U=\{u_1,u_2,\dots,u_n\}\)</span> 和<span
+class="math inline">\(V=\{v_1,v_2,\dots,v_n\}\)</span> 分别为<span
+class="math inline">\(n\)</span> 维向量空间<span
+class="math inline">\(W\)</span> 的两组基，而<span
+class="math inline">\(S\)</span> 为从<span
+class="math inline">\(U\)</span> 到 <span
+class="math inline">\(V\)</span> 的转移矩阵，即<span
+class="math inline">\(V=US\)</span> 。若<span
+class="math inline">\(W\)</span> 上的线性算子<span
+class="math inline">\(L\)</span> 相对应于<span
+class="math inline">\(U\)</span> 和<span
+class="math inline">\(V\)</span> 的表示矩阵分别为<span
+class="math inline">\(A\)</span> 和<span
+class="math inline">\(B\)</span> ，则 <span class="math display">\[
+B=S^{-1}AS
+\]</span></p>
+<h3 id="矩阵的相似">1.3.1 矩阵的相似</h3>
+<p>如上式，<span class="math inline">\(B\)</span> 相似于<span
+class="math inline">\(A\)</span> ，表示为<span
+class="math inline">\(B\sim A\)</span> ，且<span
+class="math inline">\(A=({S^{-1})}^{-1}BS^{-1}\sim B\)</span></p>
+<p>​ 相似<span class="math inline">\(\Rightarrow\)</span> 等价</p>
+<p><strong>线性变换在不同基下的表示矩阵是相似的！</strong></p>
+<h3 id="行列式">1.3.2 行列式</h3>
+<p><span class="math display">\[
+det(A)=|A|
+\]</span></p>
+<p><strong>求法</strong></p>
+<p>按行（列）展开，代数余子式</p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220503095821898.png" srcset="/img/loading.gif" lazyload
+alt="image-20220503095821898" />
+<figcaption aria-hidden="true">image-20220503095821898</figcaption>
+</figure>
+<p><strong>解线性方程</strong></p>
+<p>增广矩阵</p>
+<p>克拉默法则</p>
+<p><strong>性质</strong></p>
+<ul>
+<li><p>行（列）互换，值不变，符号变</p></li>
+<li><p>数乘加行（列），数值不变</p></li>
+<li><p><span class="math inline">\(|cA|=c^n|A|\)</span></p></li>
+<li><p>上/下三角矩阵行列式=对角线值之积</p></li>
+<li><p><span class="math inline">\(|A|=|A^T|;
+|A^H|=|A^T|^*\)</span></p></li>
+<li><p><span
+class="math inline">\(|A|=\prod_{i=1}^n{\lambda_i}\)</span></p></li>
+<li><p><span class="math inline">\(|I|=1\)</span></p></li>
+<li><p><span
+class="math inline">\(|A^{-1}|=\frac{1}{|A|}\)</span></p></li>
+<li><p><span class="math inline">\(|AB|=|A||B|\)</span></p></li>
+<li><p>对于<span class="math inline">\(A_{m\times n},B_{m\times
+n},C_{n\times m},D_{n\times n}\)</span> ，分块矩阵的行列式满足</p>
+<ul>
+<li><p><span class="math inline">\(A\)</span> 非奇异 <span
+class="math display">\[
+det
+\begin{bmatrix}
+A&amp;B\\
+C&amp;D
+\end{bmatrix}
+=det(A)det(D-CA^{-1}B)
+\]</span></p></li>
+<li><p><span class="math inline">\(D\)</span> 非奇异 <span
+class="math display">\[
+det
+\begin{bmatrix}
+A&amp;B\\
+C&amp;D
+\end{bmatrix}
+=det(D)det(A-BD^{-1}C)
+\]</span></p></li>
+</ul></li>
+<li><p>Hadamard不等式：若<span class="math inline">\(A\)</span>
+正定或半正定，则<span
+class="math inline">\(det(A)\le\prod_{i}A_{ii}\)</span></p></li>
+</ul>
+<p><strong>作为一个性能指标，行列式在一定程度上刻画了矩阵的奇异性</strong></p>
+<p><strong>（非奇异，方阵行列式<span class="math inline">\(\ne
+0\)</span> ，满秩，齐次方程唯一零解，非齐次方程唯一解）</strong></p>
+<h3 id="秩">1.3.3 秩</h3>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220503100553366.png" srcset="/img/loading.gif" lazyload
+alt="image-20220503100553366" />
+<figcaption aria-hidden="true">image-20220503100553366</figcaption>
+</figure>
+<p><strong>定理</strong></p>
+<ol type="1">
+<li>向量组中最大的线性无关个数</li>
+<li>矩阵的线性无关行数与列数相同</li>
+</ol>
+<p><strong>等价叙述</strong></p>
+<ol type="1">
+<li><span class="math inline">\(rank(A)=k\)</span></li>
+<li>矩阵中最大的不为0的<span class="math inline">\(k\)</span>
+阶行列式</li>
+<li>存在<span class="math inline">\(A\)</span> 的一个<span
+class="math inline">\(k\times k\)</span> 非奇异子矩阵，而且<span
+class="math inline">\(A\)</span> 中所有<span
+class="math inline">\((k+1)\times (k+1)\)</span> 子矩阵奇异</li>
+</ol>
+<p><strong>性质</strong></p>
+<ul>
+<li><span class="math inline">\(r\)</span> 是一个整数</li>
+<li><span class="math inline">\(r\le min\{m,n\}\)</span></li>
+<li>满秩$$ 非奇异，所有列向量线性无关</li>
+<li><span class="math inline">\(r&lt;\min\{m,n\}\Rightarrow\)</span>
+秩亏缺，奇异</li>
+<li><span class="math inline">\(r=m \Rightarrow\)</span> 满行秩</li>
+<li><span class="math inline">\(r=n \Rightarrow\)</span> 满列秩</li>
+<li><strong>任何矩阵左乘满列秩矩阵或右乘满行秩矩阵后，其秩保持不变</strong></li>
+</ul>
+<p><strong>关系</strong></p>
+<ul>
+<li><span class="math inline">\(r(A^H)=r(A^T)=r(A^*)=r(A)\)</span></li>
+<li><span class="math inline">\(r(cA)=r(A)\)</span></li>
+<li><span class="math inline">\(r(AA^H)=r(A^HA)=r(A)\)</span></li>
+<li><span class="math inline">\(r(AB)\le min\{r(A),a(b)\}\)</span></li>
+<li><span class="math inline">\(r(A+B)\le r([A,b])\le
+r(A)=r(B)\)</span></li>
+</ul>
+<p><strong>作为一个性能指标，矩阵的秩刻画了矩阵行与行或列与列之间的线性无关（满），从而反应矩阵的满秩性和秩亏缺性</strong></p>
+<h3 id="二次型">1.3.4 二次型</h3>
+<p><strong><span class="math inline">\(x^HAx\)</span></strong></p>
+<p>是二次多项式的矩阵表示，如 <span class="math display">\[
+x_1^2+2x_1x_2+x_2^2-x_2x_3+2x_3^2-2x_1x_3\\
+\Rightarrow (x_1,x_2,x_3)
+\begin{pmatrix}
+1&amp;1&amp;-1\\
+1&amp;1&amp;-\frac{1}{2}\\
+-1&amp;-\frac{1}{2}&amp; 2
+\end{pmatrix}
+\begin{pmatrix}
+x_1\\
+x_2\\
+x_3
+\end{pmatrix}
+\]</span></p>
+<p><strong>注意，这是<span class="math inline">\(1\times 1\)</span>
+的，对称的</strong></p>
+<p><strong>定义</strong></p>
+<p>一个复共轭矩阵称为</p>
+<p>​ <strong>正定矩阵</strong>：若二次型<span
+class="math inline">\(x^HAx&gt;0,\forall x\ne 0\)</span></p>
+<p>​ <strong>半正定（非负定）矩阵</strong>：若二次型<span
+class="math inline">\(x^HAx\ge 0,\forall x\ne 0\)</span></p>
+<p>​ <strong>负定矩阵</strong>：若二次型<span
+class="math inline">\(x^HAx&lt;0,\forall x\ne 0\)</span></p>
+<p>​ <strong>半负定（非正定）矩阵</strong>：若二次型<span
+class="math inline">\(x^HAx\le 0,\forall x\ne 0\)</span></p>
+<p>​ <strong>不定矩阵</strong>：若二次型<span
+class="math inline">\(x^HAx\)</span> 既可能取正也可能取负</p>
+<p><strong>作为一个性能指标，二次型刻画Hermitian矩阵的正定性</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 生成正定矩阵</span><br>n=<span class="hljs-number">10</span>;<br>A=<span class="hljs-built_in">rand</span>(n,n);<br>B=A&#x27;*A;<br>eig(B);<br></code></pre></td></tr></table></figure>
+<p>证明<span class="math inline">\(A^H*A\)</span> 为正定矩阵</p>
+<p>只要证明<span class="math inline">\(x^HA^H*Ax&gt; 0\)</span></p>
+<p>只要证明<span class="math inline">\((Ax)^H(Ax)&gt;0\)</span></p>
+<p>只要证明<span class="math inline">\(l_2(Ax)&gt;0\)</span></p>
+<p>即，当<span class="math inline">\(Ax\)</span> 为非零向量时，<span
+class="math inline">\(A^H*A\)</span> 为正定矩阵</p>
+<h3 id="特征值">1.3.5 特征值</h3>
+<p><strong>第一定义</strong> <span class="math display">\[
+A\mu=\lambda\mu
+\]</span></p>
+<p><strong>第二定义</strong> <span class="math display">\[
+det(A-\lambda I)=0
+\]</span></p>
+<p><strong>性质</strong></p>
+<ul>
+<li>若矩阵奇异，iff 存在零特征值</li>
+<li>若<span class="math inline">\(rank(A)=r\)</span> ，则最多有<span
+class="math inline">\(r\)</span> 个非零特征值</li>
+<li><span class="math inline">\(eig(A^T)=eig(A)\)</span></li>
+<li><span class="math inline">\(eig(AB)=eig(BA)\)</span></li>
+<li><span
+class="math inline">\(eig(I+cA)=1+ceig(A);eig(A-cI)=eig(A)-c\)</span></li>
+<li><span
+class="math inline">\(eig(A^{-1})=\frac{1}{eig(A)}\)</span></li>
+</ul>
+<p><strong>引理</strong></p>
+<p>正定矩阵的所有特征值都是正实数</p>
+<ul>
+<li>正定：所有特征值取正实数</li>
+<li>半正定：所有特征值取非负实数</li>
+<li>负定：所有特征值取负实数</li>
+<li>半负定：所有特征值取非正实数</li>
+<li>不定：有些正，有些负</li>
+</ul>
+<p><strong>作为一个性能指标，矩阵的特征值既刻画奇异性，又反应所有对角元素的结构，还关联正定性</strong></p>
+<h3 id="迹">1.3.6 迹</h3>
+<p><strong>定义</strong></p>
+<p>方阵的对角元素之和 <span class="math display">\[
+tr(A)=a_{11}+a_{22}+\cdots+a_{nn}=\sum_{i=1}^{n}{a_{ii}}
+\]</span></p>
+<p><strong>性质</strong></p>
+<ul>
+<li><p><span class="math display">\[
+tr(A^T)=tr(A)\\
+tr(A^*)=[tr(A)]^*\\
+tr(A^H)=[tr(A)]^*
+\]</span></p></li>
+<li><p><span
+class="math inline">\(x^HAx=tr(Axx^H);y^Hx=tr(xy^H)\)</span></p></li>
+<li><p><span
+class="math inline">\(tr(BAB^{-1})=tr(B^{-1}AB)=tr(A)\)</span>
+迹是相似不变量</p></li>
+<li><p><span
+class="math inline">\(tr(A)=\lambda_1+\lambda_2+\cdots+\lambda_n\)</span></p></li>
+<li><p><span class="math inline">\(tr(AB)=tr(BA)\)</span> when <span
+class="math inline">\(B=A^H\)</span> ,<span
+class="math inline">\(tr(A^HA)=tr(AA^H)=\sum_{i=1}^{n}\sum_{j=1}^{n}{|a_{ij}|^2}\)</span></p></li>
+</ul>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220503103804366.png" srcset="/img/loading.gif" lazyload
+alt="image-20220503103804366" />
+<figcaption aria-hidden="true">image-20220503103804366</figcaption>
+</figure>
+<p><strong>作为一个性能指标，矩阵的迹反映矩阵所有特征值之和</strong></p>
+<h2 id="内积与范数">1.4 内积与范数</h2>
+<p><strong>什么是范数</strong></p>
+<p>距离的定义是一个宽泛的概念，只要满足非负、自反、三角不等式就可以称之为距离。范数是一种强化的距离概念，它在定义上比距离多了一条数乘的运算法则。有时为了便于理解，我们可以把范数当作距离来理解。</p>
+<h3 id="向量的内积与范数">1.4.1 向量的内积与范数</h3>
+<p><strong>向量点积</strong></p>
+<ul>
+<li><p><span class="math inline">\(&lt;x,x&gt; \ge 0,iff\quad
+x=0\)</span></p></li>
+<li><p><span
+class="math inline">\(&lt;x+z,y&gt;=&lt;x,y&gt;+&lt;z,y&gt;\)</span></p></li>
+<li><p><span class="math inline">\(&lt;cx,y&gt;=c^*&lt;x,y&gt;,\forall
+x\in C\)</span></p></li>
+<li><p><span
+class="math inline">\(&lt;x,y&gt;=&lt;y,x&gt;\)</span></p></li>
+</ul>
+<p><strong>范数<span class="math inline">\(||x||\)</span></strong></p>
+<ul>
+<li><p><span class="math inline">\(||x||\ge o,iff\ x=0\)</span></p></li>
+<li><p><span class="math inline">\(||cx||=|c| \cdot ||x||,\forall c\in
+C\)</span></p></li>
+<li><p><span class="math inline">\(||x+y||\le
+||x||+||y||\)</span></p></li>
+</ul>
+<p><strong>几种常用的向量范数</strong></p>
+<p><strong><span class="math inline">\(l_0\)</span>
+（准）范数</strong>：<span
+class="math inline">\(||x||_0=Supp(x)\)</span> ，<span
+class="math inline">\(x\)</span> 中的非零个数</p>
+<p><strong><span class="math inline">\(l_1\)</span> 范数</strong>：<span
+class="math inline">\(||x||_1=\sum_{i=1}^{n}{|x_i|}\)</span></p>
+<p><strong><span class="math inline">\(l_2\)</span>
+Euclidean范数或Frobenius范数</strong>：<span class="math inline">\(\Vert
+x\Vert_2=\sqrt{ {\vert x_1\vert}^2+\vert x_2\vert^2+\cdots +{\vert
+x_n\vert }^2}\)</span></p>
+<p><strong>$l_$ 范数</strong>：<span
+class="math inline">\(||x||_\infty=max(|x_1|,|x_2|,\cdots,|x_n|)\)</span></p>
+<p><strong><span class="math inline">\(l_p\)</span>
+范数（Holder范数）</strong>：<span
+class="math inline">\(||x||_p=(\sum_{i=1}^{n}{|x_i|}^p)^{\frac{1}{p}},(p\ge
+1)\)</span></p>
+<p><strong>常用向量内积</strong></p>
+<p><strong>复常数向量</strong>：<span
+class="math inline">\(&lt;x,y&gt;=x^Hy=\sum_{i=1}^{n}{x_i^*y_i}\)</span></p>
+<p><strong>复函数向量</strong>：<span
+class="math inline">\(&lt;x(t),y(t)&gt;=\int_{a}^{b}{x^H(t)y(t)dt}\)</span></p>
+<p><strong>复随机向量</strong>：<span
+class="math inline">\(&lt;x(\xi),y(\xi)&gt;=E\{x^H(\xi)y(\xi)\}\)</span></p>
+<p><strong>Euclidean距离</strong>：<span
+class="math inline">\(||x-y||_2=\sqrt{(x_1-y_1)^2+\cdots+(x_n-y_n)^2}\)</span>
+<strong>夹角</strong>：<span class="math inline">\(\cos
+\theta=\frac{&lt;x,y&gt;}{\sqrt{&lt;x,x&gt;}\sqrt{&lt;y,y&gt;}}\)</span></p>
+<p><strong>正交</strong>：<span
+class="math inline">\(\theta=\frac{\pi}{2}\)</span></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs matlab">p=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span> ii=<span class="hljs-number">1</span>:<span class="hljs-number">1000</span><br>    <span class="hljs-keyword">for</span> jj=<span class="hljs-number">1</span>:<span class="hljs-number">1000</span><br>        AA(ii,jj)=((<span class="hljs-built_in">abs</span>(ii<span class="hljs-number">-500</span>))^p+(<span class="hljs-built_in">abs</span>(jj<span class="hljs-number">-500</span>))^p)^(<span class="hljs-number">1</span>/p);<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br>colormap(<span class="hljs-string">&quot;hot&quot;</span>);<br>imagesc(AA);<br></code></pre></td></tr></table></figure>
+<p><strong>向量的相似度</strong></p>
+<ol type="1">
+<li><p><strong>聚类</strong></p>
+<p>类别标准未知</p></li>
+<li><p><strong>分类</strong></p>
+<p>类别标准已知</p></li>
+</ol>
+<p><strong>Euclidean距离</strong> <span class="math display">\[
+D(s_i,x)=||x-s_i||_2=\sqrt{(x-s_i)^T(x-s_i)}
+\]</span></p>
+<p><strong>两个向量的夹角的余弦函数</strong> <span
+class="math display">\[
+S(s_i,x)=\cos\theta_i=\frac{x^Ts_i}{||x||_2 \cdot ||s_i||_2}
+\]</span></p>
+<p>​ 定义一个<span class="math inline">\(\cos \theta_k\ge
+\cos\theta_i\)</span> 成立时，相似</p>
+<p><strong>Tanimoto测度</strong> <span class="math display">\[
+S(s_i,x)=\frac{x^Ts_i}{x^Tx+s_i^Ts_i+x^Ts_i}
+\]</span></p>
+<p>​ 广泛应用于信息恢复、疾病分类、动物和植物分类</p>
+<p><strong>Mahalanobis距离</strong></p>
+<p><span class="math inline">\(M\)</span>
+个样本模式向量的均值向量与协方差矩阵为 <span class="math display">\[
+m=\frac{1}{M}\sum_{k=1}^{M}{s_i},C=\frac{1}{M}\sum_{i=1}^{M}(s_i-m)(s_i-m)^T
+\]</span> 而 <span class="math display">\[
+D(m,x)=\sqrt{(x-m)^TC^{-1}(x-m)}\\
+D(m,s_i)=\sqrt{(s_i-m)^TC^{-1}(s_i-m)}
+\]</span> 分别表示未知模式向量<span class="math inline">\(x\)</span>
+与第<span class="math inline">\(i\)</span> 个样本模式向量<span
+class="math inline">\(s_i\)</span> 到均值向量<span
+class="math inline">\(m\)</span> 的Mahalanobis距离</p>
+<p><strong>基于马氏距离的近邻分类法</strong> <span
+class="math display">\[
+D(s_k,x)=min|D(m,s_i)-D(m,x)|,i=1,2,\cdots,M
+\]</span></p>
+<p><strong>向量的线性相关</strong> <span class="math display">\[
+c_1\mu_1+c_2\mu_2+\cdots+c_n\mu_n=0
+\]</span></p>
+<p><strong>notes</strong>:</p>
+<ol type="1">
+<li>一组向量线性相关，则一定存在其中某些向量可以由其他向量线性表出</li>
+<li>然而，并不意味着所有向量均可由其他向量线性表出</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-built_in">dot</span> - 点积<br>   此 MATLAB 函数 返回 A 和 B 的标量点积。<br><br>   C = <span class="hljs-built_in">dot</span>(A,B)<br>   C = <span class="hljs-built_in">dot</span>(A,B,dim)<br></code></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab">norm(x, <span class="hljs-number">1</span>);<br>norm(x, <span class="hljs-number">2</span>);<br>norm(x, <span class="hljs-built_in">inf</span>);		<span class="hljs-comment">% 找最大值</span><br>norm(x, -<span class="hljs-built_in">inf</span>);		<span class="hljs-comment">% 找最小值</span><br>norm(x, p);<br></code></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs matlab">d1 = pdist2(x,y,<span class="hljs-string">&#x27;Euclidean&#x27;</span>);	<br>d2 = pdist2(x,y,<span class="hljs-string">&#x27;seuclidean&#x27;</span>);<br>d3 = pdist2(x,y,<span class="hljs-string">&#x27;mahalanobis&#x27;</span>);<br>d4 = pdist2(x,y,<span class="hljs-string">&#x27;cityblock&#x27;</span>);<br>d5 = pdist2(x,y,<span class="hljs-string">&#x27;minkowski&#x27;</span>,p);<br>d6 = pdist2(x,y,<span class="hljs-string">&#x27;chebychev&#x27;</span>);<br>d7 = pdist2(x,y,<span class="hljs-string">&#x27;cosine&#x27;</span>);<br>d8 = pdist2(x,y,<span class="hljs-string">&#x27;correlation&#x27;</span>);<br>d9 = pdist2(x,y,<span class="hljs-string">&#x27;hamming&#x27;</span>);<br>d10 = pdist2(x,y,<span class="hljs-string">&#x27;jaccard&#x27;</span>);<br>d11 = pdist2(x,y,<span class="hljs-string">&#x27;spearman&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<h3 id="矩阵的内积与范数">1.4.2 矩阵的内积与范数</h3>
+<p><strong>内积</strong></p>
+<ul>
+<li><span class="math inline">\(&lt;X,X&gt; \ge 0,iff\quad
+X=0\)</span></li>
+<li><span
+class="math inline">\(&lt;X+Z,Y&gt;=&lt;X,Y&gt;+&lt;Z,Y&gt;\)</span></li>
+<li><span class="math inline">\(&lt;cX,Y&gt;=c^*&lt;X,Y&gt;,\forall c\in
+C\)</span></li>
+<li><span class="math inline">\(&lt;X,Y&gt;=&lt;Y,X&gt;\)</span></li>
+</ul>
+<p><strong>范数</strong><span class="math inline">\(||X||\)</span></p>
+<ul>
+<li><span class="math inline">\(||X||\ge o,iff\quad X=0\)</span></li>
+<li><span class="math inline">\(||cX||=|c| \cdot ||X||,\forall c\in
+C\)</span></li>
+<li><span class="math inline">\(||X+Y||\le ||X||+||Y||\)</span></li>
+<li><span class="math inline">\(||XZ||\le||X||\cdot||Z||,\forall Z\in
+V^{n\times k}\)</span></li>
+</ul>
+<p><strong>几种常用的矩阵范数</strong></p>
+<ol type="1">
+<li><span
+class="math inline">\(||A||_{m_1}=\sum_{i}^{n}\sum_{j}^{n}{|A_{i,j}|},(m=n)\)</span></li>
+<li><span
+class="math inline">\(||A||_{m2}=n\cdot\max_{i,j}|a_{i,j}|,(m=n)\)</span></li>
+<li><span
+class="math inline">\(||A||_F=\sqrt{\sum_{i}^{n}\sum_{j}^{n}|a_{ij}|^2}\)</span>
+，Frobenius 范数</li>
+<li><span class="math inline">\(||A||_\Omega=\sqrt{tr(A^H\Omega
+A)},(\Omega&gt;0)\)</span> ，Mahalanobis 范数</li>
+<li>从属范数<span
+class="math inline">\(||A||_P=\max_{||x||_P=1}{||Ax||_P}\)</span>
+<ol type="1">
+<li>列和范数<span
+class="math inline">\(||A||_1=max_j{\sum_{i=1}^{m}{|a_{i,j}|}}\)</span></li>
+<li>谱范数<span
+class="math inline">\(||A||_2=\sqrt{\lambda_{max}{(A^HA)}}\)</span></li>
+<li>行和范数<span class="math inline">\(||A||_\infty=\max_i
+\sum_{j=1}^{n}{|a_{i,j}|}\)</span></li>
+</ol></li>
+</ol>
+<p><strong>矩阵内积与范数之间的关系</strong></p>
+<ol type="1">
+<li><p>Cauchy-Schwartz不等式 <span class="math display">\[
+||&lt;A,B&gt;||^2\le ||A||^2\cdot||B||^2,iff\ A=cB
+\]</span></p></li>
+<li><p>Pathagoras定理 <span class="math display">\[
+&lt;A,B&gt;=0\Rightarrow ||A+B||^2=||A||^2+||B||^2
+\]</span></p></li>
+<li><p>极化恒等式 <span class="math display">\[
+Re(&lt;A,B&gt;)=\frac{1}{4}(||A+B||^2-||A-B||^2)\\
+Re(&lt;A,B&gt;)=\frac{1}{2}(||A+B||^2-||A||^2-||B||^2)\\
+\]</span></p></li>
+</ol>
+<p><strong>作为一个性能指标，矩阵的范数刻画了矩阵元素的结构</strong></p>
+<h1 id="特殊矩阵">2 特殊矩阵</h1>
+<h2 id="三角矩阵">2.1 三角矩阵</h2>
+<h3 id="对角矩阵与反对角矩阵">2.1.1 对角矩阵与反对角矩阵</h3>
+<p><span class="math display">\[
+D=
+\begin{bmatrix}
+d_1&amp;  &amp;&amp;\\
+&amp; d_2&amp; &amp;\\
+&amp; &amp; \ddots&amp;\\
+&amp;&amp;&amp;d_n
+\end{bmatrix}
+=diag(d_1,d_2,\cdots,d_n)
+\quad
+\overline{D}=
+\begin{bmatrix}
+&amp;&amp;&amp;d_1\\
+&amp;&amp;d_2&amp;\\
+&amp;\cdots&amp;&amp;\\
+d_n\\
+\end{bmatrix}
+\]</span></p>
+<h3 id="上三角矩阵与下三角矩阵">2.1.2
+<strong>上三角矩阵与下三角矩阵</strong></h3>
+<p><span class="math display">\[
+R=
+\begin{bmatrix}
+*&amp;*&amp;\cdots&amp;*\\
+&amp;*&amp;\cdots&amp;*\\
+&amp;&amp;\ddots&amp;\vdots\\
+&amp;&amp;&amp;*
+\end{bmatrix}
+\qquad
+L=
+\begin{bmatrix}
+*&amp;&amp;&amp;\\
+*&amp;*&amp;\\
+\vdots&amp;\vdots&amp;\ddots&amp;\\
+*&amp;*&amp;\cdots&amp;*\\
+\end{bmatrix}
+\]</span></p>
+<ul>
+<li>当对角元素为1时，成为单位上（下）三角矩阵</li>
+<li>运算的封闭性：上下三角矩阵的运算（加、减、乘、幂、逆）之后还是上下三角矩阵</li>
+<li>上下三角阵的行列式等于对角线元素之积</li>
+<li>上下三角阵的特征值等于其各对角线元素</li>
+<li>若<span class="math inline">\(A_{n\times
+n}\)</span>为正定方阵，则A可以分解<span
+class="math inline">\(A=LL^H\)</span>（Cholesky分解）</li>
+</ul>
+<h2 id="基本矩阵">2.2 基本矩阵</h2>
+<p><span class="math display">\[
+E_{ij}^{(m\times n)}=e_i^{(m)}(e_j^{(n)})^T\\
+e_i 是m维单位向量，第i个分量为1，else 为0
+\]</span></p>
+<p><strong>性质</strong></p>
+<ul>
+<li><p><span class="math inline">\(E_{ij}^{(m\times n)}E_{kl}^{(n\times
+r)}=\delta_{jk}E_{il}^{(m\times r)}\)</span></p>
+<ul>
+<li><span class="math display">\[
+\delta(x)=\left\{
+\begin{array}
+\left
+\infty ,\qquad x=0\\
+0,\qquad \ else
+\end{array}
+\right.
+\]</span></li>
+</ul></li>
+<li><p><span class="math inline">\((E_{ij}^{(m\times
+n)})^T=E_{ji}^{(n\times m)}\)</span></p></li>
+<li><p><span
+class="math inline">\(A=\sum_{i=1}^{m}\sum_{j=1}^{n}a_{ij}E_{ij}^{(m\times
+n)}\)</span> 任何矩阵都可以由基本矩阵线性变换得到</p></li>
+<li><p><span class="math inline">\(E_{ij}^{(s\times m)}AE_{kl}^{(n\times
+r)}=a_{jk}E_{il}^{(s\times r)}\)</span></p></li>
+<li><p><span class="math inline">\(det(E_{ij}^{(m\times
+n)})=0,(m=n&gt;1)\)</span></p></li>
+</ul>
+<p><strong>两个向量的外积</strong> <span class="math display">\[
+a\times b=ab^T
+\]</span></p>
+<h2 id="正交矩阵和酉矩阵">2.3 正交矩阵和酉矩阵</h2>
+<h3 id="正交矩阵">2.3.1 <strong>正交矩阵</strong></h3>
+<p><span class="math display">\[
+QQ^T=Q^TQ=I\\
+QQ^T=Q^TQ=I_m\ 或 \ QQ^T=Q^TQ=I_n    \qquad 半正交矩阵
+\]</span></p>
+<h3 id="酉矩阵方阵">2.3.2 酉矩阵（方阵）</h3>
+<p>正交矩阵推广到复数域 <span class="math display">\[
+UU^H=U^HU=I\\
+UU^H=I_m\ 或\ U^HU=I_n   \qquad 仿酉矩阵
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(U\in R^{m\times
+m}\)</span>为酉矩阵，等价于<span
+class="math inline">\(U\)</span>为正交矩阵</p></li>
+<li><p><span class="math inline">\(U\)</span>为酉矩阵，</p>
+<ul>
+<li>等价于<span class="math inline">\(U^{-1}=U^H\)</span></li>
+<li>等价于<span
+class="math inline">\(U\)</span>的行列为标准正交的向量</li>
+<li><span class="math inline">\(U^T,U^H,U^*,U^{-1},U^i\)</span>
+也是酉矩阵</li>
+<li>若<span class="math inline">\(U和V\)</span>为酉矩阵
+<ul>
+<li><span class="math inline">\(UV\)</span>为酉矩阵</li>
+<li><span class="math inline">\(U\bigoplus V\)</span>为酉矩阵</li>
+<li><span class="math inline">\(U\bigotimes V\)</span>为酉矩阵</li>
+</ul></li>
+<li><span class="math inline">\(det(U)=±1\)</span></li>
+<li><span class="math inline">\(rank(U)=m\)</span></li>
+<li><span class="math inline">\(UU^H=U^HU\qquad\)</span> <span
+class="math inline">\(B=U^HAU\)</span>与<span
+class="math inline">\(A\)</span><strong>酉等价</strong></li>
+<li><span class="math inline">\(|\lambda|=1\)</span></li>
+<li><span class="math inline">\(x_{m\times 1}\Rightarrow||Ux||_2=||x||_2
+\qquad\)</span> 线性变换<span class="math inline">\(Ux\)</span>为<span
+class="math inline">\(x\)</span>的<strong>酉变换</strong></li>
+<li><span class="math inline">\(A_{m\times
+n}\Rightarrow||UA||_F=||A||_F\)</span></li>
+<li><span class="math inline">\(A_{n\times
+m}=||AU||_F=||A||_F\qquad\)</span> (等距变换)</li>
+</ul>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220310212455201.png" srcset="/img/loading.gif" lazyload
+alt="image-20220310212455201" />
+<figcaption aria-hidden="true">image-20220310212455201</figcaption>
+</figure></li>
+</ul>
+<p><strong>正规矩阵</strong>：<span
+class="math inline">\(A^HA=AA^H\)</span></p>
+<h3 id="等价矩阵">2.3.3 等价矩阵</h3>
+<p>存在非奇异矩阵<span class="math inline">\(P,Q\)</span> ，使得<span
+class="math inline">\(B=PAQ\)</span></p>
+<h3 id="相似矩阵">2.3.4 相似矩阵</h3>
+<p>若存在非奇异矩阵<span class="math inline">\(S\in C^{n\times
+n}\)</span>，使得<span
+class="math inline">\(B=S^{-1}AS\)</span>，则称矩阵<span
+class="math inline">\(B\in C^{n\times n}\)</span>与<span
+class="math inline">\(A\in C^{n\times n}\)</span>相似，简记<span
+class="math inline">\(B\sim A\)</span></p>
+<p><strong>相似变换</strong>，<span class="math inline">\(A\rightarrow
+S^{-1}AS\)</span></p>
+<ul>
+<li>自反性</li>
+<li>对称性</li>
+<li>传递性</li>
+<li>若<span class="math inline">\(B\sim A\)</span>，则<span
+class="math inline">\(B^k\sim A^k\)</span></li>
+<li>若<span class="math inline">\(B\sim A\)</span>，且均可逆，则<span
+class="math inline">\(B^{-1}\sim A^{-1}\)</span></li>
+<li>若<span class="math inline">\(B\sim A\)</span>，则<span
+class="math inline">\(det(B)=det(A)\)</span></li>
+<li>若<span class="math inline">\(B\sim A\)</span>，则<span
+class="math inline">\(tr(B)=tr(A)\)</span></li>
+</ul>
+<h3 id="相合矩阵">2.3.5 相合矩阵</h3>
+<p>若<span class="math inline">\(A,B,C\in C^{n\times
+n}\)</span>，且<span class="math inline">\(C\)</span>非奇异，则称<span
+class="math inline">\(B=C^{H}AC\)</span>与<span
+class="math inline">\(A\)</span>相合（实相合、复相合）</p>
+<p><strong>相合变换</strong>，<span class="math inline">\(A\rightarrow
+C^{H}AC\)</span></p>
+<ul>
+<li>自反性</li>
+<li>对称性</li>
+<li>传递性</li>
+</ul>
+<p><strong>合同</strong>：一个二次型在不同坐标变换下的表示</p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/990617dff6d64fb7c1ab179538d42141.png" srcset="/img/loading.gif" lazyload
+alt="img" />
+<figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h2 id="置换矩阵">2.4 置换矩阵</h2>
+<h3 id="hermitian矩阵">2.4.1 Hermitian矩阵</h3>
+<p><strong>定义</strong>：复共轭对称。最简单的是<span
+class="math inline">\(I\)</span></p>
+<p><strong>性质</strong>：<span
+class="math inline">\(A+A^H,AA^H,A^HA,A^k,A^{-1},\alpha A+\beta
+B,AB+BA,j(AB-BA)\)</span> 也是Hermitian矩阵</p>
+<p><strong>正定性判定</strong>：（Hermitian为正定，当且仅当满足以下任一条件）</p>
+<ol type="1">
+<li><span class="math inline">\(x^HAx&gt;0\)</span></li>
+<li><span class="math inline">\(\lambda_i&gt;0\)</span></li>
+<li><span class="math inline">\(\exist\)</span> 非奇异<span
+class="math inline">\(R\)</span>,<span
+class="math inline">\(A=R^R\)</span></li>
+<li><span class="math inline">\(\forall
+非奇异P,P^HAP为正定\)</span></li>
+</ol>
+<h3 id="置换矩阵与互换矩阵">2.4.2 置换矩阵与互换矩阵</h3>
+<p>每一行和每一列有且仅有一个非零<strong>元素1</strong>的正方矩阵</p>
+<p><strong>性质</strong></p>
+<ul>
+<li><span class="math inline">\(P^T\)</span> 为另一个置换矩阵</li>
+<li><span class="math inline">\(P^TP=PP^T=I\)</span></li>
+<li><span class="math inline">\(P^{-1}=P^T\)</span></li>
+</ul>
+<p>置换矩阵<strong>右乘对列重新排列；左乘对行重新排列。</strong></p>
+<p><strong>互换矩阵（反射矩阵、后向单位矩阵）</strong></p>
+<p>交叉对角线上全为1，其余全为0 <span class="math display">\[
+\mathbf{J}=
+\begin{bmatrix}
+0&amp;&amp;&amp;1\\
+&amp;&amp;1\\
+&amp;\dots\\
+1&amp;&amp;&amp;0
+\end{bmatrix}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(J^T=J\)</span></li>
+<li><span class="math inline">\(J^2=I\)</span></li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">JA=<span class="hljs-built_in">flipud</span>(A);<br>AJ=<span class="hljs-built_in">fliplr</span>(A);<br></code></pre></td></tr></table></figure>
+<p><strong>位移矩阵</strong></p>
+<p><strong>定义</strong> <span class="math display">\[
+P=
+\begin{bmatrix}
+0&amp;1&amp;0&amp;\cdots&amp;0\\
+0&amp;0&amp;1&amp;\cdots&amp;0\\
+\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+0&amp;0&amp;0&amp;\cdots&amp;1\\
+1&amp;0&amp;0&amp;\cdots&amp;0\\
+\end{bmatrix}
+\]</span> 对首行或者最后一列进行移动</p>
+<p><strong>交换矩阵</strong></p>
+<p>对向量（矩阵）的各行、各列进行等间隔有规律的重排 <span
+class="math display">\[
+K_{mn}=\sum_{j=1}^{n}{(e_j^T\bigotimes I_{m}\bigotimes
+e_j)}\\k_{mn}vec(A)=vec(A^T)
+\]</span></p>
+<h3 id="广义置换矩阵与选择矩阵">2.4.3 广义置换矩阵与选择矩阵</h3>
+<p>每一行和每一列有且仅有一个<strong>非零元素（可不为0，区别于置换矩阵）</strong>的正方矩阵</p>
+<p>可以被分解为一个置换矩阵和一个非奇异的对角矩阵之积 <span
+class="math display">\[
+\begin{array}[cccc]
+\le\\
+G&amp;=&amp;PD\\
+&amp;=&amp;P
+\begin{bmatrix}
+a&amp;&amp;&amp;&amp;0\\
+&amp;b&amp;&amp;&amp;\\
+&amp;&amp;c&amp;&amp;\\
+&amp;&amp;&amp;d&amp;\\
+0&amp;&amp;&amp;&amp;e\\
+\end{bmatrix}
+\end{array}
+\]</span></p>
+<p><strong>选择矩阵</strong> <span class="math display">\[
+J_1=[I_{m-1},0_{m-1}]\\
+J_2=[0_{m-1},I_{m-1}]\\
+\]</span> 左乘<span class="math inline">\(X\)</span> 得到前、后<span
+class="math inline">\(m-1\)</span> 行 <span class="math display">\[
+J_1=
+\begin{bmatrix}
+I_{n-1}\\0_{n-1}
+\end{bmatrix}
+\\
+J_2=
+\begin{bmatrix}
+0_{n-1}\\I_{n-1}\\
+\end{bmatrix}
+\]</span> 右乘<span class="math inline">\(X\)</span> 得到前、后<span
+class="math inline">\(m-1\)</span> 列</p>
+<p><strong>note</strong>：</p>
+<p>通过矩阵相乘的行列关系加以记忆左右乘</p>
+<h2 id="vandermonde矩阵和fourier矩阵">2.5
+Vandermonde矩阵和Fourier矩阵</h2>
+<p>Fourier矩阵是Vandermonde矩阵的一个特例</p>
+<h3 id="vandermonde矩阵">2.5.1 Vandermonde矩阵</h3>
+<p><span class="math display">\[
+A=
+\begin{bmatrix}
+1&amp;1&amp;\cdots&amp;1\\
+x_1&amp;x_2&amp;\cdots&amp;x_n\\
+x_1^2&amp;x_2^2&amp;\cdots&amp;x_n^2\\
+\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\
+x_1^{n-1}&amp;x_2^{n-1}&amp;\cdots&amp;x_n^{n-1}\\
+\end{bmatrix}
+\ or\ A^T
+\]</span></p>
+<p><strong>性质</strong>：若<span class="math inline">\(x_1, x_2, \cdots
+,x_n\)</span> 不相同，则矩阵一定满秩，因为它的各行（列）线性无关</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">%范得蒙(Vandermonde)矩阵：最后一列全为1，倒数第二列为一个指定的向量，其他各列是其后列与倒数第二列的点乘积. 可以用一个指定向量生成一个范得蒙矩阵. MATLAB函数vander(V)生成以向量V为基础向量的范得蒙矩阵.</span><br><br>clear all<br>N=<span class="hljs-number">8</span>;<br>w=<span class="hljs-built_in">exp</span>(<span class="hljs-number">-1</span><span class="hljs-built_in">i</span>*<span class="hljs-number">2</span>*<span class="hljs-built_in">pi</span>/N);<br><span class="hljs-keyword">for</span> ii=<span class="hljs-number">1</span>:N<br>    V(ii)=w^(ii<span class="hljs-number">-1</span>);<br><span class="hljs-keyword">end</span><br>A=<span class="hljs-built_in">vander</span>(V&#x27;);<br><span class="hljs-built_in">real</span>(A)<br><span class="hljs-built_in">imag</span>(A)<br><br><span class="hljs-comment">%flipud函数和fliplr函数（上下翻转，左右翻转）</span><br>J=<span class="hljs-built_in">flipud</span>(<span class="hljs-built_in">eye</span>(<span class="hljs-number">8</span>))<br></code></pre></td></tr></table></figure>
+<h3 id="fourier矩阵">2.5.2 Fourier矩阵</h3>
+<p><span class="math display">\[
+X_k=\sum_{n=0}^{N-1}x_ne^{-j\frac{2\pi
+nk}{N}}=\sum_{n=0}^{N-1}x_n\omega^{nk}
+\]</span></p>
+<p><span class="math display">\[
+\begin{bmatrix}
+X_0\\X_1\\\vdots\\X_{N-1}
+\end{bmatrix}=
+\begin{bmatrix}
+1&amp; 1&amp; \cdots &amp; 1\\
+1&amp;\omega &amp; \cdots &amp;\omega^{N-1}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\\
+1&amp; \omega&amp; \cdots &amp; \omega^{(N-1)(N-1)}\\
+\end{bmatrix}
+\begin{bmatrix}
+x_0\\x_1\\\vdots\\x_{N-1}
+\end{bmatrix}
+\]</span></p>
+<p>简记为 <span class="math display">\[
+\hat{x}=Fx
+\]</span> 根据定义，有 <span class="math display">\[
+F^HF=FF^H=NI\\
+\Downarrow\\
+F^{-1}=\frac{1}{N}F^H=\frac{1}{N}F^*
+\]</span> <strong>性质</strong>：</p>
+<ol type="1">
+<li><p>各行各列都是等比数列</p></li>
+<li><p>是对称的</p></li>
+<li><p><span
+class="math inline">\(F^{-1}=\frac{1}{N}F^*\)</span></p></li>
+<li><p><span class="math inline">\(F^4=I\)</span></p></li>
+<li><p><span class="math inline">\(\sqrt{n}F=C+jS\)</span> <span
+class="math display">\[
+C_{ij}=\cos{\frac{2\pi}{n}(i-1)(j-1)}\\
+S_{ij}=\sin{\frac{2\pi}{n}(i-1)(j-1)}
+\]</span></p></li>
+<li><p><span class="math inline">\(CS=SC,C^2+S^2=nI\)</span></p></li>
+<li><p>归一化Fourier矩阵是对称的Vandermonde矩阵，也是正交矩阵</p></li>
+<li><p>高斯函数的傅里叶变换还是高斯函数.在傅里叶变换下，高斯函数在函
+数集合中的地位, 相当于整数1在实数中的地位.</p></li>
+</ol>
+<h2 id="对称矩阵">2.6 对称矩阵</h2>
+<p><strong>对称矩阵</strong> <span class="math display">\[
+A=A^T
+\]</span> <strong>反对称矩阵</strong> <span class="math display">\[
+A=-A^T
+\]</span> <strong>斜对称矩阵</strong> <span class="math display">\[
+A_{n\times n}=(A_{ij}=(a_{n-j+1,n-i+1}))
+\]</span></p>
+<ol type="1">
+<li><span class="math inline">\(A^T,A^{-1}\)</span> 也是斜对称矩阵</li>
+<li><span class="math inline">\(JA^TJ=A,(JA)^T=JA\)</span></li>
+</ol>
+<p><strong>中心对称</strong> <span class="math display">\[
+A_{n\times n}=(A_{ij})=(a_{n-i+1,n-j+1})
+\]</span></p>
+<ol type="1">
+<li><p><span class="math inline">\(A^T\)</span> 也是中心对称</p></li>
+<li><p><span class="math inline">\(JA^TJ=A\)</span></p></li>
+<li><p>任一<span class="math inline">\(2n\)</span> 阶中心对称矩阵可写成
+<span class="math display">\[
+A=
+\begin{bmatrix}
+X&amp;TJ\\
+JY&amp;JXJ
+\end{bmatrix}
+\]</span></p></li>
+<li><p><span class="math display">\[
+det(A)=det(X+Y)det(X-Y)\\
+A^{-1}=
+\begin{bmatrix}
+C&amp;RJ\\
+JR&amp;ICJ
+\end{bmatrix}\\
+C=\frac{1}{2}[(X+Y)^{-1}+(X-Y)^{-1}]\\
+R=\frac{1}{2}[(X+Y)^{-1}-(X-Y)^{-1}]
+\]</span></p></li>
+</ol>
+<p><strong>复共轭对称矩阵</strong>A <span class="math display">\[
+=A^H
+\]</span> <strong>反Hermitian矩阵</strong> <span class="math display">\[
+A=-A^H
+\]</span> <strong>斜复共轭对称矩阵</strong></p>
+<p><strong>中心复共轭对称矩阵</strong></p>
+<h2 id="hadamard矩阵">2.7 Hadamard矩阵</h2>
+<p>所有元素取±1，且<span
+class="math inline">\(H_nH_n^T=H_N^TH_n=nI_n\)</span>，<span
+class="math inline">\(H_n\)</span>称为n阶Hadamard矩阵</p>
+<ul>
+<li>每一行或列两两正交，<span
+class="math inline">\(\frac{1}{\sqrt{n}}H_n\)</span>为标准正交矩阵</li>
+<li>第一行和第一列的所有元素为+1的Hadamard矩阵，称为<strong>规范化Hadamard矩阵</strong></li>
+<li>阶数<span class="math inline">\(n&gt;2时,n=4k,k\in Z\)</span></li>
+<li><span class="math inline">\(det|H_n|=±n^{\frac{n}{2}}\)</span></li>
+</ul>
+<p><strong>定理</strong>：令<span
+class="math inline">\(n=2^k,k=1,2,\dots,则\)</span> <span
+class="math display">\[
+\overline H_{2n}=\frac{1}{\sqrt{2}}
+\begin{bmatrix}
+H_n&amp;H_n\\
+H_n&amp;-H_n\\
+\end{bmatrix}
+，其中\overline H_2=\frac{1}{\sqrt{2}}
+\begin{bmatrix}
+1&amp;1\\
+1&amp;-1\\
+\end{bmatrix}
+\]</span></p>
+<h2 id="toeplitz矩阵与hankel矩阵">2.8 Toeplitz矩阵与Hankel矩阵</h2>
+<h3 id="toeplitz矩阵">2.8.1 Toeplitz矩阵</h3>
+<p><span class="math display">\[
+A=\begin{bmatrix}
+a_0&amp;a_{-1}&amp;a_{-2}&amp;\cdots&amp;a_{-n}\\
+a_1&amp;a_0&amp;a_{-1}&amp;\cdots &amp;a_{-n+1}\\
+a_2&amp;a_1&amp;a_{0}&amp;\ddots &amp;\vdots\\
+\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;a_{-1}\\
+a_n&amp;a_{n-1}&amp;\cdots&amp;a_1 &amp;a_0\\
+\end{bmatrix}
+\]</span></p>
+<p>任何一条对角线元素相同</p>
+<p>对称Toeplitz矩阵仅由第一行元素就能推出，记<span
+class="math inline">\(A=Toep[a_0,a_1,\cdots,a_n]\)</span></p>
+<p>复Toeplitz矩阵，复共轭对称</p>
+<p><strong>性质</strong>：</p>
+<ol type="1">
+<li>线性组合、转置仍为Toeplitz矩阵</li>
+<li>相对于交叉对角线对称</li>
+</ol>
+<h3 id="hankel矩阵">2.8.2 Hankel矩阵</h3>
+<p><span class="math display">\[
+A=\begin{bmatrix}
+a_0&amp;a_{1}&amp;a_{2}&amp;\cdots&amp;a_{n}\\
+a_{1}&amp;a_2&amp;a_{3}&amp;\cdots &amp;a_{n+1}\\
+a_{2}&amp;a_3&amp;a_4&amp;\ddots &amp;a_{n+2}\\
+\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+a_{n}&amp;a_{n+1}&amp;a_{n+2}&amp;\cdots&amp;a_{2n}\\
+\end{bmatrix}
+\]</span></p>
+<p>交叉对角线元素相同</p>
+<h3 id="关系">2.8.3 关系</h3>
+<p><span class="math display">\[
+HJ=T\\
+TJ=H
+\]</span></p>
+<p><span class="math inline">\(J\)</span> 是互换矩阵</p>
+<h3 id="循环矩阵">2.8.4 循环矩阵</h3>
+<p><strong>右循环矩阵</strong> <span class="math display">\[
+C_R=(c_{ij})
+\]</span>
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220505204239719.png" srcset="/img/loading.gif" lazyload alt="image-20220505204239719" style="zoom: 33%;" /></p>
+<p><strong>左循环矩阵</strong> <span class="math display">\[
+C_L=(c_{ij})
+\]</span>
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220505204334046.png" srcset="/img/loading.gif" lazyload alt="image-20220505204334046" style="zoom:33%;" /></p>
+<ol type="1">
+<li>右循环矩阵是一特殊的Toeplitz矩阵.</li>
+<li>左循环矩阵是一特殊的Hankel矩阵.</li>
+<li>循环矩阵可由其第一行（列）元素完全确定</li>
+<li>运算封闭</li>
+<li>若<span class="math inline">\(A,B\)</span>
+同为左或右循环矩阵，则<span class="math inline">\(AB\)</span>
+为右循环矩阵</li>
+<li><span class="math inline">\(AB=BA\)</span></li>
+</ol>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220505205328755.png" srcset="/img/loading.gif" lazyload alt="image-20220505205328755" style="zoom: 25%;" /></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220505205407119.png" srcset="/img/loading.gif" lazyload alt="image-20220505205407119" style="zoom:25%;" /></p>
+<p>由于可以用傅里叶变换快速求解循环矩阵方程，在数值分析中有重要应用。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% 1、根据定义式生成</span><br>n=<span class="hljs-number">8</span>; A=<span class="hljs-built_in">rand</span>(<span class="hljs-number">1</span>,n);<br><span class="hljs-keyword">for</span> ii=<span class="hljs-number">1</span>:n<br>    <span class="hljs-keyword">for</span> jj=<span class="hljs-number">1</span>:n<br>        <span class="hljs-keyword">if</span> jj-ii&gt;=<span class="hljs-number">0</span><br>            B(ii,jj)=A(jj-ii+<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">else</span><br>            B(ii,jj)=A(n+jj-ii+<span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">end</span><br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><span class="hljs-built_in">disp</span>(B);<br><br><span class="hljs-comment">% 2、利用hankel()、toeplitz()函数</span><br>n=<span class="hljs-number">9</span>;<br>rng(<span class="hljs-number">0</span>);<br>c=<span class="hljs-built_in">rand</span>(<span class="hljs-number">1</span>,n);<br>cc=[c  c];<br>A=<span class="hljs-built_in">hankel</span>(cc);		<span class="hljs-comment">% toeplitz(cc);</span><br>B=A(<span class="hljs-number">1</span>:n,<span class="hljs-number">1</span>:n);<br><span class="hljs-built_in">disp</span>(B);<br></code></pre></td></tr></table></figure>
+<h2 id="最小二乘拟合">2.8 最小二乘拟合</h2>
+<p>在解决一元线性回归的问题中，常用到最小二乘拟合。</p>
+<p>估计值：<span class="math inline">\(y_i=wx_i+b\)</span></p>
+<p>拟合误差/残差：<span
+class="math inline">\(y_i-\widehat{y_i}=y_i-(wx_i+b)\)</span></p>
+最佳拟合直线应该使所有点残差累计值最小，定义均方误差如下 $$
+<span class="math display">\[\begin{array}[ccc]
+\le\\
+
+argmin\ Loss&amp;=&amp;\frac{1}{2n}\sum_{i=1}^{n}{(y_i-\widehat{y_i})^2}
+\\
+&amp;=&amp;\frac{1}{2n}\sum_{i=1}^{n}{(y_i-(wx_i+b))^2}
+\end{array}\]</span>
+<span class="math display">\[
+求极值问题$\Rightarrow$ 极值点的偏导数为零，即
+\]</span>
+<span class="math display">\[\begin{array}
+
+\frac{\partial Loss}{\partial w}=\sum_{i=1}^{n}{(y_i-wx_i-b)(-x_i)=0}\\
+
+\\
+
+\frac{\partial Loss}{\partial b}=\sum_{i=1}^{n}{(y_i-wx_i-b)(-1)=0}\\
+
+\end{array}\]</span>
+<p>$$</p>
+解得， $$
+<span class="math display">\[\begin{array}
+
+\leftflush
+
+w=\frac{n\sum_{i=1}^{n}{x_iy_i}-\sum_{i=1}^{n}{x_i}\sum_{i=1}^{n}{y_i}}{n\sum_{i=1}^{n}{x_i^2}-(\sum_{i=1}^{n}{x_i})^2}\\
+
+\\
+
+b=\frac{\sum_{i=1}^{n}{y_i}-w\sum_{i=1}^{n}{x_i}}{n}\\
+
+\end{array}\]</span>
+<p>$$</p>
+用矩阵形式表示为， $$
+<span class="math display">\[\begin{array}
+
+\leftflush
+
+w=\frac{\sum_{i=1}^{n}{(x_i-\overline{x})(y_i-\overline{y})}}{\sum_{i=1}^{n}{(x_i-\overline{x})^2}}\\
+
+\\
+
+b=\overline{y}-w\overline{x}\\
+
+\end{array}\]</span>
+<p>$$</p>
+<p><img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/16517518202690.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/16517518352638.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>对于一元线性回归，适用于以下模型：</p>
+<ol type="1">
+<li><span class="math inline">\(Y=a+bX+\epsilon\)</span></li>
+<li><span class="math inline">\(Y=\alpha\cdot e^{\beta X}\cdot
+\epsilon\Rightarrow \ln{Y}=\alpha+\beta X+\epsilon\)</span></li>
+<li><span class="math inline">\(Y=\alpha X^\beta\cdot\epsilon\Rightarrow
+\ln{Y}=\alpha+\beta\ln{X}+\epsilon\)</span></li>
+<li><span class="math inline">\(Y=\alpha+\beta h(x)
++\epsilon\)</span></li>
+</ol>
+<p>对于多元线性回归，适用于以下模型：</p>
+<ol type="1">
+<li><span
+class="math inline">\(Y=b_0+b_1x_1+b_2x_2+\cdots+b_px_p\)</span></li>
+<li><span
+class="math inline">\(Y=b_0+b_1x+b_2x^2+\cdots+b_px^p\)</span></li>
+<li><span
+class="math inline">\(\sin(x)=b_0+b_1x+b_2x^2+\cdots\)</span></li>
+<li><span
+class="math inline">\(\cos(x)=b_1+2b_2x+3b_3x^2+\cdots\)</span></li>
+<li><span
+class="math inline">\(e^x=1+\frac{x}{1!}+\frac{x^2}{2!}+\cdots\)</span></li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs matlab">N=<span class="hljs-number">7</span>;<span class="hljs-comment">%阶数，N+1个系数</span><br>M=<span class="hljs-number">20</span>;<span class="hljs-comment">%数据采样点个数</span><br>x=<span class="hljs-built_in">rand</span>(M,<span class="hljs-number">1</span>);<br>y=<span class="hljs-built_in">sin</span>(<span class="hljs-built_in">pi</span>/<span class="hljs-number">2</span>*x);<br><br><span class="hljs-comment">% 基于方法二</span><br>a=<span class="hljs-built_in">zeros</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>*N+<span class="hljs-number">1</span>);<br>b=<span class="hljs-built_in">zeros</span>(N+<span class="hljs-number">1</span>,<span class="hljs-number">1</span>);<br><span class="hljs-keyword">for</span> k=<span class="hljs-number">1</span>:<span class="hljs-number">2</span>*N+<span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> ii=<span class="hljs-number">1</span>:M<br>        a(k)=a(k)+x(ii)^(k<span class="hljs-number">-1</span>);<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><span class="hljs-keyword">for</span> k=<span class="hljs-number">1</span>:N+<span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> ii=<span class="hljs-number">1</span>:M<br>        b(k)=b(k)+y(ii)*x(ii)^(k<span class="hljs-number">-1</span>);<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br>H=<span class="hljs-built_in">zeros</span>(N+<span class="hljs-number">1</span>,N+<span class="hljs-number">1</span>);<br><span class="hljs-keyword">for</span> ii=<span class="hljs-number">1</span>:N+<span class="hljs-number">1</span><br>    <span class="hljs-keyword">for</span> jj=<span class="hljs-number">1</span>:N+<span class="hljs-number">1</span><br>        H(ii,jj)=a(ii+jj<span class="hljs-number">-1</span>);<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><span class="hljs-built_in">disp</span>(H); A=H\b; <span class="hljs-built_in">disp</span>(A&#x27;); <br><br><span class="hljs-comment">% 基于方法一</span><br><span class="hljs-keyword">for</span> ii=<span class="hljs-number">1</span>:N+<span class="hljs-number">1</span><br>	<span class="hljs-keyword">for</span> jj=<span class="hljs-number">1</span>:M<br>		X(ii,jj)=x(jj)^(ii<span class="hljs-number">-1</span>);<br>	<span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br>X=X&#x27;;	<br>X&#x27;*X;	<span class="hljs-comment">% Hankel</span><br>B=inv(X&#x27;*X)*X&#x27;*y;<br></code></pre></td></tr></table></figure>
+<h2 id="特殊矩阵运算">2.9 特殊矩阵运算</h2>
+<h3 id="向量化函数与矩阵化函数">2.9.1 向量化函数与矩阵化函数</h3>
+<p><strong>列向量化函数</strong> <span class="math display">\[
+A=
+\begin{bmatrix}
+a_{11}&amp;\cdots&amp;a_{1n}\\
+\vdots&amp;\vdots&amp;\vdots\\
+a_{m1}&amp;\vdots&amp;a_{mn}
+\end{bmatrix}
+_{m\times n}
+\rightarrow
+vec(A)=
+\begin{bmatrix}
+a_{11}\\
+\vdots\\
+a_{m1}\\
+\vdots\\
+a_{1n}\\
+\vdots\\
+a_{mn}
+\end{bmatrix}
+\]</span> <strong>行向量化函数</strong> <span class="math display">\[
+A=
+\begin{bmatrix}
+a_{11}&amp;\cdots&amp;a_{1n}\\
+\vdots&amp;\vdots&amp;\vdots\\
+a_{m1}&amp;\vdots&amp;a_{mn}
+\end{bmatrix}
+_{m\times n}
+\rightarrow
+rvec(A)=
+\begin{bmatrix}
+a_{11},
+\cdots,
+a_{1n},
+\cdots,
+a_{m1},
+\cdots,
+a_{mn},
+\end{bmatrix}
+\]</span> <strong>矩阵化函数</strong> <span class="math display">\[
+unvec_{m,n}(a)=A_{m\times n}=
+\begin{bmatrix}
+a_1&amp;a_{m+1}&amp;\cdots&amp;a_{m(n-1)+1}\\
+a_2&amp;a_{m+2}&amp;\cdots&amp;a_{m(n-1)+2}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+a_m&amp;a_{2m}&amp;\cdots&amp;a_{mn}\\
+\end{bmatrix}
+\Rightarrow
+vec(A_{m\times n})=a
+\]</span> <strong>向量化算子和行向量化算子的关系</strong> <span
+class="math display">\[
+rvect(A)=(vec(A^T))^T,rvec(A^T)=(rvec(A))^T
+\]</span></p>
+<ul>
+<li>交换矩阵</li>
+</ul>
+<p><span class="math display">\[
+K_{mn}vec(A)=vec(A^T)\\
+K_{mn}=\sum_{j=1}^{n}{(a_j^T\bigotimes I_m\bigotimes e_j)}
+\]</span></p>
+<h3 id="kronecker积">2.9.2 Kronecker积</h3>
+<ul>
+<li><p><span class="math inline">\(m\times n\)</span>矩阵<span
+class="math inline">\(A\)</span>和<span class="math inline">\(p\times
+q\)</span>矩阵<span
+class="math inline">\(B\)</span>的<strong>右Kronecker积</strong> <span
+class="math display">\[
+A\bigotimes B=[a_{ij}B]=
+\begin{bmatrix}
+a_{11}B&amp;a_{12}B&amp;\cdots&amp;a_{1n}B\\
+a_{21}B&amp;a_{22}B&amp;\cdots&amp;a_{2n}B\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+a_{m1}B&amp;a_{12}B&amp;\cdots&amp;a_{mn}B\\
+\end{bmatrix}
+\]</span></p></li>
+<li><p><span class="math inline">\(m\times n\)</span>矩阵<span
+class="math inline">\(A\)</span>和<span class="math inline">\(p\times
+q\)</span>矩阵<span
+class="math inline">\(B\)</span>的<strong>左Kronecker积</strong> <span
+class="math display">\[
+[A\bigotimes B]_{left}=[Ab_{ij}]=
+\begin{bmatrix}
+Ab_{11}&amp;Ab_{12}&amp;\cdots&amp;Ab_{1q}\\
+Ab_{21}&amp;Ab_{22}&amp;\cdots&amp;Ab_{2q}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+Ab_{p1}&amp;Ab_{p2}&amp;\cdots&amp;Ab_{pq}\\
+\end{bmatrix}
+\]</span></p></li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">kron(A,B);<br></code></pre></td></tr></table></figure>
+<p><strong>性质</strong></p>
+<ul>
+<li>没有交换律</li>
+<li><span class="math inline">\(AB\bigotimes CD=(A\bigotimes
+C)(B\bigotimes D)\)</span></li>
+<li>有分配律（加减乘）</li>
+<li><span class="math inline">\((A\bigotimes B)^\dagger=A^\dagger
+\bigotimes B^\dagger\)</span></li>
+<li>若<span class="math inline">\(A\)</span>和<span
+class="math inline">\(B\)</span>是可逆方阵，则<span
+class="math inline">\((A\bigotimes B)^{-1}=A^{-1}\bigotimes
+B^{-1}\)</span></li>
+<li><span class="math inline">\((A\bigotimes B)^T=A^T\bigotimes
+B^T\)</span>；<span class="math inline">\((A\bigotimes
+B)^H=A^H\bigotimes B^H\)</span></li>
+<li><span class="math inline">\(rank(A\bigotimes
+B)=rank(A)rank(B)\)</span></li>
+<li>对于<span class="math inline">\(A_{m\times m},B_{n\times
+n}\)</span>，有<span class="math inline">\(det(A\bigotimes
+B)=(det(A))^m(det(B))^n\)</span></li>
+<li><span class="math inline">\(tr(A\bigotimes
+B)=tr(A)tr(B)\)</span></li>
+</ul>
+<p><strong>定理</strong> <span class="math display">\[
+vec(ABC)=(C^T\bigotimes A)vec(B)
+\]</span> <strong>广义Kronecker积</strong> <span class="math display">\[
+\{A\}_N\bigotimes B=
+\begin{bmatrix}
+A_1\bigotimes b_1\\
+A_2\bigotimes b_2\\
+\vdots\\
+A_N\bigotimes b_N\\
+\end{bmatrix},b_i是第i行
+\]</span>
+广义Kronecker积在滤波器组的分析、Haar变换和Hadamard变换的快速算法的推导中有着重要的作用.</p>
+<h3 id="khatri-rao积"><strong>2.9.3 Khatri-Rao积</strong></h3>
+<p><span class="math display">\[
+A*B=[a_1\bigotimes b_1,a_2\bigotimes b_2,\cdots,a_n\bigotimes
+b_n],a_i,b_i是第i列
+\]</span></p>
+<ol type="1">
+<li>结合律</li>
+<li>交换律</li>
+<li><span class="math inline">\((A\bigotimes B)(C*
+D)=AC*BD\)</span></li>
+</ol>
+<h3 id="hadamard积"><strong>2.9.4 Hadamard积</strong></h3>
+<p>也称Schur积、对应元素乘积 <span class="math display">\[
+A\bigodot B=[a_{ij}b_{ij}]
+\]</span></p>
+<ol type="1">
+<li>交换律、结合律、分配率</li>
+<li>注意不是脱靴规则，转置按原来顺序</li>
+<li><span class="math inline">\(c(A\bigodot B)=(cA)\bigodot B=A\bigodot
+(cB)\)</span></li>
+<li><span class="math inline">\(A\bigodot I=I\bigodot
+A=diag(A)\)</span></li>
+<li><span class="math inline">\((A\bigoplus B)\bigodot (C\bigoplus
+D)=(A\bigodot C)\bigoplus(B\bigodot D)\)</span></li>
+<li><span class="math inline">\(tr(A^T(B\bigoplus C))=tr((A^T\bigodot
+B^T)C)\)</span></li>
+<li><span class="math inline">\((DA)\bigodot (BD)=D(A\bigodot
+B)D,D是对角矩阵\)</span></li>
+<li>若<span class="math inline">\(A,B\)</span> 是（半）正定，则$AB $
+也是</li>
+</ol>
+<h3 id="矩阵直和">2.9.5 矩阵直和</h3>
+<p><span class="math display">\[
+A\bigoplus B=
+\begin{bmatrix}
+A&amp;0_{m\times n}\\
+0_{n\times m}&amp;B\\
+\end{bmatrix}
+\]</span></p>
+<ol type="1">
+<li><span class="math inline">\(c(A\bigoplus B)=cA\bigoplus
+cB\)</span></li>
+<li>没有交换律</li>
+<li>不是拖鞋规则</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-built_in">blkdiag</span>(A,B);<br></code></pre></td></tr></table></figure>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220505213028196.png" srcset="/img/loading.gif" lazyload alt="image-20220505213028196" style="zoom:33%;" /></p>
+<h1 id="矩阵分解">3 矩阵分解</h1>
+<h2 id="矩阵分解基础">3.0 矩阵分解基础</h2>
+<p>“分解”是“分析”的重要手段之一！</p>
+<h3 id="初等变换">3.0.1 初等变换</h3>
+<p><span class="math display">\[
+Ax=b
+\]</span></p>
+<p>若<span class="math inline">\(A\)</span> 为正方矩阵，且非奇异，则
+<span class="math display">\[
+x=A^{-1}b
+\]</span></p>
+<ol type="1">
+<li>适定方程<span class="math inline">\(\alpha=\beta\)</span></li>
+<li>欠定方程<span class="math inline">\(\alpha&lt;\beta\)</span></li>
+<li>超定方程<span class="math inline">\(\alpha&gt;\beta\)</span></li>
+</ol>
+<p><strong>矩阵的等价标准型</strong></p>
+<p>等价：<span class="math inline">\(B\)</span>
+经过一系列初等变换得到<span class="math inline">\(A\)</span></p>
+<p>等价标准型：得到左上角是一个单位阵，其余都为0</p>
+<p><strong>Jordan标准型</strong></p>
+<p>Jordan形矩阵：由Jordan块按对角排列组成的矩阵</p>
+<p>Jordan块：主对角线为矩阵的特征值，主对角线上为1</p>
+<p>定理：对于任意方阵，都有一个Jordan形矩阵与其相似，并称其为该方阵的Jordan标准型，确定的、唯一的，但Jordan块顺序可以改变</p>
+<h3 id="三角分解">3.0.2 三角分解</h3>
+<p><strong>Gauss消去法</strong></p>
+<p>基本思想：利用初等行变换增广矩阵<span class="math inline">\([A\
+b]\)</span> 为上阶梯形</p>
+<p><strong>三角（LU）分解</strong></p>
+<p>对于任意矩阵<span class="math inline">\(A\)</span>
+，都存在分解：<span class="math inline">\(PA=LU\)</span> 。</p>
+<p><span class="math inline">\(P\)</span> 为行置换阵，<span
+class="math inline">\(L\)</span> 为对角线上为1的下三角阵，<span
+class="math inline">\(U\)</span> 是上三角阵</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[L,U,P]=lu(A)<br></code></pre></td></tr></table></figure>
+<p><strong>Cholesky分解（乔里斯基）</strong></p>
+<p>设<span class="math inline">\(A\)</span> 为<span
+class="math inline">\(n\)</span>
+阶实对称正定矩阵，则存在非奇异下三角矩阵<span
+class="math inline">\(L\)</span> ，使 <span class="math display">\[
+A=LL^T
+\]</span> 若限定<span class="math inline">\(L\)</span>
+的对角元素为正，则这种分解是唯一的</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs matlab">A=<span class="hljs-built_in">rand</span>(<span class="hljs-number">4</span>,<span class="hljs-number">4</span>);<br>B=A&#x27;*A;			<span class="hljs-comment">%得到正定阵</span><br>R=chol(B);<br></code></pre></td></tr></table></figure>
+<h3 id="schur分解">3.0.3 Schur分解</h3>
+<p>设<span class="math inline">\(A\in C^{n\times n}\)</span>
+的特征值为<span class="math inline">\(λ_1,λ_2,\cdots,λ_n\)</span>
+，则存在酉矩阵<span class="math inline">\(P\)</span> ，使得 <span
+class="math display">\[
+P^{-1}AP=P^HAP=
+\begin{bmatrix}
+λ_1&amp;*&amp;\cdots&amp;*\\
+&amp;λ_2&amp;\ddots&amp;\vdots\\
+&amp;&amp;\ddots\\
+&amp;&amp;&amp;λ_n
+\end{bmatrix}
+\]</span> <strong>Schur分解</strong> <span class="math display">\[
+A=PRP^H
+\]</span></p>
+<p><strong>命题</strong></p>
+<p>任意一个<span class="math inline">\(n\)</span> 阶方阵<span
+class="math inline">\(X\)</span> 可以分解为<span
+class="math inline">\(X=URU&#39;\)</span> ，<span
+class="math inline">\(U\)</span> 为酉矩阵，<span
+class="math inline">\(R\)</span>
+为上三角schur矩阵且其对角线上的元素为<span
+class="math inline">\(X\)</span> 的特征值</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[U,R]=schur(X,<span class="hljs-string">&#x27;complex&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>任意一个<span class="math inline">\(n\)</span> 阶方阵<span
+class="math inline">\(X\)</span> 可以分解为<span
+class="math inline">\(X=URU&#39;\)</span> ，<span
+class="math inline">\(U\)</span> 为正交矩阵，<span
+class="math inline">\(R\)</span> 为实拟上三角矩阵</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[U,R]=schur(X,<span class="hljs-string">&#x27;real&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p><strong>note</strong>：</p>
+<p>这里的<span class="math inline">\(U\)</span> 即上面的<span
+class="math inline">\(P^{-1}AP=P^HAP\)</span> ，<span
+class="math inline">\(R\)</span> 即为<span
+class="math inline">\(P\)</span></p>
+<h3 id="qr分解">3.0.4 QR分解</h3>
+<p>设实（复）矩阵<span class="math inline">\(A_{m\times n}\)</span>
+的<span class="math inline">\(n\)</span> 个列线性无关<span
+class="math inline">\((n\le m)\)</span> ，则存在半正交矩阵<span
+class="math inline">\(Q_{m\times n}\)</span>
+和实（复）非奇异上三角矩阵<span class="math inline">\(R_{n\times
+n}\)</span> ，使得 <span class="math display">\[
+A=QR
+\]</span>
+除去相差一个对角线元素的绝对值全等于1的对角矩阵因子外，该分解是唯一的</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[Q,R]=qr(X);<br>[Q,R,E]=qr(X);	<span class="hljs-comment">%列置换矩阵E，XE=QR</span><br></code></pre></td></tr></table></figure>
+<p>一个对角线元素的绝对值全为1的对角矩阵 <span class="math display">\[
+P=\begin{pmatrix}
+\alpha_1&amp;0&amp;\cdots&amp;0\\
+0&amp;\alpha_2&amp;\cdots&amp;0\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+0&amp;0&amp;\cdots&amp;\alpha_n
+\end{pmatrix}
+,|a_i|=1\\
+\\
+\Rightarrow A=QPR
+\]</span></p>
+<h3 id="其他矩阵分解">3.0.5 其他矩阵分解</h3>
+<p><strong>特征值分解</strong> <span class="math display">\[
+X=VDV^H
+\]</span> 任意一个<span class="math inline">\(n\)</span>
+阶可对角化方阵<span class="math inline">\(X\)</span> 可以分解为<span
+class="math inline">\(XV=VD\)</span> ，其中<span
+class="math inline">\(D\)</span> 为<span
+class="math inline">\(X\)</span> 的特征值对角矩阵，<span
+class="math inline">\(V\)</span> 为<span
+class="math inline">\(X\)</span> 的特征向量矩阵</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[V,D]=eig(X);<br></code></pre></td></tr></table></figure>
+<p><strong>奇异值分解</strong> <span class="math display">\[
+A=USV^H
+\]</span> 任意一个<span class="math inline">\(m\times n\)</span>
+维的矩阵<span class="math inline">\(X\)</span> 可以分解为<span
+class="math inline">\(X=USV&#39;\)</span> ，<span
+class="math inline">\(U\)</span> 和<span
+class="math inline">\(V\)</span> 均为正交（酉）矩阵，<span
+class="math inline">\(S\)</span> 为<span class="math inline">\(m\times
+n\)</span> 维的对角矩阵，其对角线元素为<span
+class="math inline">\(X\)</span> 的从大到小排序的非奇异值</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[U,S,V]=svd(X);<br></code></pre></td></tr></table></figure>
+<p><strong>note</strong>:</p>
+<p><strong>奇异值</strong> 是矩阵<span
+class="math inline">\(A^HA\)</span> 的特征值的算术平方根</p>
+<h2 id="特征值分解">3.1 特征值分解</h2>
+<p>对方阵<span class="math inline">\(A\)</span> ，若标量<span
+class="math inline">\(λ\)</span> 和<span class="math inline">\(n\times
+1\)</span> 向量<span class="math inline">\(\mu\)</span> 满足 <span
+class="math display">\[
+A\mu=λ\mu
+\]</span> 则称<span class="math inline">\(λ\)</span> 和<span
+class="math inline">\(\mu\)</span> 分别是矩阵<span
+class="math inline">\(A\)</span> 的<strong>特征值</strong>
+和<strong>特征向量</strong> ，而二元组<span
+class="math inline">\((λ,\mu)\)</span> 称为矩阵<span
+class="math inline">\(A\)</span> 的特征对</p>
+<p>notes：</p>
+<ol type="1">
+<li><p>不要求<span class="math inline">\(A\)</span>
+是Hermitian矩阵（复共轭对称矩阵）</p></li>
+<li><p><span class="math inline">\(λ\)</span> 由特征方程的根决定 <span
+class="math display">\[
+det(A-λI)=0
+\]</span></p></li>
+</ol>
+<p><strong>其他定义</strong></p>
+<ol type="1">
+<li><p><strong>代数多重度</strong></p>
+<p><span class="math inline">\(\lambda\)</span> 有重根</p></li>
+<li><p><strong>单特征值</strong></p>
+<p>代数多重度为1，称为该特征值为单特征值，反之为多重特征值。若是多重特征值，也称具有退化特征值</p></li>
+<li><p><strong>几何多重度</strong></p>
+<p>若与<span class="math inline">\(\lambda\)</span>
+对应的线性无关特征向量<span class="math inline">\(\mu\)</span>
+的个数为<span class="math inline">\(\gamma\)</span></p></li>
+<li><p><strong>减次矩阵</strong></p>
+<p>至少有一个特征值的集合多重度大于1</p></li>
+<li><p><strong>半单特征值</strong></p>
+<p><span class="math inline">\(\lambda\)</span>
+称为半单特征值，若其代数多重度与几何多重度相等。非半单特征值称为亏损特征值。</p></li>
+</ol>
+<p><strong>note</strong>：</p>
+<p>代数多重度大于等于几何多重度</p>
+<p><strong>性质</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(A\)</span> 有<span
+class="math inline">\(n\)</span>
+个特征值，其中多重特征值按照其多重度计数</p></li>
+<li><p>若奇异，至少有一个特征值为0；若非奇异，则所有特征值非零</p></li>
+<li><p><span
+class="math inline">\(det(A^T)=\lambda\\det(A^H)=\lambda^*\\det(A+\sigma^2I)=\lambda+\sigma^2\\det(A^{-1})=\lambda^{-1}\\det(A^k)=\lambda^k\)</span></p></li>
+<li><p>对角矩阵与三角矩阵的特征值即为对角线元素</p></li>
+<li><p>幂等矩阵<span class="math inline">\(A^2=A\)</span>
+的所有特征值为0或1</p></li>
+<li><p><span
+class="math inline">\(\prod_{i=1}^n\lambda_i=det(A)=|A|\)</span></p></li>
+<li><p><span
+class="math inline">\(\sum_{i=1}^{n}\lambda_i=tr(A)\)</span></p></li>
+<li><p>特征值与秩的关系</p>
+<ol type="1">
+<li>若有<span class="math inline">\(r\)</span> 个非零特征值，则<span
+class="math inline">\(rank(A)\ge r\)</span></li>
+<li>若0是单特征值，则<span
+class="math inline">\(rank(A)=n-1\)</span></li>
+<li>若<span class="math inline">\(rank(A-\lambda I)\le
+n-1\)</span>，则<span class="math inline">\(\lambda\)</span>
+是一个特征值</li>
+</ol></li>
+<li><p>特征值对应的非零特征向量线性无关</p></li>
+<li><p>实对称矩阵或Hermitian矩阵具有实特征值，且不同特征值对应的特征向量相互正交</p></li>
+<li><p>一个实对称矩阵或Hermitian矩阵是正定（半正定）的，当且仅当其特征值是正（非负）的</p></li>
+<li><p>相似矩阵有相同的特征值</p></li>
+<li><p>若<span class="math inline">\(A\)</span>
+的特征值互不相同，则一定可以找到一个相似矩阵使得<span
+class="math inline">\(S^{-1}AS=D\)</span> （特征值分解）</p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220506131637061.png" srcset="/img/loading.gif" lazyload alt="image-20220506131637061" style="zoom: 50%;" /></p></li>
+</ol>
+<p><strong>可对角化</strong></p>
+<p>矩阵与一对角矩阵相似</p>
+<p><strong>定理</strong></p>
+<p>可对角化当且仅当有<span class="math inline">\(n\)</span>
+个线性无关的特征向量</p>
+<p><strong>推论</strong></p>
+<p>有<span class="math inline">\(n\)</span>
+个不同的特征值，则可对角化</p>
+<p><strong>定理</strong></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220506132632851.png" srcset="/img/loading.gif" lazyload alt="image-20220506132632851" style="zoom: 50%;" /></p>
+<p><strong>基于特征值分解的图像压缩</strong>：
+特征值的绝对值相当于权重，舍弃权重小的数据对复原矩阵的精度影响不大.</p>
+<h2 id="主成分分析pca">3.2 主成分分析(PCA)</h2>
+<p><strong>Principal Component Analysis</strong></p>
+<p><strong>Minor Component Analysis</strong></p>
+<h3 id="hotelling-transform">3.2.1 Hotelling Transform</h3>
+<p>设<span class="math inline">\(X\)</span> 是实随机<span
+class="math inline">\(P\)</span> 维列向量 <span class="math display">\[
+\mathbf{X}=(x_1,\cdots,x_p)^T
+\]</span> 其数学期望为 <span class="math display">\[
+\mu_x=E\{x(\xi)\}=
+\begin{bmatrix}
+E\{x_1(\xi)\} \\
+\vdots\\
+E\{x_m(\xi)\}
+\end{bmatrix}
+=\begin{bmatrix}
+\mu_1 \\
+\vdots \\
+\mu_m
+\end{bmatrix}
+\]</span></p>
+<p>自协方差矩阵为 <span class="math display">\[
+R_x=E\{(\mathbf{X}-EX)(\mathbf{X}-EX)^T\}=E\{XX^T\}-EX\cdot EX^T
+\]</span> 对<span class="math inline">\(R_X\)</span> 进行特征值分解
+<span class="math display">\[
+\mathbf{R}_X=U^T\Lambda U
+\]</span> 其中，<span class="math inline">\(U\)</span> 为正交矩阵，<span
+class="math inline">\(\Lambda=diag(\lambda_1,\lambda_2,\cdots,\lambda_p)\)</span>
+，令 <span class="math display">\[
+Y=U(X-EX)
+\]</span></p>
+<p>即Hotelling Transform</p>
+<p><strong>推论</strong> <span class="math display">\[
+\mathbf{R}_Y=diag(\lambda_1,\lambda_2,\cdots,\lambda_p)
+\]</span> <strong>推论</strong> <span class="math display">\[
+||X-EX||_2^2=||Y||_2^2=\sum_{i=1}^p\lambda_i
+\]</span> Hotelling<strong>变换的计算</strong></p>
+<ol type="1">
+<li>根据分布函数</li>
+<li>根据样本数据</li>
+</ol>
+<h3 id="主成分和次成分">3.2.2 主成分和次成分</h3>
+<p>将特征值按大小进行排序<span
+class="math inline">\(\mathbf{R}_Y=diag(\lambda_1,\lambda_2,\cdots,\lambda_p)\)</span></p>
+<p><strong>主成分</strong></p>
+<p>取<span class="math inline">\(K\)</span> 个主特征</p>
+<p><strong>次成分</strong></p>
+<p>剩下<span class="math inline">\(P-K\)</span> 个</p>
+<p><strong>主成分分析算法</strong></p>
+<ol type="1">
+<li>对数据进行Hotelling变换，特征值分解（正交化）</li>
+<li>按功率或能量大小进行从大到小排序（功率最大化）</li>
+<li>选择恰当的策略，丢弃次特征（降维）</li>
+<li>分析降维后的数据（分析）</li>
+</ol>
+<h1 id="奇异值分解">4 奇异值分解</h1>
+<h2 id="数值稳定性与条件数">4.1 数值稳定性与条件数</h2>
+<p>方程<span class="math inline">\(AX=b\)</span> 的解<span
+class="math inline">\(X\)</span></p>
+<p>若<span class="math inline">\(b\)</span> 有微小扰动，则解的相对扰动为
+<span class="math display">\[
+\frac{||\delta X||_2}{||X||_2}\le
+(||A||_2\cdot||A^{-1}||_2)\frac{||\delta b||_2}{||b||_2}
+\]</span> 若<span class="math inline">\(A\)</span>
+有微小扰动，则解的相对扰动为 <span class="math display">\[
+\frac{||\delta X||_2}{||X+\delta X||_2}\le
+(||A||_2\cdot||A^{-1}||_2)\frac{||\delta A||_2}{||A||_2}
+\]</span> <img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220507103058023.png" srcset="/img/loading.gif" lazyload
+alt="image-20220507103058023" /></p>
+<p><strong>数值稳定性</strong></p>
+<p>定义矩阵的<strong>条件数</strong> <span class="math display">\[
+cond(A)=||A||_2\cdot||A^{-1}||_2
+\]</span> <strong>性质</strong></p>
+<ol type="1">
+<li><span class="math inline">\(cond(A)\ge 0,iff\ 为酉矩阵\)</span></li>
+<li><span class="math inline">\(cond(aA)=cond(A)\)</span></li>
+<li><span class="math inline">\(cond(A^HA)=[cond(A)]^2\)</span></li>
+<li><span class="math inline">\(cond(QA)=cond(A),Q为酉矩阵\)</span></li>
+</ol>
+<p><strong>结论</strong></p>
+<ol type="1">
+<li>矩阵越靠近奇异矩阵，条件数越大</li>
+<li>相对精度与条件数成正比</li>
+</ol>
+<h2 id="奇异值分解-1">4.2 奇异值分解</h2>
+<p><span class="math display">\[
+A=U\Sigma V^T\\
+\Sigma=
+\begin{bmatrix}
+\Sigma_1&amp;0\\0&amp;0\\
+\end{bmatrix},\Sigma_1=diag(\sigma_1,\sigma_2,\cdots,\sigma_r)\\r=rank(A),由大到小排列
+\]</span></p>
+<h3 id="定义">4.2.1 <strong>定义</strong></h3>
+<ol type="1">
+<li><p><span class="math inline">\(V\)</span> 的列向量<span
+class="math inline">\(v_i\)</span> 称为<span
+class="math inline">\(A\)</span> 的右奇异向量，<span
+class="math inline">\(V\)</span> 称为<span
+class="math inline">\(A\)</span> 的右奇异向量矩阵</p></li>
+<li><p><span class="math inline">\(U\)</span> 的列向量<span
+class="math inline">\(u_i\)</span> 称为<span
+class="math inline">\(A\)</span> 的左奇异向量，<span
+class="math inline">\(U\)</span> 称为<span
+class="math inline">\(A\)</span> 的左奇异向量矩阵</p></li>
+<li><p><span
+class="math inline">\(u_i^HAv_i=\sigma_i,i\in[1,min\{m,n\}]\)</span></p></li>
+<li><p>可以写成向量表达形式 <span class="math display">\[
+A=\sum_{i=1}^r{\sigma_i\mathbf{u}_i\mathbf{v}_i^H},here\ \sigma\ is \ a\
+scalar
+\]</span></p></li>
+<li><p>由奇异值分解公式得 <span class="math display">\[
+AA^H=U(\Sigma\Sigma^H)U^H
+\]</span> 这表明奇异值<span class="math inline">\(\sigma_i\)</span>
+是矩阵乘积<span class="math inline">\(AA^H\)</span>
+得特征值得正平方根</p></li>
+<li><p>设<span class="math inline">\(r=rank(A)&lt;min\{m,n\}\)</span>
+<span class="math display">\[
+A=U_r\Sigma_rV_r^H
+\]</span> 称为截尾奇异值分解或薄奇异值分解</p></li>
+</ol>
+<h3 id="补充外积">4.2.2 <strong>补充：外积</strong></h3>
+<ol type="1">
+<li><p>列向量<span class="math inline">\(u\)</span> 和列向量<span
+class="math inline">\(v\)</span> 的外积是指矩阵<span
+class="math inline">\(uv^T\)</span></p>
+<p><span
+class="math inline">\(A=\sum_{i=1}^{r}\sigma_iu_iv_i^H\)</span></p>
+<p>SVD分解：任意矩阵都是其左奇异向量和右奇异向量的外积组合，组合系数是其奇异值</p></li>
+<li><p>奇异值和特征值的联系 <span class="math display">\[
+AA^H=U(\Sigma\Sigma^H)U^H\\
+A^HA=V\Sigma^H\Sigma V^H
+\]</span></p></li>
+</ol>
+<h3 id="性质">4.2.3 <strong>性质</strong></h3>
+<ol type="1">
+<li><p><span class="math inline">\(r\)</span>
+和奇异值是确定的，但是左右奇异向量矩阵不唯一</p></li>
+<li><p><span class="math inline">\(A^H=V\Sigma^TU^H\)</span></p></li>
+<li><p><span
+class="math inline">\(PAQ^H=\widetilde{U}\Sigma\widetilde{V}^H,P、Q为酉矩阵\)</span></p></li>
+<li><p><span
+class="math inline">\(\Sigma^T\Sigma=diag(\sigma_1^2,\sigma_2^2,\cdots,\sigma_r^2;0,\cdots,0)\)</span></p></li>
+<li><p><strong>Moore-Penrose逆矩阵（摩尔-彭罗斯广义逆）</strong> <span
+class="math display">\[
+A^\dagger=V\Sigma^\dagger U^H
+\]</span></p></li>
+</ol>
+<h3 id="eckart-young定理">4.2.4 <strong>Eckart-Young定理</strong></h3>
+<p>Suppose a matrix <img
+src="https://www.zhihu.com/equation?tex=A\in+\mathbb%7BR%7D%5E%7Bm\times+n%7D" srcset="/img/loading.gif" lazyload
+alt="[公式]" /> has an SVD-decomposition <img
+src="https://www.zhihu.com/equation?tex=A%3DU\Sigma+V%5ET" srcset="/img/loading.gif" lazyload
+alt="[公式]" /> . Let <img
+src="https://www.zhihu.com/equation?tex=k+%3C+r%3D+\mathsf%7Brank%7D(A)" srcset="/img/loading.gif" lazyload
+alt="[公式]" /> and truncated matrix <img
+src="https://www.zhihu.com/equation?tex=A_k+%3D+\sum_%7Bi%3D1%7D%5Ek+\sigma_i+\mathbf+u_i+\mathbf+v_i%5ET%2C" srcset="/img/loading.gif" lazyload
+alt="[公式]" /> then, for any matrix <span
+class="math inline">\(B\)</span> of rank <span
+class="math inline">\(k\)</span> , the minimal error is achieved with
+<span class="math inline">\(A_k\)</span> : <img
+src="https://www.zhihu.com/equation?tex=\min_%7B\mathsf%7Brank%7D(B)%3Dk%7D%7C%7CA-B%7C%7C_2+%3D+%7C%7C+A+-+A_k%7C%7C_2+%3D+\sigma_%7Bk%2B1%7D." srcset="/img/loading.gif" lazyload
+alt="[公式]" /> The same holds for Frobenius norm as well <img
+src="https://www.zhihu.com/equation?tex=\min_%7B\mathsf%7Brank%7D(B)%3Dk%7D%7C%7CA-B%7C%7C_F+%3D+%7C%7C+A+-+A_k%7C%7C_F+%3D+\sqrt%7B\sigma_%7Bk%2B1%7D%5E2+%2B+\cdots+%2B+\sigma_p%5E2%7D." srcset="/img/loading.gif" lazyload
+alt="[公式]" /></p>
+<p><strong>矩阵的低秩逼近解决：降维的可能性，“降维后信息损失有多大？”等问题？</strong></p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220507125436462.png" srcset="/img/loading.gif" lazyload
+alt="image-20220507125436462" />
+<figcaption aria-hidden="true">image-20220507125436462</figcaption>
+</figure>
+<h3 id="矩阵奇异值与条件数的关系">4.2.4 矩阵奇异值与条件数的关系</h3>
+<p><span class="math display">\[
+cond(A)=\frac{\sigma_1}{\sigma_p},p=min\{m,n\}\ge rank(A)
+\]</span></p>
+<ol type="1">
+<li>条件数大于等于1</li>
+<li>奇异矩阵的条件数无穷大</li>
+<li>条件数很大时，<span class="math inline">\(A\)</span>
+接近奇异，此时其行或列的线性相关很强</li>
+<li><span
+class="math inline">\(cond(A^HA)=\frac{\sigma_1^2}{\sigma_p^2}=[cond(A)]^2\)</span></li>
+</ol>
+<h3 id="奇异值与矩阵范数的关系">4.2.5 奇异值与矩阵范数的关系</h3>
+<ol type="1">
+<li>谱范数<span
+class="math inline">\(||A||_{spec}=\sigma_1\)</span></li>
+<li>Frobenius范数<span
+class="math inline">\(||A||_F=[\sum_{i=1}^m\sum_{j=1}^n{|a_{ij}|^2}]^{\frac{1}{2}}=\sqrt{\sigma_1^2+\sigma_2^2+\cdots+\sigma_r^2}\)</span></li>
+</ol>
+<h3 id="奇异值分解与特征值之间的联系与区别">4.2.6
+奇异值分解与特征值之间的联系与区别</h3>
+<ol type="1">
+<li><p>奇异值分解适用于长方矩阵，而特征值分解适用于正方矩阵</p></li>
+<li><p>即使是同一个<span class="math inline">\(n\times
+n\)</span>非Hermitian矩阵<span class="math inline">\(A\)</span>
+，奇异值和特征值的定义也是 完全不同的：奇异值定义为 <span
+class="math display">\[
+\sigma_k=\min\{||E||_{spec}:rank(A+E)\le k-1\},k\le \min(m,n)\\
+E_k=-\sum_{i=k}^{r}{\sigma_iu_iv_i^T}\quad 最佳扰动矩阵
+\]</span> 特征值定义为<span class="math inline">\(det(A-\lambda
+I)=0\)</span> 的根</p></li>
+<li><p><span class="math inline">\(A_{m\times n}\)</span> 的左右奇异向量
+<span class="math display">\[
+u_i^HAv_i=\sigma_i
+\]</span> <span class="math inline">\(A_{n\times n}\)</span>
+的左右特征向量 <span class="math display">\[
+u^HA=\lambda_iu^H,Av_i=\lambda_iv_i
+\]</span>
+对于同一个非Hermintian矩阵，其左右奇异向量与左右特征向量没有内在关系。但<span
+class="math inline">\(A\)</span> 的左奇异向量是<span
+class="math inline">\(AA^H\)</span> 的左特征向量，<span
+class="math inline">\(A\)</span> 的右奇异向量是<span
+class="math inline">\(A^HA\)</span> 的右特征向量。（容易证明）</p></li>
+</ol>
+<h2 id="应用">4.3 应用</h2>
+<h3 id="基于奇异值分解的图像压缩">4.3.1 基于奇异值分解的图像压缩</h3>
+<p><strong>压缩比</strong> <span class="math display">\[
+\rho=\frac{m\times n}{k(m+n+1)},k\le \min\{m,n\}
+\]</span></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">%读原图像</span><br>X=imread(<span class="hljs-string">&#x27;test.jpg&#x27;</span>);<br>Y=rgb2gray(X);<br><span class="hljs-built_in">figure</span>(<span class="hljs-number">1</span>);imshow(Y);<br><br><span class="hljs-comment">%奇异值分解</span><br>[U,D,V]=svd(double(Y));<br><br>SS=<span class="hljs-built_in">size</span>(D);<br><br>M=<span class="hljs-built_in">zeros</span>(SS(<span class="hljs-number">1</span>),SS(<span class="hljs-number">2</span>));<br>H=<span class="hljs-built_in">min</span>(SS(<span class="hljs-number">1</span>),SS(<span class="hljs-number">2</span>));<br>dd=<span class="hljs-built_in">fix</span>(H/<span class="hljs-number">9</span>);<br>d=<span class="hljs-built_in">fix</span>(<span class="hljs-built_in">sqrt</span>(dd));<br><br><span class="hljs-keyword">for</span> L=<span class="hljs-number">1</span>:d*d<br>MM=M;<br><span class="hljs-keyword">for</span> ii=<span class="hljs-number">1</span>:(L)*<span class="hljs-number">9</span><br>    MM(ii,ii)=<span class="hljs-number">1</span>;    <br><span class="hljs-keyword">end</span><br>rho=SS(<span class="hljs-number">1</span>)*SS(<span class="hljs-number">2</span>)/((SS(<span class="hljs-number">1</span>)+SS(<span class="hljs-number">2</span>)+<span class="hljs-number">1</span>)*L);<br><br><span class="hljs-comment">%基于特征值分解进行图像重建（还原）</span><br>GG=U*(MM.*D)*V&#x27;;<br><span class="hljs-built_in">figure</span>(<span class="hljs-number">3</span>),subplot(d,d,L),<br>imshow(uint8(<span class="hljs-built_in">abs</span>(GG)));<br>title([<span class="hljs-string">&#x27;L=&#x27;</span>,num2str(L*<span class="hljs-number">9</span>),<span class="hljs-string">&#x27;, rho=&#x27;</span>,num2str(rho)]);<br><span class="hljs-keyword">end</span><br><br>ZZ=<span class="hljs-built_in">zeros</span>(d,d);<br>flag=<span class="hljs-number">1</span>;<br><span class="hljs-keyword">for</span> ii=<span class="hljs-number">1</span>:d<br>    <span class="hljs-keyword">for</span> jj=<span class="hljs-number">1</span>:d<br>        ZZ(ii,jj)=<span class="hljs-built_in">abs</span>(D(flag,flag));<br>        flag=flag+<span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br><br><span class="hljs-built_in">disp</span>(ZZ); <br></code></pre></td></tr></table></figure>
+<h3 id="基于奇异值分解的数字水印技术">4.3.2
+基于奇异值分解的数字水印技术</h3>
+<ol type="1">
+<li>水印信息</li>
+<li>水印嵌入算法</li>
+<li>水印提取、检测和验证算法</li>
+</ol>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs matlab">clear;clc;<br>AA=imread(<span class="hljs-string">&#x27;A.jpg&#x27;</span>);           <span class="hljs-comment">% 原图</span><br>WW=imread(<span class="hljs-string">&#x27;test.jpg&#x27;</span>);             <span class="hljs-comment">% 水印</span><br>A(:,:)=AA(:,:,<span class="hljs-number">1</span>);               <span class="hljs-comment">% 嵌入在第一个通道</span><br>W=rgb2gray(WW);<br><br>SW=<span class="hljs-built_in">size</span>(W);<br><span class="hljs-built_in">figure</span>(<span class="hljs-number">1</span>),imagesc(AA);<br>[U,S,V]=svd(double(A));<br>SS=<span class="hljs-built_in">size</span>(S);<br>WWW=<span class="hljs-built_in">zeros</span>(SS(<span class="hljs-number">1</span>),SS(<span class="hljs-number">2</span>));<br>WWW(<span class="hljs-number">1</span>:SW(<span class="hljs-number">1</span>),<span class="hljs-number">1</span>:SW(<span class="hljs-number">2</span>))=W(:,:);    <span class="hljs-comment">% 放在了左上角</span><br><span class="hljs-built_in">figure</span>(<span class="hljs-number">2</span>),imagesc(WWW);<br>a=<span class="hljs-number">0.01</span>;<br><br><br><span class="hljs-comment">%嵌入数字水印</span><br>L=a*double(WWW)+S;<br>[U1,S1,V1]=svd(double(L));<br>AW=U*S1*V&#x27;;<br><span class="hljs-comment">%AW=U*L*V&#x27;;</span><br>AA(:,:,<span class="hljs-number">1</span>)=AW(:,:);<br><span class="hljs-built_in">figure</span>(<span class="hljs-number">3</span>),imagesc(AA);<br>imsave;<br><br><br>[Up,Sp,Vp]=svd(double(AW));<br><span class="hljs-comment">%F=U*Sp*V&#x27;;</span><br>F=U1*Sp*V1&#x27;;<br><span class="hljs-comment">%F=Sp;</span><br>WE=(F-S)/a;<br><span class="hljs-built_in">figure</span>(<span class="hljs-number">4</span>),imagesc(WE);<br></code></pre></td></tr></table></figure>
+<h3 id="数据的主成分分析">4.3.3 数据的主成分分析</h3>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs matlab">[coeff,score,latent,tsquared,explained] = pca(ingredients,<span class="hljs-string">&#x27;Algorithm&#x27;</span>,<span class="hljs-string">&#x27;svd&#x27;</span>,<span class="hljs-string">&#x27;Centered&#x27;</span>,<span class="hljs-built_in">true</span>)<br><span class="hljs-built_in">disp</span>(<span class="hljs-string">&#x27;--用Matlab函数pca( )进行主成分分析---结束&#x27;</span>);<br><br>X：原始数据，列表示一个变量，每行<br>表示一个个案.<br>coeff：Hotelling变换矩阵(U).<br>score：Hotelling变换结果(Y).<br>latent：各主成分对应的奇异(特征)值.<br>tsquared：Hotelling T2统计量.<br>explained：成分比重.<br></code></pre></td></tr></table></figure>
+<h1 id="子空间">5 子空间</h1>
+<h2 id="基本问题">5.1 基本问题</h2>
+<p>线性方程组</p>
+<p>矩阵方程</p>
+<h2 id="矩阵的秩">5.2 矩阵的秩</h2>
+<h2 id="线性空间">5.3 线性空间</h2>
+<h2 id="线性子空间">5.4 线性子空间</h2>
+<p>生成子空间</p>
+<p>基、维数和坐标</p>
+<h2 id="无交连正交与正交补">5.5 无交连、正交与正交补</h2>
+<p><strong>交空间的定义</strong> <span class="math display">\[
+V_1\bigcap V_2\bigcap\cdots\bigcap V_k
+\]</span> 线性运算、数乘运算封闭</p>
+<p>若这些子空间共同的唯一向量为零向量，则称子空间<span
+class="math inline">\(V_1,V_2,\cdots,V_k\)</span>
+<strong>无交连</strong></p>
+<p>无交连的子空间的并集张成的子空间，称为这些子空间的<strong>直和</strong></p>
+<h1 id="逆矩阵与矩阵方程求解">6 逆矩阵与矩阵方程求解</h1>
+<p>矩阵可逆，逆矩阵是唯一的。</p>
+<p>对于长方矩阵、奇异矩阵的逆矩阵求解。</p>
+<p>根据Kron定理，矩阵方程可以转化为线性方程组 <span
+class="math display">\[
+\begin{array}[ccc]
+\le
+vec(BC)&amp;=&amp;(C^T\bigotimes I_p)vec(B)\\
+&amp;=&amp;(C^T\bigotimes B)vec(I_q)\\
+&amp;=&amp;(I_n\bigotimes B)vec(C)
+\end{array}
+\]</span></p>
+<h2 id="逆矩阵">6.0 逆矩阵</h2>
+<h2 id="广义逆矩阵">6.1 广义逆矩阵</h2>
+<ol type="1">
+<li>满列秩或满行秩矩阵的广义逆</li>
+<li>秩亏缺矩阵的广义逆，称为Moore-Penrose逆矩阵</li>
+</ol>
+<h3 id="满列秩和满行秩矩阵的广义逆矩阵">6.1.1
+满列秩和满行秩矩阵的广义逆矩阵</h3>
+<p>若满列秩，即<span class="math inline">\(m&gt;n\)</span> ，左伪逆矩阵
+<span class="math display">\[
+L=(A^HA)^{-1}A^H
+\]</span> 若满行秩，即<span class="math inline">\(n&gt;m\)</span>
+，右伪逆矩阵 <span class="math display">\[
+R=A^H(AA^H)^{-1}
+\]</span></p>
+<p><strong>定理</strong></p>
+<p>设<span class="math inline">\(A\in C^{m\times n}\)</span>
+，则一致方程<span class="math inline">\(Ax=b\)</span> 对任意<span
+class="math inline">\(b\ne 0\)</span> ，有解<span
+class="math inline">\(x_0=Gb\)</span> ，当且仅当 <span
+class="math display">\[
+AGA=A
+\]</span> 定义<strong>基本广义逆矩阵</strong><span
+class="math inline">\(AA^{-}A=A\)</span></p>
+<p><strong>等价定义</strong></p>
+<ol type="1">
+<li><span class="math inline">\(A^-A\)</span> 为幂等矩阵，且<span
+class="math inline">\(rank(A^-A)=rank(A)\)</span></li>
+<li><span class="math inline">\(AA^-\)</span> 为幂等矩阵，且<span
+class="math inline">\(rank(AA^-)=rank(A)\)</span></li>
+</ol>
+<p><strong>定理</strong></p>
+<p>矩阵有唯一基本广义逆的充要条件为非奇异且<span
+class="math inline">\(A^-=A^{-1}\)</span></p>
+<p><strong><span class="math inline">\(A^-\)</span> 的性质</strong></p>
+<ol type="1">
+<li>……</li>
+</ol>
+<h3 id="moore-penrose逆矩阵">6.1.2 Moore-Penrose逆矩阵</h3>
+<p>满足以下条件</p>
+<ol type="1">
+<li><span class="math inline">\(AGA=A\)</span></li>
+<li><span class="math inline">\(GAG=A\)</span></li>
+<li><span class="math inline">\((AG)^H=AG\)</span> ，即<span
+class="math inline">\(AG\)</span> 是Hermitian矩阵</li>
+<li><span class="math inline">\((GA)^H=GA\)</span> ，即<span
+class="math inline">\(GA\)</span> 是Hermitian矩阵</li>
+</ol>
+<p>称<span class="math inline">\(G\)</span> 为<span
+class="math inline">\(A\)</span> 的Moore-Penrose广义逆，记为<span
+class="math inline">\(A^{\dagger}\)</span></p>
+<p><strong>广义逆矩阵分类</strong></p>
+<ul>
+<li><strong>自反广义逆矩阵</strong>：满足1，2</li>
+<li><strong>正规化广义逆矩阵</strong>：满足1，2，3</li>
+<li><strong>弱广义逆矩阵</strong>：满足1，2，4</li>
+<li><strong>Moore-Penrose逆矩阵</strong>：满足1，2，3，4</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Study/22Spring/" class="category-chain-item">22Spring</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E7%A7%91/">#基础学科</a>
+      
+        <a href="/tags/%E7%9F%A9%E9%98%B5%E4%BB%A3%E6%95%B0/">#矩阵代数</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>矩阵代数与应用</div>
+      <div>http://example.com/2022/03/06/Matrix-Algebra/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Hakii fang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年3月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/12/pet/" title="My pet">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">My pet</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      浙ICP备2022006390号
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

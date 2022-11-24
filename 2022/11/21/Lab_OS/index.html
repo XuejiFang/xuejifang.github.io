@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en" data-default-color-scheme=auto>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -13,30 +13,29 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="Hakii fang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1. Linux基本命令 man -help pwd 显示当前目录 Print Working Directory   date who 显示当前注册到系统的每个用户信息 who am i 显示当前用户   env vmstat和top 显示系统状态   clear  文件操作  cat  显示或创建 cat &gt;   more  分页浏览   head [-行数]  显示头部   tail">
+    <meta name="description" content="1. Linux基本命令  man -help pwd  显示当前目录 Print Working Directory  date who  显示当前注册到系统的每个用户信息 who am i 显示当前用户  env vmstat和top  显示系统状态  clear  文件操作  cat  显示或创建 cat &gt;  more  分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统实验">
 <meta property="og:url" content="http://example.com/2022/11/21/Lab_OS/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. Linux基本命令 man -help pwd 显示当前目录 Print Working Directory   date who 显示当前注册到系统的每个用户信息 who am i 显示当前用户   env vmstat和top 显示系统状态   clear  文件操作  cat  显示或创建 cat &gt;   more  分页浏览   head [-行数]  显示头部   tail">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221119135345290.png">
-<meta property="og:image" content="http://example.com/.%5Cfigures%5Cexec">
+<meta property="og:site_name" content="Hakii">
+<meta property="og:description" content="1. Linux基本命令  man -help pwd  显示当前目录 Print Working Directory  date who  显示当前注册到系统的每个用户信息 who am i 显示当前用户  env vmstat和top  显示系统状态  clear  文件操作  cat  显示或创建 cat &gt;  more  分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221121143624664.png">
 <meta property="article:published_time" content="2022-11-21T06:35:01.000Z">
-<meta property="article:modified_time" content="2022-11-21T06:37:03.363Z">
-<meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Study">
+<meta property="article:modified_time" content="2022-11-24T06:57:11.946Z">
+<meta property="article:author" content="Hakii fang">
+<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221119135345290.png">
+<meta name="twitter:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221121143624664.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>操作系统实验 - Hexo</title>
+  <title>操作系统实验 - Hakii</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -148,7 +147,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                Home
+                首页
               </a>
             </li>
           
@@ -160,7 +159,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                Archives
+                归档
               </a>
             </li>
           
@@ -172,7 +171,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
-                Categories
+                分类
               </a>
             </li>
           
@@ -184,7 +183,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                Tags
+                标签
               </a>
             </li>
           
@@ -196,7 +195,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                About
+                关于
               </a>
             </li>
           
@@ -241,7 +240,7 @@
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
         <time datetime="2022-11-21 14:35" pubdate>
-          November 21, 2022 pm
+          2022年11月21日 下午
         </time>
       </span>
     
@@ -252,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k words
+          12k 字
         
       </span>
     
@@ -263,7 +262,7 @@
         
         
         
-          98 mins
+          98 分钟
         
       </span>
     
@@ -306,25 +305,26 @@
             
               <div class="markdown-body">
                 
-                <h2 id="1-Linux基本命令"><a href="#1-Linux基本命令" class="headerlink" title="1. Linux基本命令"></a>1. Linux基本命令</h2><ul>
+                <h2 id="linux基本命令">1. Linux基本命令</h2>
+<ul>
 <li>man</li>
 <li>-help</li>
-<li>pwd<ul>
+<li>pwd
+<ul>
 <li>显示当前目录</li>
 <li>Print Working Directory</li>
-</ul>
-</li>
+</ul></li>
 <li>date</li>
-<li>who<ul>
+<li>who
+<ul>
 <li>显示当前注册到系统的每个用户信息</li>
 <li>who am i 显示当前用户</li>
-</ul>
-</li>
+</ul></li>
 <li>env</li>
-<li>vmstat和top<ul>
+<li>vmstat和top
+<ul>
 <li>显示系统状态</li>
-</ul>
-</li>
+</ul></li>
 <li>clear</li>
 </ul>
 <p><strong>文件操作</strong></p>
@@ -332,74 +332,64 @@
 <li><p>cat</p>
 <ul>
 <li>显示或创建 cat &gt;</li>
-</ul>
-</li>
+</ul></li>
 <li><p>more</p>
 <ul>
 <li>分页浏览</li>
-</ul>
-</li>
+</ul></li>
 <li><p>head [-行数]</p>
 <ul>
 <li>显示头部</li>
-</ul>
-</li>
+</ul></li>
 <li><p>tail [-行数]</p>
 <ul>
 <li>显示尾部</li>
-</ul>
-</li>
+</ul></li>
 <li><p>cp p1.c p2.c</p>
 <ul>
 <li>复制p1.c到p2.c</li>
-</ul>
-</li>
+</ul></li>
 <li><p>ln p1.c p3.c</p>
 <ul>
 <li>链接p1.c和p3.c</li>
 <li>会同时修改</li>
-</ul>
-</li>
+</ul></li>
 <li><p>mv</p>
 <ul>
 <li>mv p2.c p22.c 重命名</li>
-<li>mv p22.c ..&#x2F; 移动文件</li>
-</ul>
-</li>
-<li><p>rm</p>
-</li>
+<li>mv p22.c ../ 移动文件</li>
+</ul></li>
+<li><p>rm</p></li>
 <li><p>ls</p>
 <ul>
 <li><p>ls -l <strong>存取控制权限</strong></p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221119135345290.png" srcset="/img/loading.gif" lazyload alt="image-20221119135345290"></p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221119135345290.png" srcset="/img/loading.gif" lazyload
+alt="image-20221119135345290" />
+<figcaption aria-hidden="true">image-20221119135345290</figcaption>
+</figure>
 <ul>
-<li>第一部分——权限<ul>
-<li><code>-</code> 表示文件，<code>d</code> 表示文件夹，<code>l</code> 表示软链接</li>
+<li>第一部分——权限
+<ul>
+<li><code>-</code> 表示文件，<code>d</code> 表示文件夹，<code>l</code>
+表示软链接</li>
 <li>3位+3位+3位（用户权限、用户组权限、其他用户权限）</li>
 <li><code>r</code> 读，<code>w</code> 写，<code>x</code> 执行</li>
-</ul>
-</li>
+</ul></li>
 <li>第二部分——用户</li>
 <li>第三部分——用户组</li>
-</ul>
-</li>
-<li><p>chown改变文件的所有者</p>
-</li>
-<li><p>chgrp改变文件的组标识</p>
-</li>
-<li><p>chmod改变文件权限</p>
-</li>
-</ul>
-</li>
-<li><p>cd</p>
-</li>
-<li><p>mkdir</p>
-</li>
+</ul></li>
+<li><p>chown改变文件的所有者</p></li>
+<li><p>chgrp改变文件的组标识</p></li>
+<li><p>chmod改变文件权限</p></li>
+</ul></li>
+<li><p>cd</p></li>
+<li><p>mkdir</p></li>
 <li><p>rmdir</p>
 <ul>
 <li>删除目录</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p><strong>进程管理</strong></p>
 <ul>
@@ -410,182 +400,132 @@
 </ul>
 <p><strong>vi操作</strong></p>
 <ul>
-<li><code>:r p1.c</code>	复制</li>
+<li><code>:r p1.c</code> 复制</li>
 <li><code>set nu</code> 显示行号</li>
 </ul>
-<h2 id="2-Shell语言编程"><a href="#2-Shell语言编程" class="headerlink" title="2. Shell语言编程"></a>2. Shell语言编程</h2><ol>
-<li><p><code>vi test.sh</code></p>
-</li>
+<h2 id="shell语言编程">2. Shell语言编程</h2>
+<ol type="1">
+<li><p><code>vi test.sh</code></p></li>
 <li><p><code>i</code> 输入</p>
 <ul>
 <li>方法一</li>
 </ul>
-<ol>
+<ol type="1">
 <li>chmod +x test.sh</li>
-<li>.&#x2F;test.sh</li>
+<li>./test.sh</li>
 </ol>
 <ul>
 <li>方法二</li>
 </ul>
-<ol>
-<li>&#x2F;bin&#x2F;sh test.sh</li>
-</ol>
-</li>
+<ol type="1">
+<li>/bin/sh test.sh</li>
+</ol></li>
 </ol>
 <ul>
 <li><p>定义变量</p>
 <ul>
-<li>直接定义<code>your_name=&quot;Jaggar&quot;</code></li>
+<li>直接定义<code>your_name="Jaggar"</code></li>
 <li>调用变量<code>$your_name</code></li>
-</ul>
-</li>
+</ul></li>
 <li><p>参数传递</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;Shell 参数传递&quot;<br>echo &quot;执行的文件名：$0&quot;<br>echo &quot;第一个参数：$1&quot;<br>echo &quot;第二个参数：$2&quot;<br>echo &quot;第三个参数：$3&quot;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">运行./test3.sh 1 2 3 结果：</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Shell 参数传递</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">执行的文件名：./test3.sh</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">第一个参数：1</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">第二个参数：2</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">第三个参数：3</span><br></code></pre></td></tr></table></figure>
-
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">!/bin/bash</span><br>echo &quot;执行的文件名：$0&quot;<br>echo &quot;第一个参数：$1&quot;<br>echo &quot;第二个参数：$2&quot;<br>echo &quot;第三个参数：$3&quot;<br>echo &quot;参数个数为：$#&quot;<br>echo &quot;传递的参数作为一个字符串显示为：$*&quot;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">运行/bin/sh test4.sh 1 2结果：</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">执行的文件名：test4.sh</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">第一个参数：1</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">第二个参数：2</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">第三个参数：</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">参数个数为：2</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">传递的参数作为一个字符串显示为：1 2</span><br></code></pre></td></tr></table></figure>
-
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">!/bin/bash</span><br>echo &quot;\$*演示&quot;<br>for i in &quot;$*&quot;;do<br>        echo $i<br>done<br><br>echo &quot;\$@演示&quot;<br>for i in &quot;$@&quot;;do<br>        echo $i<br>done<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">$*演示</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">1 2 3</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-variable">$@</span>演示</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">1</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">2</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">3</span><br></code></pre></td></tr></table></figure>
-
 <ul>
 <li><code>$*</code>认为只传递了一个参数</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="3-main函数"><a href="#3-main函数" class="headerlink" title="3. main函数"></a>3. main函数</h2><p><strong>完整格式</strong></p>
+<h2 id="main函数">3. main函数</h2>
+<p><strong>完整格式</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc,<span class="hljs-type">char</span> *argv[],<span class="hljs-type">char</span> **envp)</span><br></code></pre></td></tr></table></figure>
-
-
-
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc, <span class="hljs-type">char</span> *argv[])</span>&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;输入参数有%d个\n&quot;</span>,argc);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span>;i&lt;argc;i++)<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;第%d个:%s\n&quot;</span>,i,argv[i]);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">// ./a.out 1 2 3</span><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">输入参数有4个</span><br><span class="hljs-comment">第0个:./a.out</span><br><span class="hljs-comment">第1个:1</span><br><span class="hljs-comment">第2个:2</span><br><span class="hljs-comment">第3个:3</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">// ./a.out I love OS</span><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">输入参数有4个</span><br><span class="hljs-comment">第0个:./a.out</span><br><span class="hljs-comment">第1个:I</span><br><span class="hljs-comment">第2个:love</span><br><span class="hljs-comment">第3个:OS</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">// ./a.out &quot;I love OS&quot; &quot;me 2&quot;</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">输入参数有3个</span><br><span class="hljs-comment">第0个:./a.out</span><br><span class="hljs-comment">第1个:I love OS</span><br><span class="hljs-comment">第2个:me 2</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
-
-
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">(<span class="hljs-type">int</span> argc,<span class="hljs-type">char</span> *argv[])</span><br>&#123;<br>	<span class="hljs-type">int</span> i;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s\n&quot;</span>,getenv(argv[<span class="hljs-number">1</span>]));<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
 <p><strong>返回值</strong></p>
-<p><code>void exit(int status)</code>  返回给父进程的状态值。</p>
+<p><code>void exit(int status)</code> 返回给父进程的状态值。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>        <span class="hljs-built_in">exit</span>(<span class="hljs-number">32</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">23</span>;<br>&#125;<br><br><span class="hljs-comment">// ./a.out</span><br><span class="hljs-comment">// echo $?</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">32</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>        <span class="hljs-comment">//exit(32);</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">23</span>;<br>&#125;<br><br><span class="hljs-comment">// ./a.out</span><br><span class="hljs-comment">// echo $?</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">23</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
-
-
 <p><strong>exec</strong></p>
 <p>exec(路径，标识符，参数，NULL)</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Start/n&quot;</span>);<br>        execl(<span class="hljs-string">&quot;/bin/ls&quot;</span>,<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;-l&quot;</span>,<span class="hljs-literal">NULL</span>);<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;terminate\n&quot;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">总用量 28</span><br><span class="hljs-comment">-rwxr-xr-x 1 root root 8656 11月 10 11:15 a.out</span><br><span class="hljs-comment">-rw-r--r-- 1 root root  157 11月 10 11:03 exec1.c</span><br><span class="hljs-comment">-rw-r--r-- 1 root root  162 11月 10 11:06 exec2.c</span><br><span class="hljs-comment">-rw-r--r-- 1 root root  173 11月 10 11:14 exec3.c</span><br><span class="hljs-comment">-rw-r--r-- 1 root root  169 11月  9 11:16 p1.c</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Start/n&quot;</span>);<br>        execl(<span class="hljs-string">&quot;/bin/ls&quot;</span>,<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;-al&quot;</span>,<span class="hljs-string">&quot;../Lab2&quot;</span>,<span class="hljs-literal">NULL</span>);<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;terminate\n&quot;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">总用量 28</span><br><span class="hljs-comment">drwxr-xr-x 2 root root 4096 11月  9 10:44 .</span><br><span class="hljs-comment">drwxr-xr-x 6 root root 4096 11月  9 10:55 ..</span><br><span class="hljs-comment">-rw-r--r-- 1 root root   68 11月  8 21:39 test2.sh</span><br><span class="hljs-comment">-rwxr-xr-x 1 root root  174 11月  9 10:29 test3.sh</span><br><span class="hljs-comment">-rw-r--r-- 1 root root  214 11月  9 10:38 test4.sh</span><br><span class="hljs-comment">-rw-r--r-- 1 root root  110 11月  9 10:44 test5.sh</span><br><span class="hljs-comment">-rwxr-xr-x 1 root root   33 11月  8 14:17 test.sh</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="4-进程管理类（1）"><a href="#4-进程管理类（1）" class="headerlink" title="4. 进程管理类（1）"></a>4. 进程管理类（1）</h2><p><strong>fork()</strong></p>
+<h2 id="进程管理类1">4. 进程管理类（1）</h2>
+<p><strong>fork()</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">if</span>(fork()==<span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I am son process\n&quot;</span>);<br>                execl(<span class="hljs-string">&quot;/bin/ls&quot;</span>,<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;-al&quot;</span>,<span class="hljs-string">&quot;/bin/ls&quot;</span>,<span class="hljs-literal">NULL</span>);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I am parent process\n&quot;</span>);<br>        &#125;<br><br>        sleep(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 <p><strong>getpid()、getppid()</strong></p>
 <ul>
-<li><p>父进程的pid是子进程的ppid</p>
-</li>
-<li><p>父进程的ppid是bash的pid</p>
-</li>
+<li><p>父进程的pid是子进程的ppid</p></li>
+<li><p>父进程的ppid是bash的pid</p></li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">int</span> pid;<br>        <span class="hljs-keyword">if</span>(fork()==<span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I am child process,pid=%d,ppid=%d\n&quot;</span>,getpid(),getppid());<br>                execl(<span class="hljs-string">&quot;bin/ps&quot;</span>,<span class="hljs-string">&quot;ps&quot;</span>,<span class="hljs-literal">NULL</span>);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I am parent process,pid=%d,ppid=%d\n&quot;</span>,getpid(),getppid());<br>        &#125;<br><br>        sleep(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>Because parent process is finished by the time the child asks for its parent’s pid.</strong></p>
+<p><strong>Because parent process is finished by the time the child asks
+for its parent's pid.</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;sys/types.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">int</span> pid;<br>	<span class="hljs-keyword">if</span>((pid=fork())==<span class="hljs-number">0</span>)&#123;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;step 1:I am child process,pid:%d,ppid:%d,pid:%d\n&quot;</span>,<br>			getpid(),getppid(),pid);<br>		sleep(<span class="hljs-number">10</span>);<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;step 2:I am child process,pid:%d,ppid:%d,pid:%d\n&quot;</span>,<br>			getpid(),getppid(),pid);<br>	&#125;<span class="hljs-keyword">else</span>&#123;<br>		<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I am parent process,pid:%d,ppid:%d,pid:%d\n&quot;</span>,<br>			getpid(),getppid(),pid);<br>	&#125;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">[root@jaggar Lab4]# ./a.out</span><br><span class="hljs-comment">I am parent process,pid:24070,ppid:23805,pid:24071</span><br><span class="hljs-comment">[root@jaggar Lab4]# step 1:I am child process,pid:24071,ppid:1,pid:0</span><br><span class="hljs-comment">step 2:I am child process,pid:24071,ppid:1,pid:0</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
-
-
 <ul>
-<li>**fork()**在父进程中返回子进程的pid，在子进程中返回0说明创建进程成功，并且执行子进程</li>
+<li><strong>fork()</strong>在父进程中返回子进程的pid，在子进程中返回0说明创建进程成功，并且执行子进程</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">int</span> pid;<br>        <span class="hljs-keyword">if</span>((pid=fork())==<span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I am child process,pid=%d,ppid=%d,return pid=%d\n&quot;</span>,getpid(),getppid(),pid);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I am parent process,pid=%d,ppid=%d,return pid=%d\n&quot;</span>,getpid(),getppid(),pid);<br>        &#125;<br><br>        sleep(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">I am parent process,pid=17501,ppid=17462,return pid=17502</span><br><span class="hljs-comment">I am child process,pid=17502,ppid=17501,return pid=0</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
-
-
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">int</span> pid;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>,pid=fork());<br>        <span class="hljs-keyword">if</span>(pid==<span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I am child process,pid=%d,ppid=%d,return pid=%d\n&quot;</span>,getpid(),getppid(),pid);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;I am parent process,pid=%d,ppid=%d,return pid=%d\n&quot;</span>,getpid(),getppid(),pid);<br>        &#125;<br><br>        sleep(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">17546</span><br><span class="hljs-comment">I am parent process,pid=17545,ppid=17462,return pid=17546</span><br><span class="hljs-comment">0</span><br><span class="hljs-comment">I am child process,pid=17546,ppid=17545,return pid=0</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
-
-
 <p><strong>wait()</strong></p>
 <ul>
 <li>父进程等子进程运行完</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;sys/wait.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br><br>        <span class="hljs-keyword">if</span>(fork()==<span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;child process\n&quot;</span>);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>                wait(<span class="hljs-literal">NULL</span>);<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;parent process start\n&quot;</span>);<br>                <span class="hljs-comment">//wait(NULL);</span><br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;parent process end\n&quot;</span>);<br><br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">child process</span><br><span class="hljs-comment">parent process start</span><br><span class="hljs-comment">parent process end</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;sys/wait.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br><br>        <span class="hljs-keyword">if</span>(fork()==<span class="hljs-number">0</span>)&#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;child process\n&quot;</span>);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-comment">//wait(NULL);</span><br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;parent process start\n&quot;</span>);<br>                wait(<span class="hljs-literal">NULL</span>);<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;parent process end\n&quot;</span>);<br><br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">parent process start</span><br><span class="hljs-comment">child process</span><br><span class="hljs-comment">parent process end</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
 <p><strong>查看子进程是否正常退出</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;wait.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;sys/types.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">int</span> status=<span class="hljs-number">-1</span>;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Started\n&quot;</span>);<br>        <span class="hljs-keyword">if</span>(fork()==<span class="hljs-number">0</span>)<br>                execl(<span class="hljs-string">&quot;/bin/ls&quot;</span>,<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;-al&quot;</span>,<span class="hljs-string">&quot;/bin/ls&quot;</span>,<span class="hljs-literal">NULL</span>);<br>        <span class="hljs-keyword">else</span><br>                wait(&amp;status);<br>        <span class="hljs-comment">// printf(&quot;Terminated:%d\n&quot;,WEXITSTATUS(status));</span><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;exit status:%d\n&quot;</span>,WEXITSTATUS(status));<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;if exit:%d\n&quot;</span>,WIFEXITED(status));<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;status=%d\n&quot;</span>,status);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">Started</span><br><span class="hljs-comment">-rwxr-xr-x. 1 root root 117656 11月  6 2016 /bin/ls</span><br><span class="hljs-comment">exit status:0</span><br><span class="hljs-comment">if exit:1</span><br><span class="hljs-comment">status=0    </span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="5-进程管理类（2）"><a href="#5-进程管理类（2）" class="headerlink" title="5. 进程管理类（2）"></a>5. 进程管理类（2）</h2><ul>
-<li>进程图像？？？</li>
+<h2 id="进程管理类2">5. 进程管理类（2）</h2>
+<ul>
+<li>进程图像</li>
 </ul>
 <p><strong>exec()</strong></p>
 <ul>
 <li><p>execl()</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        execl(<span class="hljs-string">&quot;/bin/ls&quot;</span>,<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;-al&quot;</span>,<span class="hljs-literal">NULL</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        execl(<span class="hljs-string">&quot;/bin/ls&quot;</span>,<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;-al&quot;</span>,<span class="hljs-literal">NULL</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 <li><p>execv()</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">char</span> *argv[]=&#123;<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;-al&quot;</span>&#125;;<br>        execv(<span class="hljs-string">&quot;/bin/ls&quot;</span>,argv);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">char</span> *argv[]=&#123;<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;-al&quot;</span>&#125;;<br>        execv(<span class="hljs-string">&quot;/bin/ls&quot;</span>,argv);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 <li><p>execle()</p>
 <ul>
-<li>这个e干嘛的？</li>
-</ul>
-</li>
+<li></li>
+</ul></li>
 <li><p>execve()</p>
 <ul>
-<li>这个e干嘛的？</li>
-</ul>
-</li>
+<li></li>
+</ul></li>
 <li><p>execlp()</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        execlp(<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;-al&quot;</span>,<span class="hljs-literal">NULL</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        execlp(<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;-al&quot;</span>,<span class="hljs-literal">NULL</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 <li><p>execvp()</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">char</span> *argv[]=&#123;<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;-al&quot;</span>&#125;;<br>        execvp(<span class="hljs-string">&quot;ls&quot;</span>,argv);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
-<p><img src="/.%5Cfigures%5Cexec" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h2 id="6-C调用Shell"><a href="#6-C调用Shell" class="headerlink" title="6. C调用Shell"></a>6. C调用Shell</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        system(<span class="hljs-string">&quot;./p1.sh&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
+<figure>
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/exec.jpg" srcset="/img/loading.gif" lazyload
+alt="exec" />
+<figcaption aria-hidden="true">exec</figcaption>
+</figure>
+<h2 id="c调用shell">6. C调用Shell</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        system(<span class="hljs-string">&quot;./p1.sh&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        execl(<span class="hljs-string">&quot;/bin/bash&quot;</span>,<span class="hljs-string">&quot;bash&quot;</span>,<span class="hljs-string">&quot;./p1.sh&quot;</span>,<span class="hljs-literal">NULL</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Hello\n&quot;</span>);<br>        execl(<span class="hljs-string">&quot;/bin/sh&quot;</span>,<span class="hljs-string">&quot;sh&quot;</span>,<span class="hljs-string">&quot;./p1.sh&quot;</span>,<span class="hljs-literal">NULL</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="7-管道通信"><a href="#7-管道通信" class="headerlink" title="7. 管道通信"></a>7. 管道通信</h2><p><code>|</code></p>
+<h2 id="管道通信">7. 管道通信</h2>
+<p><code>|</code></p>
 <p>一个命令的输出作为另一个命令的输入</p>
 <p><code>ls --help | more</code></p>
 <p><code>ls | sort</code></p>
 <p><strong>write()和read()</strong></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">int</span> p[<span class="hljs-number">2</span>];<br>        pipe(p);        <span class="hljs-comment">// CREATE PIPE, PIPE[0] IS READ PORT, PIPE[1] IS WRITE PORT</span><br>        <span class="hljs-keyword">if</span>(fork()==<span class="hljs-number">0</span>)&#123;<br><br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;child process satrt\n&quot;</span>);<br>                <span class="hljs-type">char</span> c[]=<span class="hljs-string">&quot;hello, i am child&quot;</span>;<br>                write(p[<span class="hljs-number">1</span>],c,<span class="hljs-keyword">sizeof</span>(c));<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;child end\n&quot;</span>);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;this is parent process, and wait child process\n&quot;</span>);<br>                wait();<br>                <span class="hljs-type">char</span> ans[<span class="hljs-number">100</span>];<br>                read(p[<span class="hljs-number">0</span>],ans,<span class="hljs-keyword">sizeof</span>(ans));<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;i am parent, and i got \&quot;%s\&quot; in the PIPE\n&quot;</span>,ans);<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;parent end\n&quot;</span>);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">this is parent process, and wait child process</span><br><span class="hljs-comment">child process satrt</span><br><span class="hljs-comment">child end</span><br><span class="hljs-comment">i am parent, and i got &quot;hello, i am child&quot; in the PIPE</span><br><span class="hljs-comment">parent end</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
-
-
 <p><strong>stdio</strong></p>
 <p>貌似只能连续字符串？</p>
 <ul>
 <li>那是因为<code>scanf()</code>吧？</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">int</span> p[<span class="hljs-number">2</span>];<br>        pipe(p);        <span class="hljs-comment">// CREATE PIPE, PIPE[0] IS READ PORT, PIPE[1] IS WRITE PORT</span><br>        <span class="hljs-keyword">if</span>(fork()==<span class="hljs-number">0</span>)&#123;<br>                close(p[<span class="hljs-number">0</span>]);<br>                close(<span class="hljs-number">1</span>);<br>                dup(p[<span class="hljs-number">1</span>]);<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;i am child\n&quot;</span>);<br><br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>                close(p[<span class="hljs-number">1</span>]);<br>                close(<span class="hljs-number">0</span>);<br>                dup(p[<span class="hljs-number">0</span>]);<br>                <span class="hljs-type">char</span> c[<span class="hljs-number">100</span>];<br>                <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%s&quot;</span>,c);<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;in parent, i got \&quot;%s\&quot; \n&quot;</span>,c);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">in parent, i got &quot;i&quot;</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">// 改成</span><br>read(p[<span class="hljs-number">0</span>],c,<span class="hljs-keyword">sizeof</span>(c));<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">in parent, i got &quot;i am child��&quot;</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
-
-
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs c">[root@jaggar Lab7]<span class="hljs-meta"># cat pipeline.c</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;unistd.h&gt;</span></span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">int</span> p[<span class="hljs-number">2</span>];<br>        pipe(p);        <span class="hljs-comment">// CREATE PIPE, PIPE[0] IS READ PORT, PIPE[1] IS WRITE PORT</span><br>        <span class="hljs-keyword">if</span>(fork()==<span class="hljs-number">0</span>)&#123;  <span class="hljs-comment">// CHILD PROCESS</span><br>                <span class="hljs-comment">// printf(&quot;child process start/n&quot;);</span><br>                close(<span class="hljs-number">0</span>);       <span class="hljs-comment">// CLOSE STANDARD INPUT</span><br>                dup(p[<span class="hljs-number">0</span>]);      <span class="hljs-comment">// DUPLICATE PIPE READ PORT TO STANDARD INPUT</span><br>                close(p[<span class="hljs-number">0</span>]);    <span class="hljs-comment">// CLOSE ORIGINAL PIPE</span><br>                close(p[<span class="hljs-number">1</span>]);<br>                execl(<span class="hljs-string">&quot;/usr/bin/sort&quot;</span>,<span class="hljs-string">&quot;sort&quot;</span>,<span class="hljs-literal">NULL</span>);<br>                <span class="hljs-comment">// printf(&quot;child process end/n&quot;);</span><br>        &#125;<span class="hljs-keyword">else</span>&#123;          <span class="hljs-comment">// PARENT PROCESS</span><br>                <span class="hljs-comment">// printf(&quot;parent process start/n&quot;);</span><br>                <span class="hljs-comment">// wait();</span><br>                close(<span class="hljs-number">1</span>);       <span class="hljs-comment">// CLOSE STANDARD OUTPUT</span><br>                dup(p[<span class="hljs-number">1</span>]);      <span class="hljs-comment">// DUPLICATE PIPE WRITE PORT TO STANDARD OUTPUT</span><br>                close(p[<span class="hljs-number">0</span>]);    <span class="hljs-comment">// CLOSE ORIGINAL PIPE</span><br>                close(p[<span class="hljs-number">1</span>]);<br>                execl(<span class="hljs-string">&quot;/bin/ls&quot;</span>,<span class="hljs-string">&quot;ls&quot;</span>,<span class="hljs-string">&quot;-al&quot;</span>,<span class="hljs-literal">NULL</span>);<br>                <span class="hljs-comment">// printf(&quot;parent process end/n&quot;);</span><br>        &#125;<br><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">drwxr-xr-x 10 root root 4096 11月 13 14:21 ..</span><br><span class="hljs-comment">drwxr-xr-x  2 root root 4096 11月 13 15:35 .</span><br><span class="hljs-comment">-rw-r--r--  1 root root  373 11月 13 15:14 pipe1.c</span><br><span class="hljs-comment">-rw-r--r--  1 root root  443 11月 13 15:30 pipe2.c</span><br><span class="hljs-comment">-rw-r--r--  1 root root  509 11月 13 14:57 tmp2.c</span><br><span class="hljs-comment">-rw-r--r--  1 root root  519 11月 13 15:08 tmp.c</span><br><span class="hljs-comment">-rw-r--r--  1 root root  762 11月 13 15:35 pipeline.c</span><br><span class="hljs-comment">-rw-r--r--  1 root root  827 11月 13 15:07 tmp3.c</span><br><span class="hljs-comment">-rwxr-xr-x  1 root root 8808 11月 13 15:35 a.out</span><br><span class="hljs-comment">总用量 44</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="8-signal"><a href="#8-signal" class="headerlink" title="8. signal"></a>8. signal</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;signal.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-type">void</span> <span class="hljs-title function_">f</span><span class="hljs-params">(<span class="hljs-type">int</span> sig_id)</span>&#123;<br><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Recieved signal %d\n&quot;</span>,sig_id);<br>        <span class="hljs-keyword">return</span>;<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br><br>        <span class="hljs-keyword">if</span>(fork()==<span class="hljs-number">0</span>)&#123;<br>                sleep(<span class="hljs-number">1</span>);<br>                kill(getppid(),<span class="hljs-number">31</span>);<br><br>        &#125;<span class="hljs-keyword">else</span>&#123;<br><br><br>                signal(<span class="hljs-number">31</span>,f);<br>                signal(<span class="hljs-number">2</span>,f);<br>                <span class="hljs-keyword">for</span>(;;)<br>                ;<br>        &#125;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">[root@jaggar Lab8]# ./a.out</span><br><span class="hljs-comment">Recieved signal 31</span><br><span class="hljs-comment">^CRecieved signal 2</span><br><span class="hljs-comment">^CRecieved signal 2</span><br><span class="hljs-comment">^Z</span><br><span class="hljs-comment">[2]+  已停止               ./a.out</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="9-mmap"><a href="#9-mmap" class="headerlink" title="9. mmap"></a>9. mmap</h2><p>将用户空间的一段内存区域映射到内核空间，映射成功后，用户对这段内存区域的修改可以直接反映到内核空间，同样，内核空间对这段区域的修改也直接反映用户空间</p>
+<h2 id="signal">8. signal</h2>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;signal.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;stdlib.h&gt;</span></span><br><span class="hljs-type">void</span> <span class="hljs-title function_">f</span><span class="hljs-params">(<span class="hljs-type">int</span> sig_id)</span>&#123;<br><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Recieved signal %d\n&quot;</span>,sig_id);<br>        <span class="hljs-keyword">return</span>;<br>&#125;<br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span>&#123;<br><br>        <span class="hljs-keyword">if</span>(fork()==<span class="hljs-number">0</span>)&#123;<br>                sleep(<span class="hljs-number">1</span>);<br>                kill(getppid(),<span class="hljs-number">31</span>);<br><br>        &#125;<span class="hljs-keyword">else</span>&#123;<br><br><br>                signal(<span class="hljs-number">31</span>,f);<br>                signal(<span class="hljs-number">2</span>,f);<br>                <span class="hljs-keyword">for</span>(;;)<br>                ;<br>        &#125;<br>&#125;<br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">[root@jaggar Lab8]# ./a.out</span><br><span class="hljs-comment">Recieved signal 31</span><br><span class="hljs-comment">^CRecieved signal 2</span><br><span class="hljs-comment">^CRecieved signal 2</span><br><span class="hljs-comment">^Z</span><br><span class="hljs-comment">[2]+  已停止               ./a.out</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h2 id="mmap">9. mmap</h2>
+<p>将用户空间的一段内存区域映射到内核空间，映射成功后，用户对这段内存区域的修改可以直接反映到内核空间，同样，内核空间对这段区域的修改也直接反映用户空间</p>
 <p><code>void * mmap(void *start, size_t length, int prot , int flags, int fd, off_t offset)</code></p>
-<p>start：要映射到的内存区域的起始地址，通常都是用NULL（NULL即为0）。NULL表示由内核来指定该内存地址length：要映射的内存区域的大小<br>prot：期望的内存保护标志，不能与文件的打开模式冲突。是以下的某个值，可以通过or运算合理地组合在一起<br>PROT_EXEC &#x2F;&#x2F;页内容可以被执行<br>PROT_READ &#x2F;&#x2F;页内容可以被读取<br>PROT_WRITE &#x2F;&#x2F;页可以被写入<br>PROT_NONE &#x2F;&#x2F;页不可访问</p>
+<p>start：要映射到的内存区域的起始地址，通常都是用NULL（NULL即为0）。NULL表示由内核来指定该内存地址length：要映射的内存区域的大小
+prot：期望的内存保护标志，不能与文件的打开模式冲突。是以下的某个值，可以通过or运算合理地组合在一起
+PROT_EXEC //页内容可以被执行 PROT_READ //页内容可以被读取 PROT_WRITE
+//页可以被写入 PROT_NONE //页不可访问</p>
 
                 
               </div>
@@ -594,11 +534,49 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Study/22Fall/" class="category-chain-item">22Fall</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Lab/" class="category-chain-item">Lab</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Study/">#Study</a>
+        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">#操作系统</a>
       
     </div>
   
@@ -616,26 +594,26 @@
     <div class="license-meta">
       
         <div class="license-meta-item">
-          <div>Author</div>
-          <div>John Doe</div>
+          <div>作者</div>
+          <div>Hakii fang</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
-          <div>Posted on</div>
-          <div>November 21, 2022</div>
+          <div>发布于</div>
+          <div>2022年11月21日</div>
         </div>
       
       
       
         <div class="license-meta-item">
-          <div>Licensed under</div>
+          <div>许可协议</div>
           <div>
             
               
               
                 <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
                     <i class="iconfont icon-by"></i>
                   </span>
                 </a>
@@ -659,9 +637,9 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/20/2.%20KnowledgeGraph/" title="知识图谱">
+                      <a href="/2022/11/20/KnowledgeGraph/" title="知识图谱">
                         <span class="hidden-mobile">知识图谱</span>
-                        <span class="visible-mobile">Next</span>
+                        <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
                     
@@ -680,7 +658,7 @@
       
   <aside class="sidebar" style="margin-left: -1rem">
     <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
@@ -716,6 +694,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -735,7 +719,7 @@
   <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
         <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -743,7 +727,7 @@
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
@@ -771,16 +755,16 @@
   
     
       <span id="busuanzi_container_site_pv" style="display: none">
-        Views: 
+        总访问量 
         <span id="busuanzi_value_site_pv"></span>
-        
+         次
       </span>
     
     
       <span id="busuanzi_container_site_uv" style="display: none">
-        Visitors: 
+        总访客数 
         <span id="busuanzi_value_site_uv"></span>
-        
+         人
       </span>
     
     
@@ -943,6 +927,49 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
   <script  src="/js/local-search.js" ></script>
 
   <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
@@ -959,7 +986,7 @@
   
 
   <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
 </body>
 </html>

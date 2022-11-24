@@ -1,0 +1,1542 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png">
+  <link rel="icon" href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Hakii fang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1 绪论 1.1 信息的概念 Claude Shannon（香农） “A Mathematical Theory of Communication” 信息，就是对事物运动状态或者存在方式对不确定性的描述（随机事件） 自信息，某个消息出现的不确定性，也是这个消息所包含的信息量 \[ I(x_i)&#x3D;-\log p(x_i)&#x3D;\log{\frac{1}{p(x_i)}} \] 信息熵，信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信息论">
+<meta property="og:url" content="http://example.com/2022/06/01/Information-Theory/index.html">
+<meta property="og:site_name" content="Hakii">
+<meta property="og:description" content="1 绪论 1.1 信息的概念 Claude Shannon（香农） “A Mathematical Theory of Communication” 信息，就是对事物运动状态或者存在方式对不确定性的描述（随机事件） 自信息，某个消息出现的不确定性，也是这个消息所包含的信息量 \[ I(x_i)&#x3D;-\log p(x_i)&#x3D;\log{\frac{1}{p(x_i)}} \] 信息熵，信">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/20221124142212.png">
+<meta property="article:published_time" content="2022-06-01T14:21:00.000Z">
+<meta property="article:modified_time" content="2022-11-24T06:48:59.259Z">
+<meta property="article:author" content="Hakii fang">
+<meta property="article:tag" content="基础学科">
+<meta property="article:tag" content="信息论">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/20221124142212.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>信息论 - Hakii</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"5483baa78e864c8a0efbf18a0f7ef02f","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?5483baa78e864c8a0efbf18a0f7ef02f";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="信息论"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-01 22:21" pubdate>
+          2022年6月1日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          13k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          112 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">信息论</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="绪论">1 绪论</h1>
+<h2 id="信息的概念">1.1 信息的概念</h2>
+<p>Claude Shannon（香农） “A Mathematical Theory of Communication”</p>
+<p><strong>信息</strong>，就是对事物运动状态或者存在方式对不确定性的描述（随机事件）</p>
+<p><strong>自信息</strong>，某个消息出现的不确定性，也是这个消息所包含的信息量
+<span class="math display">\[
+I(x_i)=-\log p(x_i)=\log{\frac{1}{p(x_i)}}
+\]</span>
+<strong>信息熵</strong>，信源所含有的信息量，也就是自信息的统计平均，也被称为平均自信息
+<span class="math display">\[
+H(X)=-\sum_i^q{p(x_i)\log p(x_i)}
+\]</span></p>
+<h2 id="信息论研究对象目的和内容">1.2 信息论研究对象、目的和内容</h2>
+<p><strong>研究对象</strong></p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220519111306948.png" srcset="/img/loading.gif" lazyload
+alt="image-20220519111306948" />
+<figcaption aria-hidden="true">image-20220519111306948</figcaption>
+</figure>
+<p><strong>研究目的</strong></p>
+<ol type="1">
+<li>什么是信息？如何度量？</li>
+<li>怎样确定信源中包含多少信息量？</li>
+<li>对于一个信道，它的传输信息量的最高极限是多少？</li>
+<li>为了能够无失真的传输信源信息，对信源编码时所需的最少的码符号数是多少？<strong>（无失真信源编码，即香农第一定理）</strong></li>
+<li>在有噪信道中有没有可能以接近信道容量的信息传输率传输信息而错误概率几乎为零？<strong>（有噪信道编码，即香农第二定理）</strong></li>
+<li>如果对信源编码时允许一定量的失真，所需的最少的码符号数又是多少？<strong>（限失真信源编码，即香农第三定理）</strong></li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">信源编码的目的是压缩信源的冗余度，提高信息传输的效率，提高通信系统的有效性。信源编码可分为无失真信源编码和限失真信源编码。<br>信道编码是为了提高信息传输的可靠性而又目的地对信源编码器输出的代码组添加一些监督码元，使之具有纠检错能力。<br></code></pre></td></tr></table></figure>
+<p><strong>研究内容</strong></p>
+<ol type="1">
+<li><p>侠义信息论</p>
+<p>香农信息论。数学描述，定量分析。</p></li>
+<li><p>一般信息论</p>
+<p>工程信息论。除香农信息论外，还包括噪声信号滤波和预测、统计检测和估计、调制理论、信息处理理论以及保密理论等。</p></li>
+<li><p>广义信息论</p>
+<p>包括上面全部，还有包括所有与信息相关的自然和社会领域，如模式识别、计算机翻译、心理学、遗传学、神经生理学、语言学、语义学甚至社会学。</p></li>
+</ol>
+<h1 id="信息的度量">2 信息的度量</h1>
+<h2 id="自信息和互信息">2.1 自信息和互信息</h2>
+<h3 id="自信息">2.1.1 <strong>自信息</strong></h3>
+<p>一个事件本身所包含的信息量，它是由事件的不确定性决定的。 <span
+class="math display">\[
+I(x_i)=-\log p(x_i)=\log{\frac{1}{p(x_i)}}
+\]</span></p>
+<pre><code class="hljs">当事件发生前，等于事件发生的不确定性大小
+当事件发生后，表示事件所含有或所能提供的信息量</code></pre>
+<p>自信息量的单位与所用对数的底有关 - 2，当<span
+class="math inline">\(p(x_i)=\frac{1}{2}\)</span>时，<span
+class="math inline">\(I(x_i)=1 bit\)</span>比特（binary uint） -
+e，<span class="math inline">\(1\ nat=\log_{2}{e}\ bit=1.443\
+bit\)</span> - 10，<span class="math inline">\(1\ Hartley=\log_{2}{10}\
+bit=3.322\ bit\)</span>（工程上，哈特莱） - r，<span
+class="math inline">\(I(x_i)=-\log_{r}{p(x_i)},1\ r进制单位=\log_{2}{r}
+\ bit\)</span></p>
+<p><strong>P.S. 做题的时候记得写单位</strong></p>
+<h3 id="互信息">2.1.2 <strong>互信息</strong></h3>
+<p>一个事件所给出关于另一个事件的信息量。 <span class="math display">\[
+I(x_i;y_j)=I(x_i)-I(x_i|y_j)=\log\frac{p(x_i|y_j)}{p(x_i)}
+\]</span></p>
+<p>已知事件<span
+class="math inline">\(y_j\)</span>后所消除的关于事件<span
+class="math inline">\(x_i\)</span>的不确定性，它等于事件<span
+class="math inline">\(x_i\)</span> 本身的不确定性减去已知事件<span
+class="math inline">\(y_i\)</span> 后对<span
+class="math inline">\(x_i\)</span>
+仍然存在的不确定性。互信息的引出，使得信息传播得到了定量的表示。</p>
+<h2 id="平均自信息信息熵">2.2 <strong>平均自信息（信息熵）</strong></h2>
+<h3 id="概念">2.2.1 概念</h3>
+<p>事件集（用随机变量表示）所包含的平均信息量，它表示信源的平均不确定性。（单一事件的概率的意义不大，因此要研究信源）
+<span class="math display">\[
+H(X)=E[I(x_i)]=-\sum_{i=1}^{q}{p(x_i)\log p(x_i)}
+\]</span>
+单位是，比特<strong>/符号</strong>、奈特<strong>/符号</strong>、哈特莱<strong>/符号</strong>或者是r进制单位<strong>/符号</strong></p>
+<p>一般情况下，收信者不能完全消除信源的平均不确定性，获得的信息量将小于信息熵，<strong>这里与热力学熵概念相反，信息熵只能减少不能增加</strong>
+，所以有人称信息熵为负热熵。</p>
+<p><strong>note：</strong></p>
+<p>可以从积分角度理解。</p>
+<h3 id="性质">2.2.2 性质</h3>
+<p>把概率分布<span
+class="math inline">\(p(x_i),i=1,2,…,q\)</span>记为<span
+class="math inline">\(p_1,p_2,…,p_q\)</span>，写成概率矢量的函数。注意，因为概率空间的完备性，即<span
+class="math display">\[\sum_{i=1}^qp_i=1\]</span> ，所以<span
+class="math display">\[H(\mathbf{p})\]</span> 是<span
+class="math display">\[(q-1)\]</span> 元函数。 <span
+class="math display">\[
+H(X)=-\sum_{i=1}^{q}{p(x_i)\log p(x_i)}=H(p_1,p_2,…,p_q)=H(\mathbf{p})
+\]</span></p>
+<ul>
+<li><p>对称性：<span
+class="math display">\[H(p_1,p_2,…,p_q)=H(p_2,p_1,…,p_q)=H(p_{q-1},p_2,…,p_1)\]</span></p></li>
+<li><p>确定性：<span
+class="math inline">\(H(1,0)=H(1,0,0)=…=H(1,0,0,…,0)=0\)</span>
+确定信源的不确定度为0</p></li>
+<li><p>非负性：<span
+class="math inline">\(H(\mathbf{p})=H(p_1,p_2,…,p_q)&gt;=0\)</span></p></li>
+<li><p>扩展性：<span class="math inline">\(\lim_{\sigma \rightarrow
+0}H(p_1,p_2,…,p_q-\epsilon,\epsilon)=H_q(p_1,p_2,…,p_q)\)</span>
+增加一个基本不会出现的小概率事件，信源的熵保持不变</p></li>
+<li><p>连续性：<span class="math inline">\(\lim_{\sigma \rightarrow
+0}H(p_1,p_2,…,p_q-\epsilon,p_q+\epsilon)=H_q(p_1,p_2,…,p_q)\)</span>
+信源概率空间中概率分量的微小波动，不会引起熵的变化</p></li>
+<li><p>递推性：<span
+class="math inline">\(H(p_1,p_2,…,p_{n-1},q_1,q_2,…,q_m)=H(p_1,p_2,…,p_n)+p_nH(\frac{q_1}{p_n}+\frac{q_2}{p_n},…,\frac{q_m}{p_n})\)</span>
+熵增加了一项，是由于划分产生的不确定性</p></li>
+<li><p>极值性：<span class="math inline">\(H(p_1,p_2,\dots,p_n)\le
+H(\frac{1}{n},\frac{1}{n},\dots,\frac{1}{n})=\log n\)</span>
+表明离散信源中各消息等概率出现时熵最大，这就是最大离散熵定理</p></li>
+<li><p>上凸性： <span class="math display">\[
+\forall \alpha(0\le \alpha\le
+1),H(\alpha\mathbf{p}+(1-\alpha)\mathbf{p&#39;})&gt;\alpha
+H(\mathbf{p})+(1-\alpha)H(\mathbf{p&#39;})
+\]</span>
+凸函数在定义域内的极值必为极大值，可以利用熵函数的这个性质证明熵函数的极值性</p></li>
+</ul>
+<h3 id="联合熵与条件熵">2.2.3 联合熵与条件熵</h3>
+<p><span class="math display">\[
+\begin{bmatrix}
+XY\\
+P(XY)
+\end{bmatrix}
+=
+\begin{bmatrix}
+x_1y_1&amp;\cdots&amp;x_iy_i&amp;\cdots&amp;x_ny_m\\
+p(x_1y_1)&amp;\cdots&amp;p(x_iy_i)&amp;\cdots&amp;p(x_ny_m)
+\end{bmatrix}
+\]</span></p>
+<p>二位随机变量<span class="math inline">\(XY\)</span>
+的<strong>联合熵</strong>定位为联合自信息的数学期望，它是二维随机变量<span
+class="math inline">\(XY\)</span> 的不确定的度量。 <span
+class="math display">\[
+H(XY)=\sum_{i=1}^n{\sum_{j=1}^m{p(x_iy_i)I(x_iy_i)}}=-\sum_{i=1}^{n}\sum_{j=1}^m{p(x_iy_i)\log
+p(x_iy_i)}
+\]</span> 在给定<span class="math inline">\(X=x_i\)</span>
+的条件下，随机变量<span class="math inline">\(Y\)</span> 的不确定性为
+<span class="math display">\[
+H(Y|x_i)=-\sum_{j}p(y_i|x_i)\log{p(y_i|x_i)}
+\]</span> 对<span class="math inline">\(H(Y|x_i)\)</span>
+的所有可能值进行统计平均，就得出给定<span
+class="math inline">\(X\)</span> 时，<span
+class="math inline">\(Y\)</span> 的<strong>条件熵</strong>。 <span
+class="math display">\[
+\begin{array}[cccc]
+\le
+H(Y|X)&amp;=&amp;\sum_{i}p(x_i)H(Y|x_i) \\
+&amp;=&amp;-\sum_i\sum_{j}p(x_i)p(y_j|x_i)\log{p(y_j|x_i)}\\
+&amp;=&amp;-\sum_{i}\sum_{j}p(x_iy_j)\log{p(y_j|x_i)}
+\end{array}
+\]</span></p>
+<h3 id="各类熵之间关系">2.2.4 各类熵之间关系</h3>
+<p><strong>一、</strong> <span class="math display">\[
+H(XY)=H(X)+H(Y|X)\\
+\]</span></p>
+<p>乘积关系变成线性关系</p>
+<p><strong>链式规则</strong></p>
+<p><span class="math display">\[
+H(X_1X_2\cdots X_N)=H(X_1)+H(X_2|X_1)+\cdots+H(X_N|X_1X_2\cdots X_{N-1})
+\]</span></p>
+<p><strong>推论</strong></p>
+<p>当二维随机变量<span class="math inline">\(X,Y\)</span> 相互独立时，
+<span class="math display">\[
+H(XY)=H(X)+H(Y)
+\]</span> <strong>二、</strong> <span class="math display">\[
+H(X|Y)\le H(X)\\
+H(Y|X)\le H(Y)
+\]</span> <strong>三、</strong> <span class="math display">\[
+H(XY)\le H(X)+H(Y),\ iff\ X与Y独立
+\]</span> <strong>note：</strong></p>
+<p>可以从熵减角度记忆；</p>
+<h2 id="平均互信息">2.3 <strong>平均互信息</strong></h2>
+<p>一个事件集所给出关于另一个事件集的平均信息量。</p>
+<h3 id="平均互信息的概念">2.3.1 平均互信息的概念</h3>
+<p><span class="math display">\[
+I(X;Y)=H(X)-H(X|Y)
+\]</span></p>
+<p><span class="math inline">\(Y\)</span> 关于<span
+class="math inline">\(X\)</span> 的平均互信息是收到<span
+class="math inline">\(Y\)</span> 前后关于<span
+class="math inline">\(X\)</span> 的不确定度减少的量，也就是从<span
+class="math inline">\(Y\)</span> 所获得的关于<span
+class="math inline">\(X\)</span> 的平均信息量。</p>
+<h3 id="平均互信息的性质">2.3.2 平均互信息的性质</h3>
+<ol type="1">
+<li><p>非负性 <span class="math display">\[
+I(X;Y)\ge 0
+\]</span></p></li>
+<li><p>互易性（对称性） <span class="math display">\[
+I(X;Y)=T(Y;X)
+\]</span></p></li>
+<li><p>各类熵的关系 <span class="math display">\[
+\begin{array}[cccc]
+\le\\
+I(X;Y)&amp;=&amp;H(X)-H(X|Y)\\
+&amp;=&amp;H(Y)-H(Y|X)\\
+&amp;=&amp;H(X)+H(Y)-H(XY)
+\end{array}
+\]</span> 独立时，<span class="math inline">\(I(X;Y)=0\)</span></p></li>
+<li><p>极值性 <span class="math display">\[
+I(X;Y)\le H(X)\\
+I(X;Y)\le H(Y)
+\]</span> 从<span class="math inline">\(Y\)</span> 所获得的关于<span
+class="math inline">\(X\)</span> 的平均信息量，不会超过<span
+class="math inline">\(X\)</span> 本身所含的信息量。</p></li>
+<li><p>凸函数性</p>
+<ol type="1">
+<li><p>定理一</p>
+<p>当条件概率分布<span class="math inline">\(\{p(y_j|x_i)\}\)</span>
+给定时，平均互信息<span class="math inline">\(I(X;Y)\)</span>
+是输入分布<span class="math inline">\(\{p(x_i)\}\)</span>
+的上凸函数</p></li>
+<li><p>定理二</p>
+<p>对于固定的输入分布<span class="math inline">\(\{p(x_i)\}\)</span>
+，平均互信息<span class="math inline">\(I(X;Y)\)</span> 是条件概率<span
+class="math inline">\(\{p(y_j|x_i)\}\)</span>的下凸函数</p></li>
+</ol></li>
+</ol>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220504163443125.png" srcset="/img/loading.gif" lazyload
+alt="image-20220504163443125" />
+<figcaption aria-hidden="true">image-20220504163443125</figcaption>
+</figure>
+<h3 id="数据处理定理">2.3.3 数据处理定理</h3>
+<p>先引入三元随机变量的平均条件互信息和平均联合互信息的概念。</p>
+<p><strong>平均条件互信息</strong> <span class="math display">\[
+I(X;Y|Z)=E[I(x_;y|z)]=\sum_{x}\sum_{y}\sum_{z}{p(xyz)\log{(\frac{p(x|yz)}{p(x|z)})}}\\
+I(X;Y|Z)=H(X|Z)-H(X|YZ)
+\]</span> 给定<span class="math inline">\(Z\)</span> 后，从<span
+class="math inline">\(Y\)</span> 得到关于<span
+class="math inline">\(X\)</span> 的信息量</p>
+<p><strong>平均联合互信息量</strong> <span class="math display">\[
+I(X;YZ)=E[I(x;yz)]=\sum_{x}\sum_{y}\sum_{z}{p(xyz)\log{\frac{p(x|yz)}{p(x)}}}
+\]</span> 从<span class="math inline">\(YZ\)</span> 得到关于<span
+class="math inline">\(X\)</span> 的信息量</p>
+<p><strong>数据处理定理</strong></p>
+<p>如果随机变量<span class="math inline">\(X,Y,Z\)</span>
+构成一个马尔科夫链，则 <span class="math display">\[
+I(X;Z)\le I(X;Y)=I(X;Z)\le I(Y;Z)
+\]</span> 当且仅当<span
+class="math inline">\(p(x|yz)=p(x|z),p(z|xy)=p(z|x)\)</span>
+时取等号</p>
+<p>在任何信息传输系统中，最后获得的信息至多是信源所提供的信息，一旦丢失，就再也不能恢复。</p>
+<h1 id="信源及信息熵">3 信源及信息熵</h1>
+<p>信源(Information
+Source)是信息的来源，是产生消息(符号)、时间离散的消息序列(符号序列)以及时间连续的消息的来源。</p>
+<p>信源输出的消息都是随机的，因此可用概率来描述其统计特性。</p>
+<p>在信息论中，用随机变量X、随机矢量X、随机过程<span
+class="math inline">\({X(e,t)}\)</span>分别表示产生消息、消息序列以及时间连续消息的信源。</p>
+<p><strong>信源的主要问题：</strong></p>
+<ol type="1">
+<li>如何描述信源（信源的数学建模问题）</li>
+<li>怎样计算信源所含的信息量</li>
+<li>怎样有效的表示信源输出的消息，也就是信源编码问题</li>
+</ol>
+<h2 id="信源的分类及其数学模型">3.1 信源的分类及其数学模型</h2>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220323183011435.png" srcset="/img/loading.gif" lazyload
+alt="image-20220323183011435" />
+<figcaption aria-hidden="true">image-20220323183011435</figcaption>
+</figure>
+<p>我们还可以根据各维随机变量的概率分布是否随时间变化将信源分为<strong>平稳信源</strong>和<strong>非平稳信源</strong>，根据随机变量间是否统计独立将信源分为<strong>有记忆信源</strong>和<strong>无记忆信源</strong>。</p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220323183034218.png" srcset="/img/loading.gif" lazyload
+alt="image-20220323183034218" />
+<figcaption aria-hidden="true">image-20220323183034218</figcaption>
+</figure>
+<h2 id="离散单符号信源">3.2 离散单符号信源</h2>
+<p>输出离散取值的单个符号的信源称为<strong>离散单符号信源</strong>
+。信源所有可能输出的消息和消息对应的概率共同组成的二元序对<span
+class="math inline">\([X,P(X)]\)</span>
+称为信源的<strong>概率空间</strong> 。</p>
+<p><strong>平均自信息量（信息熵）</strong>
+表示离散单符号信源的平均不确定性。</p>
+<p><strong>例3.1</strong> <span class="math display">\[
+\begin{bmatrix}
+X\\
+P(X)
+\end{bmatrix}
+=
+\begin{bmatrix}
+0&amp;1\\
+p&amp;q
+\end{bmatrix},p+q=1，求H(X)
+\]</span></p>
+<p><span class="math display">\[
+\begin{array}[ccc]
+\le\\
+\Rightarrow
+H(X)=H(p)\\
+when\ p=1\ or\ 0,H(X)=0 \Rightarrow 信源不通过任何信息\\
+when\ p=0.5\ \Rightarrow 信源熵达到最大值，平均每个符号有1bit信息量
+\end{array}
+\]</span></p>
+<h2 id="离散多符号信源">3.3 离散多符号信源</h2>
+<p>实际信源输出的往往是符号序列，称为离散多符号信源，通常用离散随机变量序列来表示：<span
+class="math inline">\(\mathbf{X}=X_1X_2\cdots\)</span> .</p>
+<p>这里只研究离散平稳信源，即统计特性不随时间改变的信源。</p>
+<p><strong>离散平稳信源</strong> <span class="math display">\[
+\begin{array}
+\le
+P(X_i)=P(X_j)\\
+P(X_iX_{i+1})=P(X_jX_{j+1})\\
+\vdots\\
+P(X_iX_{i+1}\cdots X_{i+N})=P(X_jX_{j+1}\cdots X_{j+N})
+\end{array}
+\]</span></p>
+<p>即各维联合概率分布均与时间起点无关的信源称为<strong>离散平稳信源</strong>。</p>
+<p>根据<span class="math inline">\(P(XY)=P(X|Y)P(Y)\)</span> ，可得
+<span class="math display">\[
+\begin{array}
+\le
+P(X_i)=P(X_j)\\
+P(X_{i+1}|X_{i})=P(X_{j+1}|X_{1})\\
+\vdots\\
+P(X_{i+N}|X_{i+1}\cdots X_{i+N-1})=P(X_{j+N}|X_{j+1}\cdots X_{j+N-1})
+\end{array}
+\]</span> 即离散平稳信源得条件概率与时间起点无关，只与关联长度<span
+class="math inline">\(N\)</span> 有关，可得 <span
+class="math display">\[
+\begin{array}
+\le
+H(X_1)=H(X_2)=\cdots=H(X_N)\\
+H(X_2|X_1)=H(X_3|X_{3})\cdots=H(X_N|X_{N-1})\\
+H(X_{3}|X_1X_2)=H(X_{4}|X_2X_3)=\cdots=H(X_{N}|X_{N-1}X_{N-1})\\
+\vdots
+\end{array}
+\]</span>
+离散单符号信源，用信息熵表示信源的平均不确定性；对于离散多符号信源，引入熵率概念。</p>
+<p><strong>平均符号熵</strong> <span class="math display">\[
+H_N(\mathbf{X})=\frac{1}{N}{H(X_1X_2\cdots X_N)}
+\]</span></p>
+<p><strong>熵率（极限熵）</strong></p>
+<p>如果极限存在 <span class="math display">\[
+H_\infty=\lim_{N\rightarrow \infty}{H_N(\mathbf{X})}
+\]</span></p>
+<h3 id="离散平稳无记忆信源">3.3.1 离散平稳无记忆信源</h3>
+<p>离散平稳无记忆信源输出的符号序列是平稳随机序列，并且符号之间是无关的，即是统计独立的</p>
+<p>假定信源每次输出的是<span class="math inline">\(N\)</span>
+长符号序列，称为离散平稳无记忆信源的<span
+class="math inline">\(N\)</span> 次扩展信源，则它的数学模型是<span
+class="math inline">\(N\)</span> 维离散随机变量序列：<span
+class="math inline">\(\mathbf{X}=X_1X_2\cdots X_N\)</span>
+，并且每个随机变量之间统计独立</p>
+<p>同时，由于是平稳信源，每个随机变量的统计特性都相同，还可吧一个输出<span
+class="math inline">\(N\)</span> 长符号序列的信源记为： <span
+class="math display">\[
+\mathbf{X}=X_1X_2\cdots X_N=X^N
+\]</span> 根据统计独立的多维随机变量联合熵与信息熵之间的关系，可推出：
+<span class="math display">\[
+H(\mathbf{X})=H(X^N)=NH(X)
+\]</span> 离散平稳无记忆信源的熵率： <span class="math display">\[
+H_\infty=\lim_{N\rightarrow \infty}{\frac{1}{N}NH(X)=H(X)}
+\]</span></p>
+<h3 id="离散平稳有记忆信源">3.3.2 离散平稳有记忆信源</h3>
+<p><strong>熵函数的链规则</strong></p>
+<p>实际信源往往是有记忆信源。对于相互间有依赖关系的<span
+class="math inline">\(N\)</span> 维随机变量的联合熵存在以下关系： <span
+class="math display">\[
+H(X)=H(X_1X_2\cdots X_N)=H(X_1)+H(X_2|X_1)+\cdots+H(X_N|X_1X_2\cdots
+X_{N-1})
+\]</span></p>
+<p><strong>定理</strong></p>
+<p>对于离散平稳信源</p>
+<ol type="1">
+<li><p>条件熵<span class="math inline">\(H(X_N|X_1X_2\cdots
+X_{N-1})\)</span> 随<span class="math inline">\(N\)</span>
+的增加是递减的</p></li>
+<li><p><span class="math inline">\(N\)</span>
+给定平均符号熵大于等于条件熵，即 <span class="math display">\[
+H_N(X)\ge H(X_N|X_1X_2\cdots X_{N-1})
+\]</span></p></li>
+<li><p>平均符号熵<span class="math inline">\(H_N(X)\)</span> 随<span
+class="math inline">\(N\)</span> 的增加是递减的</p></li>
+<li><p>如果<span class="math inline">\(H(X_1)\le \infty\)</span>
+，则<span class="math inline">\(H_\infty=\lim_{N\rightarrow
+\infty}H_N{X}\)</span> 存在，且 <span class="math display">\[
+H_\infty=\lim_{N\rightarrow \infty}{H_N(X)}=H(X_N|X_1X_2\cdots X_{N-1})
+\]</span></p></li>
+</ol>
+<p><strong>马尔可夫性</strong></p>
+<p>有一类信源，信源在某时刻发出的符号仅与在此之前发出的有限个符号有关，而与更早些时候发出的符号无关，这称为<strong>马尔可夫性</strong>，这类信源称为<strong>马尔可夫信源</strong>。马尔可夫信源可以在<span
+class="math inline">\(N\)</span> 不很大时得到<span
+class="math inline">\(H_\infty\)</span>
+。如果信源在某时刻发出的符号仅与此之前发出的<span
+class="math inline">\(m\)</span> 个符号有关，则称为<span
+class="math inline">\(m\)</span> 阶马尔可夫信源，它的熵率： <span
+class="math display">\[
+\begin{array}
+\left
+H_\infty&amp;=\lim_{N\rightarrow \infty}{H(X_N|X_1X_2\cdots
+X_{N-1})}\Rightarrow 马尔可夫性\\
+&amp;=\lim_{N\rightarrow \infty}{H(X_N|X_{N-m}X_{N-m+1}\cdots
+X_{N-1})}\\
+&amp;=H(X_{m+1}|X_1X_2\cdots X_{m})\Rightarrow 平稳性\Rightarrow
+记为H_{m+1}
+\end{array}
+\]</span></p>
+<h3 id="马尔可夫信源">3.3.3 马尔可夫信源</h3>
+<p>一种简单的有记忆信源</p>
+<p>当时间足够长时，遍历的马尔可夫信源可以看作平稳信源处理，极限熵等于条件熵<span
+class="math inline">\(H_{m+1}\)</span> H <span class="math display">\[
+H_\infty=H_{m+1}=H(X_{m+1}|X_1X_2\cdots X_m)
+=-\sum_{i}\sum_{j}p(s_i)p(s_j|S_i)\log p(s_j|s_i)\\
+其中，p(s_i)是马尔可夫链的平稳分布或称状态极限概率\\H(X|s_i)表示信源处于某一状态s_i时发出下一个符号的平均不确定性\\p(s_j|s_i)表示下一步状态转移概率
+\]</span></p>
+<p>看例题。</p>
+<p>补充概念：不可约的非周期常返态？？？</p>
+<h3 id="信源的相关性和剩余度">3.3.4 信源的相关性和剩余度</h3>
+<p>实际的离散信源可能是非平稳的，但是一般假设其为平稳的，对于非平稳信源来说，其<span
+class="math inline">\(H_\infty\)</span>
+不一定存在，就算存在也不好求，进一步假设它是马尔可夫信源，用<span
+class="math inline">\(H_{m+1}\)</span>
+来近似。对于一般离散信源，根据研究目的不同，可用不同的模型来近似。 <span
+class="math display">\[
+\log{q}=H_0\ge H_1\ge \cdots \ge H_\infty
+\]</span>
+对于一个平稳离散信源，其输出的每个符号实际所携带的平均信息量用熵率来表示，由于输出符号间的相关性，<span
+class="math inline">\(H_\infty\)</span>
+减小。当信源输出符号间彼此不存在依赖关系且为等概分布时，信源的熵率等于最大熵<span
+class="math inline">\(H_0\)</span> 。</p>
+<p><strong>熵的相对率</strong> <span class="math display">\[
+\eta=\frac{H_\infty}{H_0}
+\]</span> <strong>信源剩余度</strong> <span class="math display">\[
+\gamma=1-\eta=1-\frac{H_\infty}{\log_2{q}}
+\]</span>
+信源剩余度来源信源符号间的相关性和信源输出消息的不等概率分布</p>
+<p>信源编码是减少或消除信源的剩余度以提高消息的传输效率，而信道编码则通过增加冗余度来提高信息传输的抗干扰能力。</p>
+<h2 id="连续信源">3.4 连续信源</h2>
+<p>用概率密度函数表示 不做要求。</p>
+<h1 id="信道及信道容量">4 信道及信道容量</h1>
+<p>信道是信息传输的通道，可以分为空间传输和时间传输。空间传输如实际中的物理通道，电缆、光纤等；时间传输如磁带、光盘。</p>
+<p><strong>目的</strong></p>
+<ol type="1">
+<li>信道的建模（信道的统计特性的描述）</li>
+<li>信道传输信息的能力（信道容量）</li>
+<li>在有噪信道中实现可靠传输</li>
+</ol>
+<h2 id="信道的分类">4.1 信道的分类</h2>
+<p>信息论不研究信号在信道中传输的物理过程。</p>
+<ol type="1">
+<li><p>按输入、输出信号在幅度和时间上的取值是离散或连续来划分</p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220511192914853.png" srcset="/img/loading.gif" lazyload alt="image-20220511192914853" style="zoom:67%;" /></p></li>
+<li><p>按输入、输出信号之间关系的记忆特性来划分</p>
+<p><strong>无记忆的</strong>：输出只与该时刻的输入有关，而与其他时刻的输入和输出无关；反之，<strong>有记忆的</strong></p></li>
+<li><p>按输入、输出信号之间的关系是否确定来划分</p>
+<p><strong>有噪声信道</strong>和<strong>无噪声信道</strong></p></li>
+<li><p>根据输入、输出的个数来划分</p>
+<ul>
+<li><strong>两端信道</strong>（单用户信道）</li>
+<li><strong>多端信道</strong>（多用户信道）</li>
+</ul>
+<p>这里主要研究两端信道的情况</p></li>
+<li><p>根据信道的统计特性是否随时间变化来划分</p>
+<ul>
+<li><strong>恒参信道</strong>（平稳信道）：如卫星通信</li>
+<li><strong>随参信道</strong>（非平稳信道）：如短波通信</li>
+</ul>
+<p>这里主要研究恒参信道</p></li>
+</ol>
+<h2 id="离散单符号信道及其信道容量">4.2 离散单符号信道及其信道容量</h2>
+<h3 id="离散单符号信道的数学模型">4.2.1 离散单符号信道的数学模型</h3>
+<p>由于在信道中存在干扰，因此输入符号在传输中会产生错误，这种信道干扰对传输的影响可用传递概率<span
+class="math inline">\(p(y_i|x_i)\)</span>
+来描述。信道传递概率实际上是一个传递矩阵，称为<strong>信道矩阵</strong>
+<span class="math display">\[
+\mathbf{P}=
+\begin{pmatrix}
+p(y_1|x_1)&amp;p(y_2|x_1)&amp;\cdots&amp;p(y_s|x_1)\\
+p(y_1|x_2)&amp;p(y_2|x_2)&amp;\cdots&amp;p(y_s|x_2)\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+p(y_1|x_r)&amp;p(y_2|x_r)&amp;\cdots&amp;p(y_s|x_r)\\
+\end{pmatrix}\\
+每一行之和为1，若是无噪声的则每一行只有一个1，其余为0
+\]</span> 简记成 <span class="math display">\[
+\mathbf{P}=
+\begin{pmatrix}
+p_{11}&amp;p_{12}&amp;\cdots&amp;p_{1s}\\
+p_{21}&amp;p_{22}&amp;\cdots&amp;p_{2s}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+p_{r1}&amp;p_{r2}&amp;\cdots&amp;p_{rs}\\
+\end{pmatrix}
+\]</span> 常见的是<strong>二元对称信道</strong> <span
+class="math display">\[
+\mathbf{P}=
+\begin{pmatrix}
+\overline p &amp;p\\
+p&amp;\overline p
+\end{pmatrix},p表示单个符号传输发生错误的概率
+\]</span></p>
+<ol type="1">
+<li><p>输入输出随机变量的联合概率分布为<span
+class="math inline">\(P_T\{X=x_i,Y=y_j\}=p(x_iy_j)\)</span> <span
+class="math display">\[
+p(x_iy_j)=p(x_i)p(y_j|x_i)=p(y_j)p(x_i|y_j)
+\]</span> 称<span class="math inline">\(p(y_j|x_i)\)</span>
+为前向概率，<span class="math inline">\(p(x_i|y_j)\)</span>
+后向概率；</p>
+<p>称<span class="math inline">\(p(x_i)\)</span> 先验概率，<span
+class="math inline">\(p(x_i|y_j)\)</span> 后验概率；</p></li>
+<li><p>根据全概率公式 <span class="math display">\[
+p(y_j)=\sum p(x_i)p(y_j|x_i) \\
+矩阵形式 \mathbf{P}_Y=\mathbf{P}_X\mathbf{P}_{Y|X}
+\]</span></p></li>
+<li><p>根据贝叶斯公式 <span class="math display">\[
+p(y_j|x_i)=\frac{p(x_iy_j)}{p(y_j)}=\frac{p(y_j)p(x_i|y_j)}{\sum
+p(x_i)p(y_j|x_i)}
+\]</span></p></li>
+</ol>
+<h3 id="信道容量的概念">4.2.2 信道容量的概念</h3>
+<p>用平均互信息来衡量信道的<strong>信息传输率</strong>（接受到输出符号集后所获得的关于输入符号集的信息量），用<span
+class="math inline">\(R\)</span> 表示。 由于存在干扰，接受端收到<span
+class="math inline">\(Y\)</span> 后对信源仍然存在的不确定性为<span
+class="math inline">\(H(X|Y)\)</span> ，又称信道疑义度 <span
+class="math display">\[
+R=I(X;Y)=H(X)-H(X|Y)
+\]</span> <strong>信息传输速率</strong> <span class="math display">\[
+R_t=\frac{1}{t}I(X;Y)
+\]</span>
+对于固定信道，存在一种信源，使得信息传输率最大，这个最大信息传输率为<strong>信道容量</strong>，而相对应得输入概率分布为<strong>最佳输入分布</strong></p>
+<h3 id="几种特殊信道的信道容量">4.2.3 几种特殊信道的信道容量</h3>
+<ol type="1">
+<li><p>具有扩展性的无损信道</p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220526105018817.png" srcset="/img/loading.gif" lazyload
+alt="image-20220526105018817" />
+<figcaption aria-hidden="true">image-20220526105018817</figcaption>
+</figure></li>
+<li><p>具有归并性能的无噪信道</p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220526105029419.png" srcset="/img/loading.gif" lazyload
+alt="image-20220526105029419" />
+<figcaption aria-hidden="true">image-20220526105029419</figcaption>
+</figure></li>
+<li><p>具有意义对应关系的无噪无损信道</p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220526105100719.png" srcset="/img/loading.gif" lazyload
+alt="image-20220526105100719" />
+<figcaption aria-hidden="true">image-20220526105100719</figcaption>
+</figure></li>
+</ol>
+<h3 id="离散对称信道的信道容量">4.2.4 离散对称信道的信道容量</h3>
+<p><strong>行对称信道</strong></p>
+<p>每行都是第一行元素的不同排列</p>
+<p><strong>对称信道</strong></p>
+<p>每行每列都是第一行第一列元素的不同排列</p>
+<p><strong>准对称信道</strong></p>
+<p>是行对称信道，可以划分成若干对称的子矩阵是对称信道</p>
+<p><strong>强对称信道（均匀信道）</strong></p>
+<p>对称矩阵</p>
+<p><strong>信道容量计算</strong></p>
+<p><strong>定理</strong></p>
+<p>对于对称信道，当输入分布为等概分布时，输出分布必能达到等概分布</p>
+<p><span class="math inline">\(r\)</span> 个输入符号，<span
+class="math inline">\(s\)</span>
+个输出符号，则当输入为等概分布时，达到信道容量，且 <span
+class="math display">\[
+C=\log{s}-H(p_1^{’},p_2^{’},\cdots,p_s^{’})\\
+\Downarrow\\
+C=\log{r}-p\log{(r-1)}-H(p)\qquad 均匀信道
+\]</span> 对于一般的离散离散<strong>行对称信道</strong> <span
+class="math display">\[
+C=\max_{p(x)}H(Y)-H(p_1^{’},p_2^{’},\cdots,p_s^{’})
+\]</span> 但是不一定存在一种输入分布使得输出达到等概率分布，此时信道容量
+<span class="math display">\[
+C\le \log{s}-H(p_1^{’},p_2^{’},\cdots,p_s^{’})
+\]</span> <strong>离散准对称信道</strong> <span class="math display">\[
+C\le \log{s}-H(p_1^{’},p_2^{’},\cdots,p_s^{’})\\
+C=\log{r}-\sum_{k=1}^{n}N_k\log{M_k}-H(p_1^{’},p_2^{’},\cdots,p_s^{’})
+\]</span> <span class="math inline">\(N_k\)</span> 是<span
+class="math inline">\(n\)</span> 个子矩阵中第<span
+class="math inline">\(k\)</span> 个子矩阵的行元素之和，<span
+class="math inline">\(M_k\)</span> 是<span
+class="math inline">\(n\)</span> 个子矩阵中第<span
+class="math inline">\(k\)</span> 个子矩阵的列元素之和</p>
+<h1 id="无失真信源编码">5 无失真信源编码</h1>
+<p><strong>目的</strong></p>
+<ol type="1">
+<li>适合在信道中传输</li>
+<li>提高传输的有效性</li>
+</ol>
+<h2 id="信源编码的相关概念">5.1 信源编码的相关概念</h2>
+<h3 id="编码器">5.1.1 编码器</h3>
+<p>编码器<span class="math inline">\(\rightarrow\)</span> 编码<span
+class="math inline">\(\rightarrow\)</span> 码序列（码字）<span
+class="math inline">\(\rightarrow\)</span> 译码器</p>
+<p>信源符号<span class="math inline">\(\rightarrow\)</span> 映射<span
+class="math inline">\(\rightarrow\)</span>
+码符号集（元素称为码元or码符号）</p>
+<p>无失真信源编码主要针对于离散信源，连续信源在量化编码的过程中必然会有量化失真。</p>
+<p><strong>方法</strong></p>
+<ol type="1">
+<li><p>匹配编码</p>
+<p>概率编码。香农编码、哈夫曼编码、费诺码，都是无失真信源编码。</p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220504192458839.png" srcset="/img/loading.gif" lazyload
+alt="image-20220504192458839" />
+<figcaption aria-hidden="true">image-20220504192458839</figcaption>
+</figure></li>
+<li><p>变换编码</p>
+<p>有失真的。</p>
+<p>先对信号进行变换，从一种信号空间变换为另一种信号空间，然后针对变换后的信号进行编码。</p>
+<p>e.g. 图像<span class="math inline">\(\rightarrow\)</span>
+傅里叶变换成频谱信号</p></li>
+<li><p>识别编码</p>
+<p>有失真的、栅格化。</p>
+<p>识别编码主要用于印刷或打字机等有标准形状的文字符号和数据的编码，比如中文文字和语音的识别。</p></li>
+</ol>
+<p>无失真信源编码主要针对<strong>离散信源（去除冗余度）</strong>，连续信源在量化编码的过程中必然会有量化失真，所以对连续信源只能近似地再现信源的消息。</p>
+<ol type="1">
+<li><p>去除信源符号的相关性</p>
+<p>前后相关性、记忆性造成</p></li>
+<li><p>概率分布均匀化</p>
+<p>等概率分布时不确定度最大</p></li>
+</ol>
+<h3 id="码的分类">5.1.2 码的分类</h3>
+<p><strong>1、分组码和非分组码</strong></p>
+<p>将信源符号集中的每个信源符号固定地映射成一个码字，这样的码称为<strong>分组码</strong>。</p>
+<p>与分组码对应的是<strong>非分组码</strong>，又称为树码、树码编码器输出的码符号通常与编码器的所有信源符号都有关。</p>
+<p><strong>2、奇异码和非奇异码</strong></p>
+<p>若一种分组码中的所有码字都不相同，则称此分组码为非奇异码，否则称为奇异码。</p>
+<p><strong>3、唯一可译码和非唯一可译码</strong></p>
+<p>任意有限长的码元序列，如果只能唯一地分割成一个个码字，便称为唯一可译码。</p>
+<p>唯一可译码首先是非奇异码，且任意有限长的码字序列不会雷同。</p>
+<p><strong>4、即时码和非即时码</strong></p>
+<p>无需考虑后续的码符号就可以从码符号序列中译出码字，这样的唯一可译码称为即时码。</p>
+<h2 id="定长码及定长编码定理">5.2 定长码及定长编码定理</h2>
+<p><strong>唯一可译码</strong> <span class="math display">\[
+q\le r^l\\r码符号集中码元个数，l是定长码的码长
+\]</span> ​ 对<span class="math inline">\(S\)</span> 的<span
+class="math inline">\(N\)</span> 次扩展 <span class="math display">\[
+q^N\le r^l
+\]</span> <strong>定理</strong> <span class="math display">\[
+\frac{l}{N}\ge\frac{H(S)+\epsilon}{\log{r}}\\
+当N足够大时，可实现几乎无失真编码
+\]</span> <strong>编码效率</strong> <span class="math display">\[
+\eta=\frac{H(S)}{R^{&#39;}}=\frac{H(S)}{\frac{l}{N}\log{r}}
+\]</span> ​ 最佳编码效率<span
+class="math inline">\(\eta=\frac{H(S)}{H(S)+\epsilon}\)</span></p>
+<h2 id="变长码及变长编码定理">5.3 变长码及变长编码定理</h2>
+<h3 id="kraft不等式和mcmillan不等式">5.3.1
+Kraft不等式和McMillan不等式</h3>
+<p><strong>定理</strong></p>
+<p>符号集<span class="math inline">\(S\)</span> ，码符号集<span
+class="math inline">\(X\)</span> ，对信源进行编码，得到的码为<span
+class="math inline">\(C\)</span> ，码长为<span
+class="math inline">\(l_1,\cdots,l_q\)</span> ，及时码存在的充要条件
+<span class="math display">\[
+\sum_{i=1}^{q}r^{-l_i}\le 1\\(唯一可译码存在的充要条件)
+\]</span> 变长码：非奇异+异前置<span
+class="math inline">\(\rightarrow\)</span> 及时码</p>
+<h3 id="唯一可译码的判别准则">5.3.2 唯一可译码的判别准则</h3>
+<p>前缀判别法</p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220526143113619.png" srcset="/img/loading.gif" lazyload
+alt="image-20220526143113619" />
+<figcaption aria-hidden="true">image-20220526143113619</figcaption>
+</figure>
+<p>最后为空或者没有新的元素出现</p>
+<p>一旦出现<span class="math inline">\(C\)</span> 中的元素，则假</p>
+<h3 id="无失真变长编码定理">5.3.3 无失真变长编码定理</h3>
+<p><strong>平均码长</strong> <span class="math display">\[
+\overline{L}=\sum_{i=1}^qp(s_i)l_i\qquad 码符号/信源符号
+\]</span> <strong>信息传输率</strong> <span class="math display">\[
+R=H(X)=\frac{H(S)}{\overline{L}}\qquad bit/sec
+\]</span> ​ 为此，我们要让平均码长最短，变成<strong>紧致码</strong>
+或<strong>最佳码</strong>，满足 <span class="math display">\[
+\frac{H(S)}{\log{r}}\le\overline{L}\le1+\frac{H(S)}{\log{r}}
+\]</span></p>
+<h3 id="香农第一编码定理">5.3.4 香农第一编码定理</h3>
+<p>对信源<span class="math inline">\(S\)</span> 进行<span
+class="math inline">\(N\)</span>
+次扩展后，总可以找到一种唯一可译码，使得每个信源符号所需的平均码长满足
+<span class="math display">\[
+\frac{H(S)}{\log{r}}\le\frac{\overline{L}}{N}\le\frac{H(S)}{\log{r}}+\frac{1}{N}
+\]</span> ​ 简写成 <span class="math display">\[
+H_r(S)\le\frac{\overline{L}}{N}\le H_r(S)+\frac{1}{N}
+\]</span> <strong>信息传输率</strong> <span class="math display">\[
+R\le \log{r}
+\]</span>
+无失真信源编码的实质就是对离散信源进行适当的变换，使得变换后新的码符号信源尽可能等概率分布，使得新信源的每个码符号平均所含的信息量达到最大，从而使得信道的信息传输率<span
+class="math inline">\(R\)</span>
+达到信道容量实现信源与信道理想的统计匹配。</p>
+<p><strong>编码效率</strong> <span class="math display">\[
+\eta=\frac{H_r(S)}{\overline{L}}
+\]</span> <strong>剩余度</strong> <span class="math display">\[
+\gamma=1-\eta=1-\frac{H_r(S)}{\overline{L}}
+\]</span> ​ 特别地，对于二元无噪无损信道<span
+class="math inline">\(R=\eta\)</span></p>
+<h2 id="变长码的编码方法">5.4 变长码的编码方法</h2>
+<p>介绍变长码的常见编码方式，如香农编码、香农-费诺-埃利斯编码、霍夫曼编码、费诺编码，均为<strong>匹配编码</strong>，也称<strong>统计编码</strong></p>
+<h3 id="香农编码">5.4.1 香农编码</h3>
+<p>选择每个码字长度满足<span
+class="math inline">\(l_i=[\log{\frac{1}{p(s_i)}}]\)</span> ，使得<span
+class="math inline">\(\overline{L}\le1+{H_r(S)}\)</span></p>
+<ol type="1">
+<li><p>将信源发出的<span class="math inline">\(q\)</span>
+个信源符号，按概率从大到小排序</p></li>
+<li><p>计算出各个信源符号的累加概率 <span class="math display">\[
+F(s_i)=\sum_{k=1}^{i-1}p(s_k),它之前的概率之和
+\]</span></p></li>
+<li><p>计算第<span class="math inline">\(i\)</span>
+个消息的二元代码组的码长 <span class="math display">\[
+l_i=[\log{\frac{1}{p(s_i)}}]
+\]</span></p></li>
+<li><p>将累加概率变换为二进制小数，小数点后取<span
+class="math inline">\(l_i\)</span> 个二进制代码作为第<span
+class="math inline">\(i\)</span> 个消息的码字</p></li>
+</ol>
+<h3 id="香农-费诺-埃利斯编码">5.4.2 香农-费诺-埃利斯编码</h3>
+<ol type="1">
+<li><p>计算出各个信源符号的修正累加概率 <span class="math display">\[
+\overline{F}(s_i)=\sum_{k=1}^{i-1}p(s_k)+\frac{1}{2}p(s_i)
+\]</span></p></li>
+<li><p>计算第<span class="math inline">\(i\)</span>
+个信息的二元代码组的码长 <span class="math display">\[
+l_i=[\log{\frac{1}{p(s_i)}}]+1
+\]</span></p></li>
+<li><p>将累加概率变换成二进制小数，根据码长<span
+class="math inline">\(l_i\)</span> 取小数点后<span
+class="math inline">\(l_i\)</span> 个二进制符号</p></li>
+</ol>
+<h3 id="霍夫曼编码">5.4.3 霍夫曼编码</h3>
+<ol type="1">
+<li>将信源发出的<span class="math inline">\(q\)</span>
+个信源符号，按概率从大到小排序</li>
+<li>用0 和1
+码符号代表概率最小的两个信源符号，并将这两个合并成一个，得到<span
+class="math inline">\(q-1\)</span> 个符号的新信源，称为缩减信源<span
+class="math inline">\(S_1\)</span></li>
+<li>把缩减信源从大到小排序，重复上面操作</li>
+<li>直到信源最后只剩下两个信源符号为止，用0和1表示</li>
+<li>然后从最后一级缩减信源开始，进行回溯，就得到各个信源符号所对应的码符号序列，即相应的码字</li>
+</ol>
+<p><strong>得到的编码并非唯一</strong></p>
+<ol type="1">
+<li>0和1赋值可以互换</li>
+<li>概率相同时可以任意排序</li>
+</ol>
+<p><strong>特点</strong></p>
+<ol type="1">
+<li>概率大，码长小</li>
+<li>每次缩减信源的最长两个码字有相同的码长，并且仅仅只有最后一位符号不同</li>
+</ol>
+<p>霍夫曼码是最佳码，当<span class="math inline">\(N\)</span>
+不是很大时，能使无失真编码的效率接近1，但是实际使用较复杂</p>
+<h3 id="r元霍夫曼编码">5.4.4 r元霍夫曼编码</h3>
+<p>每次将<span class="math inline">\(r\)</span>
+个概率最小的信源符号合并，用0~<span class="math inline">\(r-1\)</span>
+表示</p>
+<h3 id="费诺编码">5.4.5 费诺编码</h3>
+<ol type="1">
+<li>排序</li>
+<li>分成两组，使得概率基本相同，赋为0和1</li>
+<li>再细分</li>
+<li>直到每组只剩下一个信源符号为止</li>
+</ol>
+<h2 id="实用的无失真信源编码方法">5.5 实用的无失真信源编码方法</h2>
+<h3 id="游程编码">5.5.1 游程编码</h3>
+<p>适合二值图像</p>
+<h3 id="算术编码">5.5.2 算术编码</h3>
+<h3 id="lzw码">5.5.3 LZW码</h3>
+<p>基于字典，定长码</p>
+<h1 id="有噪信道编码">有噪信道编码</h1>
+<h1 id="限失真信源编码">限失真信源编码</h1>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Study/22Spring/" class="category-chain-item">22Spring</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E7%A7%91/">#基础学科</a>
+      
+        <a href="/tags/%E4%BF%A1%E6%81%AF%E8%AE%BA/">#信息论</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>信息论</div>
+      <div>http://example.com/2022/06/01/Information-Theory/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Hakii fang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/11/20/SemanticWeb/" title="语义网">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">语义网</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/27/Discrete-Mathematics/" title="离散数学2">
+                        <span class="hidden-mobile">离散数学2</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      浙ICP备2022006390号
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

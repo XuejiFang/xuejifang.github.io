@@ -1,0 +1,1853 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png">
+  <link rel="icon" href="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/logo000.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Hakii fang">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="6 图 6.1 图的基本概念 6.1.1 无向图与有向图 无序对：\((a,b)\) 无序积：\(A\&amp; B&#x3D;\{(x,y)|x\in A,y\in B\}\) ​ 注意重复 多重集合 定义：元素可以重复出现 重复度：元素出现次数 ​ 默认是单重集合 无向图 定义：\(G&#x3D;&lt;V,E&gt;\)，其中V为顶点集，不为空；E为边集，为\(V\&amp;V\)的多重子集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="离散数学2">
+<meta property="og:url" content="http://example.com/2022/05/27/Discrete-Mathematics/index.html">
+<meta property="og:site_name" content="Hakii">
+<meta property="og:description" content="6 图 6.1 图的基本概念 6.1.1 无向图与有向图 无序对：\((a,b)\) 无序积：\(A\&amp; B&#x3D;\{(x,y)|x\in A,y\in B\}\) ​ 注意重复 多重集合 定义：元素可以重复出现 重复度：元素出现次数 ​ 默认是单重集合 无向图 定义：\(G&#x3D;&lt;V,E&gt;\)，其中V为顶点集，不为空；E为边集，为\(V\&amp;V\)的多重子集">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/%E7%A6%BB%E6%95%A3%E5%B0%81%E9%9D%A2.jpg">
+<meta property="article:published_time" content="2022-05-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-11-24T06:45:55.897Z">
+<meta property="article:author" content="Hakii fang">
+<meta property="article:tag" content="基础学科">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/%E7%A6%BB%E6%95%A3%E5%B0%81%E9%9D%A2.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>离散数学2 - Hakii</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":false,"baidu":"5483baa78e864c8a0efbf18a0f7ef02f","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?5483baa78e864c8a0efbf18a0f7ef02f";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="离散数学2"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-05-27 00:00" pubdate>
+          2022年5月27日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          104 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">离散数学2</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="图">6 图</h1>
+<h2 id="图的基本概念">6.1 图的基本概念</h2>
+<h3 id="无向图与有向图">6.1.1 无向图与有向图</h3>
+<p>无序对：<span class="math inline">\((a,b)\)</span></p>
+<p>无序积：<span class="math inline">\(A\&amp; B=\{(x,y)|x\in A,y\in
+B\}\)</span></p>
+<p>​ 注意重复 <strong>多重集合</strong></p>
+<p>定义：元素可以重复出现</p>
+<p>重复度：元素出现次数</p>
+<p>​ 默认是单重集合 <strong>无向图</strong></p>
+<p>定义：<span
+class="math inline">\(G=&lt;V,E&gt;\)</span>，其中V为顶点集，不为空；E为边集，为<span
+class="math inline">\(V\&amp;V\)</span>的多重子集（两点之间有多条路径）。
+用<span class="math inline">\(e_k=(v_i,v_j)\)</span>表示边
+<strong>有向图</strong></p>
+<p>定义：<span
+class="math inline">\(D=&lt;V,E&gt;\)</span>，其中V为顶点集，不为空；E为边集，为<span
+class="math inline">\(V\times
+V\)</span>的多重子集（两点之间有多条路径）。 用<span
+class="math inline">\(e_k=&lt;v_i,v_j&gt;\)</span>表示边</p>
+<pre><code class="hljs">G泛指图，D只能表示有向图
+有限图：V，E都是有穷集合的图
+顶点个数n，G为n阶图
+若E为空，则G为零图，n阶零图；有/无向图
+顶点个数1，G为平凡图</code></pre>
+<p><strong>顶点和边的关联与相邻</strong> <span
+class="math inline">\(v_i\)</span>，<span
+class="math inline">\(v_j\)</span>为<span
+class="math inline">\(e_j\)</span>的端点，<span
+class="math inline">\(e_k\)</span>与<span
+class="math inline">\(v_{i/j}\)</span>关联</p>
+<p><span class="math inline">\(v_i=v_j\)</span>，<span
+class="math inline">\(e_k\)</span>为环，关联次数为2</p>
+<p><span class="math inline">\(v_i \ne v_j\)</span>，<span
+class="math inline">\(e_k\)</span>为环，关联次数为1</p>
+<p>不是其端点，关联次数为0</p>
+<p><span class="math inline">\(v_i\)</span>，<span
+class="math inline">\(v_j\)</span>端点相邻<span
+class="math inline">\(e_k\)</span>，<span
+class="math inline">\(e_l\)</span></p>
+<p>边相邻，有公共端点</p>
+<p>对于有向图，端点分为始点、终点</p>
+<p>始点和终点一样，则边平行</p>
+<h3 id="顶点的度数与握手定理">6.1.2 顶点的度数与握手定理</h3>
+<p><strong>顶点的度数</strong></p>
+<p>度：作为端点次数之和</p>
+<p>悬挂顶点：度数为1</p>
+<p>悬挂边：与悬挂顶点关联的边</p>
+<p>G的最大度、最小度</p>
+<p>对于有向图：</p>
+<p>​ 出度<span class="math inline">\(d^+(v)\)</span></p>
+<p>​ 入度<span class="math inline">\(d^-(v)\)</span></p>
+<p>​ 度数<span class="math inline">\(d(v)=d^+(v)+d^-(v)\)</span></p>
+<p><strong>握手定理（欧拉定理）</strong></p>
+<p>定理：任何图的所有顶点度数之和等于边数的2倍。</p>
+<p>推论：<strong>任何图都有偶数个奇度顶点</strong> 用<span
+class="math inline">\(V_1\)</span>表示奇度顶点集，<span
+class="math inline">\(V_2\)</span>表示偶度顶点集</p>
+<p>定理：所有顶点的入度之和=出度之和=边数</p>
+<p><strong>图的度数列</strong></p>
+<p>直接从<span class="math inline">\(v_1\)</span>到<span
+class="math inline">\(v_n\)</span>，列出度数</p>
+<h3 id="常见的图">6.1.3 常见的图</h3>
+<p><strong>简单图、完全图、正则图、圈图、轮图、方体图</strong></p>
+<hr />
+<p><strong>重数</strong>：平行边的条数</p>
+<p><strong>多重图</strong>：含平行边</p>
+<ol type="1">
+<li><strong>简单图</strong>：不含平行边，也无环</li>
+</ol>
+<ul>
+<li>若无平行边，但有环，则既不是多重图，也不是简单图</li>
+<li>无向简单图<span class="math inline">\(d(v)&lt;=n-1\)</span></li>
+<li>有向简单图<span class="math inline">\(d^+(v)&lt;=n-1\)</span> <span
+class="math inline">\(d^-(v)&lt;=n-1\)</span></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>完全图</strong></li>
+</ol>
+<p>​ 任何顶点间都有边，对于有向图，则两条反向边。用<span
+class="math inline">\(K_n\)</span>表示</p>
+<ul>
+<li><span class="math inline">\(m=n(n-1)/2\)</span> <span
+class="math inline">\(\Delta=\delta=n-1\)</span></li>
+<li>对于有向图，乘2</li>
+</ul>
+<ol start="3" type="1">
+<li><strong>k-正则图</strong></li>
+</ol>
+<p>​ 每个顶点的度数均为k的<strong>无向</strong>简单图 ​<br />
+​n阶无向完全图=n-1 正则图</p>
+<ol start="4" type="1">
+<li><strong>圈图</strong></li>
+</ol>
+<p>​ 这是简单图</p>
+<p>​ 无向圈图，<span class="math inline">\(C_n=&lt;V,E&gt;\)</span>,<span
+class="math inline">\(V=\{v_1,v_2,…,v_n\}(n&gt;=3)\)</span></p>
+<p>​ 有向圈图，只有一个方向，n&gt;=2 <img
+src="C:\Users\hp\AppData\Roaming\Typora\typora-user-images\image-20220527192944209.png" srcset="/img/loading.gif" lazyload
+alt="image-20220527192944209" /><img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220527193006689.png" srcset="/img/loading.gif" lazyload
+alt="image-20220527193006689" /></p>
+<ol start="5" type="1">
+<li><strong>轮图</strong></li>
+</ol>
+<p>​ <span class="math inline">\(W_n\)</span>，在无向圈图<span
+class="math inline">\(C_{n-1}\)</span>内放一个顶点，与圈图每个顶点只有一条边，n&gt;=4
+- 只有<span class="math inline">\(W_4\)</span>是正则图</p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220527193140486.png" srcset="/img/loading.gif" lazyload
+alt="image-20220527193140486" />
+<figcaption aria-hidden="true">image-20220527193140486</figcaption>
+</figure>
+<ol start="5" type="1">
+<li><strong>方体图</strong></li>
+</ol>
+<p>​ <span class="math inline">\(Q_n\)</span>,n方体图是<span
+class="math inline">\(2^n\)</span>阶无向简单图，用二进制数表示，相邻两顶点只有一位数字不同</p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220527193236583.png" srcset="/img/loading.gif" lazyload
+alt="image-20220527193236583" />
+<figcaption aria-hidden="true">image-20220527193236583</figcaption>
+</figure>
+<h3 id="子图补图">6.1.4 子图、补图</h3>
+<p><strong>子图</strong>：G和G’同为无向图或有向图，与集合概念相似。</p>
+<ul>
+<li>相对于子图，称母图</li>
+<li>若<span class="math inline">\(G’\subseteq
+G,V’=V\)</span>,则G‘为G的<strong>生成子图（只删除边）</strong></li>
+<li>若<span class="math inline">\(V’\subseteq V\)</span>,<span
+class="math inline">\(V’\)</span> 所有边集，<span
+class="math inline">\(V’\)</span> 的导出子图<span
+class="math inline">\(G[V’]\)</span></li>
+<li>若<span class="math inline">\(E’\subseteq E\)</span>,<span
+class="math inline">\(E’\)</span> 所有顶点集，<span
+class="math inline">\(E’\)</span> 的导出子图<span
+class="math inline">\(G[E’]\)</span></li>
+</ul>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220527193649542.png" srcset="/img/loading.gif" lazyload
+alt="image-20220527193649542" />
+<figcaption aria-hidden="true">image-20220527193649542</figcaption>
+</figure>
+<p><strong>补图</strong>：顶点一样，边互补</p>
+<h3 id="图的同构">6.1.5 图的同构</h3>
+<p>拓扑同构，变形之后能一样</p>
+<h2 id="图的连通性">6.2 图的连通性</h2>
+<h3 id="通路与回路">6.2.1 通路与回路</h3>
+<p><strong>通路</strong>：点边交替序列，或相邻边序列，或点序列（简单图）</p>
+<p><strong>回路</strong>：起点和终点一样，<span
+class="math inline">\(v_0\)</span>和<span
+class="math inline">\(v_l\)</span>，l为通路的长度</p>
+<p><strong>简单通路（回路）</strong>：边各异，反之，则复杂</p>
+<p><strong>初级通路（回路）</strong>：顶点各异，（起点和终点除外），分为奇圈和偶圈
+<span class="math display">\[
+初级\Rightarrow 简单
+\]</span></p>
+<pre><code class="hljs">    定理：在n阶图中，若从顶点u到v存在通路，则存在长度小于等于n-1的初级通路
+    定理：在n阶图中，若存在v到自身的简单回路，则一定存在v到自身长度小于等于n的初级回路</code></pre>
+<h3 id="无向图的连通性与连通度">6.2.2 无向图的连通性与连通度</h3>
+<p><strong>u与v连通</strong>：u与v之间有通路，u与自身总是连通的</p>
+<p><strong>连通图</strong>：任意两点都连通，如平凡图</p>
+<p><strong>连通关系</strong>：<span
+class="math inline">\(R=\{&lt;u,v&gt;|u,v\in V且u与v连通\}\)</span>
+R是等价关系（自反、对称、传递）</p>
+<p><strong>连通分支</strong>：V关于R的等价类的导出子图。<span
+class="math inline">\(V/R=\{V_1,V_2,…,V_k\}\)</span> G的连通分支为<span
+class="math inline">\(G[V_1],G[V_2],…,G[V_k]\)</span></p>
+<p><strong>连通分支数</strong>：<span
+class="math inline">\(p(G)=k\)</span></p>
+<p><strong>u与v之间的短程线</strong>：之间长度的最短通路</p>
+<p><strong>u与v之间的距离<span
+class="math inline">\(d(u,v)\)</span></strong>：之间短程线长度，若不连通，则<span
+class="math inline">\(d(u,v)=\infty\)</span></p>
+<ul>
+<li>非负性：<span class="math inline">\(d(u,v)&gt;=0\)</span>且<span
+class="math inline">\(d(u,v)=0\)</span>等价于<span
+class="math inline">\(u=v\)</span></li>
+<li>对称性：<span class="math inline">\(d(u,v)=d(v,u)\)</span></li>
+<li>三角不等式：<span
+class="math inline">\(d(u,v)+d(v,w)&gt;=d(u,w)\)</span></li>
+</ul>
+<p><strong>点割集与边割集</strong></p>
+<p><span class="math inline">\(G-v\)</span>，删除<span
+class="math inline">\(v\)</span>及其关联边</p>
+<p><span class="math inline">\(G-V&#39;\)</span>，删除<span
+class="math inline">\(V&#39;\)</span>中所有顶点及关联边</p>
+<p><span class="math inline">\(G-e\)</span>，删除<span
+class="math inline">\(e\)</span></p>
+<p><span class="math inline">\(G-E&#39;\)</span>，删除<span
+class="math inline">\(E’\)</span>中所有边（不删点）</p>
+<ul>
+<li>删边连通度只能增加</li>
+<li>删点都有可能</li>
+</ul>
+<p><strong>点割集</strong>：<span class="math inline">\(V&#39;\)</span>
+让连通分支不连通最小集</p>
+<p><strong>割点</strong>：<span class="math inline">\(\{v\}\)</span>
+为点割集</p>
+<p><strong>边割集</strong>：<span class="math inline">\(E&#39;\)</span>
+同上</p>
+<p><strong>割边</strong>（桥）：<span
+class="math inline">\(\{e\}\)</span>
+为边割集，一条边就能让图割裂开（悬挂边一定是桥）</p>
+<ul>
+<li><span class="math inline">\(K_n\)</span>
+无点割集（连通情况最好的图）；</li>
+<li><span class="math inline">\(n\)</span>
+阶零图既无点割集，也无边割集；</li>
+<li>只要图中有边（不是环），就有边割集</li>
+<li>若<span class="math inline">\(E&#39;\)</span> 为边割集，则<span
+class="math inline">\(p(G-E&#39;)=P(G)+1\)</span></li>
+<li>若<span class="math inline">\(V&#39;\)</span> 为点割集，则<span
+class="math inline">\(p(G-V&#39;)&gt;=P(G)+1\)</span> 增加任意分支</li>
+</ul>
+<p><strong>点连通度</strong></p>
+<p>让连通图不连通的点割集的元素最少的个数，<span
+class="math inline">\(\kappa(G)\)</span></p>
+<p><strong>边连通度</strong></p>
+<p>让连通图不连通的边割集的元素最少的个数，<span
+class="math inline">\(\lambda(G)\)</span></p>
+<ul>
+<li>规定： <span class="math inline">\(\kappa(K_n)=n-1\)</span> 若<span
+class="math inline">\(G\)</span> 非连通，<span
+class="math inline">\(\kappa(G)=0\)</span>，<span
+class="math inline">\(\lambda(G)=0\)</span> 若<span
+class="math inline">\(G\)</span> 为完全图，<span
+class="math inline">\(\kappa(K_n)=n-1\)</span>，<span
+class="math inline">\(\lambda(K_n)=n-1\)</span> 若 若<span
+class="math inline">\(\kappa(G)=k\)</span> ，称<span
+class="math inline">\(G\)</span> 为<span
+class="math inline">\(k-\)</span> 连通图，从<span
+class="math inline">\(1\sim k-\)</span> 连通图 若<span
+class="math inline">\(\lambda(G)=r\)</span> ，称<span
+class="math inline">\(G\)</span> 为<span
+class="math inline">\(r-\)</span> 边连通图，从<span
+class="math inline">\(1\sim r-\)</span> 边连通图</li>
+</ul>
+<p><strong>定理</strong>：<span
+class="math inline">\(\kappa(G)\le\lambda(G)\le\delta(G)\)</span>(图的最小度)</p>
+<ul>
+<li>衡量图的连通程度</li>
+<li>计算最优解</li>
+</ul>
+<h3 id="有向图的连通性和连通度">6.2.3 有向图的连通性和连通度</h3>
+<p><strong>顶点间的可达性</strong></p>
+<p>注意方向，若双向，则相互可达</p>
+<p>存在通路，可达；到自身可达</p>
+<p><strong>性质</strong></p>
+<p><span class="math inline">\(\rightarrow\)</span> 具有自反、传递性</p>
+<p><span class="math inline">\(\leftrightarrow\)</span>
+具有自反、对称、传递性</p>
+<p><strong>距离</strong></p>
+<p>同无向图</p>
+<ul>
+<li>非负性</li>
+<li>三角不等式</li>
+<li><strong>没有</strong>对称性</li>
+</ul>
+<p><strong>弱连通</strong>：去掉方向后连通</p>
+<p><strong>单向连通</strong>：顾名思义</p>
+<p><strong>强连通</strong>：双向的</p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220527195801924.png" srcset="/img/loading.gif" lazyload
+alt="image-20220527195801924" />
+<figcaption aria-hidden="true">image-20220527195801924</figcaption>
+</figure>
+<p><strong>定理</strong></p>
+<p><span class="math inline">\(D\)</span> 强连通当且仅当<span
+class="math inline">\(D\)</span>
+中存在经过每个顶点至少一次的<strong>回路</strong></p>
+<h2 id="图的矩阵表示">6.3 图的矩阵表示</h2>
+<h3 id="无向图的关联矩阵">6.3.1 无向图的关联矩阵</h3>
+<p><span class="math display">\[
+M(G)=
+\begin{bmatrix}
+&amp;边&amp;\cdots\\
+点&amp;2&amp;1\\
+&amp;0&amp;1\\
+\vdots
+\end{bmatrix}
+\]</span></p>
+<p>点与边的关联次数，取值为0，1，2</p>
+<p><strong>性质</strong></p>
+<ul>
+<li>列相加=2</li>
+<li>行相加=点度数</li>
+<li>所有元素和=2m</li>
+<li>两列相同=两边平行</li>
+<li>行全为0=孤立点</li>
+<li>列中有2=环</li>
+</ul>
+<h3 id="无环有向图的关联矩阵">6.3.2 无环有向图的关联矩阵</h3>
+<p><span class="math display">\[
+M(D)=
+\begin{bmatrix}
+&amp;边&amp;\cdots\\
+点&amp;-1&amp;1\\
+&amp;0&amp;1\\
+\vdots
+\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+m_{ij}=
+\left\{
+\begin{array}
+\left
+1,\quad 始点\\
+0,\quad 不关联\\
+-1,\quad 终点
+\end{array}
+\right.
+\]</span></p>
+<ul>
+<li>每一列恰好有一个-1和1</li>
+<li>1和-1的总数相等（握手定理）</li>
+<li>第<span class="math inline">\(i\)</span> 行的1的个数=<span
+class="math inline">\(d^+(v_i)\)</span> ,-1同理</li>
+<li>两列相同=平行边</li>
+</ul>
+<h3 id="有向图的邻接矩阵">6.3.3 有向图的邻接矩阵</h3>
+<p>无向图可以变成有向图 <span class="math display">\[
+A=
+\begin{bmatrix}
+1&amp;1&amp;0&amp;0\\
+0&amp;0&amp;1&amp;1\\
+1&amp;0&amp;0&amp;0\\
+1&amp;0&amp;2&amp;0
+\end{bmatrix}
+\]</span> 表示顶点<span class="math inline">\(v_i\)</span> 和<span
+class="math inline">\(v_j\)</span> 之间的边的条数</p>
+<ul>
+<li><span
+class="math inline">\(\sum_{j=1}^{n}{a_{ij}^{(1)}}=d^+(v_i)\)</span></li>
+<li>$ _{i=1}<sup>{n}{a_{ij}</sup>{(1)}}=d^-(v_j)$</li>
+<li><span class="math inline">\(\sum_{i,j}{a_{ij}^{(1)}}=m\)</span></li>
+<li><span class="math inline">\(\sum_{i=1}^{n}{a_{ii}^{(1)}}\)</span>
+等于环的个数</li>
+</ul>
+<p><strong>定理</strong></p>
+<p>设<span class="math inline">\(G=&lt;V,E&gt;\)</span> 为线图，<span
+class="math inline">\(V=\{v_1,v_2,\cdots,v_n\},A=(a_{ij})_{n\times
+n}\)</span> 为<span class="math inline">\(G\)</span> 的邻接矩阵，<span
+class="math inline">\(A^m=(a_{ij}^{(m)})_{n\times n}\)</span> 则：</p>
+<ul>
+<li><span class="math inline">\(a_{ij}^{(m)}\)</span> 为从<span
+class="math inline">\(i\)</span> 到 <span
+class="math inline">\(j\)</span> 的长度为<span
+class="math inline">\(m\)</span> 的通路数目</li>
+<li><span class="math inline">\(a_{ii}^{(m)}\)</span> 为从<span
+class="math inline">\(i\)</span> 到自身的长度为<span
+class="math inline">\(m\)</span> 的回路数目</li>
+<li><span
+class="math inline">\(\sum_{i=1}^{n}\sum_{j=1}^{n}{a_{ij}^{(m)}}\)</span>
+是<span class="math inline">\(G\)</span> 中长度为<span
+class="math inline">\(m\)</span> 的通路（含回路）总数</li>
+</ul>
+<p>用归纳法证明</p>
+<h3 id="有向图的可达矩阵">6.3.4 有向图的可达矩阵</h3>
+<p><strong>可达性定理</strong></p>
+<p>若<span class="math inline">\(v_i\)</span> 到<span
+class="math inline">\(v_j\)</span>
+之间存在通路，则存在一条长度不大于<span
+class="math inline">\(n-1\)</span> 的通路</p>
+<p>若<span class="math inline">\(v_i\)</span>
+到自身存在回路，则存在一条长度不大于<span
+class="math inline">\(n\)</span> 的回路</p>
+<p><strong>矩阵表示</strong></p>
+<p>这其实是最终形态，要一步步算出来 <span class="math display">\[
+p_{ij}=
+\left\{
+\begin{array}
+\left
+1,\qquad v_i可达v_j\\
+0,\qquad else
+\end{array}
+\right.
+\]</span></p>
+<ul>
+<li>主对角线上全为1</li>
+<li>iff 全为1 <span class="math inline">\(\Rightarrow\)</span>
+强连通</li>
+<li>对于<span class="math inline">\(n\)</span> 阶图，……</li>
+</ul>
+<p><strong>方法一</strong></p>
+<ol type="1">
+<li>写出邻接矩阵<span class="math inline">\(A\)</span></li>
+<li>计算<span
+class="math inline">\(B=A+A^2+A^3+\cdots+A^k,(k=n-1)\)</span></li>
+<li>改写<span class="math inline">\(B\)</span>
+<ol type="1">
+<li>非零元素改为1</li>
+<li>对角线元素改为1</li>
+</ol></li>
+</ol>
+<p><strong>方法二</strong></p>
+<p><strong>Warshall算法</strong></p>
+<p><strong>求<span class="math inline">\(M_i\)</span> ：将<span
+class="math inline">\(M_{i-1}\)</span> 中第<span
+class="math inline">\(i\)</span> 行加到第<span
+class="math inline">\(i\)</span> 列中有1的那一行上</strong></p>
+<ol type="1">
+<li>写出邻接矩阵<span class="math inline">\(A\)</span></li>
+<li>改写<span class="math inline">\(A\)</span>
+<ol type="1">
+<li>非零元素改为1</li>
+<li>对角线元素改为1</li>
+</ol></li>
+<li>Warshall 算法得到<span class="math inline">\(P\)</span></li>
+</ol>
+<hr />
+<p>通过可达矩阵，可以看出是强连通否</p>
+<h2 id="几种特殊图">6.4 几种特殊图</h2>
+<h3 id="二部图">6.4.1 二部图</h3>
+<p>零图和平凡图都是二部图</p>
+<hr />
+<p><strong>定义</strong></p>
+<p>无向图；顶点集分成两部分（不是划分，划分不可以为空集），每条边的两个顶点不在同一个顶点子集。若是简单图，且<span
+class="math inline">\(V_1\)</span> 和<span
+class="math inline">\(V_2\)</span>
+中每个顶点相邻，称为<strong>完全二部图</strong>，记为<span
+class="math inline">\(K_{r,s}\)</span> ，其中<span
+class="math inline">\(r=|V_1|,s=|V_2|,n=r+s,m=rs\)</span></p>
+<p>注：零图和平凡图都是二部图</p>
+<p><strong>判定定理</strong></p>
+<p>iff <span class="math inline">\(G\)</span> 中无奇长度的回路</p>
+<p><strong>AB法</strong></p>
+<p>对任一顶点标<span class="math inline">\(A\)</span> ,对<span
+class="math inline">\(A\)</span> 相邻标<span
+class="math inline">\(B\)</span> ，以此类推，看有无矛盾</p>
+<p><strong>匹配</strong></p>
+<figure>
+<img
+src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220327154143156.png" srcset="/img/loading.gif" lazyload
+alt="image-20220327154143156" />
+<figcaption aria-hidden="true">image-20220327154143156</figcaption>
+</figure>
+<p>完美匹配<span class="math inline">\(\Rightarrow\)</span>
+最大匹配<span class="math inline">\(\Rightarrow\)</span>
+极大匹配，反之不成立</p>
+<p><strong>完备匹配</strong></p>
+<p><span class="math inline">\(|V_1|\le|V_2|\)</span> 且 <span
+class="math inline">\(|M|=|V_1|\)</span></p>
+<p><strong>充要条件</strong>：<strong>Hall定理</strong></p>
+<p>相异性条件（充要）</p>
+<p><span class="math inline">\(|V_1|\le|V_2|\)</span> 则<span
+class="math inline">\(G\)</span> 中存在<span
+class="math inline">\(V_1\)</span> 到<span
+class="math inline">\(V_2\)</span> 的完备匹配，当且仅当<span
+class="math inline">\(V_1\)</span> 中任意<span
+class="math inline">\(k(1\le k \le |V_1|)\)</span> 个顶点至少与<span
+class="math inline">\(V_2\)</span> 中的<span
+class="math inline">\(k\)</span> 个顶点相邻</p>
+<p>t条件（充分）</p>
+<p><span class="math inline">\(|V_1|\le|V_2|\)</span> 若存在正整数<span
+class="math inline">\(t\)</span> ，使得<span
+class="math inline">\(V_1\)</span> 中每个顶点至少关联<span
+class="math inline">\(t\)</span> 条边，而<span
+class="math inline">\(V_2\)</span> 中每个顶点至多关联<span
+class="math inline">\(t\)</span> 条边，则存在完备匹配</p>
+<h3 id="欧拉图">6.4.2 欧拉图</h3>
+<p>戈尼斯堡问题——不重复走完七桥</p>
+<p>一笔画问题</p>
+<hr />
+<p><strong>欧拉通路</strong></p>
+<p>经过所有顶点且每条边恰好经过一次的通路</p>
+<p><strong>欧拉回路</strong></p>
+<p>经过所有顶点且每条边恰好经过一次的回路</p>
+<p><strong>欧拉图</strong></p>
+<p>有欧拉回路的图</p>
+<ul>
+<li>对有向图、无向图都适用</li>
+<li>规定平凡图为欧拉图</li>
+<li>欧拉通路是简单通路，欧拉回路是简单回路</li>
+<li>环不影响图的欧拉性</li>
+</ul>
+<p><strong>判别定理</strong></p>
+<ol type="1">
+<li><p>无向图</p>
+<p>欧拉回路/欧拉图，iff 连通 and 无奇度顶点</p>
+<p>欧拉通路但无欧拉回路，iff 连通 and 2个奇度顶点（端点）</p></li>
+<li><p>有向图</p>
+<p>欧拉回路/欧拉图，iff 连通 and 所有顶点的入度等于出度</p>
+<p>欧拉通路但无欧拉回路，iff 连通 and
+有一个顶点的入度比出度大1、一个顶点的入度比出度小1</p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220527213357366.png" srcset="/img/loading.gif" lazyload alt="image-20220527213357366" style="zoom:67%;" /></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220527213424590.png" srcset="/img/loading.gif" lazyload alt="image-20220527213424590" style="zoom:67%;" /></p></li>
+</ol>
+<h3 id="哈密顿图">6.4.3 哈密顿图</h3>
+<p>周游世界问题——每个顶点走一次</p>
+<hr />
+<p><strong>哈密顿通路</strong></p>
+<p>经过图中所有顶点一次且仅一次的通路</p>
+<p><strong>哈密顿回路</strong></p>
+<p>经过图中所有顶点一次且仅一次的回路</p>
+<p><strong>哈密顿图</strong></p>
+<p>具有哈密顿回路的图</p>
+<ul>
+<li>哈密顿通路是初级通路</li>
+<li>哈密顿回路是初级回路</li>
+<li>有哈密顿通路不一定有哈密顿回路</li>
+<li>环与平行边不影响图的哈密顿性</li>
+</ul>
+<p><strong>必要条件</strong></p>
+<p>若无向图<span class="math inline">\(G=&lt;V,E&gt;\)</span>
+是哈密顿图，则对于<span class="math inline">\(V\)</span>
+对的任意非空真子集<span class="math inline">\(V_1\)</span> 均有<span
+class="math inline">\(p(G-V_1)=|V_1|\)</span></p>
+<ul>
+<li>有割点的图不是哈密顿图</li>
+<li>发现<span class="math inline">\(V_1\)</span>
+的原则：以最大度顶点为目标</li>
+</ul>
+<p><strong>充分条件</strong></p>
+<p><strong>无向图</strong></p>
+<p>设<span class="math inline">\(G\)</span> 是<span
+class="math inline">\(n(n\ge 3)\)</span>
+阶无向简单图，若任意两个不相邻的顶点的度数之和大于等于<span
+class="math inline">\(n-1\)</span> ，则<span
+class="math inline">\(G\)</span> 中存在哈密顿通路；</p>
+<p>若大于等于<span class="math inline">\(n\)</span> ，则<span
+class="math inline">\(G\)</span> 中存在哈密顿回路，即哈密顿图</p>
+<ul>
+<li>设<span class="math inline">\(G\)</span> 是<span
+class="math inline">\(n(n\ge 3)\)</span> 阶无向简单图，若<span
+class="math inline">\(d(G)\ge \frac{n}{2}\)</span> ，则<span
+class="math inline">\(G\)</span> 是哈密顿图</li>
+</ul>
+<p><strong>有向图</strong></p>
+<p>设<span class="math inline">\(G\)</span> 是<span
+class="math inline">\(n(n\ge 2)\)</span>
+阶有向图，若略去所有边的方向后所得无向图中含子图<span
+class="math inline">\(K_n\)</span> ,则<span
+class="math inline">\(D\)</span> 中存在哈密顿通路；</p>
+<ul>
+<li>设<span class="math inline">\(G\)</span> 是<span
+class="math inline">\(n(n\ge 3)\)</span> 阶有向完全图，则<span
+class="math inline">\(D\)</span> 是哈密顿图</li>
+</ul>
+<p><strong>Attention！！！</strong></p>
+<p>没有判断哈密顿图的充要条件</p>
+<h3 id="平面图">6.4.4 平面图</h3>
+<p><strong>定义</strong></p>
+<p>如果能将图<span class="math inline">\(G\)</span>
+除顶点外边不相交地画在平面上，则称<span class="math inline">\(G\)</span>
+是<strong>平面图</strong>，这个画出的无边相交的图称作<span
+class="math inline">\(G\)</span> 的<strong>平面嵌入图</strong></p>
+<p><strong>术语</strong></p>
+<p><strong><span class="math inline">\(G\)</span> 的面</strong>：由<span
+class="math inline">\(G\)</span> 的边将平面划分成的每一个区域</p>
+<p><strong>无限面（外部面）</strong>：面积无限的面，用<span
+class="math inline">\(R_0\)</span></p>
+<p><strong>有限面（内部面）</strong>：面积有限的面，用<span
+class="math inline">\(R_1,R_2,\cdots,R_k\)</span> 表示</p>
+<p><strong>面<span class="math inline">\(R_i\)</span>
+的边界</strong>：包围<span class="math inline">\(R_i\)</span>
+的所有边构成的回路组</p>
+<p><strong>面<span class="math inline">\(R_i\)</span>
+的次数</strong>：<span class="math inline">\(R_i\)</span>
+的边界长度，用<span class="math inline">\(deg(R_i)\)</span> 表示</p>
+<p>note：</p>
+<p>构成一个面的回路组可能是初级回路，简单回路，也可能是复杂回路，甚至是非连通回路之并</p>
+<p><strong>面次和</strong></p>
+<p>平面图各面的次数之和等于边数的2倍，即 <span class="math display">\[
+\sum_{i=1}^{r}{\deg(R_i)}=2m
+\]</span> 其中，<span class="math inline">\(r\)</span> 为<span
+class="math inline">\(G\)</span> 的面数，<span
+class="math inline">\(m\)</span> 为边数，桥算2次</p>
+<p><strong>极大平面图</strong></p>
+<p>若<span class="math inline">\(G\)</span>
+是简单平面图，且在任意两个不相邻的顶点之间加一条新边所得图为非平面图，则称<span
+class="math inline">\(G\)</span> 为极大平面图</p>
+<ul>
+<li><span class="math inline">\(K_1,K_2,K_3,K_4\)</span>
+都是极大平面图</li>
+<li>极大平面图是连通的</li>
+<li>设<span class="math inline">\(G\)</span> 为$n(n) $ 阶简单图，<span
+class="math inline">\(G\)</span> 为极大平面图的充要条件：<strong><span
+class="math inline">\(G\)</span> 每个面的次数均为3</strong></li>
+</ul>
+<p><strong>极小非平面图</strong></p>
+<p>若<span class="math inline">\(G\)</span>
+是非平面图，并且任意删除一条边所得都是平面图，则称<span
+class="math inline">\(G\)</span> 是极小非平面图</p>
+<p><strong>欧拉公式</strong></p>
+<p>设<span class="math inline">\(G\)</span> 为<span
+class="math inline">\(n\)</span> 阶<span
+class="math inline">\(m\)</span> 条边<span
+class="math inline">\(r\)</span> 个面的连通平面图，则 <span
+class="math display">\[
+n-m+r=2
+\]</span> <strong>推论</strong></p>
+<p>设平面图<span class="math inline">\(G\)</span> 有<span
+class="math inline">\(p(p\ge 2)\)</span> 个连通分支，则 <span
+class="math display">\[
+n-m+r=p+1
+\]</span> 设<span class="math inline">\(G\)</span> 为<span
+class="math inline">\(n\)</span> 阶连通平面图，有<span
+class="math inline">\(m\)</span> 条边，且每个面的次数不小于<span
+class="math inline">\(l(l\ge 3)\)</span> ，则 <span
+class="math display">\[
+m\le \frac{l}{l-2}{(n-2)}
+\]</span> <strong>同胚与收缩</strong></p>
+<p>同胚：同构，or经过反复消去或插入2度顶点后同构</p>
+<p>收缩：删除边<span class="math inline">\(e=(u,v)\)</span>
+并将两顶点重合</p>
+<p><strong>Kuratowski定理</strong></p>
+<ol type="1">
+<li>一个图是平面图当且仅当它既不含与<span
+class="math inline">\(K_5\)</span> 同胚的子图，也不含与<span
+class="math inline">\(K_{3,3}\)</span> 同胚的子图</li>
+<li>一个图是平面图当且仅当它既无可收缩为<span
+class="math inline">\(K_5\)</span> 的子图，也无可收缩为<span
+class="math inline">\(K_{3,3}\)</span> 的子图</li>
+</ol>
+<p>note:</p>
+<p>若<span class="math inline">\(G\)</span>
+中有5个以上的4度点，可尝试<span class="math inline">\(K_5\)</span> ;</p>
+<p>若<span class="math inline">\(G\)</span>
+中有6个以上的3度点，可尝试<span class="math inline">\(K_{3,3}\)</span>
+;</p>
+<p><strong>对偶图</strong></p>
+<ul>
+<li><span class="math inline">\(G^*\)</span> 是平面图，且平面嵌入</li>
+<li><span class="math inline">\(G^*\)</span> 是连通的</li>
+<li><span class="math inline">\((G^*)^*\)</span> 与<span
+class="math inline">\(G^*\)</span> 不一定相同，除非<span
+class="math inline">\(G\)</span> 是连通的</li>
+<li>若<span class="math inline">\(e\)</span> 为<span
+class="math inline">\(G\)</span> 中的环，则<span
+class="math inline">\(G^*\)</span> 中的<span
+class="math inline">\(e^*\)</span> 为桥；反之，亦成立</li>
+<li>同构的平面图的对偶图不一定同构</li>
+</ul>
+<p><span class="math inline">\(n,m,r\)</span>
+分别为顶点数、边数、面数</p>
+<ol type="1">
+<li><span class="math inline">\(n^*=r\)</span></li>
+<li><span class="math inline">\(m^*=m\)</span></li>
+<li><span class="math inline">\(r^*=n\)</span></li>
+<li>设<span class="math inline">\(G^*\)</span> 的顶点<span
+class="math inline">\(v_i^*\)</span> 位于<span
+class="math inline">\(G\)</span> 中面<span
+class="math inline">\(R_i\)</span> 中，则<span
+class="math inline">\(d(v_i^*)=deg(R_i)\)</span></li>
+<li>若<span class="math inline">\(G\)</span> 是具有<span
+class="math inline">\(k(k\ge 2)\)</span> 个连通分支的平面图，则<span
+class="math inline">\(r^*=n-k+1\)</span></li>
+</ol>
+<p><strong>应用</strong></p>
+<ol type="1">
+<li><p>着色</p></li>
+<li><p>地图着色</p></li>
+<li><p>四色定理</p></li>
+</ol>
+<h1 id="树">7 树</h1>
+<h2 id="无向树">7.1 无向树</h2>
+<h3 id="定义及性质">7.1.1 定义及性质</h3>
+<p><strong>无向树</strong>：连通无回路的无向图</p>
+<p><strong>平凡树</strong>：平凡图</p>
+<p><strong>森林</strong>：每个连通分支都是树的非连通的无向图</p>
+<p><strong>树叶</strong>：树中度数为1的顶点</p>
+<p><strong>分支点</strong>：树中度数为2的顶点</p>
+<p><strong>性质</strong></p>
+<p>设<span class="math inline">\(G=&lt;V,E&gt;\)</span> 是<span
+class="math inline">\(n\)</span> 阶<span
+class="math inline">\(m\)</span> 条边的无向图，与下面各命题等价</p>
+<ol type="1">
+<li><span class="math inline">\(G\)</span> 是树（连通无回路）</li>
+<li><span class="math inline">\(G\)</span>
+中任意两点之间存在唯一的路径</li>
+<li><span class="math inline">\(G\)</span> 是连通的且<span
+class="math inline">\(m=n-1\)</span></li>
+<li><span class="math inline">\(G\)</span> 是无回路且<span
+class="math inline">\(m=n-1\)</span></li>
+<li><span class="math inline">\(G\)</span>
+中无回路，但在任何两个不相邻的顶点之间加一条边，所得图中有唯一的一条初级回路</li>
+<li><span class="math inline">\(G\)</span> 是连通的且<span
+class="math inline">\(G\)</span> 中任意一条边均为桥</li>
+</ol>
+<p><strong>定理</strong></p>
+<p>非平凡的无向树至少有两片树叶</p>
+<h3 id="生成树">7.1.2 生成树</h3>
+<p><strong>定义</strong></p>
+<p>设<span class="math inline">\(G\)</span> 是无向连通图，若<span
+class="math inline">\(G\)</span> 的生成子图<span
+class="math inline">\(T\)</span> 是一棵树，则称<span
+class="math inline">\(T\)</span> 是<span
+class="math inline">\(G\)</span> 的生成树。<span
+class="math inline">\(G\)</span> 在<span
+class="math inline">\(T\)</span> 中的边称作<span
+class="math inline">\(T\)</span> 的树枝，不在<span
+class="math inline">\(T\)</span> 中的边称作<span
+class="math inline">\(T\)</span> 的弦。<span
+class="math inline">\(T\)</span> 的所有弦的集合的导出子图称作<span
+class="math inline">\(T\)</span> 的余树</p>
+<p>note：</p>
+<ol type="1">
+<li>余树一般不是树</li>
+<li>生成树不唯一</li>
+</ol>
+<p><strong>定理</strong></p>
+<p>任何无向连通图都有生成树</p>
+<p><strong>存在性</strong></p>
+<p>任何无向连通图都有生成树</p>
+<ol type="1">
+<li>设<span class="math inline">\(n\)</span> 阶无向连通图有<span
+class="math inline">\(m\)</span> 条边，则<span
+class="math inline">\(m\ge n-1\)</span></li>
+<li>设<span class="math inline">\(n\)</span> 阶无向连通图有<span
+class="math inline">\(m\)</span> 条边，则它的生成树的余树有<span
+class="math inline">\(m-n+1\)</span> 条边</li>
+</ol>
+<p><strong>最小生成树</strong></p>
+<ol type="1">
+<li><p>Kruskal</p>
+<p>从边出发</p></li>
+<li></li>
+</ol>
+<p>……</p>
+<h1 id="图论总结">图论总结</h1>
+<h2 id="基本概念">基本概念</h2>
+<h3 id="握手定理">握手定理</h3>
+<h3 id="子图">子图</h3>
+<p><strong>生成子图：</strong> 删边</p>
+<p><strong>导出子图：</strong> 点导出；边导出</p>
+<p><strong>补图：</strong> 完全图-简单图</p>
+<h3 id="连通性和连通度">连通性和连通度</h3>
+<h3 id="矩阵表示">矩阵表示</h3>
+<ol type="1">
+<li>关联矩阵</li>
+<li>邻接矩阵<span class="math inline">\(\Rightarrow\)</span>
+可达矩阵</li>
+</ol>
+<h2 id="特殊图">特殊图</h2>
+<p><span class="math display">\[
+\begin{array}[ccc]
+\ &amp;判别&amp;应用\\
+二部图&amp;无奇回路/AB法&amp;匹配\\
+欧拉图&amp;无奇度顶点/入度等于出度&amp;一笔画\\
+哈密顿&amp; \Rightarrow p(G-V_1)\le |V_1|, \Leftarrow d(V_1)+d(V_2)\ge n
+&amp; 周游\\
+平面图&amp; k_5,k_{3,3}&amp; 欧拉公式、对偶图、四色定理、面次和\\
+树&amp; 连通+无回路+m=n-1（三选二）&amp; 最小生成树\\
+\end{array}
+\]</span></p>
+<p><strong>存在完备匹配的条件</strong></p>
+<p><strong>Hall定理</strong>：<span class="math inline">\(G\)</span>
+中存在<span class="math inline">\(V_1\)</span> 到<span
+class="math inline">\(V_2\)</span> 的完备匹配，当且仅当<span
+class="math inline">\(V_1\)</span> 中任意<span
+class="math inline">\(k\)</span> 各顶点至少与<span
+class="math inline">\(V_2\)</span> 中的<span
+class="math inline">\(k\)</span> 个顶点相邻（相异性条件）</p>
+<p>或：如果存在<span class="math inline">\(t\)</span> ，使得<span
+class="math inline">\(V_1\)</span> 中每个顶点至少关联<span
+class="math inline">\(t\)</span> 条边，而<span
+class="math inline">\(V_2\)</span> 中每个顶点至多关联<span
+class="math inline">\(t\)</span> 条边（充分性条件）</p>
+<h1 id="代数系统近世代数">14 代数系统（近世代数）</h1>
+<p>字母 代 数字（初等代数）</p>
+<p>字符 代 运算（代数系统）</p>
+<h2 id="二元运算及其性质">14.1 二元运算及其性质</h2>
+<h3 id="二元运算与一元运算的定义">14.1.1 二元运算与一元运算的定义</h3>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220406161651554.png" srcset="/img/loading.gif" lazyload alt="image-20220406161651554" style="zoom:50%;" /></p>
+<p><strong>定义</strong></p>
+<p>设<span class="math inline">\(S\)</span> 为集合，函数<span
+class="math inline">\(f:S\times S\rightarrow S\)</span> 称为<span
+class="math inline">\(S\)</span>
+上的<strong>二元运算</strong>，也称<span
+class="math inline">\(S\)</span> 对<span
+class="math inline">\(f\)</span> 封闭</p>
+<p>设<span class="math inline">\(S\)</span> 为集合，函数<span
+class="math inline">\(f:S\rightarrow S\)</span> 称为<span
+class="math inline">\(S\)</span>
+上的<strong>一元运算</strong>，也称<span
+class="math inline">\(S\)</span> 对<span
+class="math inline">\(f\)</span> 封闭</p>
+<p><strong>二元运算实例</strong></p>
+<p><img src="C:\Users\hp\AppData\Roaming\Typora\typora-user-images\image-20220511143820154.png" srcset="/img/loading.gif" lazyload alt="image-20220511143820154" style="zoom:50%;" /></p>
+<p>矩阵的加减运算，乘法运算都是<span
+class="math inline">\(M_n(R)\)</span> 上的二元运算</p>
+<p><strong>一元运算实例</strong></p>
+<ul>
+<li>求相反数</li>
+<li>求倒数</li>
+<li>求共轭复数</li>
+<li>求绝对补</li>
+<li>求反函数</li>
+<li>求转置矩阵</li>
+</ul>
+<p><strong>运算的表示</strong></p>
+<p><strong>算符：</strong> <span
+class="math inline">\(\circ,*,\cdot,\bigoplus,\bigotimes\)</span></p>
+<ul>
+<li><span class="math inline">\(\bigoplus\)</span> 一般表示对称差<span
+class="math inline">\(A\bigoplus B=(A-B)\bigcup(B-A)=A\bigcup B-A\bigcap
+B\)</span></li>
+</ul>
+<ol type="1">
+<li><span class="math inline">\(x\circ y=z\)</span></li>
+<li><span class="math inline">\(\circ x\)</span></li>
+</ol>
+<p><strong>公式表示：</strong><span class="math inline">\(\forall x,y
+\in R,x*y=x\)</span></p>
+<p><strong>运算表：</strong></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220406163052579.png" srcset="/img/loading.gif" lazyload alt="image-20220406163052579" style="zoom:50%;" /></p>
+<h3 id="二元运算的性质">14.1.2 二元运算的性质</h3>
+<p><strong>交换律</strong> <span class="math display">\[
+x\circ y=y\circ x\\
+    运算表是对称的
+\]</span></p>
+<p><strong>结合律</strong> <span class="math display">\[
+(x\circ y)\circ z=x\circ(y\circ z)
+\]</span></p>
+<p><strong>幂等律</strong> <span class="math display">\[
+x\circ x=x\\
+对角线元素与表头相同
+\]</span></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220512120216529.png" srcset="/img/loading.gif" lazyload alt="image-20220512120216529" style="zoom:67%;" /></p>
+<p><strong>分配律</strong> <span class="math display">\[
+(x*y)\circ z=(x\circ z)*(y\circ z),右分配律\\
+z\circ(x*y)=(z\circ x)*(z\circ y),左分配律\\
+称\circ对*满足分配律
+\]</span></p>
+<p><span class="math display">\[
+如果\circ和*都可交换，且\\
+x\circ(x*y)=x,x*(x\circ y)=x\\
+称\circ和*满足吸收率
+\]</span></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220512120639167.png" srcset="/img/loading.gif" lazyload alt="image-20220512120639167" style="zoom:67%;" /></p>
+<p><strong>1、二元运算的特异元素（单位元）</strong> <span
+class="math display">\[
+\exist e_l\in S,\forall x\in S\\
+e_l\circ x=x\ or \ x\circ e_r=x\\
+\]</span> 称<span class="math inline">\(e_l,e_r\)</span>
+为左右单位元。若既是左单位元又是右单位元，则称<span
+class="math inline">\(e\)</span> 为<span
+class="math inline">\(S\)</span> 上关于<span
+class="math inline">\(\circ\)</span>
+运算的<strong>单位元</strong>，也叫<strong>幺元</strong></p>
+<p><strong>notes</strong></p>
+<ol type="1">
+<li>在运算表中左 (右) 单位元所在行 (列) 的元素与上 (前) 表头相同</li>
+<li>若一侧有多个单位元，则另一侧就没有单位元</li>
+</ol>
+<p><strong>单位元的唯一性定理</strong> <span class="math display">\[
+e_l=e_l\circ e_r=e_r
+\]</span> <strong>2、二元运算的特异元素（零元）</strong> <span
+class="math display">\[
+\theta_l\circ x=\theta_l\\
+x\circ\theta_r=\theta_r\\
+\]</span> 称<span class="math inline">\(\theta_l,\theta_r\)</span>
+为左右零元。若既是左零元又是右零元，则称<span
+class="math inline">\(\theta\)</span> 为<span
+class="math inline">\(S\)</span> 上关于<span
+class="math inline">\(\circ\)</span> 运算的<strong>零元</strong></p>
+<p><strong>notes</strong></p>
+<ol type="1">
+<li>在运算表中左 (右) 零元所在行 (列) 的元素与前 (上) 表头相同</li>
+<li>若一侧有多个零元，则另一侧就没有零元</li>
+</ol>
+<p><strong>零元的唯一性定理</strong> <span class="math display">\[
+\theta_l=\theta_l\circ \theta_r=\theta_r
+\]</span> <strong>3、二元运算的特意元素（逆元）</strong> <span
+class="math display">\[
+v_l\circ x=e或x\circ v_r=e
+\]</span> 称<span class="math inline">\(v_l,v_r\)</span>左右逆元</p>
+<p><strong>notes</strong></p>
+<p>在运算表中单位元对应的前表头元素与上表头元素互为左、右逆元</p>
+<p><strong>逆元的唯一性定理</strong></p>
+<p>对于可结合的二元运算，可逆元素 <span class="math inline">\(x\)</span>
+只有唯一的逆元，记为<span class="math inline">\(x^{-1}\)</span></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220512124816817.png" srcset="/img/loading.gif" lazyload alt="image-20220512124816817" style="zoom:67%;" /></p>
+<p><strong>消去律</strong> <span class="math display">\[
+x\circ y=x\circ z\Rightarrow y=z\\
+y\circ x=z\circ x\Rightarrow y=z
+\]</span> 普通加法乘法，矩阵加法满足消去律</p>
+<h2 id="代数系统">14.2 代数系统</h2>
+<h3 id="代数系统的定义与实例">14.2.1 代数系统的定义与实例</h3>
+<p>非空集合<span class="math inline">\(S\)</span> 和<span
+class="math inline">\(S\)</span> 上<span
+class="math inline">\(k\)</span> 个一元或二元运算<span
+class="math inline">\(f_1,f_2,\cdots,f_k\)</span>
+组成的系统称为代数系统，记作<span
+class="math inline">\(&lt;S,f_1,f_2,\cdots,f_k\)</span>&gt;</p>
+<ol type="1">
+<li><span class="math inline">\(S\)</span> 称为载体</li>
+<li>可以将特异元素作为系统成分列出来，称为代数常数</li>
+<li>运算封闭</li>
+</ol>
+<h3 id="代数系统的分类">14.2.2 代数系统的分类</h3>
+<p>如果两个代数系统中运算的个数相同，对应运算的元素相同且代数常数的个数也相同，称为<strong>同类型</strong>的代数系统</p>
+<p>如果两个同类型的代数系统对应的运算所规定的运算性质也相同，则称为<strong>同种</strong>的代数系统</p>
+<h3 id="子代数系统与积代数系统">14.2.3 子代数系统与积代数系统</h3>
+<p>设<span
+class="math inline">\(V=&lt;S,f_1,f_2,\cdots,f_k\)</span>&gt;，<span
+class="math inline">\(B\)</span> 是<span
+class="math inline">\(S\)</span> 的非空子集，如果<span
+class="math inline">\(B\)</span> 对<span
+class="math inline">\(f_1,f_2,\cdots,f_k\)</span> 都是封闭的，且<span
+class="math inline">\(B\)</span> 和<span
+class="math inline">\(S\)</span> 含有相同的代数常数，则称<span
+class="math inline">\(&lt;B,f_1,f_2,\cdots,f_k\)</span>&gt; 是<span
+class="math inline">\(V\)</span>
+的<strong>子代数系统</strong>，简称子代数</p>
+<p><strong>notes</strong></p>
+<ol type="1">
+<li><span class="math inline">\(B\)</span> 和<span
+class="math inline">\(V\)</span> 同类型、同种</li>
+<li>对于任何代数系统，其子代数一定存在</li>
+</ol>
+<p><strong>例子</strong></p>
+<ol type="1">
+<li><span class="math inline">\(N\)</span> 是 <span
+class="math inline">\(&lt;Z,+&gt;\)</span> 的子代数</li>
+<li><span class="math inline">\(N\)</span> 也是 <span
+class="math inline">\(&lt;Z,+,0&gt;\)</span> 的子代数</li>
+<li><span class="math inline">\(N-\{0\}\)</span> 是 <span
+class="math inline">\(&lt;Z,+&gt;\)</span> 子代数</li>
+<li><span class="math inline">\(N-\{0\}\)</span> 不是 <span
+class="math inline">\(&lt;Z,+,0&gt;\)</span> 子代数</li>
+</ol>
+<p><strong>最大子代数</strong></p>
+<p>就是<span class="math inline">\(V\)</span> 本身</p>
+<p><strong>最小子代数</strong></p>
+<p><span class="math inline">\(V\)</span> 所有代数常数构成集合<span
+class="math inline">\(B\)</span> ，且<span
+class="math inline">\(B\)</span> 对<span
+class="math inline">\(V\)</span> 中所有运算封闭</p>
+<p><strong>平凡子代数</strong></p>
+<p>最大和最小子代数</p>
+<p><strong>真子代数</strong></p>
+<p><span class="math inline">\(B\)</span> 是<span
+class="math inline">\(V\)</span> 的真子集</p>
+<p>两个<strong>同类型</strong>的代数系统可以构造<strong>积代数系统</strong></p>
+<p>设<span
+class="math inline">\(V_1=&lt;S_1,\circ&gt;,V_2=&lt;S_2,*&gt;\)</span>
+其中<span class="math inline">\(\circ,*\)</span> 是二元运算，积代数<span
+class="math inline">\(V=&lt;S_1\times S_2,\cdot&gt;\)</span> <span
+class="math display">\[
+\forall&lt;x_1,y_1&gt;,&lt;x_2,y_2&gt;\in S_1\times S_2\\
+&lt;x_1,y_1&gt;\cdot&lt;x_2,y_2&gt;=&lt;x_1\circ x_2,y_1*y_2&gt;
+\]</span> <strong>性质</strong></p>
+<ol type="1">
+<li>若<span class="math inline">\(\circ\)</span>和<span
+class="math inline">\(*\)</span> 运算是可交换的，那么<span
+class="math inline">\(\cdot\)</span> 运算也是可交换的；</li>
+<li>若<span class="math inline">\(\circ\)</span>和<span
+class="math inline">\(*\)</span> 运算是可结合的，那么<span
+class="math inline">\(\cdot\)</span> 运算也是可结合的；</li>
+<li>若<span class="math inline">\(\circ\)</span>和<span
+class="math inline">\(*\)</span> 运算是幂等的，那么<span
+class="math inline">\(\cdot\)</span> 运算也是幂等的；</li>
+<li>若<span class="math inline">\(\circ\)</span>和<span
+class="math inline">\(*\)</span> 运算分别具有单位元 <span
+class="math inline">\(e_1\)</span> 和$ e_2$，那么 <span
+class="math inline">\(\cdot\)</span> 运算也具有单位元<span
+class="math inline">\(&lt;e_1, e_2&gt;\)</span>；</li>
+<li>若<span class="math inline">\(\circ\)</span>和<span
+class="math inline">\(*\)</span> 运算分别具有零元<span
+class="math inline">\(q_1\)</span> 和<span
+class="math inline">\(q_2\)</span> ，那么<span
+class="math inline">\(\cdot\)</span> 运算也具有零元<span
+class="math inline">\(&lt;q_1,q_2&gt;\)</span> ；</li>
+<li>若<span class="math inline">\(x\)</span> 关于<span
+class="math inline">\(\circ\)</span>的逆元为<span
+class="math inline">\(x^{-1}\)</span>, <span
+class="math inline">\(y\)</span> 关于<span
+class="math inline">\(*\)</span> 的逆元为<span
+class="math inline">\(y^{-1}\)</span> ，那么<span
+class="math inline">\(&lt;x, y&gt;\)</span>关于<span
+class="math inline">\(\cdot\)</span> 运算也具有逆元 <span
+class="math inline">\(&lt;x^{-1}, y^{-1}&gt;\)</span></li>
+</ol>
+<h3 id="代数系统的同态与同构">14.2.4 代数系统的同态与同构</h3>
+<p><strong>同态映射</strong></p>
+<p>设<span
+class="math inline">\(V_1=&lt;S_1,\circ&gt;,V_2=&lt;S_2,*&gt;\)</span>
+，<span class="math inline">\(f(x\circ y)=f(x)*f(y)\)</span></p>
+<p><strong>同态映射的分类</strong></p>
+<p>同态映射如果是单射，则称为单同态；</p>
+<p>如果是满射，则称为满同态，这时称 <span
+class="math inline">\(V_2\)</span> 是<span
+class="math inline">\(V_1\)</span> 的同态像，记作<span
+class="math inline">\(V_1\sim V_2\)</span> ；</p>
+<p>如果是双射，则称为同构，也称代数系统<span
+class="math inline">\(V_1\)</span> 同构于 <span
+class="math inline">\(V_2\)</span> ，记作 <span
+class="math inline">\(V_1\cong V_2\)</span>.</p>
+<p>对于代数系统 <em>V</em>，它到自身的同态称为自同态 .</p>
+<p>类似地可以定义单自同态、满自同态和自同构 .</p>
+<p><strong>满同态映射的性质</strong></p>
+<ol type="1">
+<li>若<span class="math inline">\(V_1\)</span> 中的<span
+class="math inline">\(\circ\)</span> 运算是可交换 (可结合，幂等)
+的，那么<span class="math inline">\(V_2\)</span> 中对应的<span
+class="math inline">\(\circ^{-1}\)</span> 运算也是可交换
+(可结合，幂等)的；</li>
+<li>若<span class="math inline">\(V_1\)</span> 中的<span
+class="math inline">\(\circ\)</span> 对 <span
+class="math inline">\(*\)</span> 运算是可分配的，那么 <em>V</em>2
+中对应的<span class="math inline">\(\circ &#39;\)</span> 对 <span
+class="math inline">\(*&#39;\)</span> 运算也是可分配的；</li>
+<li>若 <span class="math inline">\(V_1\)</span> 中的<span
+class="math inline">\(\circ\)</span> 和<span
+class="math inline">\(*\)</span> 运算是可吸收的，那么 <em>V</em>2
+中对应的 <span class="math inline">\(\circ &#39;\)</span> 和 <span
+class="math inline">\(*&#39;\)</span> 运算也是可吸收的；</li>
+<li>若<span class="math inline">\(V_1\)</span> 中的<span
+class="math inline">\(\circ\)</span> 运算具有单位元 (<span
+class="math inline">\(e_1\)</span> 或零元<span
+class="math inline">\(\theta_1\)</span> )，那么$ f (e_1) <span
+class="math inline">\((或\)</span> f (_1) $) 是 <span
+class="math inline">\(V_2\)</span> 中关于对应的<span
+class="math inline">\(\circ &#39;\)</span> 运算的单位元 (或零元)；</li>
+<li>若<span class="math inline">\(x\)</span> 关于<span
+class="math inline">\(V_1\)</span> 中 <span
+class="math inline">\(\circ\)</span> 的逆元为<span
+class="math inline">\(x^{-1}\)</span>，那么$ f (x) $在 <span
+class="math inline">\(V_2\)</span> 中关于对应的 <span
+class="math inline">\(\circ &#39;\)</span> 运算的逆元为$ f (x^{-1})
+$.</li>
+</ol>
+<h2 id="几个典型的代数系统">14.3 几个典型的代数系统</h2>
+<h3 id="半群与独异点">14.3.1 半群与独异点</h3>
+<p>设$V=&lt;S,&gt; $ 是代数系统，<span
+class="math inline">\(\circ\)</span>
+是二元运算，如果是可结合的，则称<span class="math inline">\(V\)</span>
+为<strong>半群</strong></p>
+<p>设$V=&lt;S,&gt; $ 是半群，若<span class="math inline">\(e\in
+S\)</span> 是关于<span class="math inline">\(\circ\)</span>
+运算的单位元，则称<span class="math inline">\(V\)</span>
+是<strong>含幺半群</strong> ，……</p>
+<h3 id="群">14.3.2 群</h3>
+<p><strong>群的定义</strong> 设<span
+class="math inline">\(&lt;G,\circ&gt;\)</span> 是代数系统，<span
+class="math inline">\(\circ\)</span>
+是二元运算，可结合，存在单位元，且对于任何元素<span
+class="math inline">\(x\)</span> ，都有<span
+class="math inline">\(x^{-1}\in G\)</span>。</p>
+<p><strong>notes</strong>：</p>
+<ol type="1">
+<li>若非单元代数系统有零元，则它一定不是群（零元没有逆）</li>
+<li><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20220523151354412.png" srcset="/img/loading.gif" lazyload alt="image-20220523151354412" style="zoom:50%;" /></li>
+</ol>
+<p><strong>Klein四元群</strong> 1. <span
+class="math inline">\(e\)</span> 为单位元 2.
+主对角线都是单位元，每个元素的逆是自己 3. <span
+class="math inline">\(a,b,c\)</span> 任意两个元素运算等于第三者 4.
+运算表对称，满足交换律</p>
+<p><strong>群中的术语</strong> 若群<span
+class="math inline">\(G\)</span>
+是有穷集，则称<strong>有限群</strong>，否则为<strong>无限群</strong>；
+群中的元素个数称为<strong>阶</strong>，有限群的阶记为<span
+class="math inline">\(|G|\)</span>； 若群<span
+class="math inline">\(G\)</span>
+中的二元运算是可交换的，则称为<strong>交换群</strong>或<strong>阿贝尔群</strong>；
+若群<span class="math inline">\(G\)</span>
+中只有单位元，则称<strong>平凡群</strong>（只有一个元素，单位元=零元=逆元=a）
+<strong>notes</strong>： 平凡群是唯一有零元的群</p>
+<p><strong>群的幂运算</strong> <span class="math display">\[
+x^n=
+\left\{
+\begin{array}
+\le
+e&amp; n=0\\
+x^{n-1}x&amp; n&gt;0\\
+(x^{-1})^m&amp; m=-n,n&lt;0\\
+\end{array}
+\right.
+\]</span></p>
+<p>使得<span class="math inline">\(x^k=e\)</span> 成立的最小正整数<span
+class="math inline">\(k\)</span> 称为<span
+class="math inline">\(x\)</span> 的阶（或周期），记作<span
+class="math inline">\(|x|=k\)</span> ，称<span
+class="math inline">\(x\)</span> 为<span
+class="math inline">\(k\)</span> 阶元。若不存在，则称<span
+class="math inline">\(x\)</span> 为无限阶元。</p>
+<p><strong>幂运算规则</strong></p>
+<p>……</p>
+<p><strong>群的性质</strong> 1. 群方程存在唯一解 2.</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Study/" class="category-chain-item">Study</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Study/22Spring/" class="category-chain-item">22Spring</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E7%A7%91/">#基础学科</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>离散数学2</div>
+      <div>http://example.com/2022/05/27/Discrete-Mathematics/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Hakii fang</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年5月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/01/Information-Theory/" title="信息论">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">信息论</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/03/12/pet/" title="My pet">
+                        <span class="hidden-mobile">My pet</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      浙ICP备2022006390号
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
