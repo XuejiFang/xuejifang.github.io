@@ -8,7 +8,7 @@
     <link href="/2022/11/28/machine-learning/"/>
     <url>/2022/11/28/machine-learning/</url>
     
-    <content type="html"><![CDATA[<h1 id="课程序言">0. 课程序言</h1><p><strong>Email:</strong> yswantfly@shu.edu.cn</p><ul><li>连接主义学派<ul><li>深度神经网络</li><li>工业大数据</li></ul></li><li>统计主义学派<ul><li>普适性</li></ul></li><li>Alpha Go<ul><li>path searching</li></ul></li><li>基于启发式信息的搜索<ul><li>启发式搜索</li><li>缩减解空间（solution space）</li><li><span class="math inline">\(A^*\)</span></li><li>棋谱</li><li>自我博弈</li><li>傻傻的规则炫入局部最优</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="课程序言">0. 课程序言</h1><p><strong>Email:</strong> yswantfly@shu.edu.cn（岳晓东）</p><p><strong>顶会</strong>：ICML、CVPR</p><p><strong>国企</strong>：上海数据集团</p><ul><li>连接主义学派<ul><li>Geoffery E. Hinton</li><li>深度神经网络</li><li>工业大数据</li></ul></li><li>统计主义学派<ul><li>M.I. Jordan</li><li>普适性</li></ul></li><li>Alpha Go<ul><li>path searching</li></ul></li><li>基于启发式信息的搜索<ul><li>启发式搜索</li><li>缩减解空间（solution space）</li><li><span class="math inline">\(A^*\)</span></li><li>棋谱</li><li>自我博弈</li><li>傻傻的规则炫入局部最优</li></ul></li><li>分布外学习</li><li>大数据<ul><li>data everywhere</li></ul></li></ul>]]></content>
     
     
     <categories>
