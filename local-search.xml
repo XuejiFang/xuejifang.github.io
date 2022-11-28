@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>运筹与优化</title>
+    <link href="/2022/11/28/operations-research/"/>
+    <url>/2022/11/28/operations-research/</url>
+    
+    <content type="html"><![CDATA[<h1 id="绪论">0. 绪论</h1><h2 id="序言">0.1 序言</h2><p><strong>平时成绩40%+期末考试60%</strong></p><ul><li>非智能优化算法<ul><li>线性优化</li><li>非线性优化</li></ul></li><li>智能优化算法<ul><li>进化类</li><li>群体智能</li><li>模拟退火</li><li>禁忌搜索</li><li>神经网络</li></ul></li></ul><p>用决策变量代表某一个方案，具体取值代表一个具体方案</p><p>存在一定的约束条件，用等式或不等式表示</p><ul><li>线性规划<ul><li>图解法（变量少）</li><li>单纯形法</li></ul></li><li>非线性规划<ul><li>无约束和有约束问题</li><li>梯度下降</li><li>牛顿法</li></ul></li><li>整数规划<ul><li>割平面法</li><li>分支定界法</li></ul></li><li>动态规划<ul><li>多阶段决策过程最优化<ul><li>最短路线、设备更新问题</li></ul></li></ul></li></ul><h2 id="线性代数复习">0.2 线性代数复习</h2><p>线性方程组<span class="math inline">\(\rightarrow\)</span>系数矩阵<span class="math inline">\(A\)</span><spanclass="math inline">\(\rightarrow\)</span> 增广矩阵<spanclass="math inline">\(\overline{A}=[A|b]\)</span><spanclass="math inline">\(\rightarrow\)</span> <spanclass="math inline">\(AX=b\)</span></p><p>初等行变换<span class="math inline">\(\rightarrow\)</span>行阶梯形式<span class="math inline">\(\rightarrow\)</span>行简化阶梯矩阵（每行第一个非零元素为1）<spanclass="math inline">\(\rightarrow\)</span> 高斯消元法</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Study</category>
+      
+      <category>22Winter</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>专业选修</tag>
+      
+      <tag>运筹学</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>机器学习基础</title>
     <link href="/2022/11/28/machine-learning/"/>
     <url>/2022/11/28/machine-learning/</url>
