@@ -16,27 +16,27 @@
   <meta name="author" content="Hakii Fang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="0. 课程序言 Email: yswantfly@shu.edu.cn（岳晓东） 顶会：ICML、CVPR、ICCV 国企：上海数据集团  连接主义学派  Geoffery E. Hinton 深度神经网络 工业大数据  统计主义学派  M.I. Jordan 普适性  Alpha Go  path searching  基于启发式信息的搜索  启发式搜">
+    <meta name="description" content="方昱春 1. 绪论 1.1 模式与模式识别的概念 \(x\in R^d\Rightarrow y\in\{-1,1\}\) 模：法也。式：法也。 识：知也。别：分解也。 对象：样本Sample（模式） 模式：类Class（模式类） 观察：特征Features（属性） 模式识别研究的领域在完全确定和完全随机之间。 上世纪30年代，Fisher提出统计模式识别 上世纪80年代，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习基础">
-<meta property="og:url" content="http://example.com/2022/11/28/machine-learning/index.html">
+<meta property="og:title" content="pattern-recognition">
+<meta property="og:url" content="http://example.com/2022/11/29/pattern-recognition/index.html">
 <meta property="og:site_name" content="Hakii">
-<meta property="og:description" content="0. 课程序言 Email: yswantfly@shu.edu.cn（岳晓东） 顶会：ICML、CVPR、ICCV 国企：上海数据集团  连接主义学派  Geoffery E. Hinton 深度神经网络 工业大数据  统计主义学派  M.I. Jordan 普适性  Alpha Go  path searching  基于启发式信息的搜索  启发式搜">
+<meta property="og:description" content="方昱春 1. 绪论 1.1 模式与模式识别的概念 \(x\in R^d\Rightarrow y\in\{-1,1\}\) 模：法也。式：法也。 识：知也。别：分解也。 对象：样本Sample（模式） 模式：类Class（模式类） 观察：特征Features（属性） 模式识别研究的领域在完全确定和完全随机之间。 上世纪30年代，Fisher提出统计模式识别 上世纪80年代，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/20221128085044.png">
-<meta property="article:published_time" content="2022-11-27T23:56:27.000Z">
-<meta property="article:modified_time" content="2022-11-30T08:41:36.730Z">
+<meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/20221129090921.png">
+<meta property="article:published_time" content="2022-11-28T23:52:52.000Z">
+<meta property="article:modified_time" content="2022-11-29T01:43:48.606Z">
 <meta property="article:author" content="Hakii Fang">
-<meta property="article:tag" content="专业选修">
-<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="专业课">
+<meta property="article:tag" content="模式识别">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/20221128085044.png">
+<meta name="twitter:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/20221129090921.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>机器学习基础 - Hakii</title>
+  <title>pattern-recognition - Hakii</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -241,7 +241,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="机器学习基础"></span>
+            <span id="subtitle" data-typed-text="pattern-recognition"></span>
           
         </div>
 
@@ -252,8 +252,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-28 07:56" pubdate>
-          2022年11月28日 早上
+        <time datetime="2022-11-29 07:52" pubdate>
+          2022年11月29日 早上
         </time>
       </span>
     
@@ -264,7 +264,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          265 字
         
       </span>
     
@@ -275,7 +275,7 @@
         
         
         
-          11 分钟
+          3 分钟
         
       </span>
     
@@ -313,162 +313,28 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">机器学习基础</h1>
+            <h1 style="display: none">pattern-recognition</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="课程序言">0. 课程序言</h1>
-<p><strong>Email:</strong> yswantfly@shu.edu.cn（岳晓东）</p>
-<p><strong>顶会</strong>：ICML、CVPR、ICCV</p>
-<p><strong>国企</strong>：上海数据集团</p>
-<ul>
-<li>连接主义学派
-<ul>
-<li>Geoffery E. Hinton</li>
-<li>深度神经网络</li>
-<li>工业大数据</li>
-</ul></li>
-<li>统计主义学派
-<ul>
-<li>M.I. Jordan</li>
-<li>普适性</li>
-</ul></li>
-<li>Alpha Go
-<ul>
-<li>path searching</li>
-</ul></li>
-<li>基于启发式信息的搜索
-<ul>
-<li>启发式搜索</li>
-<li>缩减解空间（solution space）</li>
-<li><span class="math inline">\(A^*\)</span></li>
-<li>棋谱</li>
-<li>自我博弈</li>
-<li>傻傻的规则炫入局部最优</li>
-</ul></li>
-<li>分布外学习</li>
-<li>大数据
-<ul>
-<li>data everywhere</li>
-</ul></li>
-</ul>
-<h1 id="机器学习相关基础知识">1. 机器学习相关基础知识</h1>
-<h2 id="什么是机器学习">1.1 什么是机器学习</h2>
-<p>通过算法从数据中提取知识（模式）</p>
-<p>开放的解空间，机器不擅长<span
-class="math inline">\(\Rightarrow\)</span> 强化学习、迁移学习</p>
-<ul>
-<li>模型的泛化model generalization</li>
-<li>数据一致性，样本与整体独立同分布 （i.i.d, independent identical
-distribution）
-<ul>
-<li>一般采样很难做到完全独立</li>
-<li>绝大多数情况下都不成立</li>
-<li>增加高质量数据量</li>
-</ul></li>
-</ul>
-<p>机器学习模型 <span class="math inline">\(f(x,\theta)\)</span> 或<span
-class="math inline">\(f_\theta(x)\)</span></p>
-<ul>
-<li>做参数寻优，函数族<span
-class="math inline">\(\{f(x,\theta\}\rightarrow
-f(x,\theta^*)\)</span></li>
-</ul>
-<p>风险评价函数<span class="math inline">\(R\)</span></p>
-<ul>
-<li><p><span class="math inline">\(\theta^*=arg\ min_{\theta\in
-\Delta}R(\theta)\)</span></p></li>
-<li><p>损失函数<span
-class="math inline">\(L(y,f(x,\theta))\)</span></p></li>
-<li><p>风险函数<span class="math inline">\(R(\theta)=\int
-Q(x,\theta)dP(x)=\int Q(x,\theta)p(x)dx\)</span>
-风险<strong>期望</strong></p>
-<blockquote>
-<p><span class="math inline">\(p(x)\)</span>
-定义在全域上，一般不能算</p>
-</blockquote></li>
-</ul>
-<p>经验风险最小化归纳原则</p>
-<ul>
-<li><p><strong>核心思想</strong> 用样本定义经验风险 <span
-class="math inline">\(R_{emp} (\theta)=\frac{1}{n}\sum_{i=1}^n
-Q(x_i,\theta)\)</span></p>
-<blockquote>
-<p>认为是均匀分布，一般都不是，但是好算</p>
-</blockquote></li>
-<li><p><span class="math inline">\(\theta_n^*=arg\ min_{\theta\in
-\Delta} R_{emp}(\theta)\)</span></p></li>
-<li><p>两个途径</p>
-<ul>
-<li><p>最小误差</p></li>
-<li><p>极大似然</p>
-<blockquote>
-<p>都可以采用优化策略求解（梯度下降、EM方法）</p>
-</blockquote></li>
-</ul></li>
-</ul>
-<p>学习任务（由简到难）</p>
-<ol type="1">
-<li><p>分类问题</p>
-<ul>
-<li><p>逻辑回归作分类</p></li>
-<li><p>分类是回归的特例，能做回归的模型都可以做分类</p></li>
-</ul></li>
-<li><p>回归问题</p>
-<ul>
-<li>插值不做预测</li>
-</ul></li>
-<li><p>概率密度估计问题</p>
-<ul>
-<li>假设样本<span class="math inline">\(p(x,\theta)\)</span>
-，则损失函数定义为<span class="math inline">\(L(p(x,\theta))=-\log
-p(x,\theta)\)</span></li>
-<li>相当于数据变成了透明</li>
-<li>GAN，生成对抗网络，G就是基于概率分布生成数据，以假乱真</li>
-</ul></li>
-</ol>
-<p>有监督/无监督学习</p>
-<ul>
-<li><p>有监督</p>
-<ul>
-<li>分类</li>
-<li>回归</li>
-</ul>
-<blockquote>
-<p>全局：BN、NN、SVM、Decision Tree</p>
-<p>局部：KNN、CBR</p>
-</blockquote></li>
-<li><p>无监督</p>
-<ul>
-<li>概率密度估计</li>
-<li>聚类
-<ul>
-<li>K-means、SOM</li>
-</ul></li>
-<li>降维</li>
-</ul></li>
-<li><p>半监督</p>
-<blockquote>
-<p>EM、Co-training、Latent variables</p>
-</blockquote></li>
-</ul>
-<p>其他学习方法</p>
-<ul>
-<li>代价敏感学习</li>
-<li>集成学习
-<ul>
-<li><span class="math inline">\(1+1&gt;1\)</span></li>
-</ul></li>
-<li>增强学习</li>
-<li>迁移学习</li>
-<li>多任务学习</li>
-</ul>
-<p><strong>未来发展方向</strong></p>
-<p>统计学习跟神经网络结合，深度贝叶斯学习</p>
-<p><span class="math inline">\(Q\rightarrow W\)</span></p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/24.png" srcset="/img/loading.gif" lazyload alt="24" style="zoom:67%;" /></p>
-<h2 id="基本术语">1.2 基本术语</h2>
+                <p>方昱春</p>
+<h1 id="绪论">1. 绪论</h1>
+<h2 id="模式与模式识别的概念">1.1 模式与模式识别的概念</h2>
+<p><span class="math inline">\(x\in R^d\Rightarrow
+y\in\{-1,1\}\)</span></p>
+<p>模：法也。式：法也。</p>
+<p>识：知也。别：分解也。</p>
+<p>对象：样本Sample（模式）</p>
+<p>模式：类Class（模式类）</p>
+<p>观察：特征Features（属性）</p>
+<p>模式识别研究的领域在完全确定和完全随机之间。</p>
+<p>上世纪30年代，Fisher提出统计模式识别</p>
+<p>上世纪80年代，Hopfield提出神经元网络模型理论</p>
+<p>上世纪90年代，小样本学习、支持向量机</p>
+<p>个人认为：模式识别<span class="math inline">\(\subseteq\)</span>
+机器学习<span class="math inline">\(\subseteq\)</span> 统计学</p>
+<h2 id="模式识别的方法分类">1.2 模式识别的方法分类</h2>
 
                 
               </div>
@@ -509,9 +375,9 @@ p(x,\theta)\)</span></li>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E4%B8%93%E4%B8%9A%E9%80%89%E4%BF%AE/">#专业选修</a>
+        <a href="/tags/%E4%B8%93%E4%B8%9A%E8%AF%BE/">#专业课</a>
       
-        <a href="/tags/Machine-Learning/">#Machine Learning</a>
+        <a href="/tags/%E6%A8%A1%E5%BC%8F%E8%AF%86%E5%88%AB/">#模式识别</a>
       
     </div>
   
@@ -523,8 +389,8 @@ p(x,\theta)\)</span></li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>机器学习基础</div>
-      <div>http://example.com/2022/11/28/machine-learning/</div>
+      <div>pattern-recognition</div>
+      <div>http://example.com/2022/11/29/pattern-recognition/</div>
     </div>
     <div class="license-meta">
       
@@ -536,7 +402,7 @@ p(x,\theta)\)</span></li>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月28日</div>
+          <div>2022年11月29日</div>
         </div>
       
       
@@ -568,18 +434,12 @@ p(x,\theta)\)</span></li>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/28/operations-research/" title="运筹与优化">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">运筹与优化</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/21/Lab_OS/" title="操作系统实验">
-                        <span class="hidden-mobile">操作系统实验</span>
+                      <a href="/2022/11/28/intelligent-control/" title="智能系统控制">
+                        <span class="hidden-mobile">智能系统控制</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

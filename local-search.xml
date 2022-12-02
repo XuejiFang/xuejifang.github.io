@@ -4,11 +4,69 @@
   
   
   <entry>
+    <title>pattern-recognition</title>
+    <link href="/2022/11/29/pattern-recognition/"/>
+    <url>/2022/11/29/pattern-recognition/</url>
+    
+    <content type="html"><![CDATA[<p>方昱春</p><h1 id="绪论">1. 绪论</h1><h2 id="模式与模式识别的概念">1.1 模式与模式识别的概念</h2><p><span class="math inline">\(x\in R^d\Rightarrowy\in\{-1,1\}\)</span></p><p>模：法也。式：法也。</p><p>识：知也。别：分解也。</p><p>对象：样本Sample（模式）</p><p>模式：类Class（模式类）</p><p>观察：特征Features（属性）</p><p>模式识别研究的领域在完全确定和完全随机之间。</p><p>上世纪30年代，Fisher提出统计模式识别</p><p>上世纪80年代，Hopfield提出神经元网络模型理论</p><p>上世纪90年代，小样本学习、支持向量机</p><p>个人认为：模式识别<span class="math inline">\(\subseteq\)</span>机器学习<span class="math inline">\(\subseteq\)</span> 统计学</p><h2 id="模式识别的方法分类">1.2 模式识别的方法分类</h2>]]></content>
+    
+    
+    <categories>
+      
+      <category>Study</category>
+      
+      <category>22Winter</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>专业课</tag>
+      
+      <tag>模式识别</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>智能系统控制</title>
+    <link href="/2022/11/28/intelligent-control/"/>
+    <url>/2022/11/28/intelligent-control/</url>
+    
+    <content type="html"><![CDATA[<p>srxie@shu.edu.cn（<strong>谢少荣</strong>，计1121）</p><p>TA，王艳英，计514</p><p>实验课，计504</p><h1 id="实验">实验</h1><h2 id="实验一">实验一</h2><h1 id="经典控制和现代控制">0. 经典控制和现代控制</h1><h2 id="什么是控制">0.1 <strong>什么是控制？</strong></h2><p>为了克服干扰的影响，达到期望的目标而对被控对象中的某一个（某些）物理量（被控变量）进行的<strong>操作</strong>。</p><p>本课程重点：自动控制<span class="math inline">\(\rightarrow\)</span>智能控制</p><ol type="1"><li>经典控制<ul><li>以<strong>传递函数</strong>为数学基础</li><li>单输出、单输出线性定常系统</li></ul></li><li>现代控制<ul><li>以<strong>状态空间</strong>为基础</li><li>较高性能要求的多变量变参数系统的最优控制问题</li></ul></li><li>智能控制（非线性多输入多输出系统）</li></ol><blockquote><p>1，2为传统控制方法</p></blockquote><p>自动控制系统：被控对象+控制器</p><h2 id="控制系统的分类">0.2 <strong>控制系统的分类</strong></h2><ul><li><p>按系统结构</p><ul><li><p>开环控制</p><ul><li>通过实验来确定烤面包时间</li><li>控制律：<span class="math inline">\(Model\ y=f(x)\)</span></li></ul></li><li><p>闭环控制</p><ul><li>增加反馈环节</li></ul><ol type="1"><li>很好的控制带有变量的系统</li><li>对出现的问题进行补偿和调整</li></ol><ul><li><strong>检测偏差、纠正偏差</strong></li></ul></li></ul></li><li><p>按系统输入信号特征</p><ul><li>恒值控制</li><li>随动控制</li></ul></li><li><p>按系统传递信号变化</p><ul><li>连续控制</li><li>离散控制</li></ul></li><li><p>按系统的固有内在特性</p><ul><li>线性控制<ul><li>同时满足叠加性和均匀性的系统</li><li>可以用<strong>线性微分方程</strong>描述</li><li>线性时变系统、</li></ul></li><li>非线性控制<ul><li>不同时满足叠加性和 均匀性</li><li>饱和和死区特性、间隙特性、</li></ul></li></ul></li></ul><h2 id="控制系统的基本要求">0.3 控制系统的基本要求</h2><p><strong>稳、准、快</strong></p><p><strong>瞬态响应</strong></p><p>既要快，又要平稳</p><p><strong>稳态响应</strong></p><p>稳态误差尽量小</p><p><strong>系统的传递函数</strong></p><p>线性定常系统在零初始条件下微分方程中的输出量的拉氏变换与输入量的拉氏变换之比：<span class="math display">\[G(s)=\frac{Y(s)}{U(s)}\]</span></p><blockquote><p>拉普拉斯变换<span class="math inline">\(F(s)=\int_0^\inftyf(t)e^{-st}dt\)</span></p><ul><li>为了简化计算，变成线性加减</li></ul></blockquote><p><strong>规定</strong>：以分母的最高阶次来确定系统的阶次</p><figure><imgsrc="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221128201509217.png"alt="image-20221128201509217" /><figcaption aria-hidden="true">image-20221128201509217</figcaption></figure><h2 id="状态空间">0.4 状态空间</h2><ul><li>高阶微分方程通过选择适当的变量可以变为一阶微分方程组</li><li>一阶方程组个数=变量的个数=高阶微分方程（传递函数）的阶数=独立的储能元件的个数</li><li>变量的选择不是唯一的</li></ul><h1 id="概论">1. 概论</h1><h2 id="智能控制的产生和发展">1.1 智能控制的产生和发展</h2><ol type="1"><li>由于复杂性、非线性、时变性、不确定性和不完全性，无法获得被控对象的精准数学模型</li><li>控制过程无法用传统的数学模型来描述，即无法解决建模问题</li><li>线性化系统无法反映真实系统</li><li>无法完成复杂任务</li></ol><h2 id="智能控制的定义特点和应用">1.2 智能控制的定义、特点和应用</h2><p>二元论：是人工智能与自动控制的交叉</p><p>三元论：引入运筹学<span class="math inline">\(IC=AC\cap AI\capOR\)</span></p><h2 id="智能控制的结构理论">1.3 智能控制的结构理论</h2><h1 id="专家控制">2. 专家控制</h1><h1 id="模糊控制的理论基础">3. 模糊控制的理论基础</h1><h1 id="模糊控制">4. 模糊控制</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>Study</category>
+      
+      <category>22Winter</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>专业课</tag>
+      
+      <tag>智能系统控制</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>运筹与优化</title>
     <link href="/2022/11/28/operations-research/"/>
     <url>/2022/11/28/operations-research/</url>
     
-    <content type="html"><![CDATA[<h1 id="绪论">0. 绪论</h1><h2 id="序言">0.1 序言</h2><p><strong>平时成绩40%+期末考试60%</strong></p><ul><li>非智能优化算法<ul><li>线性优化</li><li>非线性优化</li></ul></li><li>智能优化算法<ul><li>进化类</li><li>群体智能</li><li>模拟退火</li><li>禁忌搜索</li><li>神经网络</li></ul></li></ul><p>用决策变量代表某一个方案，具体取值代表一个具体方案</p><p>存在一定的约束条件，用等式或不等式表示</p><ul><li>线性规划<ul><li>图解法（变量少）</li><li>单纯形法</li></ul></li><li>非线性规划<ul><li>无约束和有约束问题</li><li>梯度下降</li><li>牛顿法</li></ul></li><li>整数规划<ul><li>割平面法</li><li>分支定界法</li></ul></li><li>动态规划<ul><li>多阶段决策过程最优化<ul><li>最短路线、设备更新问题</li></ul></li></ul></li></ul><h2 id="线性代数复习">0.2 线性代数复习</h2><p>线性方程组<span class="math inline">\(\rightarrow\)</span>系数矩阵<span class="math inline">\(A\)</span><spanclass="math inline">\(\rightarrow\)</span> 增广矩阵<spanclass="math inline">\(\overline{A}=[A|b]\)</span><spanclass="math inline">\(\rightarrow\)</span> <spanclass="math inline">\(AX=b\)</span></p><p>初等行变换<span class="math inline">\(\rightarrow\)</span>行阶梯形式<span class="math inline">\(\rightarrow\)</span>行简化阶梯矩阵（每行第一个非零元素为1）<spanclass="math inline">\(\rightarrow\)</span> 高斯消元法</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="绪论">0. 绪论</h1><h2 id="序言">0.1 序言</h2><p><strong>平时成绩40%+期末考试60%</strong></p><ul><li>非智能优化算法<ul><li>线性优化</li><li>非线性优化</li></ul></li><li>智能优化算法<ul><li>进化类</li><li>群体智能</li><li>模拟退火</li><li>禁忌搜索</li><li>神经网络</li></ul></li></ul><p>用决策变量代表某一个方案，具体取值代表一个具体方案</p><p>存在一定的约束条件，用等式或不等式表示</p><ul><li>线性规划<ul><li>图解法（变量少）</li><li>单纯形法</li></ul></li><li>非线性规划<ul><li>无约束和有约束问题</li><li>梯度下降</li><li>牛顿法</li></ul></li><li>整数规划<ul><li>割平面法</li><li>分支定界法</li></ul></li><li>动态规划<ul><li>多阶段决策过程最优化<ul><li>最短路线、设备更新问题</li></ul></li></ul></li></ul><h2 id="线性代数复习">0.2 线性代数复习</h2><p>线性方程组<span class="math inline">\(\rightarrow\)</span>系数矩阵<span class="math inline">\(A\)</span><spanclass="math inline">\(\rightarrow\)</span> 增广矩阵<spanclass="math inline">\(\overline{A}=[A|b]\)</span><spanclass="math inline">\(\rightarrow\)</span> <spanclass="math inline">\(AX=b\)</span></p><p>初等行变换<span class="math inline">\(\rightarrow\)</span>行阶梯形式<span class="math inline">\(\rightarrow\)</span>行简化阶梯矩阵（每行第一个非零元素为1）<spanclass="math inline">\(\rightarrow\)</span> 高斯消元法</p><p><strong>逆矩阵</strong></p><p><span class="math inline">\(a\times a^{-1}=1\)</span></p><p>$AA^{-1}=I $ <span class="math display">\[(A|I)\rightarrow 初等变化 \rightarrow (I|A^{-1})\]</span></p><h1 id="线性规划及单纯形法">1. 线性规划及单纯形法</h1><h2 id="线性规划问题及其数学模型">1.1 线性规划问题及其数学模型</h2><p>线性规划两类问题</p><ol type="1"><li>最少的资源</li><li>最好的经济效益</li></ol><p>线性规划三要素：</p><ol type="1"><li>决策变量</li><li>目标函数</li><li>约束条件</li></ol><p><strong>可以写成向量或矩阵的形式</strong></p><p>线性规划问题标准形式： <span class="math display">\[max\ Z=\sum_{j=1}^nc_j x_j\\s.t\left\{\begin{array}[llll]\\\sum_{j=1}^na_{ij}x_j&amp;=&amp;b_i,&amp;(i=1,2,3,\cdots,m)\\x_j&amp;\ge &amp;0,&amp; (j=1,2,3,\cdots,n)\end{array}\right.\]</span> <strong>如何转化标准形式</strong></p><ol type="1"><li>目标函数<ul><li>求极小值<span class="math inline">\(\times -1\rightarrow\)</span>求极大值</li></ul></li><li>变量变化<ul><li>无约束变量<span class="math inline">\(x_j=x_j^{&#39;} -x_j^{&quot;}\(x_j^{&#39;},x^{&#39;&#39;}\ge 0)\)</span></li></ul></li><li>约束方程的转化<ul><li>不等式变成等式</li><li>松弛变量</li><li>剩余变量</li></ul></li><li>决策变量有上下界的转换<ul><li><span class="math inline">\(1\le x\le 3\Rightarrowx^{&#39;}=x-1\)</span></li></ul></li><li>含有绝对值<ul><li><span class="math inline">\(|x|\Rightarrowx_1=\frac{x+|x|}{2},x_2=\frac{|x|-x}{2}\)</span></li></ul></li></ol><p><strong>解的形式</strong></p><ul><li>可行解<ul><li>满足约束条件</li><li>可行解的集合称为<strong>可行域</strong></li></ul></li><li>最优解<ul><li>使目标函数最大值的可行解</li></ul></li></ul><p><strong>线性规划问题的求解方法</strong></p><p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221202145911443.png" alt="image-20221202145911443" style="zoom: 50%;" /></p><h2 id="图解法">1.2 图解法</h2>]]></content>
     
     
     <categories>
@@ -37,7 +95,7 @@
     <link href="/2022/11/28/machine-learning/"/>
     <url>/2022/11/28/machine-learning/</url>
     
-    <content type="html"><![CDATA[<h1 id="课程序言">0. 课程序言</h1><p><strong>Email:</strong> yswantfly@shu.edu.cn（岳晓东）</p><p><strong>顶会</strong>：ICML、CVPR</p><p><strong>国企</strong>：上海数据集团</p><ul><li>连接主义学派<ul><li>Geoffery E. Hinton</li><li>深度神经网络</li><li>工业大数据</li></ul></li><li>统计主义学派<ul><li>M.I. Jordan</li><li>普适性</li></ul></li><li>Alpha Go<ul><li>path searching</li></ul></li><li>基于启发式信息的搜索<ul><li>启发式搜索</li><li>缩减解空间（solution space）</li><li><span class="math inline">\(A^*\)</span></li><li>棋谱</li><li>自我博弈</li><li>傻傻的规则炫入局部最优</li></ul></li><li>分布外学习</li><li>大数据<ul><li>data everywhere</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="课程序言">0. 课程序言</h1><p><strong>Email:</strong> yswantfly@shu.edu.cn（岳晓东）</p><p><strong>顶会</strong>：ICML、CVPR、ICCV</p><p><strong>国企</strong>：上海数据集团</p><ul><li>连接主义学派<ul><li>Geoffery E. Hinton</li><li>深度神经网络</li><li>工业大数据</li></ul></li><li>统计主义学派<ul><li>M.I. Jordan</li><li>普适性</li></ul></li><li>Alpha Go<ul><li>path searching</li></ul></li><li>基于启发式信息的搜索<ul><li>启发式搜索</li><li>缩减解空间（solution space）</li><li><span class="math inline">\(A^*\)</span></li><li>棋谱</li><li>自我博弈</li><li>傻傻的规则炫入局部最优</li></ul></li><li>分布外学习</li><li>大数据<ul><li>data everywhere</li></ul></li></ul><h1 id="机器学习相关基础知识">1. 机器学习相关基础知识</h1><h2 id="什么是机器学习">1.1 什么是机器学习</h2><p>通过算法从数据中提取知识（模式）</p><p>开放的解空间，机器不擅长<spanclass="math inline">\(\Rightarrow\)</span> 强化学习、迁移学习</p><ul><li>模型的泛化model generalization</li><li>数据一致性，样本与整体独立同分布 （i.i.d, independent identicaldistribution）<ul><li>一般采样很难做到完全独立</li><li>绝大多数情况下都不成立</li><li>增加高质量数据量</li></ul></li></ul><p>机器学习模型 <span class="math inline">\(f(x,\theta)\)</span> 或<spanclass="math inline">\(f_\theta(x)\)</span></p><ul><li>做参数寻优，函数族<spanclass="math inline">\(\{f(x,\theta\}\rightarrowf(x,\theta^*)\)</span></li></ul><p>风险评价函数<span class="math inline">\(R\)</span></p><ul><li><p><span class="math inline">\(\theta^*=arg\ min_{\theta\in\Delta}R(\theta)\)</span></p></li><li><p>损失函数<spanclass="math inline">\(L(y,f(x,\theta))\)</span></p></li><li><p>风险函数<span class="math inline">\(R(\theta)=\intQ(x,\theta)dP(x)=\int Q(x,\theta)p(x)dx\)</span>风险<strong>期望</strong></p><blockquote><p><span class="math inline">\(p(x)\)</span>定义在全域上，一般不能算</p></blockquote></li></ul><p>经验风险最小化归纳原则</p><ul><li><p><strong>核心思想</strong> 用样本定义经验风险 <spanclass="math inline">\(R_{emp} (\theta)=\frac{1}{n}\sum_{i=1}^nQ(x_i,\theta)\)</span></p><blockquote><p>认为是均匀分布，一般都不是，但是好算</p></blockquote></li><li><p><span class="math inline">\(\theta_n^*=arg\ min_{\theta\in\Delta} R_{emp}(\theta)\)</span></p></li><li><p>两个途径</p><ul><li><p>最小误差</p></li><li><p>极大似然</p><blockquote><p>都可以采用优化策略求解（梯度下降、EM方法）</p></blockquote></li></ul></li></ul><p>学习任务（由简到难）</p><ol type="1"><li><p>分类问题</p><ul><li><p>逻辑回归作分类</p></li><li><p>分类是回归的特例，能做回归的模型都可以做分类</p></li></ul></li><li><p>回归问题</p><ul><li>插值不做预测</li></ul></li><li><p>概率密度估计问题</p><ul><li>假设样本<span class="math inline">\(p(x,\theta)\)</span>，则损失函数定义为<span class="math inline">\(L(p(x,\theta))=-\logp(x,\theta)\)</span></li><li>相当于数据变成了透明</li><li>GAN，生成对抗网络，G就是基于概率分布生成数据，以假乱真</li></ul></li></ol><p>有监督/无监督学习</p><ul><li><p>有监督</p><ul><li>分类</li><li>回归</li></ul><blockquote><p>全局：BN、NN、SVM、Decision Tree</p><p>局部：KNN、CBR</p></blockquote></li><li><p>无监督</p><ul><li>概率密度估计</li><li>聚类<ul><li>K-means、SOM</li></ul></li><li>降维</li></ul></li><li><p>半监督</p><blockquote><p>EM、Co-training、Latent variables</p></blockquote></li></ul><p>其他学习方法</p><ul><li>代价敏感学习</li><li>集成学习<ul><li><span class="math inline">\(1+1&gt;1\)</span></li></ul></li><li>增强学习</li><li>迁移学习</li><li>多任务学习</li></ul><p><strong>未来发展方向</strong></p><p>统计学习跟神经网络结合，深度贝叶斯学习</p><p><span class="math inline">\(Q\rightarrow W\)</span></p><p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/24.png" alt="24" style="zoom:67%;" /></p><h2 id="基本术语">1.2 基本术语</h2>]]></content>
     
     
     <categories>
