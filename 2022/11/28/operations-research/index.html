@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/20221128130328.png">
 <meta property="article:published_time" content="2022-11-28T04:59:54.000Z">
-<meta property="article:modified_time" content="2022-12-02T07:03:06.096Z">
+<meta property="article:modified_time" content="2022-12-02T08:40:23.208Z">
 <meta property="article:author" content="Hakii Fang">
 <meta property="article:tag" content="专业选修">
 <meta property="article:tag" content="运筹学">
@@ -264,7 +264,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          1.4k 字
         
       </span>
     
@@ -275,7 +275,7 @@
         
         
         
-          9 分钟
+          12 分钟
         
       </span>
     
@@ -417,7 +417,7 @@ x_j&amp;\ge &amp;0,&amp; (j=1,2,3,\cdots,n)
 </ul></li>
 <li>约束方程的转化
 <ul>
-<li>不等式变成等式</li>
+<li><strong>不等式变成等式</strong></li>
 <li>松弛变量</li>
 <li>剩余变量</li>
 </ul></li>
@@ -432,7 +432,7 @@ x^{&#39;}=x-1\)</span></li>
 x_1=\frac{x+|x|}{2},x_2=\frac{|x|-x}{2}\)</span></li>
 </ul></li>
 </ol>
-<p><strong>解的形式</strong></p>
+<p><strong>线性规划问题解的形式</strong></p>
 <ul>
 <li>可行解
 <ul>
@@ -446,7 +446,64 @@ x_1=\frac{x+|x|}{2},x_2=\frac{|x|-x}{2}\)</span></li>
 </ul>
 <p><strong>线性规划问题的求解方法</strong></p>
 <p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221202145911443.png" srcset="/img/loading.gif" lazyload alt="image-20221202145911443" style="zoom: 50%;" /></p>
-<h2 id="图解法">1.2 图解法</h2>
+<h2 id="图解法必考">1.2 图解法（必考）</h2>
+<p><strong>结论</strong></p>
+<p>若LP问题存在最优解，必定在可行域的一个极点上找到</p>
+<p><strong>特殊情况</strong></p>
+<ol type="1">
+<li>存在多个解
+<ul>
+<li>目标函数与约束条件平行</li>
+</ul></li>
+<li>无可行解
+<ul>
+<li>可行域空集</li>
+</ul></li>
+<li>无界解
+<ul>
+<li>可行域无界<strong>可能</strong>存在无界解（必要不充分）</li>
+</ul></li>
+</ol>
+<p><strong>LP问题的基本性质</strong></p>
+<ol type="1">
+<li><p>可行集的凸性</p>
+<blockquote>
+<p>凸集</p>
+<ul>
+<li><p><span class="math inline">\(\lambda x+(1-\lambda)x\in D,\forall
+0\le\lambda\le 1\)</span></p></li>
+<li><p>可以是无界的</p></li>
+</ul>
+<p>极点</p>
+<ul>
+<li>就是凸集的顶点，但不一定有</li>
+<li>圆周上的点都是极点</li>
+</ul>
+</blockquote>
+<ul>
+<li>若存在可行解，则可行域是一个凸集</li>
+</ul></li>
+<li><p>线性相关、无关</p>
+<ul>
+<li>线性组合=0，说明有冗余，则线性相关</li>
+<li>向量的秩，极大线性无关组；秩是唯一的，极大线性无关组不一定唯一</li>
+<li>若向量组1可以由向量组2表示，前者秩小于等于后者</li>
+<li>等价的向量组，秩相等</li>
+</ul>
+<blockquote>
+<p>知乎@<a
+target="_blank" rel="noopener" href="https://www.zhihu.com/people/Ryonlai">只是一个学生</a></p>
+<p>秩的意思是向量组能构建出的空间的最高维数，就比如说两个向量最多可以表示出一个平面，那么他们的秩最高就是2。</p>
+</blockquote></li>
+<li><p>基和基本解</p>
+<ul>
+<li>？？？？</li>
+</ul></li>
+<li><p>极方向</p></li>
+</ol>
+<h2 id="单纯形法原理">1.3 单纯形法原理</h2>
+<h2 id="单纯形法计算步骤">1.4 单纯形法计算步骤</h2>
+<h2 id="单纯形法的进一步讨论">1.5 单纯形法的进一步讨论</h2>
 
                 
               </div>
