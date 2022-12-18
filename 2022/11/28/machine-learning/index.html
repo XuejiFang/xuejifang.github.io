@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/20221128085044.png">
 <meta property="article:published_time" content="2022-11-27T23:56:27.000Z">
-<meta property="article:modified_time" content="2022-12-03T16:05:37.083Z">
+<meta property="article:modified_time" content="2022-12-12T01:50:06.639Z">
 <meta property="article:author" content="Hakii Fang">
 <meta property="article:tag" content="专业选修">
 <meta property="article:tag" content="Machine Learning">
@@ -264,7 +264,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.5k 字
+          7.1k 字
         
       </span>
     
@@ -275,7 +275,7 @@
         
         
         
-          46 分钟
+          60 分钟
         
       </span>
     
@@ -354,7 +354,7 @@
 </ul></li>
 </ul>
 <h1 id="机器学习相关基础知识">1. 机器学习相关基础知识</h1>
-<h2 id="什么是机器学习">1.1 什么是机器学习</h2>
+<h2 id="基本概念与术语">1.1 基本概念与术语</h2>
 <p>通过算法从数据中提取知识（模式）</p>
 <p>开放的解空间，机器不擅长<span
 class="math inline">\(\Rightarrow\)</span> 强化学习、迁移学习</p>
@@ -467,8 +467,192 @@ p(x,\theta)\)</span></li>
 <p><strong>未来发展方向</strong></p>
 <p>统计学习跟神经网络结合，深度贝叶斯学习</p>
 <p><span class="math inline">\(Q\rightarrow W\)</span></p>
-<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/24.png" srcset="/img/loading.gif" lazyload alt="24" style="zoom:67%;" /></p>
-<h2 id="基本术语">1.2 基本术语</h2>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/24.png" srcset="/img/loading.gif" lazyload alt="24" style="zoom: 50%;" /></p>
+<p><strong>应用现状</strong></p>
+<p>网安、生物信息学、搜索引擎、无人驾驶、字符识别</p>
+<p>数据挖掘十大算法</p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/37.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom: 50%;" /></p>
+<p><strong>基本术语</strong></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/39.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:50%;" /></p>
+<h2 id="假设空间归纳偏好">1.2 假设空间、归纳偏好</h2>
+<p>归纳（induction）和演绎（deduction）</p>
+<p>泛化（generalization）和特化（specialization）</p>
+<p>奥卡姆剃刀原则：若有多个假设与观察一致，则选择最简单的那个（并非唯一可行，一种归纳偏好）</p>
+<h2 id="数据与特征">1.3 数据与特征</h2>
+<ul>
+<li>结构化数据</li>
+<li>非结构化数据</li>
+<li>半结构化数据
+<ul>
+<li>Web页面、XML、Json、文本</li>
+</ul></li>
+<li>符号型数据（定性描述，symbolic，discrete）</li>
+<li>数值型数据（定量描述）</li>
+<li>有序数据</li>
+<li>区间值数据（计算麻烦）</li>
+</ul>
+<blockquote>
+<p>需要知道哪些算法本身适合什么数据</p>
+</blockquote>
+<p><strong>属性值离散化</strong>（经典非监督方法）</p>
+<ul>
+<li>等间距划分（equal interval width, fixed interval）
+<ul>
+<li>需要先验</li>
+</ul></li>
+<li>等频率划分（equal frequency, fixed frequency）
+<ul>
+<li>需要先验</li>
+</ul></li>
+<li>K-means</li>
+</ul>
+<p><strong>不同模态</strong></p>
+<ul>
+<li><p>文本特征</p>
+<ul>
+<li><p>词袋模型，Bag of Words</p>
+<ul>
+<li><p>词频分布</p></li>
+<li><p>英文文档</p>
+<blockquote>
+<p>中文分词难，先消歧</p>
+<p>不需要训练</p>
+</blockquote></li>
+</ul></li>
+<li><p>词向量，词嵌入，Word Embedding</p>
+<ul>
+<li><p>基于上下文context</p>
+<ol type="1">
+<li>Continuous Bag of Words(CBOW)</li>
+<li>Skip-gram</li>
+</ol>
+<blockquote>
+<p>Embedding就是进行特征编码</p>
+<p>需要语料来训练网络</p>
+</blockquote></li>
+</ul></li>
+</ul></li>
+<li><p>图像特征</p>
+<ul>
+<li><p>直方图</p></li>
+<li><p>角点特征，corner feature</p>
+<ul>
+<li>八邻域，8-Neighbors，差值构成八维向量<span
+class="math inline">\(\to\)</span> 灰度梯度向量</li>
+<li>SURF<span class="math inline">\(\to\)</span> SIFT，旋转不变算子</li>
+<li>深度卷积神经网络，需要大量标注数据进行训练</li>
+<li>这些都是semantic low-level feature</li>
+</ul>
+<blockquote>
+<p>灰度，0~255，intensity，光的强度</p>
+<p>色彩空间：RGB、</p>
+</blockquote></li>
+</ul></li>
+<li><p>视频特征</p>
+<ul>
+<li>时间维度，前后帧的相关性</li>
+</ul></li>
+<li><p>噪声，Noise</p>
+<ul>
+<li>如果有规律，可以滤出</li>
+<li>如果没有规律，难</li>
+<li>奇异值，奇异点，离群点，Outliers（有价值噪声）</li>
+</ul></li>
+</ul>
+<p><strong>属性/特征缺失值，Missing Values</strong></p>
+<ul>
+<li>原因
+<ul>
+<li>难以收集</li>
+<li>不适用</li>
+</ul></li>
+<li>处理
+<ul>
+<li>去除</li>
+<li>估计</li>
+<li>忽略</li>
+<li>替换</li>
+<li>低秩，low-rank（先降维再升维）</li>
+</ul></li>
+</ul>
+<p><strong>属性/特征值变化</strong></p>
+<blockquote>
+<p>拉伸在某一维度上的差异，减少其他维度的差异</p>
+</blockquote>
+<ul>
+<li><p>简单变换函数</p>
+<ul>
+<li><span class="math inline">\(x^k,\log(x),e^x,|x|\)</span></li>
+</ul></li>
+<li><p>归一化，Normalization</p>
+<blockquote>
+<p>一般都要做归一化，不然得到好结果也是运气好</p>
+</blockquote>
+<ul>
+<li><span class="math inline">\(mean-max\to [-1,1]\)</span></li>
+<li><span class="math inline">\(min-max\to [0,1]\)</span></li>
+</ul></li>
+<li><p>规范化，Standardization</p>
+<blockquote>
+<p>大数定理，变成一个标准正态分布</p>
+</blockquote>
+<ul>
+<li><span
+class="math inline">\(\hat{x}=\frac{x_i-\mu}{\sigma_i}\)</span></li>
+</ul></li>
+</ul>
+<h2 id="距离测度">1.4 距离测度</h2>
+<p>distance metric</p>
+<p><strong>相似度量</strong></p>
+<ul>
+<li>对称性</li>
+<li>最大相似度量为1</li>
+</ul>
+<p><strong>非相似度量（距离）</strong></p>
+<ul>
+<li><p>非负性</p></li>
+<li><p>对称性</p></li>
+<li><p>三角不等式</p>
+<blockquote>
+<p>KL-divergene，不满足对称性</p>
+</blockquote></li>
+</ul>
+<p><strong>欧氏距离</strong> <span class="math display">\[
+dist = \sqrt{(\sum_{k=1}^n (p_k-q_k)^2)}
+\]</span> <strong>闵可夫斯基距离</strong> <span class="math display">\[
+dist = (\sum_{k=1}^n|p_k-q_k|^r)^{\frac{1}{r}}
+\]</span></p>
+<blockquote>
+<p>r=1时为Hamming Distance，曼哈顿距离，街区距离，棋盘距离</p>
+<p>r=2时为Euclidean Distance</p>
+<p>r非常大，把差异大的放的更大（supremum）</p>
+</blockquote>
+<p><strong>马氏距离</strong> <span class="math display">\[
+dist(p,q)=(p-q)^T\Sigma^{-1}(p-q)
+\]</span></p>
+<p>其中，<span class="math inline">\(\Sigma\)</span>
+是输入数据协方差矩阵，即</p>
+<p><span class="math display">\[
+\Sigma=\frac{1}{n-1}\sum_{k=1}^n(x_{k,i}-\overline{x_i})(x_{k,j}-\overline{k_j})
+\]</span></p>
+<blockquote>
+<p>要求总样本数大于样本的维数</p>
+</blockquote>
+<p><strong>二值距离</strong></p>
+<p>特征向量只能取0，1</p>
+<p><span
+class="math inline">\(M_{01}、M_{10}、M_{00}、M_{11}\)</span></p>
+<ul>
+<li><p>简单匹配，Simple Matching <span class="math display">\[
+SMC=\frac{M_{11}+M_{00}}{M_{01}+M_{10}+M_{00}+M_{11}}
+\]</span></p></li>
+<li><p>Jaccard系数 <span class="math display">\[
+J=SMC=\frac{M_{11}}{M_{01}+M_{10}+M_{11}}
+\]</span></p>
+<blockquote>
+<p>不考虑00情况，看具体问题具体分析</p>
+</blockquote></li>
+</ul>
 <h1 id="模型评估与选择">3. 模型评估与选择</h1>
 <h2 id="概率论与数理统计复习">3.0 概率论与数理统计复习</h2>
 <h3 id="总体个体与样本">3.0.1 总体、个体与样本</h3>

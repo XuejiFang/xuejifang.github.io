@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/20221128174830.png">
 <meta property="article:published_time" content="2022-11-28T09:46:16.000Z">
-<meta property="article:modified_time" content="2022-11-30T02:04:24.375Z">
+<meta property="article:modified_time" content="2022-12-12T13:33:15.080Z">
 <meta property="article:author" content="Hakii Fang">
 <meta property="article:tag" content="专业课">
 <meta property="article:tag" content="智能系统控制">
@@ -264,7 +264,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          948 字
+          4.9k 字
         
       </span>
     
@@ -275,7 +275,7 @@
         
         
         
-          8 分钟
+          41 分钟
         
       </span>
     
@@ -436,7 +436,352 @@ alt="image-20221128201509217" />
 OR\)</span></p>
 <h2 id="智能控制的结构理论">1.3 智能控制的结构理论</h2>
 <h1 id="专家控制">2. 专家控制</h1>
+<p><strong>经典控制问题</strong></p>
+<ul>
+<li>人机缺乏交流</li>
+<li>依赖被控对象严格的数学模型</li>
+<li>控制器柔性差</li>
+</ul>
+<p><strong>专家系统是人工智能研究的早期产物</strong></p>
+<h2 id="专家系统">2.1 专家系统</h2>
+<h3 id="概述">2.1.1 概述</h3>
+<p>专家系统是一类包含<strong>知识和推理</strong>的<strong>智能计算机程序</strong></p>
+<p>先行者——Feigenbaum（费根鲍姆）</p>
+<p>基本功能<strong>取决于它所含有的知识</strong></p>
+<p><strong>发展历史</strong></p>
+<ol type="1">
+<li><p>初创期</p>
+<p>高度专业化、专门问题求解能力强、结构功能不完整、移植性差、缺乏解释功能</p></li>
+<li><p>成熟期</p>
+<p>单学科专业型专家系统、结构完整、功能全面、移植性好、具有推理解释功能、<strong>启发式规则</strong>、不精准推理、<strong>产生式规则</strong>、<strong>框架、语义网络表达知识</strong>、限定英语</p></li>
+<li><p>发展期</p>
+<p><strong>解释、预测、设计、规划、监视、修理、指导和控制</strong></p></li>
+</ol>
+<h3 id="构成">2.1.2 构成</h3>
+<p><strong>知识库</strong>和<strong>推理机</strong> （必考）</p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221205182938732.png" srcset="/img/loading.gif" lazyload alt="专家系统的结构" style="zoom: 50%;" /></p>
+<p><strong>知识库</strong></p>
+<ol type="1">
+<li>事实性知识</li>
+<li>过程性知识（推理）</li>
+<li>控制性知识（元知识，知识的知识）</li>
+</ol>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221205183601081.png" srcset="/img/loading.gif" lazyload alt="image-20221205183601081" style="zoom:50%;" /></p>
+<p><strong>推理机</strong></p>
+<p><strong>对专家知识进行加工</strong></p>
+<p>三种推理方式（必考）</p>
+<ol type="1">
+<li><p>正向推理</p></li>
+<li><p>反向推理</p>
+<p>提出假设的结论，寻找支持的证据，若证据存在，则假设成立</p></li>
+<li><p>双向推理</p></li>
+</ol>
+<p><strong>人机接口</strong></p>
+<p>用户接口、专家接口</p>
+<h3 id="建立">2.1.3 建立</h3>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221205184422792.png" srcset="/img/loading.gif" lazyload alt="image-20221205184422792" style="zoom:50%;" /></p>
+<ol type="1">
+<li><p>知识库</p>
+<p>知识表示、知识库管理系统</p></li>
+<li><p>推理机</p>
+<p>推理算法</p></li>
+<li><p>人机接口</p>
+<p>用户、专家</p></li>
+</ol>
+<h2 id="专家控制系统">2.2 专家控制系统</h2>
+<h3 id="概述-1">2.2.1 概述</h3>
+<p>在未知环境下，仿效专家的经验，实现对系统的控制</p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221205191502130.png" srcset="/img/loading.gif" lazyload alt="image-20221205191502130" style="zoom:50%;" /></p>
+<h3 id="基本原理">2.2.2 基本原理</h3>
+<ol type="1">
+<li><p>直接型专家控制器</p>
+<p>直接专家控制器用于<strong>取代常规控制器</strong>，<strong>直接控制</strong>生产过程或<strong>被控对象</strong></p></li>
+<li><p>间接型专家控制器</p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221205193837050.png" srcset="/img/loading.gif" lazyload alt="image-20221205193837050" style="zoom:50%;" /></p>
+<p>器用于<strong>和常规控制器相结合</strong></p></li>
+</ol>
+<ul>
+<li><strong>优化型专家控制器</strong></li>
+<li><strong>适应型专家控制器</strong></li>
+<li><strong>协调型专家控制器</strong></li>
+<li><strong>组织型专家控制器</strong></li>
+</ul>
+<p><strong>与专家系统的区别</strong></p>
+<p>专家控制引入了专家系统的思想，但与专家系统存在区别</p>
+<ol type="1">
+<li>专家系统能完成专门领域的功能，<strong>辅助用户决策</strong>；专家控制能进行<strong>独立的、实时</strong>的自动决策。专家控制比专家系统对<strong>可靠性和抗干扰性</strong>有着更高的要求</li>
+<li>专家系统处于<strong>离线</strong>工作方式，而专家控制要求<strong>在线获取反馈</strong>信息，即要求在线工作方式</li>
+</ol>
+<p><strong>知识表示</strong></p>
+<p>专家控制将系统是为<strong>基于知识的系统</strong></p>
+<p><strong>关键技术</strong></p>
+<ul>
+<li>知识的表达方法；</li>
+<li>从传感器中识别和获取定量的控制信号；</li>
+<li>将定性知识转化为定量的控制信号；</li>
+<li><strong>控制知识和控制规则的获取</strong>。</li>
+</ul>
+<h2 id="专家pid控制">2.3 专家PID控制</h2>
 <h1 id="模糊控制的理论基础">3. 模糊控制的理论基础</h1>
+<h2 id="概述-2">3.1 概述</h2>
+<p><strong>用模糊来调和对立</strong></p>
+<p>Zadeh表示法 （必考）</p>
+<ol type="1">
+<li>不需要被控对象的数学模型</li>
+<li>反映人类智慧的智能控制方法</li>
+<li>核心是控制规则，用语言来表示</li>
+<li>构造简单，易于软件实现</li>
+<li>鲁棒性好，适应性好</li>
+</ol>
+<h2 id="模糊集合">3.2 模糊集合</h2>
+<h3 id="集合和隶属度函数">3.2.1 集合和隶属度函数</h3>
+<p><strong>集合</strong></p>
+<p>大写字母表示</p>
+<p><strong>元素</strong></p>
+<p>小写字母表示</p>
+<p><strong>论域<span class="math inline">\(U\)</span></strong></p>
+<p>被考虑对象的所有元素，</p>
+<p><strong>特征函数<span
+class="math inline">\(\mu_A(x)\)</span></strong> <span
+class="math display">\[
+\mu_A(x)=
+\left\{
+\begin{array}[ll]\\
+1&amp; x\in A\\
+0&amp; x\notin A
+\end{array}
+\right.
+\]</span> <strong>隶属度函数<span
+class="math inline">\(\mu_A(x)\)</span></strong> <span
+class="math display">\[
+\mu_A(x): U\to [0,1]\\
+\mu_A(x)=
+\left\{
+\begin{array}\\
+1&amp; x\in A\\
+(0,1)&amp; x属于A的程度\\
+0&amp; x\notin A
+\end{array}
+\right.
+\]</span>
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221212193310024.png" srcset="/img/loading.gif" lazyload alt="隶属函数" style="zoom:50%;" /></p>
+<blockquote>
+<p><span class="math inline">\(x\)</span> 的集合<span
+class="math inline">\(U\)</span> 称为论域，<span
+class="math inline">\(\mu_A(x)\)</span> 称为<span
+class="math inline">\(x\)</span> 属于<span
+class="math inline">\(A\)</span> 的隶属度</p>
+<p><span class="math inline">\(U\)</span> 的模糊集合<span
+class="math inline">\(A: A=\{(x,\mu_A(x)|x\in X\}\)</span></p>
+</blockquote>
+<p><strong>模糊集合的表示</strong></p>
+<ol type="1">
+<li><p>Zadeh表示法 <span class="math display">\[
+\begin{array}[lll]\\
+离散:&amp;A=&amp;\frac{\mu_A(x_1)}{x_1}+\frac{\mu_A(x_2)}{x_2}+\cdots+\frac{\mu_A(x_n)}{x_n}\\
+连续:&amp;A=&amp;\int_U{\frac{\mu_A(x)}{x}}
+\end{array}
+\]</span></p>
+<blockquote>
+<p>隶属度为0，可省略</p>
+</blockquote></li>
+<li><p>序偶表示法 <span class="math display">\[
+A=\{(x_1,\mu_A(x_1)),(x_2,\mu_A(x_2)),\cdots,(x_n,\mu_A(x_n))|x\in U\}
+\]</span></p>
+<blockquote>
+<p>隶属度为0，可省略</p>
+</blockquote></li>
+<li><p>向量表示法 <span class="math display">\[
+A=[\mu_A(x_1)\ \mu_A(x_2)\ \cdots \ \mu_A(x_n)]
+\]</span></p>
+<blockquote>
+<p>隶属度为0，不可省略</p>
+</blockquote></li>
+</ol>
+<p><strong>其他术语</strong></p>
+<ul>
+<li><p>台集台 <span class="math display">\[
+A_S=\{x|\mu_A(x)&gt;0\}
+\]</span></p></li>
+<li><p><span class="math inline">\(\alpha\)</span> 截集 <span
+class="math display">\[
+\begin{array}[lll]\\
+强\alpha截集&amp;A_\alpha&amp;=&amp;\{x|\mu_A(x)&gt;\alpha\}&amp;\alpha\in[0,1)\\
+弱\alpha截集&amp;A_alpha&amp;=&amp;\{x|\mu_A(x)\ge\alpha\}&amp;\alpha\in(0,1]
+\end{array}
+\]</span>
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221212200258668.png" srcset="/img/loading.gif" lazyload alt="image-20221212200258668" style="zoom:50%;" /></p></li>
+<li><p>正则模糊集合</p>
+<ul>
+<li>若<span class="math inline">\(\max_{x\in X}\mu_A(x)=1\)</span></li>
+</ul></li>
+<li><p>凸模糊集合</p>
+<ul>
+<li><span class="math display">\[
+\mu_A(\lambda x_1+(1-\lambda )x_2)\ge \min(\mu_A(x_1),\mu_A(x_2))
+\]</span></li>
+</ul></li>
+<li><p>分界点</p>
+<ul>
+<li>使得<span class="math inline">\(\mu_A(x)=0.5\)</span> 的点<span
+class="math inline">\(x\)</span></li>
+</ul></li>
+<li><p>单点模糊集合</p>
+<ul>
+<li>在论域中，若模糊集合的台集合仅为一个点，且该点的隶属度函数<span
+class="math inline">\(\mu_A(x)=1\)</span>，则称<span
+class="math inline">\(A\)</span>为单点模糊集合</li>
+</ul></li>
+</ul>
+<h3 id="模糊集合的运算">3.2.2 模糊集合的运算</h3>
+<ol type="1">
+<li><p>相等</p>
+<p><span class="math inline">\(\forall x\in
+U,\mu_A(x)=\mu_B(x)\)</span></p></li>
+<li><p>包含</p>
+<p><span class="math inline">\(\forall x\in U,\mu_A(x)\le
+\mu_B(x)\)</span></p></li>
+<li><p>空集</p>
+<p><span class="math inline">\(\forall x\in U,\mu_A(x)=0\to
+A=\empty\)</span></p></li>
+<li><p>并集</p>
+<p><span class="math inline">\(\mu_C(x)=\mu_A(x)\cup
+\mu_B(x)=\max[\mu_A(x),\mu_B(x)]\to C=A\cup B\)</span></p></li>
+<li><p>交集</p>
+<p><span class="math inline">\(\mu_C(x)=\mu_A(x)\cap
+\mu_B(x)=\min[\mu_A(x),\mu_B(x)]\to C=A\cap B\)</span></p></li>
+<li><p>补集（镜像）</p>
+<p><span class="math inline">\(\overline{A}:
+\mu_A^-(\mu)=1-\mu_A(\mu)\)</span></p></li>
+</ol>
+<p><strong>运算法则</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(A\cup A=A\\A\cap
+A=A\)</span></p></li>
+<li><p><span class="math inline">\(A\cup B=B\cup A\\A\cap B=B\cap
+A\)</span></p></li>
+<li><p><span class="math inline">\((A\cup B)\cup C=A\cup(B\cup
+C)\\(A\cap B)\cap C=A\cap(B\cap C)\)</span></p></li>
+<li><p><span class="math inline">\(A\cup(A\cap B)=A\\A\cap(A\cup
+B)=A\)</span></p></li>
+<li><p><span class="math inline">\(A\cup(B\cap C)=(A\cup B)\cap(A\cup
+C)\\A\cap(B\cup C)=(A\cap B)\cup(A\cap C)\)</span></p></li>
+<li><p><span
+class="math inline">\(\overline{\overline{A}}=A\)</span></p></li>
+<li><p><span class="math inline">\(\overline{A\cup B}=\overline{A}\cap
+\overline{B}\\\ \overline{A\cap B}=\overline{A}\cup
+\overline{B}\)</span></p></li>
+<li><p><span class="math inline">\(A\cup E=E,A\cap E=E\\ A\cup
+\empty=A,A\cap \empty=\empty\)</span></p></li>
+</ol>
+<p><strong>普通集合中的互补律在模糊集合中不成立</strong></p>
+<p><strong>模糊算子</strong></p>
+<ol type="1">
+<li>交运算算子</li>
+<li>并运算算子</li>
+<li>平衡算子</li>
+</ol>
+<h2 id="隶属函数">3.3 隶属函数</h2>
+<h3 id="典型">3.3.1 典型</h3>
+<ol type="1">
+<li><p>高斯型<code>gaussmf(x,[σ,c])</code> <span class="math display">\[
+f(x,\sigma,c)=e^{-\frac{(x-c)^2}{2\sigma^2}}
+\]</span>
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221212203310566.png" srcset="/img/loading.gif" lazyload alt="image-20221212203310566" style="zoom:50%;" /></p></li>
+<li><p>广义钟型<code>gbellmf(x,[a,b,c])</code> <span
+class="math display">\[
+f(x,a,b,c)=\frac{1}{a+|\frac{x-c}{a}|^{2b}}
+\]</span>
+<img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221212203427394.png" srcset="/img/loading.gif" lazyload alt="image-20221212203427394" style="zoom:50%;" /></p></li>
+<li><p><span class="math inline">\(S\)</span>
+型<code>sigmf(x,[a,b])</code> <span class="math display">\[
+f(x,a,b)=\frac{1}{1+e^{-1(x-c)}}
+\]</span></p></li>
+<li><p>梯形<code>trapmf(x,[a,b,c,d])</code> <span
+class="math display">\[
+f(x,a,b,c,d)=\left\{
+\begin{array}[lll]\\
+0&amp;x\le a\\
+\frac{x-a}{b-a}&amp;a\le x\le b\\
+1&amp;b\le x\le c\\
+\frac{d-x}{d-c}&amp;c\le x\le d\\
+0&amp;x\ge d
+\end{array}
+\right.
+\]</span></p></li>
+<li><p>三角形<code>trimf(x,[a,b,c])</code> $$ f(x,a,b,c,d)={</p>
+<span class="math display">\[\begin{array}[lll]\\
+0&amp;x\le a\\
+\frac{x-a}{b-a}&amp;a\le x\le b\\
+
+\frac{c-x}{c-b}&amp;b\le x\le c\\
+0&amp;x\ge c
+\end{array}\]</span>
+<p>. $$</p></li>
+<li><p><span class="math inline">\(Z\)</span>
+形<code>zmf(x,[a,b])</code></p></li>
+</ol>
+<h2 id="模糊关系及其运算">3.4 模糊关系及其运算</h2>
+<h3 id="概念">3.4.1 概念</h3>
+<p><strong>直积</strong> <span class="math display">\[
+X\times Y=\{(x,y)|x\in X,y\in Y\}
+\]</span> <strong>模糊关系</strong><span
+class="math inline">\(R_{X\times Y}\)</span></p>
+<p><strong>模糊矩阵</strong></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221212204725107.png" srcset="/img/loading.gif" lazyload alt="image-20221212204725107" style="zoom:50%;" /></p>
+<h3 id="模糊矩阵运算与模糊关系">3.4.2 模糊矩阵运算与模糊关系</h3>
+<ol type="1">
+<li><p>相等</p>
+<p><span class="math inline">\(a_{ij}=b_{ij}\to A=B\)</span></p></li>
+<li><p>包含</p>
+<p><span class="math inline">\(a_{ij}\le b_{ij}\to A\subseteq
+B\)</span></p></li>
+<li><p>并运算</p>
+<p><span class="math inline">\(c_{ij}=a_{ij}\cup b_{ij}\to C=A\cup
+B\)</span></p></li>
+<li><p>交运算</p>
+<p><span class="math inline">\(c_{ij}=a_{ij}\cap b{ij}\to C=A\cap
+B\)</span></p></li>
+<li><p>补运算</p>
+<p><span class="math inline">\(c_{ij}=1-a_{ij}\to
+C=\overline{A}\)</span></p></li>
+</ol>
+<h3 id="模糊关系的合成">3.4.3 模糊关系的合成</h3>
+<p><span class="math display">\[
+\mu_{R∘S}=(\mu,w)=\cup_{v\in V}\{\mu_R(\mu,v)\cap\mu_S(v,w)\}
+\]</span></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221212205901378.png" srcset="/img/loading.gif" lazyload alt="image-20221212205901378" style="zoom:50%;" /></p>
+<blockquote>
+<p><span class="math inline">\(A∘ B\neq B\circ A\)</span></p>
+</blockquote>
+<h3 id="模糊向量及其运算">3.4.5 模糊向量及其运算</h3>
+<ol type="1">
+<li><p>模糊向量<span class="math inline">\(A^T\)</span></p></li>
+<li><p>笛卡尔乘积<span class="math inline">\(x \times y \equiv x^{T}
+\circ y\)</span></p></li>
+<li><p>模糊向量的内积与外积</p>
+<p><img src="./figures/image-20221212211416105.png" srcset="/img/loading.gif" lazyload alt="image-20221212211416105" style="zoom:50%;" /></p></li>
+</ol>
+<h2 id="模糊推理">3.5 模糊推理</h2>
+<p><strong>模糊概念的语法规则所构成的语句称为模糊语句</strong></p>
+<p><strong>模糊逻辑语言是模糊语句的重要组成部分</strong></p>
+<p><strong>五元体</strong></p>
+<p><img src="https://jaggar-oss.oss-cn-shanghai.aliyuncs.com/img/image-20221212211646080.png" srcset="/img/loading.gif" lazyload alt="image-20221212211646080" style="zoom:67%;" /></p>
+<p><strong>两种模糊推理语句</strong></p>
+<ol type="1">
+<li><code>if A then B else C</code></li>
+<li><code>if A and B then C</code></li>
+</ol>
+<p><strong>模糊蕴含关系（<span class="math inline">\(A\to
+B\)</span>）</strong></p>
+<p><strong>模糊推理方法</strong></p>
+<ol type="1">
+<li><p>Zadeh</p></li>
+<li><p>Mamdani <span class="math display">\[
+R=A ×B ×C=(A×B)^{T1} ◦C\\
+C1=(A1×B1)^{T2} ◦R
+\]</span></p></li>
+</ol>
 <h1 id="模糊控制">4. 模糊控制</h1>
 
                 
@@ -537,9 +882,9 @@ OR\)</span></p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/29/pattern-recognition/" title="pattern-recognition">
+                      <a href="/2022/11/29/pattern-recognition/" title="模式识别">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">pattern-recognition</span>
+                        <span class="hidden-mobile">模式识别</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
