@@ -1,0 +1,2389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HA-DW: Your Group-Relative Advantage Is Biased</title>
+    <link rel="shortcut icon" href="../../images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --theorem-bg: #fef3c7;
+            --theorem-border: #f59e0b;
+            --lemma-bg: #dbeafe;
+            --lemma-border: #3b82f6;
+            --corollary-bg: #dcfce7;
+            --corollary-border: #22c55e;
+            --problem-color: #ef4444;
+            --solution-color: #3b82f6;
+            --generalization-color: #8b5cf6;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #1a1a2e 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .header .authors {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            position: relative;
+        }
+
+        .header .institutions {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 8px;
+            position: relative;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .nav a:hover {
+            color: var(--text-primary);
+            background: rgba(99, 102, 241, 0.2);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title .icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Abstract Card */
+        .abstract-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .abstract-card p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Theory Structure Overview */
+        .structure-overview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        @media (max-width: 900px) {
+            .structure-overview {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .structure-block {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 25px;
+            border: 2px solid;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .structure-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .structure-block.problem {
+            border-color: var(--problem-color);
+        }
+
+        .structure-block.solution {
+            border-color: var(--solution-color);
+        }
+
+        .structure-block.generalization {
+            border-color: var(--generalization-color);
+        }
+
+        .structure-block .block-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .structure-block .block-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .structure-block.problem .block-icon {
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        .structure-block.solution .block-icon {
+            background: rgba(59, 130, 246, 0.2);
+        }
+
+        .structure-block.generalization .block-icon {
+            background: rgba(139, 92, 246, 0.2);
+        }
+
+        .structure-block h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .structure-block.problem h3 {
+            color: var(--problem-color);
+        }
+
+        .structure-block.solution h3 {
+            color: var(--solution-color);
+        }
+
+        .structure-block.generalization h3 {
+            color: var(--generalization-color);
+        }
+
+        .structure-block .block-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .structure-block .components {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .structure-block .component-tag {
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .structure-block.problem .component-tag {
+            background: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+        }
+
+        .structure-block.solution .component-tag {
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+        }
+
+        .structure-block.generalization .component-tag {
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+        }
+
+        /* Dependency Graph */
+        .dependency-section {
+            margin: 50px 0;
+        }
+
+        .dependency-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .dependency-title h2 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .dependency-title p {
+            color: var(--text-secondary);
+            margin-top: 10px;
+        }
+
+        /* Flowchart Container */
+        .flowchart-container {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            overflow-x: auto;
+        }
+
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            min-width: 800px;
+        }
+
+        .flow-section {
+            border: 2px dashed rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+        }
+
+        .flow-section-label {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            padding: 2px 15px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .flow-section.problem-section {
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        .flow-section.problem-section .flow-section-label {
+            background: var(--problem-color);
+        }
+
+        .flow-section.solution-section {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .flow-section.solution-section .flow-section-label {
+            background: var(--solution-color);
+        }
+
+        .flow-section.generalization-section {
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .flow-section.generalization-section .flow-section-label {
+            background: var(--generalization-color);
+        }
+
+        .flow-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .flow-node {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 12px 20px;
+            text-align: center;
+            min-width: 120px;
+            border: 2px solid;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .flow-node:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .flow-node.theorem {
+            border-color: var(--theorem-border);
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .flow-node.lemma {
+            border-color: var(--lemma-border);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .flow-node.corollary {
+            border-color: var(--corollary-border);
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .flow-node .node-type {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .flow-node.theorem .node-type {
+            color: var(--theorem-border);
+        }
+
+        .flow-node.lemma .node-type {
+            color: var(--lemma-border);
+        }
+
+        .flow-node.corollary .node-type {
+            color: var(--corollary-border);
+        }
+
+        .flow-node .node-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .flow-arrow {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+        }
+
+        .flow-arrow-down {
+            display: flex;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+        }
+
+        @media (max-width: 500px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Theorem/Lemma/Corollary Cards */
+        .theory-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .theory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .theory-card .card-header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .theory-card.theorem .card-header {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.05));
+            border-bottom: 2px solid var(--theorem-border);
+        }
+
+        .theory-card.lemma .card-header {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05));
+            border-bottom: 2px solid var(--lemma-border);
+        }
+
+        .theory-card.corollary .card-header {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.05));
+            border-bottom: 2px solid var(--corollary-border);
+        }
+
+        .theory-card .card-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .theory-card.theorem .card-badge {
+            background: var(--theorem-border);
+            color: #1a1a2e;
+        }
+
+        .theory-card.lemma .card-badge {
+            background: var(--lemma-border);
+            color: white;
+        }
+
+        .theory-card.corollary .card-badge {
+            background: var(--corollary-border);
+            color: #1a1a2e;
+        }
+
+        .theory-card .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .theory-card .card-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .theory-card .card-body {
+            padding: 20px;
+        }
+
+        .theory-card .card-description {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .theory-card .card-math {
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 15px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+
+        .theory-card .card-footer {
+            padding: 15px 20px;
+            background: rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .theory-card .dependency-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .theory-card .dependency-tag {
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            background: rgba(255,255,255,0.1);
+            color: var(--text-secondary);
+        }
+
+        /* Symbols Section */
+        .symbols-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .symbol-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+
+        .symbol-card:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .symbol-card .symbol {
+            font-size: 1.2rem;
+            color: var(--primary-light);
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .symbol-card .symbol-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Experiments Section */
+        .experiment-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 25px;
+        }
+
+        .experiment-card .exp-header {
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(99, 102, 241, 0.05));
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .experiment-card .exp-header h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .experiment-card .exp-header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .experiment-card .exp-body {
+            padding: 20px;
+        }
+
+        .experiment-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .exp-item {
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .exp-item h4 {
+            color: var(--primary-light);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .exp-item p, .exp-item li {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .exp-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .exp-item li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .exp-item li::before {
+            content: '>';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Key Insight Box */
+        .insight-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.02));
+            border-left: 4px solid var(--theorem-border);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 25px;
+            margin: 20px 0;
+        }
+
+        .insight-box .insight-title {
+            color: var(--theorem-border);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .insight-box p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-secondary);
+        }
+
+        .footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-dark);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--problem-color);
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+        }
+
+        .legend-dot.theorem-dot {
+            background: var(--theorem-border);
+        }
+
+        .legend-dot.lemma-dot {
+            background: var(--lemma-border);
+        }
+
+        .legend-dot.corollary-dot {
+            background: var(--corollary-border);
+        }
+
+        .legend-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            color: var(--primary-light);
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 20px;
+            border-radius: 10px;
+            background: rgba(99, 102, 241, 0.1);
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background: rgba(99, 102, 241, 0.2);
+        }
+
+        /* View Toggle */
+        .view-toggle {
+            display: flex;
+            gap: 8px;
+            margin: 0 20px 20px;
+        }
+
+        .view-toggle button {
+            padding: 10px 20px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 10px;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .view-toggle button:hover {
+            border-color: var(--primary);
+            color: var(--primary-light);
+        }
+
+        .view-toggle button.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Markdown View */
+        .markdown-view {
+            display: none;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .markdown-view.active {
+            display: block;
+        }
+
+        .markdown-article {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 40px;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        .markdown-article h1 {
+            color: var(--primary-light);
+            font-size: 2rem;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+
+        .markdown-article h2 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 8px;
+        }
+
+        .markdown-article h3 {
+            color: var(--primary-light);
+            font-size: 1.2rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        .markdown-article p {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .markdown-article ul, .markdown-article ol {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            padding-left: 25px;
+        }
+
+        .markdown-article li {
+            margin-bottom: 8px;
+        }
+
+        .markdown-article blockquote {
+            border-left: 4px solid var(--primary);
+            margin: 20px 0;
+            padding: 15px 20px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--text-secondary);
+            border-radius: 0 10px 10px 0;
+        }
+
+        .markdown-article code {
+            background: rgba(0,0,0,0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+
+        .markdown-article pre {
+            background: rgba(0,0,0,0.4);
+            border-radius: 10px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .markdown-article pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .markdown-article img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .markdown-article strong {
+            color: var(--text-primary);
+        }
+
+        .html-view {
+            display: block;
+        }
+
+        .html-view.hidden {
+            display: none;
+        }
+
+        /* Markdown View Layout */
+        .markdown-wrapper {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            gap: 30px;
+        }
+
+        .markdown-main {
+            flex: 1;
+            max-width: 850px;
+        }
+
+        /* TOC Sidebar */
+        .toc-sidebar {
+            width: 200px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+            align-self: flex-start;
+            max-height: calc(100vh - 140px);
+            overflow-y: auto;
+        }
+
+        .toc-sidebar h4 {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .toc-sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-sidebar li {
+            margin-bottom: 8px;
+        }
+
+        .toc-sidebar a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 13px;
+            line-height: 1.5;
+            padding: 6px 0 6px 12px;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .toc-sidebar a:hover {
+            color: var(--primary-light);
+            border-left-color: var(--primary-light);
+        }
+
+        .toc-sidebar a.active {
+            color: var(--primary-light);
+            border-left-color: var(--primary-light);
+            font-weight: 500;
+        }
+
+        .toc-sidebar .toc-h2 {
+            padding-left: 12px;
+        }
+
+        .toc-sidebar .toc-h3 {
+            padding-left: 24px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 1024px) {
+            .toc-sidebar {
+                display: none;
+            }
+            .markdown-wrapper {
+                padding: 20px;
+            }
+            .markdown-main {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Link -->
+    <a href="../" class="back-link">← Back to Blog</a>
+
+    <!-- View Toggle -->
+    <div class="view-toggle">
+        <button id="btn-visual" class="active" onclick="showView('visual')">Visual View</button>
+        <button id="btn-md" onclick="showView('md')">Markdown</button>
+    </div>
+
+    <!-- Visual View (Main Content) -->
+    <div id="visual-view" class="html-view">
+
+    <!-- Header -->
+    <header class="header">
+        <h1>Your Group-Relative Advantage Is Biased</h1>
+        <p class="subtitle">HA-DW: History-Aware Difficulty Weighting for Debiased Group-Relative Advantage in RLHF</p>
+        <p class="authors">Fengkai Yang, Zherui Chen, Xiaohan Wang, Xiaodong Lu, Jiajun Chai, Guojun Yin, Wei Lin, Shuai Ma, Fuzhen Zhuang, Deqing Wang, Yaodong Yang, Jianxin Li, Yikun Ban</p>
+        <p class="institutions">BUAA | UC Berkeley | PKU | Meituan</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#abstract">Abstract</a>
+            <a href="#structure">Theory</a>
+            <a href="#dependency">Dependency</a>
+            <a href="#theorems">Theorems</a>
+            <a href="#lemmas">Lemmas</a>
+            <a href="#corollaries">Corollaries</a>
+            <a href="#experiments">Experiments</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Abstract -->
+        <section id="abstract" class="section">
+            <h2 class="section-title">
+                <span class="icon" style="background: var(--primary);">A</span>
+                Abstract
+            </h2>
+            <div class="abstract-card animate-in">
+                <p>
+                    This paper proposes an <strong>adaptive advantage reweighting</strong> optimization algorithm (HA-DW) to mitigate bias induced by group-based advantage estimation.
+                </p>
+                <br>
+                <p>
+                    <strong>Core Finding:</strong> The authors first prove that the expectation of group-based advantage estimation $\hat{A}_{t,i}$ is <span style="color: var(--problem-color);">underestimated for difficult prompts</span> and <span style="color: var(--corollary-border);">overestimated for easy prompts</span>. This means algorithms like GRPO have systematic bias during training.
+                </p>
+                <br>
+                <p>
+                    <strong>Solution:</strong> The paper proposes two key components: (1) A framework incorporating cross-batch information for history-aware prompt difficulty anchoring; (2) An adaptive advantage reweighting algorithm to correct bias. Theory proves that with appropriate $\lambda_{scale}$, HA-DW adjusted advantage estimates are closer to true advantage in expectation.
+                </p>
+            </div>
+        </section>
+
+        <!-- Theory Structure Overview -->
+        <section id="structure" class="section">
+            <h2 class="section-title">
+                <span class="icon" style="background: var(--primary);">T</span>
+                Theory Structure Overview
+            </h2>
+
+            <div class="structure-overview">
+                <div class="structure-block problem animate-in">
+                    <div class="block-header">
+                        <div class="block-icon">?</div>
+                        <div>
+                            <h3>Part I: Reveal Bias</h3>
+                            <div class="block-subtitle">The Problem</div>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">
+                        Prove that Group-Relative Advantage estimation is mathematically biased
+                    </p>
+                    <div class="components">
+                        <span class="component-tag">Theorem 1</span>
+                        <span class="component-tag">Theorem 2</span>
+                        <span class="component-tag">Lemma 2</span>
+                        <span class="component-tag">Corollary 1-3</span>
+                    </div>
+                </div>
+
+                <div class="structure-block solution animate-in" style="animation-delay: 0.1s;">
+                    <div class="block-header">
+                        <div class="block-icon">!</div>
+                        <div>
+                            <h3>Part II: Solve Bias</h3>
+                            <div class="block-subtitle">The Solution</div>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">
+                        Derive how to eliminate bias through correction coefficient $\lambda_{scale}$
+                    </p>
+                    <div class="components">
+                        <span class="component-tag">Theorem 3</span>
+                        <span class="component-tag">Lemma 1</span>
+                        <span class="component-tag">Lemma 3-6</span>
+                    </div>
+                </div>
+
+                <div class="structure-block generalization animate-in" style="animation-delay: 0.2s;">
+                    <div class="block-header">
+                        <div class="block-icon">+</div>
+                        <div>
+                            <h3>Part III: Extend Applicability</h3>
+                            <div class="block-subtitle">Generalization</div>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">
+                        Prove bias exists not only in binary rewards, but also in continuous rewards
+                    </p>
+                    <div class="components">
+                        <span class="component-tag">Theorem 4</span>
+                        <span class="component-tag">Corollary 4-5</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dependency Graph -->
+        <section id="dependency" class="dependency-section">
+            <div class="dependency-title">
+                <h2>Theorem-Lemma-Corollary Dependency Graph</h2>
+                <p>Click nodes to view details</p>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-dot theorem-dot"></div>
+                    <span class="legend-text">Theorem</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot lemma-dot"></div>
+                    <span class="legend-text">Lemma</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot corollary-dot"></div>
+                    <span class="legend-text">Corollary</span>
+                </div>
+            </div>
+
+            <div class="flowchart-container">
+                <div class="flowchart">
+                    <!-- Problem Section -->
+                    <div class="flow-section problem-section">
+                        <span class="flow-section-label">Part I: Reveal Bias (The Problem)</span>
+
+                        <div class="flow-row" style="margin-top: 15px;">
+                            <div class="flow-node lemma" onclick="showModal('lemma2')">
+                                <div class="node-type">Lemma</div>
+                                <div class="node-name">Lemma 2</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">Bias Quantification</div>
+                            </div>
+                        </div>
+
+                        <div class="flow-arrow-down">|</div>
+
+                        <div class="flow-row">
+                            <div class="flow-node theorem" onclick="showModal('theorem1')">
+                                <div class="node-type">Theorem</div>
+                                <div class="node-name">Theorem 1</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">Bias Existence</div>
+                            </div>
+                            <span class="flow-arrow">-></span>
+                            <div class="flow-node theorem" onclick="showModal('theorem2')">
+                                <div class="node-type">Theorem</div>
+                                <div class="node-name">Theorem 2</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">Bias Distribution</div>
+                            </div>
+                        </div>
+
+                        <div class="flow-arrow-down">|</div>
+
+                        <div class="flow-row">
+                            <div class="flow-node corollary" onclick="showModal('corollary1')">
+                                <div class="node-type">Corollary</div>
+                                <div class="node-name">Corollary 1</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">G<=8 Bias Prob</div>
+                            </div>
+                            <div class="flow-node corollary" onclick="showModal('corollary2')">
+                                <div class="node-type">Corollary</div>
+                                <div class="node-name">Corollary 2</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">G>=6 Bias Prob</div>
+                            </div>
+                            <div class="flow-node corollary" onclick="showModal('corollary3')">
+                                <div class="node-type">Corollary</div>
+                                <div class="node-name">Corollary 3</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">Sure Event</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Solution Section -->
+                    <div class="flow-section solution-section">
+                        <span class="flow-section-label">Part II: Solve Bias (The Solution)</span>
+
+                        <div class="flow-row" style="margin-top: 15px;">
+                            <div class="flow-node lemma" onclick="showModal('lemma4')">
+                                <div class="node-type">Lemma</div>
+                                <div class="node-name">Lemma 4</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">Concentration</div>
+                            </div>
+                            <span class="flow-arrow">-></span>
+                            <div class="flow-node lemma" onclick="showModal('lemma5')">
+                                <div class="node-type">Lemma</div>
+                                <div class="node-name">Lemma 5</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">Confidence Interval</div>
+                            </div>
+                        </div>
+
+                        <div class="flow-arrow-down">|</div>
+
+                        <div class="flow-row">
+                            <div class="flow-node lemma" onclick="showModal('lemma3')">
+                                <div class="node-type">Lemma</div>
+                                <div class="node-name">Lemma 3</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">Existence Proof</div>
+                            </div>
+                            <span class="flow-arrow">-></span>
+                            <div class="flow-node lemma" onclick="showModal('lemma1')">
+                                <div class="node-type">Lemma</div>
+                                <div class="node-name">Lemma 1/6</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">Baseline Range</div>
+                            </div>
+                        </div>
+
+                        <div class="flow-arrow-down">|</div>
+
+                        <div class="flow-row">
+                            <div class="flow-node theorem" onclick="showModal('theorem3')">
+                                <div class="node-type">Theorem</div>
+                                <div class="node-name">Theorem 3</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">Advantage Rectification *</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generalization Section -->
+                    <div class="flow-section generalization-section">
+                        <span class="flow-section-label">Part III: Extend Applicability (Generalization)</span>
+
+                        <div class="flow-row" style="margin-top: 15px;">
+                            <div class="flow-node theorem" onclick="showModal('theorem4')">
+                                <div class="node-type">Theorem</div>
+                                <div class="node-name">Theorem 4</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">Continuous Reward Bias</div>
+                            </div>
+                        </div>
+
+                        <div class="flow-arrow-down">|</div>
+
+                        <div class="flow-row">
+                            <div class="flow-node corollary" onclick="showModal('corollary4')">
+                                <div class="node-type">Corollary</div>
+                                <div class="node-name">Corollary 4</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">Beta Distribution</div>
+                            </div>
+                            <div class="flow-node corollary" onclick="showModal('corollary5')">
+                                <div class="node-type">Corollary</div>
+                                <div class="node-name">Corollary 5</div>
+                                <div style="font-size: 0.7rem; color: var(--text-secondary);">Truncated Gaussian</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Symbols -->
+        <section id="symbols" class="section">
+            <h2 class="section-title">
+                <span class="icon" style="background: var(--primary);">S</span>
+                Symbol Definitions
+            </h2>
+            <div class="symbols-grid">
+                <div class="symbol-card">
+                    <span class="symbol">$t$</span>
+                    <span class="symbol-desc">Training step</span>
+                </div>
+                <div class="symbol-card">
+                    <span class="symbol">$D$</span>
+                    <span class="symbol-desc">Training dataset</span>
+                </div>
+                <div class="symbol-card">
+                    <span class="symbol">$x_t$</span>
+                    <span class="symbol-desc">Prompt sampled from D at step t</span>
+                </div>
+                <div class="symbol-card">
+                    <span class="symbol">$G$</span>
+                    <span class="symbol-desc">Number of responses (Group Size)</span>
+                </div>
+                <div class="symbol-card">
+                    <span class="symbol">$R$</span>
+                    <span class="symbol-desc">Total reward $R=\sum_{i=1}^G r_{t,i}$</span>
+                </div>
+                <div class="symbol-card">
+                    <span class="symbol">$\{y_{t,i}\}_{i=1}^G$</span>
+                    <span class="symbol-desc">Response set for $x_t$</span>
+                </div>
+                <div class="symbol-card">
+                    <span class="symbol">$r_{t,i}$</span>
+                    <span class="symbol-desc">Scalar reward for response $y_{t,i}$</span>
+                </div>
+                <div class="symbol-card">
+                    <span class="symbol">$\pi_{\theta}$</span>
+                    <span class="symbol-desc">Policy model (LLM)</span>
+                </div>
+                <div class="symbol-card">
+                    <span class="symbol">$p_t$</span>
+                    <span class="symbol-desc">True success probability (unknown)</span>
+                </div>
+                <div class="symbol-card">
+                    <span class="symbol">$\hat{p}_t$</span>
+                    <span class="symbol-desc">Observed success rate $\frac{1}{G}\sum r_{t,i}$</span>
+                </div>
+                <div class="symbol-card">
+                    <span class="symbol">$A_{t,i}$</span>
+                    <span class="symbol-desc">True advantage $r_{t,i} - p_t$</span>
+                </div>
+                <div class="symbol-card">
+                    <span class="symbol">$\hat{A}_{t,i}$</span>
+                    <span class="symbol-desc">Group-relative advantage $r_{t,i} - \hat{p}_t$</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Theorems -->
+        <section id="theorems" class="section">
+            <h2 class="section-title">
+                <span class="icon" style="background: var(--theorem-border);">T</span>
+                Theorems
+            </h2>
+            <div class="cards-grid">
+                <!-- Theorem 1 -->
+                <div class="theory-card theorem" id="theorem1-card">
+                    <div class="card-header">
+                        <span class="card-badge">Theorem 1</span>
+                        <div>
+                            <div class="card-title">Existence of Bias</div>
+                            <div class="card-subtitle">Bias Direction</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            <strong>Core conclusion:</strong> At expectation level - <span style="color: var(--problem-color);">difficult samples are underestimated</span>, <span style="color: var(--corollary-border);">easy samples are overestimated</span>. This is the foundation of the entire theory.
+                        </p>
+                        <div class="card-math">
+                            If $p_t < 0.5$ (hard): $\mathbb{E}[\hat{A}_{t,i}|\mathcal{S}] < A_{t,i}$<br><br>
+                            If $p_t > 0.5$ (easy): $\mathbb{E}[\hat{A}_{t,i}|\mathcal{S}] > A_{t,i}$<br><br>
+                            Iff $p_t = 0.5$: $\mathbb{E}[\hat{A}_{t,i}|\mathcal{S}] = A_{t,i}$
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depends on:</span>
+                        <span class="dependency-tag">Lemma 2</span>
+                    </div>
+                </div>
+
+                <!-- Theorem 2 -->
+                <div class="theory-card theorem" id="theorem2-card">
+                    <div class="card-header">
+                        <span class="card-badge">Theorem 2</span>
+                        <div>
+                            <div class="card-title">Bias Probability Distribution</div>
+                            <div class="card-subtitle">Probability Characterization</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            From "expectation" to "probability". Not only tells you the average bias direction, but quantifies "probability of deviation exceeding $\epsilon$".
+                        </p>
+                        <div class="card-math">
+                            Hard sample ($p_t < 0.5$):<br>
+                            $\mathbb{P}(A_{t,i} - \hat{A}_{t,i} > \epsilon | \mathcal{S}) = \frac{\sum_{k=\lfloor G(p_t+\epsilon)\rfloor+1}^{G-1} \binom{G}{k} p_t^k (1-p_t)^{G-k}}{1 - (1-p_t)^G - p_t^G}$
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depends on:</span>
+                        <span class="dependency-tag">Theorem 1</span>
+                    </div>
+                </div>
+
+                <!-- Theorem 3 -->
+                <div class="theory-card theorem" id="theorem3-card">
+                    <div class="card-header">
+                        <span class="card-badge">Theorem 3</span>
+                        <div>
+                            <div class="card-title">Advantage Rectification *</div>
+                            <div class="card-subtitle">HA-DW Foundation</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            <strong>Theoretical foundation of HA-DW!</strong> Proves that if scaling factor $\lambda_{scale}$ falls in a specific interval, the corrected advantage bias becomes smaller.
+                        </p>
+                        <div class="card-math">
+                            If $\lambda_{scale}$ in appropriate interval:<br><br>
+                            $|\mathbb{E}[\hat{A}_{t,i} \cdot \Phi_{t,i} | \mathcal{S}] - A_{t,i}| < |\mathbb{E}[\hat{A}_{t,i} | \mathcal{S}] - A_{t,i}|$
+                        </div>
+                        <div class="insight-box">
+                            <div class="insight-title">Key Insight</div>
+                            <p>Maps baseline correction coefficient c range to algorithm hyperparameter $\lambda_{scale}$ range through algebraic transformation.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depends on:</span>
+                        <span class="dependency-tag">Lemma 1</span>
+                        <span class="dependency-tag">Lemma 6</span>
+                    </div>
+                </div>
+
+                <!-- Theorem 4 -->
+                <div class="theory-card theorem" id="theorem4-card">
+                    <div class="card-header">
+                        <span class="card-badge">Theorem 4</span>
+                        <div>
+                            <div class="card-title">Continuous Reward Bias</div>
+                            <div class="card-subtitle">Generalization</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Generalizes Theorem 1 & 2 conclusions to arbitrary continuous bounded reward distributions $r_{t,i} \in [0,1]$. Proves bias is universal.
+                        </p>
+                        <div class="card-math">
+                            Define update event: $\mathcal{S}_{\sigma} := \{\exists i \ne j : |r_{t,i} - r_{t,j}| > \sigma\}$<br><br>
+                            Conditional bias: $\mathbb{E}[\hat{A}_{t,i} - A_{t,i} | \mathcal{S}_{\sigma}] = p_t - \mathbb{E}[\hat{p}_t | \mathcal{S}_{\sigma}]$
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Generalizes:</span>
+                        <span class="dependency-tag">Theorem 1</span>
+                        <span class="dependency-tag">Theorem 2</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lemmas -->
+        <section id="lemmas" class="section">
+            <h2 class="section-title">
+                <span class="icon" style="background: var(--lemma-border);">L</span>
+                Lemmas
+            </h2>
+            <div class="cards-grid">
+                <!-- Lemma 1 -->
+                <div class="theory-card lemma" id="lemma1-card">
+                    <div class="card-header">
+                        <span class="card-badge">Lemma 1</span>
+                        <div>
+                            <div class="card-title">Baseline Rectification</div>
+                            <div class="card-subtitle">Core Bridge</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Finds a coefficient interval $(c_{low}, c_{high})$ <strong>independent of unknown $p_t$</strong>. As long as c is inside, baseline estimation is accurate.
+                        </p>
+                        <div class="card-math">
+                            $c_{low} := \sup_{p \in I_t} \frac{(p-\epsilon) A(p)}{p(1-p^{G-1})}$<br><br>
+                            $c_{high} := \inf_{p \in I_t} \frac{(p+\epsilon) A(p)}{p(1-p^{G-1})}$<br><br>
+                            where $I_t := [\hat{p}_t - \epsilon_{\delta}, \hat{p}_t + \epsilon_{\delta}] \cap [\Delta, 1-\Delta]$
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depends on:</span>
+                        <span class="dependency-tag">Lemma 4</span>
+                        <span class="dependency-tag">Lemma 5</span>
+                    </div>
+                </div>
+
+                <!-- Lemma 2 -->
+                <div class="theory-card lemma" id="lemma2-card">
+                    <div class="card-header">
+                        <span class="card-badge">Lemma 2</span>
+                        <div>
+                            <div class="card-title">Bias Quantification Formula</div>
+                            <div class="card-subtitle">Mathematical Core of Theorem 1</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Provides <strong>exact mathematical expression</strong> for bias $\text{Bias} = A_{t,i} - \mathbb{E}[\hat{A}_{t,i}]$.
+                        </p>
+                        <div class="card-math">
+                            $A_{t,i} - \mathbb{E}[\hat{A}_{t,i}|\mathcal{S}] = \frac{p_t(1-p_t)^G + p_t^{G+1} - p_t^G}{1 - (1-p_t)^G - p_t^G}$
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depended by:</span>
+                        <span class="dependency-tag">Theorem 1</span>
+                    </div>
+                </div>
+
+                <!-- Lemma 3 -->
+                <div class="theory-card lemma" id="lemma3-card">
+                    <div class="card-header">
+                        <span class="card-badge">Lemma 3</span>
+                        <div>
+                            <div class="card-title">Correction Existence</div>
+                            <div class="card-subtitle">Existence Proof</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            If $p_t$ is known, there must exist a c that can correct bias. This is a theoretical "existence proof" providing mathematical premise for Lemma 1.
+                        </p>
+                        <div class="card-math">
+                            If $c \in \left(\frac{(p_t - \epsilon) \cdot A(p_t)}{p_t (1 - p_t^{G-1})}, \frac{(p_t + \epsilon) \cdot A(p_t)}{p_t (1 - p_t^{G-1})}\right)$<br><br>
+                            Then $\mathbb{E}[\tilde{p}_t | \mathcal{S}] \in (p_t - \epsilon, p_t + \epsilon)$
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depended by:</span>
+                        <span class="dependency-tag">Lemma 1</span>
+                    </div>
+                </div>
+
+                <!-- Lemma 4 -->
+                <div class="theory-card lemma" id="lemma4-card">
+                    <div class="card-header">
+                        <span class="card-badge">Lemma 4</span>
+                        <div>
+                            <div class="card-title">Concentration Inequality</div>
+                            <div class="card-subtitle">$p_t$-free concentration under $\mathcal{S}$</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Using Hoeffding inequality, provides probability upper bound for distance between observed $\hat{p}_t$ and true $p_t$. This is the starting point of the entire solution.
+                        </p>
+                        <div class="card-math">
+                            $\mathbb{P}(|\hat{p}_t - p_t| < \zeta | \mathcal{S}) \ge \frac{1 - 2 \exp(-2G\zeta^2) - (1-\Delta)^G - \Delta^G}{1 - (1-\Delta)^G - \Delta^G}$
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depended by:</span>
+                        <span class="dependency-tag">Lemma 1</span>
+                        <span class="dependency-tag">Lemma 5</span>
+                    </div>
+                </div>
+
+                <!-- Lemma 5 -->
+                <div class="theory-card lemma" id="lemma5-card">
+                    <div class="card-header">
+                        <span class="card-badge">Lemma 5</span>
+                        <div>
+                            <div class="card-title">Confidence Interval</div>
+                            <div class="card-subtitle">Conditional $p_t$-free concentration</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            With high probability $1-\delta$, provides upper bound for $|\hat{p}_t - p_t|$. Through observed $\hat{p}_t$ plus "safety radius" $\epsilon_{\delta}$, bounds possible range of $p_t$.
+                        </p>
+                        <div class="card-math">
+                            With prob $\ge 1-\delta$ (conditional on $\mathcal{S}$):<br><br>
+                            $|\hat{p}_t - p_t| < \sqrt{\frac{1}{2G} \log\left(\frac{2}{\delta(1 - (1-\Delta)^G - \Delta^G)}\right)}$
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depends on:</span>
+                        <span class="dependency-tag">Lemma 4</span>
+                    </div>
+                </div>
+
+                <!-- Lemma 6 -->
+                <div class="theory-card lemma" id="lemma6-card">
+                    <div class="card-header">
+                        <span class="card-badge">Lemma 6</span>
+                        <div>
+                            <div class="card-title">$p_t$-free Feasible Range</div>
+                            <div class="card-subtitle">Detailed Construction of Lemma 1</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Same level as Lemma 1, detailed construction version. Explicitly expresses feasible range of c through $\hat{p}_t$.
+                        </p>
+                        <div class="card-math">
+                            $\epsilon_{\delta} := \sqrt{\frac{1}{2G} \log\left(\frac{2}{\delta(1 - (1-\Delta)^G - \Delta^G)}\right)}$<br><br>
+                            On event $\{|\hat{p}_t - p_t| < \epsilon_{\delta}\}$, any $c \in (c_{low}, c_{high})$ satisfies correction condition
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depends on:</span>
+                        <span class="dependency-tag">Lemma 4</span>
+                        <span class="dependency-tag">Lemma 5</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Corollaries -->
+        <section id="corollaries" class="section">
+            <h2 class="section-title">
+                <span class="icon" style="background: var(--corollary-border);">C</span>
+                Corollaries
+            </h2>
+            <div class="cards-grid">
+                <!-- Corollary 1 -->
+                <div class="theory-card corollary" id="corollary1-card">
+                    <div class="card-header">
+                        <span class="card-badge">Corollary 1</span>
+                        <div>
+                            <div class="card-title">Bias Probability for G<=8</div>
+                            <div class="card-subtitle">Practical Warning</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Substitutes Theorem 2 into specific Group Size, reveals extremely high frequency of bias!
+                        </p>
+                        <div class="card-math">
+                            $\mathbb{P}(\hat{A}_{t,i} < A_{t,i} | \mathcal{S}, p_t < 0.5) > \mathbf{63\%}$<br><br>
+                            $\mathbb{P}(\hat{A}_{t,i} < A_{t,i} | \mathcal{S}, p_t < 0.25) > \mathbf{78\%}$<br><br>
+                            $\mathbb{P}(\hat{A}_{t,i} < A_{t,i} | \mathcal{S}, p_t < 0.125) = \mathbf{100\%}$
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depends on:</span>
+                        <span class="dependency-tag">Theorem 2</span>
+                    </div>
+                </div>
+
+                <!-- Corollary 2 -->
+                <div class="theory-card corollary" id="corollary2-card">
+                    <div class="card-header">
+                        <span class="card-badge">Corollary 2</span>
+                        <div>
+                            <div class="card-title">Bias Probability for G>=6</div>
+                            <div class="card-subtitle">Large Group Size Warning</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Bias probability analysis for boundary cases with larger Group Size.
+                        </p>
+                        <div class="card-math">
+                            If $G \ge 6$:<br><br>
+                            $\mathbb{P}(\hat{A}_{t,i} < A_{t,i} | \mathcal{S}, p_t < \frac{2}{G}) > 78\%$<br><br>
+                            $\mathbb{P}(\hat{A}_{t,i} > A_{t,i} | \mathcal{S}, p_t > \frac{G-2}{G}) > 78\%$
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depends on:</span>
+                        <span class="dependency-tag">Corollary 1</span>
+                    </div>
+                </div>
+
+                <!-- Corollary 3 -->
+                <div class="theory-card corollary" id="corollary3-card">
+                    <div class="card-header">
+                        <span class="card-badge">Corollary 3</span>
+                        <div>
+                            <div class="card-title">Sure Event</div>
+                            <div class="card-subtitle">Certain Bias</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Points out extreme cases of "certain bias" - under some conditions, bias <strong>100% certainly occurs</strong>!
+                        </p>
+                        <div class="card-math">
+                            If $G \ge 2$:<br><br>
+                            $p_t < \frac{1}{G} \Rightarrow \hat{A}_{t,i} < A_{t,i}$ <span style="color: var(--problem-color);">(certain)</span><br><br>
+                            $p_t > \frac{G-1}{G} \Rightarrow \hat{A}_{t,i} > A_{t,i}$ <span style="color: var(--corollary-border);">(certain)</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depends on:</span>
+                        <span class="dependency-tag">Theorem 2</span>
+                    </div>
+                </div>
+
+                <!-- Corollary 4 -->
+                <div class="theory-card corollary" id="corollary4-card">
+                    <div class="card-header">
+                        <span class="card-badge">Corollary 4</span>
+                        <div>
+                            <div class="card-title">Beta Distribution</div>
+                            <div class="card-subtitle">Example of Theorem 4</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Applies Theorem 4 to Beta distribution rewards, obtaining explicit integral expressions.
+                        </p>
+                        <div class="card-math">
+                            $f(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha, \beta)}$<br><br>
+                            $p_t = \frac{\alpha}{\alpha+\beta}$<br><br>
+                            $q(u) = I_{u^+}(\alpha, \beta) - I_u(\alpha, \beta)$
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depends on:</span>
+                        <span class="dependency-tag">Theorem 4</span>
+                    </div>
+                </div>
+
+                <!-- Corollary 5 -->
+                <div class="theory-card corollary" id="corollary5-card">
+                    <div class="card-header">
+                        <span class="card-badge">Corollary 5</span>
+                        <div>
+                            <div class="card-title">Truncated Gaussian</div>
+                            <div class="card-subtitle">Example of Theorem 4</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-description">
+                            Applies Theorem 4 to truncated Gaussian distribution, demonstrating bias universality in continuous rewards.
+                        </p>
+                        <div class="card-math">
+                            $f(x) = \frac{\varphi(\frac{x-\mu}{\xi})}{\xi(\Phi(b) - \Phi(a))} \mathbf{1}_{[0,1]}(x)$<br><br>
+                            $p_t = \mu + \xi \frac{\varphi(a) - \varphi(b)}{\Phi(b) - \Phi(a)}$
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <span class="dependency-label">Depends on:</span>
+                        <span class="dependency-tag">Theorem 4</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experiments -->
+        <section id="experiments" class="section">
+            <h2 class="section-title">
+                <span class="icon" style="background: var(--primary);">E</span>
+                Experiments
+            </h2>
+
+            <!-- Pipeline -->
+            <div class="experiment-card">
+                <div class="exp-header">
+                    <h3>Training Pipeline</h3>
+                    <p>Overall training framework of HA-DW algorithm</p>
+                </div>
+                <div class="exp-body">
+                    <img src="assets/pipe.png" alt="Training Pipeline">
+                </div>
+            </div>
+
+            <!-- Settings -->
+            <div class="experiment-card">
+                <div class="exp-header">
+                    <h3>Experimental Setup</h3>
+                    <p>Models, benchmarks and baselines</p>
+                </div>
+                <div class="exp-body">
+                    <div class="exp-grid">
+                        <div class="exp-item">
+                            <h4>Models</h4>
+                            <ul>
+                                <li>Qwen3-4B-Base</li>
+                                <li>Qwen3-8B-Base</li>
+                                <li>LLaMA-3.2-3B-Instruct</li>
+                            </ul>
+                        </div>
+                        <div class="exp-item">
+                            <h4>Benchmarks</h4>
+                            <ul>
+                                <li>MATH500</li>
+                                <li>AIME25</li>
+                                <li>AMC23</li>
+                                <li>Minerva</li>
+                                <li>OlympiadBench</li>
+                            </ul>
+                        </div>
+                        <div class="exp-item">
+                            <h4>Baselines</h4>
+                            <ul>
+                                <li>GRPO</li>
+                                <li>GSPO</li>
+                                <li>DAPO</li>
+                            </ul>
+                        </div>
+                        <div class="exp-item">
+                            <h4>Computing Resources</h4>
+                            <p>8 x NVIDIA A100 GPUs<br>Based on VeRL framework</p>
+                        </div>
+                    </div>
+                    <img src="assets/exp_hyperparam.png" alt="Hyperparameters" style="margin-top: 20px;">
+                </div>
+            </div>
+
+            <!-- Comparison -->
+            <div class="experiment-card">
+                <div class="exp-header">
+                    <h3>Comparison Experiments</h3>
+                    <p>HA-DW vs other algorithms</p>
+                </div>
+                <div class="exp-body">
+                    <img src="assets/exp_comp.png" alt="Comparison with other algorithms">
+                    <img src="assets/exp_improve.png" alt="Better performance at small group size">
+                </div>
+            </div>
+
+            <!-- Ablation -->
+            <div class="experiment-card">
+                <div class="exp-header">
+                    <h3>Ablation Studies</h3>
+                    <p>Key hyperparameter analysis</p>
+                </div>
+                <div class="exp-body">
+                    <div class="exp-grid">
+                        <div>
+                            <h4 style="color: var(--primary-light); margin-bottom: 15px;">Lambda Grid Search</h4>
+                            <img src="assets/exp_ab1.png" alt="Lambda grid search">
+                        </div>
+                        <div>
+                            <h4 style="color: var(--primary-light); margin-bottom: 15px;">Dynamic $C_t$ vs Fixed</h4>
+                            <img src="assets/exp_ab2.png" alt="Dynamic Ct vs fixed">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal">
+        <button class="modal-close" onclick="closeModal()">x</button>
+        <div class="modal-content" id="modal-content">
+            <!-- Dynamic content -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Paper Reading | HA-DW: Your Group-Relative Advantage Is Biased</p>
+        <p style="margin-top: 10px; font-size: 0.85rem;">
+            <a href="assets/paper.pdf" target="_blank">PDF</a> |
+            <a href="main.md" target="_blank">Markdown Notes</a>
+        </p>
+    </footer>
+
+    </div><!-- End Visual View -->
+
+    <!-- Markdown View -->
+    <div id="md-view" class="markdown-view">
+        <div class="markdown-wrapper">
+            <div class="markdown-main">
+                <article class="markdown-article" id="markdown-content">
+                    <p style="color: var(--text-secondary);">Loading markdown...</p>
+                </article>
+            </div>
+            <nav class="toc-sidebar" id="toc-sidebar">
+                <h4>Contents</h4>
+                <ul id="toc-list"></ul>
+            </nav>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // KaTeX rendering
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ],
+                throwOnError: false
+            });
+        });
+
+        // View toggle
+        let mdLoaded = false;
+
+        function showView(view) {
+            const visualView = document.getElementById('visual-view');
+            const mdView = document.getElementById('md-view');
+            const btnVisual = document.getElementById('btn-visual');
+            const btnMd = document.getElementById('btn-md');
+
+            if (view === 'visual') {
+                visualView.classList.remove('hidden');
+                mdView.classList.remove('active');
+                btnVisual.classList.add('active');
+                btnMd.classList.remove('active');
+            } else {
+                visualView.classList.add('hidden');
+                mdView.classList.add('active');
+                btnVisual.classList.remove('active');
+                btnMd.classList.add('active');
+                if (!mdLoaded) {
+                    loadMarkdown();
+                }
+            }
+        }
+
+        function loadMarkdown() {
+            fetch('main.md')
+                .then(response => response.text())
+                .then(text => {
+                    // Protect math formulas before marked processing
+                    const mathPlaceholders = [];
+
+                    // Protect block math $$...$$
+                    text = text.replace(/\$\$([\s\S]*?)\$\$/g, (match, formula) => {
+                        mathPlaceholders.push({ type: 'block', formula: formula.trim() });
+                        return `%%MATH_BLOCK_${mathPlaceholders.length - 1}%%`;
+                    });
+
+                    // Protect inline math $...$
+                    text = text.replace(/\$([^\$\n]+?)\$/g, (match, formula) => {
+                        mathPlaceholders.push({ type: 'inline', formula: formula.trim() });
+                        return `%%MATH_INLINE_${mathPlaceholders.length - 1}%%`;
+                    });
+
+                    // Render markdown
+                    let html = marked.parse(text);
+
+                    // Restore math formulas
+                    mathPlaceholders.forEach((item, index) => {
+                        if (item.type === 'block') {
+                            html = html.replace(`%%MATH_BLOCK_${index}%%`, `$$${item.formula}$$`);
+                        } else {
+                            html = html.replace(`%%MATH_INLINE_${index}%%`, `$${item.formula}$`);
+                        }
+                    });
+
+                    const mdContent = document.getElementById('markdown-content');
+                    mdContent.innerHTML = html;
+
+                    // Typeset math formulas
+                    renderMathInElement(mdContent, {
+                        delimiters: [
+                            {left: '$$', right: '$$', display: true},
+                            {left: '$', right: '$', display: false}
+                        ],
+                        throwOnError: false
+                    });
+
+                    mdLoaded = true;
+
+                    // Generate TOC
+                    generateTOC(mdContent);
+                })
+                .catch(err => {
+                    document.getElementById('markdown-content').innerHTML = '<p style="color: #ef4444;">Failed to load markdown file.</p>';
+                });
+        }
+
+        // Generate Table of Contents
+        function generateTOC(container) {
+            const tocList = document.getElementById('toc-list');
+            const headings = container.querySelectorAll('h1, h2, h3');
+
+            let html = '';
+            let headingIndex = 0;
+
+            headings.forEach((heading) => {
+                const level = heading.tagName.toLowerCase();
+                const text = heading.textContent;
+                const id = 'heading-' + headingIndex++;
+
+                // Add id to heading for anchor
+                heading.id = id;
+
+                html += `<li><a href="#${id}" class="toc-${level}">${text}</a></li>`;
+            });
+
+            tocList.innerHTML = html;
+
+            // Add click handlers for smooth scroll
+            tocList.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href').slice(1);
+                    const target = document.getElementById(targetId);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Highlight current section on scroll
+            setupScrollSpy(headings);
+        }
+
+        // Scroll spy to highlight current section
+        function setupScrollSpy(headings) {
+            const tocLinks = document.querySelectorAll('#toc-list a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+
+                headings.forEach((heading) => {
+                    const rect = heading.getBoundingClientRect();
+                    if (rect.top <= 120) {
+                        current = heading.id;
+                    }
+                });
+
+                tocLinks.forEach((link) => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Modal data
+        const modalData = {
+            theorem1: {
+                type: 'theorem',
+                title: 'Theorem 1: Existence of Bias',
+                content: `
+                    <p><strong>Condition:</strong> Given prompt $x_t \\sim D$, let $y_{t,i} \\sim \\pi_{\\theta}(\\cdot|x_t)$ be sampled response with reward $r_{t,i}$. Let $G \\ge 2$, conditional on event $\\mathcal{S} = \\{1 \\le R \\le G-1\\}$.</p>
+                    <br>
+                    <p><strong>Conclusion:</strong> For any $i \\in [G]$:</p>
+                    <ul>
+                        <li>$\\mathbb{E}[\\hat{A}_{t,i}|\\mathcal{S}] < A_{t,i}$, if $p_t < 0.5$ (hard samples underestimated)</li>
+                        <li>$\\mathbb{E}[\\hat{A}_{t,i}|\\mathcal{S}] > A_{t,i}$, if $p_t > 0.5$ (easy samples overestimated)</li>
+                        <li>$\\mathbb{E}[\\hat{A}_{t,i}|\\mathcal{S}] = A_{t,i}$, iff $p_t = 0.5$</li>
+                    </ul>
+                    <br>
+                    <p><strong>Intuition:</strong> Because we only update when there's "differentiation" ($1 \\le R \\le G-1$), this condition filtering causes observed $\\hat{p}_t$ to shift toward 0.5, leading to underestimation of hard sample advantage and overestimation of easy sample advantage.</p>
+                `
+            },
+            theorem2: {
+                type: 'theorem',
+                title: 'Theorem 2: Bias Probability Distribution',
+                content: `
+                    <p><strong>Hard sample ($p_t < 0.5$):</strong></p>
+                    <p>For any $\\epsilon \\in (0, \\mathbb{E}[\\hat{p}_t|\\mathcal{S}] - p_t)$:</p>
+                    <p>$$\\mathbb{P}(A_{t,i} - \\hat{A}_{t,i} > \\epsilon | \\mathcal{S}) = \\frac{\\sum_{k=\\lfloor G(p_t+\\epsilon)\\rfloor+1}^{G-1} \\binom{G}{k} p_t^k (1-p_t)^{G-k}}{1 - (1-p_t)^G - p_t^G}$$</p>
+                    <br>
+                    <p><strong>Easy sample ($p_t > 0.5$):</strong></p>
+                    <p>For any $\\epsilon \\in (0, p_t - \\mathbb{E}[\\hat{p}_t|\\mathcal{S}])$:</p>
+                    <p>$$\\mathbb{P}(\\hat{A}_{t,i} - A_{t,i} > \\epsilon | \\mathcal{S}) = \\frac{\\sum_{k=1}^{\\lceil G(p_t-\\epsilon)\\rceil-1} \\binom{G}{k} p_t^k (1-p_t)^{G-k}}{1 - (1-p_t)^G - p_t^G}$$</p>
+                    <br>
+                    <p><strong>Significance:</strong> Not only tells bias direction, but quantifies probability of bias exceeding threshold $\\epsilon$.</p>
+                `
+            },
+            theorem3: {
+                type: 'theorem',
+                title: 'Theorem 3: Advantage Rectification',
+                content: `
+                    <p><strong>This is the theoretical foundation of HA-DW algorithm!</strong></p>
+                    <br>
+                    <p><strong>Condition:</strong> Under conditions of Lemma 1, there exists scaling factor $\\lambda_{scale}$ such that:</p>
+                    <p>$$\\lambda_{scale} \\in \\left(\\frac{1+\\frac{(1-c_{high})\\hat{p}_t}{1-\\hat{p}_t}}{\\exp(D_{t,i} M_t)}, \\frac{1+\\frac{(1-c_{low})\\hat{p}_t}{1-\\hat{p}_t}}{\\exp(D_{t,i} M_t)}\\right)$$</p>
+                    <p>or</p>
+                    <p>$$\\lambda_{scale} \\in \\left(\\frac{c_{low}}{\\exp(D_{t,i} M_t)}, \\frac{c_{high}}{\\exp(D_{t,i} M_t)}\\right)$$</p>
+                    <br>
+                    <p><strong>Conclusion:</strong> HA-DW algorithm provably mitigates group-relative advantage bias:</p>
+                    <p>$$|\\mathbb{E}[\\hat{A}_{t,i} \\cdot \\Phi_{t,i} | \\mathcal{S}] - A_{t,i}| < |\\mathbb{E}[\\hat{A}_{t,i} | \\mathcal{S}] - A_{t,i}|$$</p>
+                    <br>
+                    <p><strong>Key insight:</strong> Maps baseline correction coefficient $c$ range to algorithm hyperparameter $\\lambda_{scale}$ range through algebraic transformation.</p>
+                `
+            },
+            theorem4: {
+                type: 'theorem',
+                title: 'Theorem 4: Continuous Reward Bias',
+                content: `
+                    <p><strong>Extension:</strong> Generalizes binary reward to continuous bounded reward $r_{t,i} \\in [0, 1]$.</p>
+                    <br>
+                    <p><strong>Define update event:</strong></p>
+                    <p>$$\\mathcal{S}_{\\sigma} := \\{\\exists i \\ne j : |r_{t,i} - r_{t,j}| > \\sigma\\}$$</p>
+                    <br>
+                    <p><strong>Core conclusion:</strong></p>
+                    <p>$$\\mathbb{E}[\\hat{A}_{t,i} - A_{t,i} | \\mathcal{S}_{\\sigma}] = p_t - \\mathbb{E}[\\hat{p}_t | \\mathcal{S}_{\\sigma}]$$</p>
+                    <br>
+                    <p><strong>Significance:</strong> Bias problem is not an artifact of binary reward assumption, but universally exists in broader class of bounded reward models.</p>
+                `
+            },
+            lemma1: {
+                type: 'lemma',
+                title: 'Lemma 1/6: Baseline Rectification',
+                content: `
+                    <p><strong>Goal:</strong> Find coefficient interval $(c_{low}, c_{high})$ <strong>independent of unknown $p_t$</strong>.</p>
+                    <br>
+                    <p><strong>Definitions:</strong></p>
+                    <p>$$\\epsilon_{\\delta} := \\sqrt{\\frac{1}{2G} \\log\\left(\\frac{2}{\\delta(1-(1-\\Delta)^G-\\Delta^G)}\\right)}$$</p>
+                    <p>$$I_t := [\\hat{p}_t - \\epsilon_{\\delta}, \\hat{p}_t + \\epsilon_{\\delta}] \\cap [\\Delta, 1-\\Delta]$$</p>
+                    <p>$$c_{low} := \\sup_{p \\in I_t} \\frac{(p-\\epsilon) A(p)}{p(1-p^{G-1})}$$</p>
+                    <p>$$c_{high} := \\inf_{p \\in I_t} \\frac{(p+\\epsilon) A(p)}{p(1-p^{G-1})}$$</p>
+                    <br>
+                    <p><strong>Conclusion:</strong> With probability $\\ge 1-\\delta$ (conditional on $\\mathcal{S}$), for any $c \\in (c_{low}, c_{high})$:</p>
+                    <p>$$\\mathbb{E}[\\tilde{p}_t | \\mathcal{S}] \\in (p_t - \\epsilon, p_t + \\epsilon)$$</p>
+                `
+            },
+            lemma2: {
+                type: 'lemma',
+                title: 'Lemma 2: Bias Quantification Formula',
+                content: `
+                    <p><strong>Exact bias expression:</strong></p>
+                    <p>$$A_{t,i} - \\mathbb{E}[\\hat{A}_{t,i}|\\mathcal{S}] = \\frac{p_t(1-p_t)^G + p_t^{G+1} - p_t^G}{1 - (1-p_t)^G - p_t^G}$$</p>
+                    <br>
+                    <p><strong>Significance:</strong> This is the mathematical core of Theorem 1, providing exact formula for bias computation. By analyzing sign of this expression, qualitative conclusions of Theorem 1 can be derived.</p>
+                `
+            },
+            lemma3: {
+                type: 'lemma',
+                title: 'Lemma 3: Correction Existence',
+                content: `
+                    <p><strong>Condition:</strong> Define non-degenerate event $\\mathcal{S} := \\{1 \\le S \\le G-1\\}$, $\\epsilon \\in (0, |p_t - \\hat{p}_t|)$.</p>
+                    <br>
+                    <p><strong>If:</strong></p>
+                    <p>$$c \\in \\left(\\frac{(p_t - \\epsilon) \\cdot A(p_t)}{p_t (1 - p_t^{G-1})}, \\frac{(p_t + \\epsilon) \\cdot A(p_t)}{p_t (1 - p_t^{G-1})}\\right)$$</p>
+                    <br>
+                    <p><strong>Then:</strong></p>
+                    <p>$$\\mathbb{E}[\\tilde{p}_t | \\mathcal{S}] \\in (p_t - \\epsilon, p_t + \\epsilon)$$</p>
+                    <br>
+                    <p><strong>Significance:</strong> Theoretical existence proof - if $p_t$ is known, there must exist a $c$ that can correct bias. Provides mathematical premise for Lemma 1 to find specific interval.</p>
+                `
+            },
+            lemma4: {
+                type: 'lemma',
+                title: 'Lemma 4: Concentration Inequality',
+                content: `
+                    <p><strong>Condition:</strong> Define non-degenerate event $\\mathcal{S} := \\{1 \\le S \\le G-1\\}$, assume $p_t \\in [\\Delta, 1-\\Delta]$.</p>
+                    <br>
+                    <p><strong>Conclusion:</strong> For any $\\zeta > 0$:</p>
+                    <p>$$\\mathbb{P}(|\\hat{p}_t - p_t| < \\zeta | \\mathcal{S}) \\ge \\frac{1 - 2 \\exp(-2G\\zeta^2) - (1-\\Delta)^G - \\Delta^G}{1 - (1-\\Delta)^G - \\Delta^G}$$</p>
+                    <br>
+                    <p><strong>Significance:</strong> Using Hoeffding inequality, provides probability upper bound for distance between observed and true values. This is the starting point of the entire solution.</p>
+                `
+            },
+            lemma5: {
+                type: 'lemma',
+                title: 'Lemma 5: Confidence Interval',
+                content: `
+                    <p><strong>Condition:</strong> Assume $p_t \\in [\\Delta, 1-\\Delta]$.</p>
+                    <br>
+                    <p><strong>Conclusion:</strong> For any $\\delta \\in (0, 1)$, with probability $\\ge 1-\\delta$ (conditional on $\\mathcal{S}$):</p>
+                    <p>$$|\\hat{p}_t - p_t| < \\sqrt{\\frac{1}{2G} \\log\\left(\\frac{2}{\\delta(1 - (1-\\Delta)^G - \\Delta^G)}\\right)}$$</p>
+                    <br>
+                    <p><strong>Significance:</strong> Through observed $\\hat{p}_t$ plus "safety radius" $\\epsilon_{\\delta}$, can bound possible range of true probability $p_t$.</p>
+                `
+            },
+            corollary1: {
+                type: 'corollary',
+                title: 'Corollary 1: Bias Probability for G<=8',
+                content: `
+                    <p><strong>Condition:</strong> Group Size $2 \\le G \\le 8$, $p_t$ uniformly distributed on $[0, 1]$.</p>
+                    <br>
+                    <p><strong>Conclusion:</strong> For any $i \\in [G]$:</p>
+                    <ul>
+                        <li>$\\mathbb{P}(\\hat{A}_{t,i} < A_{t,i} | \\mathcal{S}, p_t < 0.5) > \\mathbf{63\\%}$</li>
+                        <li>$\\mathbb{P}(\\hat{A}_{t,i} > A_{t,i} | \\mathcal{S}, p_t > 0.5) > \\mathbf{63\\%}$</li>
+                        <li>$\\mathbb{P}(\\hat{A}_{t,i} < A_{t,i} | \\mathcal{S}, p_t < 0.25) > \\mathbf{78\\%}$</li>
+                        <li>$\\mathbb{P}(\\hat{A}_{t,i} < A_{t,i} | \\mathcal{S}, p_t < 0.125) = \\mathbf{100\\%}$</li>
+                    </ul>
+                    <br>
+                    <p><strong>Warning:</strong> Under commonly used Group Size, bias probability is extremely high!</p>
+                `
+            },
+            corollary2: {
+                type: 'corollary',
+                title: 'Corollary 2: Bias Probability for G>=6',
+                content: `
+                    <p><strong>Condition:</strong> Group Size $G \\ge 6$.</p>
+                    <br>
+                    <p><strong>Conclusion:</strong></p>
+                    <p>$$\\mathbb{P}(\\hat{A}_{t,i} < A_{t,i} | \\mathcal{S}, p_t < \\frac{2}{G}) > 78\\%$$</p>
+                    <p>$$\\mathbb{P}(\\hat{A}_{t,i} > A_{t,i} | \\mathcal{S}, p_t > \\frac{G-2}{G}) > 78\\%$$</p>
+                `
+            },
+            corollary3: {
+                type: 'corollary',
+                title: 'Corollary 3: Sure Event',
+                content: `
+                    <p><strong>Condition:</strong> Group Size $G \\ge 2$.</p>
+                    <br>
+                    <p><strong>Conclusion:</strong> For any $i \\in [G]$, the following <strong>certainly holds</strong>:</p>
+                    <ul>
+                        <li>If $p_t < \\frac{1}{G}$, then $\\hat{A}_{t,i} < A_{t,i}$ <span style="color: #ef4444;">(certain underestimation)</span></li>
+                        <li>If $p_t > \\frac{G-1}{G}$, then $\\hat{A}_{t,i} > A_{t,i}$ <span style="color: #22c55e;">(certain overestimation)</span></li>
+                    </ul>
+                    <br>
+                    <p><strong>Intuition:</strong> When success rate is extremely low ($p_t < 1/G$), it's almost impossible to simultaneously observe correct and incorrect responses in one group, making accurate advantage estimation impossible.</p>
+                `
+            },
+            corollary4: {
+                type: 'corollary',
+                title: 'Corollary 4: Beta Distribution',
+                content: `
+                    <p><strong>Beta distribution density:</strong></p>
+                    <p>$$f(x) = \\frac{x^{\\alpha-1}(1-x)^{\\beta-1}}{B(\\alpha, \\beta)}$$</p>
+                    <br>
+                    <p><strong>Expectation:</strong></p>
+                    <p>$$p_t = \\frac{\\alpha}{\\alpha+\\beta}$$</p>
+                    <br>
+                    <p><strong>Related quantities:</strong></p>
+                    <p>$$q(u) = I_{u^+}(\\alpha, \\beta) - I_u(\\alpha, \\beta)$$</p>
+                    <p>$$m(u) = \\frac{B_{u^+}(\\alpha+1, \\beta) - B_u(\\alpha+1, \\beta)}{B_{u^+}(\\alpha, \\beta) - B_u(\\alpha, \\beta)}$$</p>
+                    <br>
+                    <p><strong>Significance:</strong> Applies Theorem 4 to Beta distribution, obtaining explicit integral expressions.</p>
+                `
+            },
+            corollary5: {
+                type: 'corollary',
+                title: 'Corollary 5: Truncated Gaussian',
+                content: `
+                    <p><strong>Truncated Gaussian density:</strong></p>
+                    <p>$$f(x) = \\frac{\\varphi(\\frac{x-\\mu}{\\xi})}{\\xi(\\Phi(b) - \\Phi(a))} \\mathbf{1}_{[0,1]}(x)$$</p>
+                    <br>
+                    <p><strong>Expectation:</strong></p>
+                    <p>$$p_t = \\mu + \\xi \\frac{\\varphi(a) - \\varphi(b)}{\\Phi(b) - \\Phi(a)}$$</p>
+                    <br>
+                    <p>where $a = \\frac{0-\\mu}{\\xi}$, $b = \\frac{1-\\mu}{\\xi}$.</p>
+                    <br>
+                    <p><strong>Significance:</strong> Demonstrates bias also exists under truncated Gaussian distribution, further validating universality of Theorem 4.</p>
+                `
+            }
+        };
+
+        function showModal(id) {
+            const data = modalData[id];
+            if (!data) return;
+
+            const modal = document.getElementById('modal');
+            const content = document.getElementById('modal-content');
+
+            let headerClass = '';
+            let badgeClass = '';
+            if (data.type === 'theorem') {
+                headerClass = 'background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.05)); border-bottom: 2px solid #f59e0b;';
+                badgeClass = 'background: #f59e0b; color: #1a1a2e;';
+            } else if (data.type === 'lemma') {
+                headerClass = 'background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05)); border-bottom: 2px solid #3b82f6;';
+                badgeClass = 'background: #3b82f6; color: white;';
+            } else {
+                headerClass = 'background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.05)); border-bottom: 2px solid #22c55e;';
+                badgeClass = 'background: #22c55e; color: #1a1a2e;';
+            }
+
+            content.innerHTML = `
+                <div style="padding: 25px; ${headerClass}">
+                    <span style="padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; ${badgeClass}">${data.type}</span>
+                    <h2 style="margin-top: 15px; font-size: 1.3rem;">${data.title}</h2>
+                </div>
+                <div style="padding: 25px; line-height: 1.8; color: #94a3b8;">
+                    ${data.content}
+                </div>
+            `;
+
+            modal.classList.add('active');
+
+            // Re-render math
+            renderMathInElement(content, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ],
+                throwOnError: false
+            });
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // Close modal on overlay click
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.theory-card, .structure-block, .symbol-card, .experiment-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
