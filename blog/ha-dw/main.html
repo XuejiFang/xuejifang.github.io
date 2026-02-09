@@ -177,9 +177,25 @@
         /* Main Content Area */
         .main-content {
             flex: 1;
-            margin-left: 220px;
             padding: 40px 60px;
-            max-width: 1000px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .main-content {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Header Section */
@@ -819,6 +835,37 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.2);
         }
 
+        .modal-content.image-modal {
+            max-width: 90vw;
+            max-height: 90vh;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .modal-content.image-modal img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Clickable thumbnail images */
+        .exp-item img,
+        .exp-body > img {
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .exp-item img:hover,
+        .exp-body > img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
         .modal-close {
             position: absolute;
             top: 15px;
@@ -843,6 +890,8 @@
         /* Markdown View */
         .markdown-view {
             display: none;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .markdown-view.active {
@@ -941,11 +990,11 @@
         }
 
         .visual-view {
-            display: block;
+            max-width: 900px;
         }
 
         .visual-view.hidden {
-            display: none;
+            display: none !important;
         }
 
         /* Responsive */
@@ -957,6 +1006,7 @@
             .main-content {
                 margin-left: 0;
                 padding: 20px;
+                max-width: 100%;
             }
 
             .cards-grid {
@@ -1556,7 +1606,7 @@
                             <p>Overall training framework of HA-DW algorithm</p>
                         </div>
                         <div class="exp-body">
-                            <img src="assets/pipe.png" alt="Training Pipeline">
+                            <img src="assets/pipe.png" alt="Training Pipeline" onclick="showImageModal(this.src, this.alt)">
                         </div>
                     </div>
 
@@ -1738,8 +1788,8 @@
                             <p>Comparison with baselines</p>
                         </div>
                         <div class="exp-body">
-                            <img src="assets/exp_comp.png" alt="Comparison">
-                            <img src="assets/exp_improve.png" alt="Improvement">
+                            <img src="assets/exp_comp.png" alt="Comparison" onclick="showImageModal(this.src, this.alt)">
+                            <img src="assets/exp_improve.png" alt="Improvement" onclick="showImageModal(this.src, this.alt)">
                         </div>
                     </div>
 
@@ -1751,10 +1801,10 @@
                         <div class="exp-body">
                             <div class="exp-grid">
                                 <div>
-                                    <img src="assets/exp_ab1.png" alt="Lambda search">
+                                    <img src="assets/exp_ab1.png" alt="Lambda search" onclick="showImageModal(this.src, this.alt)">
                                 </div>
                                 <div>
-                                    <img src="assets/exp_ab2.png" alt="Dynamic Ct">
+                                    <img src="assets/exp_ab2.png" alt="Dynamic Ct" onclick="showImageModal(this.src, this.alt)">
                                 </div>
                             </div>
                         </div>
@@ -1976,7 +2026,18 @@
         }
 
         function closeModal() {
-            document.getElementById('modal').classList.remove('active');
+            const modal = document.getElementById('modal');
+            const content = document.getElementById('modal-content');
+            modal.classList.remove('active');
+            content.classList.remove('image-modal');
+        }
+
+        function showImageModal(src, alt) {
+            const modal = document.getElementById('modal');
+            const content = document.getElementById('modal-content');
+            content.classList.add('image-modal');
+            content.innerHTML = `<img src="${src}" alt="${alt}">`;
+            modal.classList.add('active');
         }
 
         document.getElementById('modal').addEventListener('click', function(e) {
