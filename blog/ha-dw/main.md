@@ -264,7 +264,142 @@ Consequently, substituting $F, f, q, m$ to yield explicit one-dimensional integr
 
 **训练代码**：暂未开源，基于VeRL framework
 
+**复现伪代码**
+```python
+import torch
+import torch.nn as nn
+import numpy as np
+from collections import deque
+
+class HADW_GRPO_Trainer(nn.Module):
+    def __init__(self, model, group_size=8, m=50, eta_base=0.1, lambda_scale=1.3):
+        super().__init__()
+        self.model = model
+        self.group_size = group_size
+        
+        # --- HA-DW Hyperparameters ---
+        self.m = m                       # 历史窗口大小 (公式 9)
+        self.eta_base = eta_base         # 基础遗忘因子 (公式 11 中的 η)
+        self.lambda_scale = lambda_scale # 缩放系数 (公式 16)
+        
+        # --- HA-DW Dynamic States (核心状态) ---
+        self.C_t = None                  # 演变的难度锚点 (公式 8)
+        self.history_buffer = deque(maxlen=m) # 历史 C_t 缓存，用于计算 sigma
+
+    def update_anchor_state(self, current_batch_acc):
+        """
+        更新难度锚点 C_t 的逻辑 (对应论文 Section 3.1)
+        """
+        # 初始化: 如果是第一次运行，直接用当前 Batch 准确率初始化
+        if self.C_t is None:
+            self.C_t = current_batch_acc.item()
+            self.history_buffer.append(self.C_t)
+            return self.C_t
+
+        # 计算历史窗口均值 (公式 9)
+        C_bar = np.mean(self.history_buffer)
+        
+        # 计算历史标准差 sigma_t (公式 10)
+        # 如果历史数据不足，使用默认小值防止波动，或直接用当前计算
+        if len(self.history_buffer) < 2:
+            sigma_t = 1.0 
+        else:
+            sigma_t = np.std(self.history_buffer)
+
+        # 计算自适应遗忘因子 eta_t (公式 11)
+        eta_t = self.eta_base * sigma_t
+        
+        # 更新难度锚点 C_t (公式 8: Kalman-style update)
+        # C_new = (1 - eta) * C_old + eta * y_t
+        self.C_t = (1 - eta_t) * self.C_t + eta_t * current_batch_acc.item()
+        
+        # 将新状态存入历史 Buffer
+        self.history_buffer.append(self.C_t)
+        
+        return self.C_t
+
+    def forward(self, input_ids, old_log_probs, rewards):
+        """
+        Training Step: 计算 Loss
+        rewards shape: (Batch_Size, Group_Size)
+        """
+        # 计算当前 Batch 的观测值 y_t (公式 7)
+        # y_t = sum(rewards) / (B * G) = mean(rewards)
+        y_t = rewards.mean()
+
+        # 更新全局状态 C_t (进入上面的 update_anchor_state 函数)
+        # 注意：这里需要 detach，因为 C_t 的更新不参与梯度回传
+        current_C_t = self.update_anchor_state(y_t)
+        
+        # --- 开始计算 HA-DW 权重 ---
+
+        # 计算组基线 p_hat (公式 2)
+        # p_hat shape: (Batch_Size, 1) -> 每个 Prompt 一个基线
+        p_hat = rewards.mean(dim=1, keepdim=True)
+
+        # 计算历史难度 diff_his (公式 13)
+        # diff = p_hat - C_t
+        diff_his = p_hat - current_C_t
+
+        # 计算 GRPO 原始优势 A_hat (公式 2 & 24)
+        # 组内归一化: (r - mean) / (std + eps)
+        # 注意：虽然论文正文简化了std，但实现时通常保留以稳定训练
+        group_mean = rewards.mean(dim=1, keepdim=True)
+        group_std = rewards.std(dim=1, keepdim=True) + 1e-8
+        A_hat = (rewards - group_mean) / group_std
+
+        # 计算调整方向 D_ti (公式 14)
+        # D = -sgn(A_hat) * sgn(diff_his)
+        # sgn(diff_his) 需要广播到 (Batch, Group)
+        D_ti = -torch.sign(A_hat) * torch.sign(diff_his)
+
+        # 计算调整幅度 M_t (公式 15)
+        # M = |diff_his|
+        M_t = torch.abs(diff_his)
+
+        # 计算最终修正系数 Phi (公式 16)
+        # Phi = lambda * exp(D * M)
+        Phi_ti = self.lambda_scale * torch.exp(D_ti * M_t)
+
+        # --- 计算最终 Loss ---
+        
+        # 这一步通常需要重新跑一遍模型拿 new_log_probs (省略细节)
+        # 假设我们已经有了 importance sampling ratio
+        # ratio = exp(new_log_probs - old_log_probs)
+        # 这里用模拟的 ratio 代替
+        ratio = torch.ones_like(rewards, requires_grad=True) 
+
+        # HA-DW Loss (公式 17)
+        # Loss = - (Ratio * A_hat * Phi) 
+        # 注意：PPO/GRPO 通常有 Clip，这里展示核心加权逻辑
+        surr1 = ratio * A_hat * Phi_ti
+        surr2 = torch.clamp(ratio, 1 - 0.2, 1 + 0.2) * A_hat * Phi_ti
+        loss = -torch.min(surr1, surr2).mean()
+
+        return loss
+```
 ![实验配置](assets/exp_hyperparam.png)
+
+### 算法实现
+Fisrt, they introduce a framework taht incorporates cross-batch information into RL training, enabling a history-aware anchor for prompt difficulty. Second, they design an adaptive advantage reweighting algorithm to correct the induced bias.
+
+#### Evolving Difficulty Anchor
+
+Anchor (a latent model belief) $C_t = (1 - \eta \sigma_t)C_{t-1} + \eta \sigma_t\frac{\sum_{i=1}^{B_t}r_{t,i}}{B_t}$.
+
+$\sigma_t$ and $\bar{C}_t$ are the standard deviation and average of the anchor over the past $m$ batchs, respectively.
+
+$\bar{C}_t = \frac{1}{m}\sum_{j=1}^{m}\bar{C}_{t-j}$.
+
+$\sigma_t = \sqrt{\frac{1}{m}\sum_{j=1}^{m}(C_{t-j}-\bar{C}_t)^2}$.
+
+#### History Aware Adaptive Difficulty Weighting (HA-DW)
+
+$L_{HA-DW}(\theta) = \frac{1}{G}\sum_{i=1}^G \Psi(\frac{\pi_\theta(y_{t,i}|x_t)}{\pi_{\theta_{old}}(y_{t,i}|x_t)})\cdot \phi(\hat{A}_{t,i})\cdot \Phi_{t,i}$
+
+$\Phi_{t,i} = \lambda_{scale}\cdot \exp{[-sgn(\hat{A}_{t,i})\cdot sgn(diff_{t}^{his})\cdot |diff_{t}^{his}|]}$
+
+$diff_{t}^{his} = \hat{p}_t - C_t$
 
 ### 对比实验
 ![与其他算法对比](assets/exp_comp.png)

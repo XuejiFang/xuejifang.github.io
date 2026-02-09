@@ -348,31 +348,31 @@
         .flow-container {
             background: var(--bg-card);
             border-radius: 12px;
-            padding: 30px;
+            padding: 15px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.08);
             border: 1px solid var(--border-color);
             overflow-x: auto;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .flow-section {
             border: 2px dashed var(--border-color);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
+            border-radius: 8px;
+            padding: 12px 10px 8px;
             position: relative;
-        }
-
-        .flow-section:last-child {
-            margin-bottom: 0;
+            flex: 1;
+            min-width: 200px;
         }
 
         .flow-section-label {
             position: absolute;
-            top: -10px;
-            left: 15px;
-            padding: 2px 12px;
-            border-radius: 10px;
-            font-size: 12px;
+            top: -8px;
+            left: 10px;
+            padding: 1px 8px;
+            border-radius: 8px;
+            font-size: 10px;
             font-weight: 600;
             color: white;
         }
@@ -393,25 +393,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 8px;
             flex-wrap: wrap;
-            margin: 10px 0;
+            margin: 4px 0;
         }
 
         .flow-node {
             background: var(--bg-card);
-            border-radius: 8px;
-            padding: 10px 16px;
+            border-radius: 6px;
+            padding: 4px 8px;
             text-align: center;
-            border: 2px solid;
+            border: 1.5px solid;
             cursor: pointer;
             transition: all 0.2s;
-            min-width: 100px;
+            min-width: 70px;
         }
 
         .flow-node:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .flow-node.theorem {
@@ -430,10 +430,10 @@
         }
 
         .flow-node .node-type {
-            font-size: 10px;
+            font-size: 8px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
+            letter-spacing: 0.3px;
+            margin-bottom: 1px;
         }
 
         .flow-node.theorem .node-type { color: var(--theorem-border); }
@@ -442,26 +442,26 @@
 
         .flow-node .node-name {
             font-weight: 600;
-            font-size: 13px;
+            font-size: 11px;
             color: var(--text-primary);
         }
 
         .flow-node .node-desc {
-            font-size: 10px;
+            font-size: 8px;
             color: var(--text-secondary);
-            margin-top: 2px;
+            margin-top: 1px;
         }
 
         .flow-arrow {
             color: var(--text-secondary);
-            font-size: 18px;
+            font-size: 12px;
         }
 
         .flow-arrow-down {
             text-align: center;
             color: var(--text-secondary);
-            font-size: 18px;
-            margin: 8px 0;
+            font-size: 12px;
+            margin: 2px 0;
         }
 
         /* Symbol Grid */
@@ -598,6 +598,13 @@
             background: #e8e8e8;
             color: var(--text-secondary);
             font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .theory-card .dep-tag:hover {
+            background: var(--primary);
+            color: white;
         }
 
         /* Insight Box */
@@ -665,6 +672,25 @@
         .exp-card .exp-body {
             padding: 20px;
         }
+
+        .exp-card .code-block {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 15px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #d4d4d4;
+        }
+
+        .exp-card .code-block .comment { color: #6a9955; }
+        .exp-card .code-block .keyword { color: #569cd6; }
+        .exp-card .code-block .string { color: #ce9178; }
+        .exp-card .code-block .function { color: #dcdcaa; }
+        .exp-card .code-block .class-name { color: #4ec9b0; }
+        .exp-card .code-block .number { color: #b5cea8; }
+        .exp-card .code-block .self { color: #9cdcfe; }
 
         .exp-card img {
             width: 100%;
@@ -950,15 +976,9 @@
             <nav class="sidebar-nav">
                 <ul>
                     <li><a href="#basic" class="active" onclick="scrollToSection('basic')">0. Basic Info</a></li>
-                    <li><a href="#problem" onclick="scrollToSection('problem')">1. Problem & Motivation</a></li>
-                    <li><a href="#structure" onclick="scrollToSection('structure')">2. Theory Structure</a></li>
-                    <li><a href="#dependency" onclick="scrollToSection('dependency')">3. Dependency Graph</a></li>
-                    <li class="nav-section">Theorems</li>
-                    <li><a href="#theorems" onclick="scrollToSection('theorems')">4. Theorems</a></li>
-                    <li><a href="#lemmas" onclick="scrollToSection('lemmas')">5. Lemmas</a></li>
-                    <li><a href="#corollaries" onclick="scrollToSection('corollaries')">6. Corollaries</a></li>
-                    <li class="nav-section">Experiments</li>
-                    <li><a href="#experiments" onclick="scrollToSection('experiments')">7. Experiments</a></li>
+                    <li><a href="#problem" onclick="scrollToSection('problem')">1. Problem</a></li>
+                    <li><a href="#method" onclick="scrollToSection('method')">2. Method</a></li>
+                    <li><a href="#conclusion" onclick="scrollToSection('conclusion')">3. Conclusion</a></li>
                 </ul>
             </nav>
             <div class="view-toggle">
@@ -977,33 +997,56 @@
                 <!-- Header -->
                 <header class="article-header" id="basic">
                     <h1>Your Group-Relative Advantage Is Biased</h1>
-                    <p class="subtitle">HA-DW: History-Aware Difficulty Weighting for Debiased Group-Relative Advantage in RLHF</p>
                     <p class="meta">
                         <strong>Authors:</strong> Fengkai Yang, Zherui Chen, Xiaohan Wang, et al.<br>
                         <strong>Affiliations:</strong> BUAA, UC Berkeley, PKU, Meituan<br>
-                        <strong>Resources:</strong> <a href="assets/paper.pdf" target="_blank">PDF</a> · <a href="main.md" target="_blank">Notes</a>
+                        <strong>Resources:</strong> <a href="assets/paper.pdf" target="_blank">PDF</a>
                     </p>
                 </header>
 
-                <!-- Abstract -->
+                <!-- Problem & Motivation -->
                 <section class="section" id="problem">
-                    <h2 class="section-title">1. Problem & Motivation</h2>
+                    <h2 class="section-title">1. Problem</h2>
+
+                    <h3 style="margin-top: 20px; margin-bottom: 15px; font-size: 16px; color: var(--primary);">1.1. 论文试图解决什么问题？</h3>
                     <div class="content-card">
-                        <p>
-                            This paper proposes an <strong>adaptive advantage reweighting</strong> optimization algorithm (HA-DW) to mitigate bias induced by group-based advantage estimation.
-                        </p>
-                        <p>
-                            <strong>Core Finding:</strong> The expectation of group-based advantage estimation $\hat{A}_{t,i}$ is <span style="color: var(--problem-color); font-weight: 600;">underestimated for difficult prompts</span> and <span style="color: var(--corollary-border); font-weight: 600;">overestimated for easy prompts</span>. This means algorithms like GRPO have systematic bias during training.
-                        </p>
-                        <p>
-                            <strong>Solution:</strong> Two key components: (1) Cross-batch information framework for history-aware prompt difficulty anchoring; (2) Adaptive advantage reweighting algorithm to correct bias. With appropriate $\lambda_{scale}$, HA-DW adjusted advantage estimates are closer to true advantage in expectation.
-                        </p>
+                        <p>A fundamental issue of group-based RL: the group-relative advantage estimator is inherently biased relative to the true (expected) advantage.</p>
+                        <p>注：其实这里有一个前提条件是对于 non-degenerate event 才会发生这样的现象，所谓的"退化"是指训练中无效数据，"非退化"就是指有效数据。</p>
+                        <p>为什么 GRPO 训练中会有无效数据：如果题目特别难或特别简单，reward 都是 0 或 1，计算出 advantage 为 0，导致训练梯度为 0，对于模型训练没有帮助。</p>
+                    </div>
+
+                    <h3 style="margin-top: 25px; margin-bottom: 15px; font-size: 16px; color: var(--primary);">1.2. 对于这个问题的客观了解？</h3>
+                    <div class="content-card">
+                        <p><strong>这是一个新问题吗？</strong>We provide the first theoretical analysis showing that it systematically underestimates advantages for hard prompts and overestimates them for easy prompts, leading to imbalanced exploration and exploitation. 他们是第一个从理论上证明了这个问题的存在，在这之前有相似但不完全相同的工作：</p>
+                        <p>1. <strong>Dr.GRPO</strong>（CoLM'25）去掉了 std 标准化，认为当 reward 差异不大的时候，advantage 的差异会被 std 放大，导致训练效果不佳，但实际中目前工程上主流的做法是去掉这些 degenerate event</p>
+                        <p>2. <strong>MAPO</strong>（arXiv:2509.18849）发现 GRPO 存在 Advantage Reversion 和 Advantage Mirror 的问题，但仔细推敲不是很严谨（ICLR26 分数 2242 撤稿）</p>
+                        <p><strong>为什么值得研究？</strong>因为 non-degenerate group-based RL is biased</p>
+                    </div>
+
+                    <h3 style="margin-top: 25px; margin-bottom: 15px; font-size: 16px; color: var(--primary);">1.3. 这篇文章要验证一个什么科学假设？</h3>
+                    <div class="content-card">
+                        <p>要验证 non-degenerate group-relative advantage estimation is biased。</p>
+                        <p>论文先证明了这个 bias 存在（Theorem 1），然后求出了这个 bias 存在的概率与问题难度之间关系的表达式（Theorem 2），表明难度越大或越小都会导致 bias 越大，最终设计了修正系数 λ 来修正这个偏差，并求出了这个 λ 在一个区间范围内以 δ 的置信度来实现纠偏（Theorem 3）。另外，为确保理论完整性，作者还证明了在连续有界 reward 的情况下（以 Beta 分布和 Gaussian 分布为例），这个 bias 问题依旧存在（Theorem 4）。</p>
+                    </div>
+
+                    <h3 style="margin-top: 25px; margin-bottom: 15px; font-size: 16px; color: var(--primary);">1.4. 有哪些相关研究？</h3>
+                    <div class="content-card">
+                        <p>大概分为：</p>
+                        <p>1. <strong>训练稳定性角度</strong>：GMPO、FAPO、KATE</p>
+                        <p>2. <strong>序列长度退化</strong>：LSPO、GSPO、p-GSPO</p>
+                        <p>3. <strong>生成多样性</strong>：DaGRPO、DCPO</p>
+                        <p>4. <strong>优势值估计</strong>：Dr.GRPO、MAPO</p>
                     </div>
                 </section>
 
-                <!-- Theory Structure -->
-                <section class="section" id="structure">
-                    <h2 class="section-title">2. Theory Structure</h2>
+                <!-- Method -->
+                <section class="section" id="method">
+                    <h2 class="section-title">2. Method</h2>
+
+                    <h3 style="margin-top: 20px; margin-bottom: 15px; font-size: 16px; color: var(--primary);" id="method-key">2.1. 我的理解：论文中提到的解决方案之关键</h3>
+                    <div class="content-card" style="margin-bottom: 20px;">
+                        <p>这篇论文的关键在于从理论上证明这个 bias 存在（在一定的前提条件下），然后提出了用一个系数 λ 来修正优势值，并给出严格证明表明理论上存在这样一个系数使得达到预期修正效果。</p>
+                    </div>
                     <div class="structure-grid">
                         <div class="structure-card problem">
                             <h3>Part I: Reveal Bias</h3>
@@ -1036,12 +1079,377 @@
                             </div>
                         </div>
                     </div>
-                </section>
 
-                <!-- Dependency Graph -->
-                <section class="section" id="dependency">
-                    <h2 class="section-title">3. Dependency Graph</h2>
-                    <div class="legend">
+                    <h3 style="margin-top: 35px; margin-bottom: 15px; font-size: 16px; color: var(--primary);" id="method-experiment">2.2. 客观描述：论文实验设计（理论证明）</h3>
+
+                    <!-- Theorems -->
+                    <h4 style="margin-top: 20px; margin-bottom: 15px; font-size: 15px; color: var(--text-primary);">Theorems</h4>
+                    <div class="cards-grid">
+                        <div class="theory-card theorem" id="theorem1">
+                            <div class="card-header">
+                                <span class="badge">Theorem 1</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Given a prompt $x_t \sim D$, let $y_{t,i} \sim \pi_{\theta}(\cdot|x_t)$ denote a sample response with reward $r_{t,i}$. Suppose $G\ge 2$, and condition on the event $\mathcal{S}=\{1\le R \le G-1\}$. Then, for any $i\in [G]$, we have:
+                                </p>
+                                <div class="card-math">
+                                    $\mathbb{E}[\hat{A}_{t,i}|\mathcal{S}] < A_{t,i}$, if $p_t < 0.5$<br>
+                                    $\mathbb{E}[\hat{A}_{t,i}|\mathcal{S}] > A_{t,i}$, if $p_t > 0.5$<br>
+                                    $\mathbb{E}[\hat{A}_{t,i}|\mathcal{S}] = A_{t,i}$, if and only if $p_t = 0.5$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Depends:</span>
+                                <span class="dep-tag" onclick="scrollToCard('lemma2')">Lemma 2</span>
+                            </div>
+                        </div>
+
+                        <div class="theory-card theorem" id="theorem2">
+                            <div class="card-header">
+                                <span class="badge">Theorem 2</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Under the condition of Theorem 1, suppose $x_t$ is a hard prompt ($p_t < 0.5$). Then, for any $\epsilon \in (0, \mathbb{E}[\hat{p}_t|\mathcal{S}] - p_t)$, we have:
+                                </p>
+                                <div class="card-math">
+                                    $\mathbb{P}(A_{t,i} - \hat{A}_{t,i} > \epsilon | \mathcal{S}) = \frac{\sum_{k=\lfloor G(p_t+\epsilon)\rfloor+1}^{G-1} \binom{G}{k} p_t^k (1-p_t)^{G-k}}{1 - (1-p_t)^G - p_t^G}$
+                                </div>
+                                <p class="card-desc" style="margin-top: 10px;">
+                                    Similarly, suppose $x_t$ is an easy prompt ($p_t > 0.5$). Then, for any $\epsilon \in (0, p_t - \mathbb{E}[\hat{p}_t|\mathcal{S}])$, we have:
+                                </p>
+                                <div class="card-math">
+                                    $\mathbb{P}(\hat{A}_{t,i} - A_{t,i} > \epsilon | \mathcal{S}) = \frac{\sum_{k=1}^{\lceil G(p_t-\epsilon)\rceil-1} \binom{G}{k} p_t^k (1-p_t)^{G-k}}{1 - (1-p_t)^G - p_t^G}$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Depends:</span>
+                                <span class="dep-tag" onclick="scrollToCard('theorem1')">Theorem 1</span>
+                            </div>
+                        </div>
+
+                        <div class="theory-card theorem" id="theorem3">
+                            <div class="card-header">
+                                <span class="badge">Theorem 3 ★</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Under the condition of Lemma 1, suppose there exists a scaling factor $\lambda_{scale}$ such that:
+                                </p>
+                                <div class="card-math">
+                                    $\lambda_{scale} \in (\frac{1+\frac{(1-c_{high})\hat{p}_t}{1-\hat{p}_t}}{\exp(D_{t,i} M_t)}, \frac{1+\frac{(1-c_{low})\hat{p}_t}{1-\hat{p}_t}}{\exp(D_{t,i} M_t)}) \cup (\frac{c_{low}}{\exp(D_{t,i} M_t)}, \frac{c_{high}}{\exp(D_{t,i} M_t)})$
+                                </div>
+                                <p class="card-desc" style="margin-top: 10px;">
+                                    Then, HA-DW algorithm provably mitigates the bias of group-relative advantage:
+                                </p>
+                                <div class="card-math">
+                                    $|\mathbb{E}[\hat{A}_{t,i} \cdot \Phi_{t,i} | \mathcal{S}] - A_{t,i}| < |\mathbb{E}[\hat{A}_{t,i} | \mathcal{S}] - A_{t,i}|$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Depends:</span>
+                                <span class="dep-tag" onclick="scrollToCard('lemma1')">Lemma 1</span>
+                                <span class="dep-tag" onclick="scrollToCard('lemma6')">Lemma 6</span>
+                            </div>
+                        </div>
+
+                        <div class="theory-card theorem" id="theorem4">
+                            <div class="card-header">
+                                <span class="badge">Theorem 4</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    At training step $t$, let $G \ge 2$, with CDF $F$ and PDF $f$. Given a prompt $x_t \sim \mathcal{D}$ and draw $G \ge 2$ i.i.d. rewards: $r_{t,1}, ..., r_{t,G} \sim \mathcal{D}(p_t)$. Extend the binary reward setting to non-binary rewards: $r_{t,i} \in [0, 1]$.
+                                </p>
+                                <p class="card-desc" style="margin-top: 10px;">
+                                    Fix a constant $\sigma \in [0, 1]$ and define the update event: $\mathcal{S}_{\sigma} := \{\exists i \ne j : |r_{t,i} - r_{t,j}| > \sigma\}$
+                                </p>
+                                <p class="card-desc" style="margin-top: 10px;">
+                                    The conditional bias transferred to advantages satisfies, for all $i$:
+                                </p>
+                                <div class="card-math">
+                                    $\mathbb{E}[\hat{A}_{t,i} - A_{t,i} | \mathcal{S}_{\sigma}] = p_t - \mathbb{E}[\hat{p}_t | \mathcal{S}_{\sigma}]$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Generalizes:</span>
+                                <span class="dep-tag" onclick="scrollToCard('theorem1')">Theorem 1</span>
+                                <span class="dep-tag" onclick="scrollToCard('theorem2')">Theorem 2</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lemmas -->
+                    <h4 style="margin-top: 25px; margin-bottom: 15px; font-size: 15px; color: var(--text-primary);">Lemmas</h4>
+                    <div class="cards-grid">
+                        <div class="theory-card lemma" id="lemma1">
+                            <div class="card-header">
+                                <span class="badge">Lemma 1</span>
+                                <div>
+                                    <div class="card-title">Baseline Rectification</div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Given a prompt $x_t \sim D$ and the policy $\pi_{\theta_t}$, let $\tilde{p}_t = c \cdot \hat{p}_t$ be the rectified group baseline. Assume $p_t \in [\Delta, 1-\Delta]$ for some $\Delta \in (0, 1/2]$. Given any $\delta \in (0, 1)$, define:
+                                </p>
+                                <div class="card-math">
+                                    $\epsilon_{\delta} := \sqrt{\frac{1}{2G} \log(\frac{2}{\delta(1-(1-\Delta)^G-\Delta^G)})}$
+                                </div>
+                                <p class="card-desc" style="margin-top: 10px;">
+                                    Let $I_t := [\hat{p}_t - \epsilon_{\delta}, \hat{p}_t + \epsilon_{\delta}] \cap [\Delta, 1-\Delta]$, $A(p) := 1 - (1-p)^G - p^G$. Fix any $\epsilon > 0$:
+                                </p>
+                                <div class="card-math">
+                                    $c_{low} := \sup_{p \in I_t} \frac{(p-\epsilon) A(p)}{p(1-p^{G-1})}$, $c_{high} := \inf_{p \in I_t} \frac{(p+\epsilon) A(p)}{p(1-p^{G-1})}$
+                                </div>
+                                <p class="card-desc" style="margin-top: 10px;">
+                                    Then, with probability at least $1-\delta$ conditional on $\mathcal{S}$, for any choice $c \in (c_{low}, c_{high})$:
+                                </p>
+                                <div class="card-math">
+                                    $\mathbb{E}[\tilde{p}_t | \mathcal{S}] \in (p_t - \epsilon, p_t + \epsilon)$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Depends:</span>
+                                <span class="dep-tag" onclick="scrollToCard('lemma4')">Lemma 4</span>
+                                <span class="dep-tag" onclick="scrollToCard('lemma5')">Lemma 5</span>
+                            </div>
+                        </div>
+
+                        <div class="theory-card lemma" id="lemma2">
+                            <div class="card-header">
+                                <span class="badge">Lemma 2</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Under the condition of Theorem 1, the bias induced by the group-relative advantage is formulated as:
+                                </p>
+                                <div class="card-math">
+                                    $A_{t,i} - \mathbb{E}[\hat{A}_{t,i}|\mathcal{S}] = \frac{p_t(1-p_t)^G + p_t^{G+1} - p_t^G}{1 - (1-p_t)^G - p_t^G}$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Used by:</span>
+                                <span class="dep-tag" onclick="scrollToCard('theorem1')">Theorem 1</span>
+                            </div>
+                        </div>
+
+                        <div class="theory-card lemma" id="lemma3">
+                            <div class="card-header">
+                                <span class="badge">Lemma 3</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Define the non-degenerate event $\mathcal{S} := \{1 \le S \le G-1\}$, and $\epsilon \in (0, |p_t - \hat{p}_t|)$. If
+                                </p>
+                                <div class="card-math">
+                                    $c \in (\frac{(p_t - \epsilon) \cdot (1 - (1-p_t)^G - p_t^G)}{p_t (1 - p_t^{G-1})}, \frac{(p_t + \epsilon) \cdot (1 - (1-p_t)^G - p_t^G)}{p_t (1 - p_t^{G-1})})$
+                                </div>
+                                <p class="card-desc" style="margin-top: 10px;">we have:</p>
+                                <div class="card-math">
+                                    $\mathbb{E}[\tilde{p}_t | \mathcal{S}] \in (p_t - \epsilon, p_t + \epsilon)$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Used by:</span>
+                                <span class="dep-tag" onclick="scrollToCard('lemma1')">Lemma 1</span>
+                            </div>
+                        </div>
+
+                        <div class="theory-card lemma" id="lemma4">
+                            <div class="card-header">
+                                <span class="badge">Lemma 4</span>
+                                <div>
+                                    <div class="card-title">$p_t$-free concentration under $\mathcal{S}$</div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Define the non-degenerate event $\mathcal{S} := \{1 \le S \le G-1\}$. Assume $p_t \in [\Delta, 1-\Delta]$ for some $\Delta \in (0, 1/2]$. Then for any $\zeta > 0$:
+                                </p>
+                                <div class="card-math">
+                                    $\mathbb{P}(|\hat{p}_t - p_t| < \zeta | \mathcal{S}) \ge \frac{1 - 2 \exp(-2G\zeta^2) - (1-\Delta)^G - \Delta^G}{1 - (1-\Delta)^G - \Delta^G}$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Used by:</span>
+                                <span class="dep-tag" onclick="scrollToCard('lemma1')">Lemma 1</span>
+                                <span class="dep-tag" onclick="scrollToCard('lemma5')">Lemma 5</span>
+                            </div>
+                        </div>
+
+                        <div class="theory-card lemma" id="lemma5">
+                            <div class="card-header">
+                                <span class="badge">Lemma 5</span>
+                                <div>
+                                    <div class="card-title">Conditional $p_t$-free concentration under $\mathcal{S}$</div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Assume $p_t \in [\Delta, 1-\Delta]$ for some $\Delta \in (0, 1/2]$. Then for any $\delta \in (0, 1)$, with probability at least $1-\delta$ conditional on $\mathcal{S}$:
+                                </p>
+                                <div class="card-math">
+                                    $|\hat{p}_t - p_t| < \sqrt{\frac{1}{2G} \log(\frac{2}{\delta(1 - (1-\Delta)^G - \Delta^G)})}$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Depends:</span>
+                                <span class="dep-tag" onclick="scrollToCard('lemma4')">Lemma 4</span>
+                            </div>
+                        </div>
+
+                        <div class="theory-card lemma" id="lemma6">
+                            <div class="card-header">
+                                <span class="badge">Lemma 6</span>
+                                <div>
+                                    <div class="card-title">A $p_t$-free feasible range of c expressed via $\hat{p}_t$</div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Assume the conditions of Lemma 4 and define $\epsilon_{\delta}$, $I_t$, $A(p)$, $c_{low}$, $c_{high}$ as in Lemma 1.
+                                </p>
+                                <p class="card-desc" style="margin-top: 10px;">
+                                    Then, on the event $\{|\hat{p}_t - p_t| < \epsilon_{\delta}\}$ (which holds with probability at least $1-\delta$ conditional on $\mathcal{S}$), any choice $c \in (c_{low}, c_{high})$ implies:
+                                </p>
+                                <div class="card-math">
+                                    $\mathbb{E}[\tilde{p}_t | \mathcal{S}] \in (p_t - \epsilon, p_t + \epsilon)$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Depends:</span>
+                                <span class="dep-tag" onclick="scrollToCard('lemma4')">Lemma 4</span>
+                                <span class="dep-tag" onclick="scrollToCard('lemma5')">Lemma 5</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Corollaries -->
+                    <h4 style="margin-top: 25px; margin-bottom: 15px; font-size: 15px; color: var(--text-primary);">Corollaries</h4>
+                    <div class="cards-grid">
+                        <div class="theory-card corollary" id="corollary1">
+                            <div class="card-header">
+                                <span class="badge">Corollary 1</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Under the condition of Theorem 2, suppose the group size satisfies $2 \le G \le 8$, and assume that $p_t$ is uniformly distributed over $[0, 1]$. Then, for any $i \in [G]$:
+                                </p>
+                                <div class="card-math">
+                                    $\mathbb{P}(\hat{A}_{t,i} < A_{t,i} | \mathcal{S}, p_t < 0.5) > 0.63$<br>
+                                    $\mathbb{P}(\hat{A}_{t,i} > A_{t,i} | \mathcal{S}, p_t > 0.5) > 0.63$<br>
+                                    $\mathbb{P}(\hat{A}_{t,i} < A_{t,i} | \mathcal{S}, p_t < 0.25) > 0.78$<br>
+                                    $\mathbb{P}(\hat{A}_{t,i} > A_{t,i} | \mathcal{S}, p_t > 0.75) > 0.78$<br>
+                                    $\mathbb{P}(\hat{A}_{t,i} < A_{t,i} | \mathcal{S}, p_t < 0.125) = 1.00$<br>
+                                    $\mathbb{P}(\hat{A}_{t,i} > A_{t,i} | \mathcal{S}, p_t > 0.875) = 1.00$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Depends:</span>
+                                <span class="dep-tag" onclick="scrollToCard('theorem2')">Theorem 2</span>
+                            </div>
+                        </div>
+
+                        <div class="theory-card corollary" id="corollary2">
+                            <div class="card-header">
+                                <span class="badge">Corollary 2</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Under the condition of Corollary 1, suppose $G \ge 6$. The following inequalities hold:
+                                </p>
+                                <div class="card-math">
+                                    $\mathbb{P}(\hat{A}_{t,i} < A_{t,i} | \mathcal{S}, p_t < \frac{2}{G}) > 0.78$<br>
+                                    $\mathbb{P}(\hat{A}_{t,i} > A_{t,i} | \mathcal{S}, p_t > \frac{G-2}{G}) > 0.78$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Depends:</span>
+                                <span class="dep-tag" onclick="scrollToCard('corollary1')">Corollary 1</span>
+                            </div>
+                        </div>
+
+                        <div class="theory-card corollary" id="corollary3">
+                            <div class="card-header">
+                                <span class="badge">Corollary 3</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Under the condition of Theorem 2, suppose $G \ge 2$. Then, for any $i \in [G]$, the following inequalities hold surely:
+                                </p>
+                                <div class="card-math">
+                                    $\hat{A}_{t,i} < A_{t,i}$, if $p_t < \frac{1}{G}$<br>
+                                    $\hat{A}_{t,i} > A_{t,i}$, if $p_t > \frac{G-1}{G}$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Depends:</span>
+                                <span class="dep-tag" onclick="scrollToCard('theorem2')">Theorem 2</span>
+                            </div>
+                        </div>
+
+                        <div class="theory-card corollary" id="corollary4">
+                            <div class="card-header">
+                                <span class="badge">Corollary 4</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    For $Beta(\alpha, \beta)$ reward distribution, the Beta density is:
+                                </p>
+                                <div class="card-math">
+                                    $f(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha, \beta)}$
+                                </div>
+                                <p class="card-desc" style="margin-top: 10px;">
+                                    and the CDF is $F(x) = I_x(\alpha, \beta)$ for $x \in [0, 1]$. In particular:
+                                </p>
+                                <div class="card-math">
+                                    $p_t = \mathbb{E}[r_{t,1}] = \frac{\alpha}{\alpha+\beta}$
+                                </div>
+                                <p class="card-desc" style="margin-top: 10px;">
+                                    Moreover: $q(u) = I_{u^+}(\alpha, \beta) - I_u(\alpha, \beta)$, and the conditional mean:
+                                </p>
+                                <div class="card-math">
+                                    $m(u) = \frac{B_{u^+}(\alpha+1, \beta) - B_u(\alpha+1, \beta)}{B_{u^+}(\alpha, \beta) - B_u(\alpha, \beta)}$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Depends:</span>
+                                <span class="dep-tag" onclick="scrollToCard('theorem4')">Theorem 4</span>
+                            </div>
+                        </div>
+
+                        <div class="theory-card corollary" id="corollary5">
+                            <div class="card-header">
+                                <span class="badge">Corollary 5</span>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-desc">
+                                    Let the reward $Z_{t,1}, ..., Z_{t,G}$ be i.i.d. $\mathcal{N}(\mu, \xi^2)$ with $\xi > 0$, and define $r_{t,i}$ to be properly truncated to $[0, 1]$.
+                                </p>
+                                <p class="card-desc" style="margin-top: 10px;">
+                                    Let $\Phi$ and $\varphi$ be the standard normal CDF and PDF, and set $a := \frac{0-\mu}{\xi}$, $b := \frac{1-\mu}{\xi}$. Then the truncated-normal density on $[0, 1]$ is:
+                                </p>
+                                <div class="card-math">
+                                    $f(x) = \frac{\varphi(\frac{x-\mu}{\xi})}{\xi(\Phi(b) - \Phi(a))} \mathbf{1}_{[0,1]}(x)$
+                                </div>
+                                <p class="card-desc" style="margin-top: 10px;">
+                                    The mean satisfies:
+                                </p>
+                                <div class="card-math">
+                                    $p_t = \mu + \xi \frac{\varphi(a) - \varphi(b)}{\Phi(b) - \Phi(a)}$
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <span class="dep-label">Depends:</span>
+                                <span class="dep-tag" onclick="scrollToCard('theorem4')">Theorem 4</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dependency Graph -->
+                    <h4 style="margin-top: 25px; margin-bottom: 15px; font-size: 15px; color: var(--text-primary);">Dependency Graph</h4>
                         <div class="legend-item">
                             <div class="legend-dot theorem"></div>
                             <span>Theorem</span>
@@ -1059,43 +1467,29 @@
                         <!-- Problem Section -->
                         <div class="flow-section problem">
                             <span class="flow-section-label">Part I: Reveal Bias</span>
-                            <div class="flow-row" style="margin-top: 10px;">
-                                <div class="flow-node lemma" onclick="showModal('lemma2')">
-                                    <div class="node-type">Lemma</div>
-                                    <div class="node-name">Lemma 2</div>
-                                    <div class="node-desc">Bias Quantification</div>
+                            <div class="flow-row">
+                                <div class="flow-node lemma">
+                                    <div class="node-name">L2</div>
+                                    <div class="node-desc">Bias Quantify</div>
                                 </div>
                             </div>
                             <div class="flow-arrow-down">↓</div>
                             <div class="flow-row">
-                                <div class="flow-node theorem" onclick="showModal('theorem1')">
-                                    <div class="node-type">Theorem</div>
-                                    <div class="node-name">Theorem 1</div>
-                                    <div class="node-desc">Bias Existence</div>
+                                <div class="flow-node theorem">
+                                    <div class="node-name">T1</div>
+                                    <div class="node-desc">Existence</div>
                                 </div>
                                 <span class="flow-arrow">→</span>
-                                <div class="flow-node theorem" onclick="showModal('theorem2')">
-                                    <div class="node-type">Theorem</div>
-                                    <div class="node-name">Theorem 2</div>
-                                    <div class="node-desc">Bias Distribution</div>
+                                <div class="flow-node theorem">
+                                    <div class="node-name">T2</div>
+                                    <div class="node-desc">Distribution</div>
                                 </div>
                             </div>
                             <div class="flow-arrow-down">↓</div>
                             <div class="flow-row">
-                                <div class="flow-node corollary" onclick="showModal('corollary1')">
-                                    <div class="node-type">Corollary</div>
-                                    <div class="node-name">Corollary 1</div>
-                                    <div class="node-desc">G≤8</div>
-                                </div>
-                                <div class="flow-node corollary" onclick="showModal('corollary2')">
-                                    <div class="node-type">Corollary</div>
-                                    <div class="node-name">Corollary 2</div>
-                                    <div class="node-desc">G≥6</div>
-                                </div>
-                                <div class="flow-node corollary" onclick="showModal('corollary3')">
-                                    <div class="node-type">Corollary</div>
-                                    <div class="node-name">Corollary 3</div>
-                                    <div class="node-desc">Sure Event</div>
+                                <div class="flow-node corollary">
+                                    <div class="node-name">C1-3</div>
+                                    <div class="node-desc">Bounds</div>
                                 </div>
                             </div>
                         </div>
@@ -1103,356 +1497,58 @@
                         <!-- Solution Section -->
                         <div class="flow-section solution">
                             <span class="flow-section-label">Part II: Solve Bias</span>
-                            <div class="flow-row" style="margin-top: 10px;">
-                                <div class="flow-node lemma" onclick="showModal('lemma4')">
-                                    <div class="node-type">Lemma</div>
-                                    <div class="node-name">Lemma 4</div>
+                            <div class="flow-row">
+                                <div class="flow-node lemma">
+                                    <div class="node-name">L4</div>
                                     <div class="node-desc">Concentration</div>
                                 </div>
                                 <span class="flow-arrow">→</span>
-                                <div class="flow-node lemma" onclick="showModal('lemma5')">
-                                    <div class="node-type">Lemma</div>
-                                    <div class="node-name">Lemma 5</div>
+                                <div class="flow-node lemma">
+                                    <div class="node-name">L5</div>
                                     <div class="node-desc">Confidence</div>
                                 </div>
                             </div>
                             <div class="flow-arrow-down">↓</div>
                             <div class="flow-row">
-                                <div class="flow-node lemma" onclick="showModal('lemma3')">
-                                    <div class="node-type">Lemma</div>
-                                    <div class="node-name">Lemma 3</div>
+                                <div class="flow-node lemma">
+                                    <div class="node-name">L3</div>
                                     <div class="node-desc">Existence</div>
                                 </div>
                                 <span class="flow-arrow">→</span>
-                                <div class="flow-node lemma" onclick="showModal('lemma1')">
-                                    <div class="node-type">Lemma</div>
-                                    <div class="node-name">Lemma 1/6</div>
-                                    <div class="node-desc">Baseline Range</div>
+                                <div class="flow-node lemma">
+                                    <div class="node-name">L1/6</div>
+                                    <div class="node-desc">Range</div>
                                 </div>
                             </div>
                             <div class="flow-arrow-down">↓</div>
                             <div class="flow-row">
-                                <div class="flow-node theorem" onclick="showModal('theorem3')">
-                                    <div class="node-type">Theorem</div>
-                                    <div class="node-name">Theorem 3 ★</div>
-                                    <div class="node-desc">Advantage Rectification</div>
+                                <div class="flow-node theorem">
+                                    <div class="node-name">T3 ★</div>
+                                    <div class="node-desc">Rectification</div>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Generalization Section -->
                         <div class="flow-section generalization">
-                            <span class="flow-section-label">Part III: Generalization</span>
-                            <div class="flow-row" style="margin-top: 10px;">
-                                <div class="flow-node theorem" onclick="showModal('theorem4')">
-                                    <div class="node-type">Theorem</div>
-                                    <div class="node-name">Theorem 4</div>
-                                    <div class="node-desc">Continuous Reward</div>
+                            <span class="flow-section-label">Part III: Extension</span>
+                            <div class="flow-row">
+                                <div class="flow-node theorem">
+                                    <div class="node-name">T4</div>
+                                    <div class="node-desc">Continuous</div>
                                 </div>
                             </div>
                             <div class="flow-arrow-down">↓</div>
                             <div class="flow-row">
-                                <div class="flow-node corollary" onclick="showModal('corollary4')">
-                                    <div class="node-type">Corollary</div>
-                                    <div class="node-name">Corollary 4</div>
-                                    <div class="node-desc">Beta Dist.</div>
-                                </div>
-                                <div class="flow-node corollary" onclick="showModal('corollary5')">
-                                    <div class="node-type">Corollary</div>
-                                    <div class="node-name">Corollary 5</div>
-                                    <div class="node-desc">Truncated Gaussian</div>
+                                <div class="flow-node corollary">
+                                    <div class="node-name">C4-5</div>
+                                    <div class="node-desc">Beta/Gaussian</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
 
-                <!-- Theorems -->
-                <section class="section" id="theorems">
-                    <h2 class="section-title">4. Theorems</h2>
-                    <div class="cards-grid">
-                        <div class="theory-card theorem">
-                            <div class="card-header">
-                                <span class="badge">Theorem 1</span>
-                                <div>
-                                    <div class="card-title">Existence of Bias</div>
-                                    <div class="card-subtitle">Bias Direction</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-desc">
-                                    <strong>Core conclusion:</strong> At expectation level — <span style="color: var(--problem-color);">difficult samples are underestimated</span>, <span style="color: var(--corollary-border);">easy samples are overestimated</span>.
-                                </p>
-                                <div class="card-math">
-                                    If $p_t < 0.5$: $\mathbb{E}[\hat{A}_{t,i}|\mathcal{S}] < A_{t,i}$<br>
-                                    If $p_t > 0.5$: $\mathbb{E}[\hat{A}_{t,i}|\mathcal{S}] > A_{t,i}$
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <span class="dep-label">Depends:</span>
-                                <span class="dep-tag">Lemma 2</span>
-                            </div>
-                        </div>
-
-                        <div class="theory-card theorem">
-                            <div class="card-header">
-                                <span class="badge">Theorem 2</span>
-                                <div>
-                                    <div class="card-title">Bias Probability Distribution</div>
-                                    <div class="card-subtitle">Probability Characterization</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-desc">
-                                    Quantifies the probability of deviation exceeding $\epsilon$ for both hard and easy samples.
-                                </p>
-                                <div class="card-math">
-                                    $\mathbb{P}(A_{t,i} - \hat{A}_{t,i} > \epsilon | \mathcal{S})$ = [binomial sum formula]
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <span class="dep-label">Depends:</span>
-                                <span class="dep-tag">Theorem 1</span>
-                            </div>
-                        </div>
-
-                        <div class="theory-card theorem">
-                            <div class="card-header">
-                                <span class="badge">Theorem 3</span>
-                                <div>
-                                    <div class="card-title">Advantage Rectification ★</div>
-                                    <div class="card-subtitle">HA-DW Foundation</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-desc">
-                                    <strong>Key theorem!</strong> Proves that if $\lambda_{scale}$ falls in specific interval, corrected advantage bias becomes smaller.
-                                </p>
-                                <div class="card-math">
-                                    $|\mathbb{E}[\hat{A}_{t,i} \cdot \Phi_{t,i} | \mathcal{S}] - A_{t,i}| < |\mathbb{E}[\hat{A}_{t,i} | \mathcal{S}] - A_{t,i}|$
-                                </div>
-                                <div class="insight-box">
-                                    <div class="title">Key Insight</div>
-                                    <p>Maps baseline correction coefficient c range to algorithm hyperparameter $\lambda_{scale}$ range.</p>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <span class="dep-label">Depends:</span>
-                                <span class="dep-tag">Lemma 1</span>
-                                <span class="dep-tag">Lemma 6</span>
-                            </div>
-                        </div>
-
-                        <div class="theory-card theorem">
-                            <div class="card-header">
-                                <span class="badge">Theorem 4</span>
-                                <div>
-                                    <div class="card-title">Continuous Reward Bias</div>
-                                    <div class="card-subtitle">Generalization</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-desc">
-                                    Generalizes to continuous bounded reward $r_{t,i} \in [0,1]$. Proves bias is universal.
-                                </p>
-                                <div class="card-math">
-                                    $\mathbb{E}[\hat{A}_{t,i} - A_{t,i} | \mathcal{S}_{\sigma}] = p_t - \mathbb{E}[\hat{p}_t | \mathcal{S}_{\sigma}]$
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <span class="dep-label">Generalizes:</span>
-                                <span class="dep-tag">Theorem 1</span>
-                                <span class="dep-tag">Theorem 2</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Lemmas -->
-                <section class="section" id="lemmas">
-                    <h2 class="section-title">5. Lemmas</h2>
-                    <div class="cards-grid">
-                        <div class="theory-card lemma">
-                            <div class="card-header">
-                                <span class="badge">Lemma 1/6</span>
-                                <div>
-                                    <div class="card-title">Baseline Rectification</div>
-                                    <div class="card-subtitle">Core Bridge</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-desc">
-                                    Finds coefficient interval $(c_{low}, c_{high})$ <strong>independent of unknown $p_t$</strong>.
-                                </p>
-                                <div class="card-math">
-                                    $c_{low} := \sup_{p \in I_t} \frac{(p-\epsilon) A(p)}{p(1-p^{G-1})}$
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <span class="dep-label">Depends:</span>
-                                <span class="dep-tag">Lemma 4</span>
-                                <span class="dep-tag">Lemma 5</span>
-                            </div>
-                        </div>
-
-                        <div class="theory-card lemma">
-                            <div class="card-header">
-                                <span class="badge">Lemma 2</span>
-                                <div>
-                                    <div class="card-title">Bias Quantification</div>
-                                    <div class="card-subtitle">Math Core of Thm 1</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-desc">
-                                    Provides <strong>exact mathematical expression</strong> for bias.
-                                </p>
-                                <div class="card-math">
-                                    $A_{t,i} - \mathbb{E}[\hat{A}_{t,i}|\mathcal{S}] = \frac{p_t(1-p_t)^G + p_t^{G+1} - p_t^G}{1 - (1-p_t)^G - p_t^G}$
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <span class="dep-label">Used by:</span>
-                                <span class="dep-tag">Theorem 1</span>
-                            </div>
-                        </div>
-
-                        <div class="theory-card lemma">
-                            <div class="card-header">
-                                <span class="badge">Lemma 3</span>
-                                <div>
-                                    <div class="card-title">Correction Existence</div>
-                                    <div class="card-subtitle">Existence Proof</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-desc">
-                                    If $p_t$ is known, there must exist a c that can correct bias.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <span class="dep-label">Used by:</span>
-                                <span class="dep-tag">Lemma 1</span>
-                            </div>
-                        </div>
-
-                        <div class="theory-card lemma">
-                            <div class="card-header">
-                                <span class="badge">Lemma 4</span>
-                                <div>
-                                    <div class="card-title">Concentration Inequality</div>
-                                    <div class="card-subtitle">Hoeffding-based</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-desc">
-                                    Provides probability upper bound for $|\hat{p}_t - p_t|$. Starting point of solution.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <span class="dep-label">Used by:</span>
-                                <span class="dep-tag">Lemma 1</span>
-                                <span class="dep-tag">Lemma 5</span>
-                            </div>
-                        </div>
-
-                        <div class="theory-card lemma">
-                            <div class="card-header">
-                                <span class="badge">Lemma 5</span>
-                                <div>
-                                    <div class="card-title">Confidence Interval</div>
-                                    <div class="card-subtitle">Safety Radius</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-desc">
-                                    With probability $\geq 1-\delta$, bounds possible range of $p_t$ via $\hat{p}_t + \epsilon_\delta$.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <span class="dep-label">Depends:</span>
-                                <span class="dep-tag">Lemma 4</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Corollaries -->
-                <section class="section" id="corollaries">
-                    <h2 class="section-title">6. Corollaries</h2>
-                    <div class="cards-grid">
-                        <div class="theory-card corollary">
-                            <div class="card-header">
-                                <span class="badge">Corollary 1</span>
-                                <div>
-                                    <div class="card-title">Bias Probability (G≤8)</div>
-                                    <div class="card-subtitle">Practical Warning</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-math">
-                                    $\mathbb{P}(\hat{A}_{t,i} < A_{t,i} | p_t < 0.5) > \mathbf{63\%}$<br>
-                                    $\mathbb{P}(\hat{A}_{t,i} < A_{t,i} | p_t < 0.25) > \mathbf{78\%}$<br>
-                                    $\mathbb{P}(\hat{A}_{t,i} < A_{t,i} | p_t < 0.125) = \mathbf{100\%}$
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="theory-card corollary">
-                            <div class="card-header">
-                                <span class="badge">Corollary 3</span>
-                                <div>
-                                    <div class="card-title">Sure Event</div>
-                                    <div class="card-subtitle">Certain Bias</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-desc">
-                                    Under some conditions, bias <strong>100% certainly occurs</strong>!
-                                </p>
-                                <div class="card-math">
-                                    $p_t < \frac{1}{G} \Rightarrow \hat{A}_{t,i} < A_{t,i}$ (certain)<br>
-                                    $p_t > \frac{G-1}{G} \Rightarrow \hat{A}_{t,i} > A_{t,i}$ (certain)
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="theory-card corollary">
-                            <div class="card-header">
-                                <span class="badge">Corollary 4</span>
-                                <div>
-                                    <div class="card-title">Beta Distribution</div>
-                                    <div class="card-subtitle">Theorem 4 Example</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-math">
-                                    $f(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha, \beta)}$<br>
-                                    $p_t = \frac{\alpha}{\alpha+\beta}$
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="theory-card corollary">
-                            <div class="card-header">
-                                <span class="badge">Corollary 5</span>
-                                <div>
-                                    <div class="card-title">Truncated Gaussian</div>
-                                    <div class="card-subtitle">Theorem 4 Example</div>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <p class="card-desc">
-                                    Demonstrates bias universality in continuous rewards.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Experiments -->
-                <section class="section" id="experiments">
-                    <h2 class="section-title">7. Experiments</h2>
+                    <h3 style="margin-top: 35px; margin-bottom: 15px; font-size: 16px; color: var(--primary);" id="method-data">2.3. 客观描述：数据集和代码</h3>
 
                     <div class="exp-card">
                         <div class="exp-header">
@@ -1497,9 +1593,142 @@
                                 </div>
                                 <div class="exp-item">
                                     <h4>Resources</h4>
-                                    <p>8× NVIDIA A100 GPUs<br>VeRL framework</p>
+                                    <p>8× NVIDIA A100 GPUs</p>
+                                </div>
+                                <div class="exp-item">
+                                    <h4>Codebase</h4>
+                                    <p>问了作者等中了再开源，基于 VeRL 框架，应该改起来问题不大</p>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <h3>Solution</h3>
+                            <p>First, they introduce a framework that incorporates cross-batch information into RL training, enabling a history-aware anchor for prompt difficulty. Second, they design an adaptive advantage reweighting algorithm to correct the induced bias.</p>
+                        </div>
+                        <div class="exp-body">
+                            <div class="exp-grid" style="grid-template-columns: 1fr 1fr;">
+                                <div class="exp-item">
+                                    <h4>Evolving Difficulty Anchor</h4>
+                                    <p style="margin-bottom: 10px;">Anchor (a latent model belief) that tracks prompt difficulty across batches:</p>
+                                    <div class="card-math" style="background: #f8f9fa; padding: 10px; border-radius: 6px; font-size: 13px;">
+                                        $C_t = (1 - \eta \sigma_t)C_{t-1} + \eta \sigma_t\frac{\sum_{i=1}^{B_t}r_{t,i}}{B_t}$
+                                    </div>
+                                    <p style="margin-top: 10px; font-size: 12px; color: var(--text-secondary);">
+                                        $\sigma_t$ and $\bar{C}_t$ are the standard deviation and average of the anchor over the past $m$ batches:<br>
+                                        $\bar{C}_t = \frac{1}{m}\sum_{j=1}^{m}C_{t-j}$<br>
+                                        $\sigma_t = \sqrt{\frac{1}{m}\sum_{j=1}^{m}(C_{t-j}-\bar{C}_t)^2}$
+                                    </p>
+                                </div>
+                                <div class="exp-item">
+                                    <h4>HA-DW Loss Function</h4>
+                                    <p style="margin-bottom: 10px;">History Aware Adaptive Difficulty Weighting:</p>
+                                    <div class="card-math" style="background: #f8f9fa; padding: 10px; border-radius: 6px; font-size: 13px;">
+                                        $L_{HA-DW}(\theta) = \frac{1}{G}\sum_{i=1}^G \Psi(\frac{\pi_\theta(y_{t,i}|x_t)}{\pi_{\theta_{old}}(y_{t,i}|x_t)})\cdot \phi(\hat{A}_{t,i})\cdot \Phi_{t,i}$
+                                    </div>
+                                    <p style="margin-top: 10px; font-size: 12px; color: var(--text-secondary);">
+                                        Correction coefficient:<br>
+                                        $\Phi_{t,i} = \lambda_{scale}\cdot \exp{[-sgn(\hat{A}_{t,i})\cdot sgn(diff_{t}^{his})\cdot |diff_{t}^{his}|]}$<br>
+                                        where $diff_{t}^{his} = \hat{p}_t - C_t$
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <h3>Pseudocode</h3>
+                            <p>复现伪代码（基于论文公式）</p>
+                        </div>
+                        <div class="exp-body">
+                            <pre class="code-block"><span class="keyword">import</span> torch
+<span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<span class="keyword">from</span> collections <span class="keyword">import</span> deque
+
+<span class="keyword">class</span> <span class="class-name">HADW_GRPO_Trainer</span>(nn.Module):
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="self">self</span>, model, group_size=<span class="number">8</span>, m=<span class="number">50</span>, eta_base=<span class="number">0.1</span>, lambda_scale=<span class="number">1.3</span>):
+        <span class="keyword">super</span>().__init__()
+        <span class="self">self</span>.model = model
+        <span class="self">self</span>.group_size = group_size
+
+        <span class="comment"># --- HA-DW Hyperparameters ---</span>
+        <span class="self">self</span>.m = m                       <span class="comment"># 历史窗口大小 (公式 9)</span>
+        <span class="self">self</span>.eta_base = eta_base         <span class="comment"># 基础遗忘因子 (公式 11 中的 η)</span>
+        <span class="self">self</span>.lambda_scale = lambda_scale <span class="comment"># 缩放系数 (公式 16)</span>
+
+        <span class="comment"># --- HA-DW Dynamic States (核心状态) ---</span>
+        <span class="self">self</span>.C_t = <span class="keyword">None</span>                  <span class="comment"># 演变的难度锚点 (公式 8)</span>
+        <span class="self">self</span>.history_buffer = deque(maxlen=m) <span class="comment"># 历史 C_t 缓存，用于计算 sigma</span>
+
+    <span class="keyword">def</span> <span class="function">update_anchor_state</span>(<span class="self">self</span>, current_batch_acc):
+        <span class="string">"""更新难度锚点 C_t 的逻辑 (对应论文 Section 3.1)"""</span>
+        <span class="comment"># 初始化: 如果是第一次运行，直接用当前 Batch 准确率初始化</span>
+        <span class="keyword">if</span> <span class="self">self</span>.C_t <span class="keyword">is</span> <span class="keyword">None</span>:
+            <span class="self">self</span>.C_t = current_batch_acc.item()
+            <span class="self">self</span>.history_buffer.append(<span class="self">self</span>.C_t)
+            <span class="keyword">return</span> <span class="self">self</span>.C_t
+
+        <span class="comment"># 计算历史窗口均值 (公式 9)</span>
+        C_bar = np.mean(<span class="self">self</span>.history_buffer)
+
+        <span class="comment"># 计算历史标准差 sigma_t (公式 10)</span>
+        <span class="keyword">if</span> <span class="keyword">len</span>(<span class="self">self</span>.history_buffer) < <span class="number">2</span>:
+            sigma_t = <span class="number">1.0</span>
+        <span class="keyword">else</span>:
+            sigma_t = np.std(<span class="self">self</span>.history_buffer)
+
+        <span class="comment"># 计算自适应遗忘因子 eta_t (公式 11)</span>
+        eta_t = <span class="self">self</span>.eta_base * sigma_t
+
+        <span class="comment"># 更新难度锚点 C_t (公式 8: Kalman-style update)</span>
+        <span class="self">self</span>.C_t = (<span class="number">1</span> - eta_t) * <span class="self">self</span>.C_t + eta_t * current_batch_acc.item()
+        <span class="self">self</span>.history_buffer.append(<span class="self">self</span>.C_t)
+
+        <span class="keyword">return</span> <span class="self">self</span>.C_t
+
+    <span class="keyword">def</span> <span class="function">forward</span>(<span class="self">self</span>, input_ids, old_log_probs, rewards):
+        <span class="string">"""Training Step: 计算 Loss, rewards shape: (Batch_Size, Group_Size)"""</span>
+        <span class="comment"># 计算当前 Batch 的观测值 y_t (公式 7)</span>
+        y_t = rewards.mean()
+
+        <span class="comment"># 更新全局状态 C_t</span>
+        current_C_t = <span class="self">self</span>.update_anchor_state(y_t)
+
+        <span class="comment"># --- 开始计算 HA-DW 权重 ---</span>
+
+        <span class="comment"># 计算组基线 p_hat (公式 2)</span>
+        p_hat = rewards.mean(dim=<span class="number">1</span>, keepdim=<span class="keyword">True</span>)
+
+        <span class="comment"># 计算历史难度 diff_his (公式 13)</span>
+        diff_his = p_hat - current_C_t
+
+        <span class="comment"># 计算 GRPO 原始优势 A_hat (公式 2 & 24)</span>
+        group_mean = rewards.mean(dim=<span class="number">1</span>, keepdim=<span class="keyword">True</span>)
+        group_std = rewards.std(dim=<span class="number">1</span>, keepdim=<span class="keyword">True</span>) + <span class="number">1e-8</span>
+        A_hat = (rewards - group_mean) / group_std
+
+        <span class="comment"># 计算调整方向 D_ti (公式 14)</span>
+        D_ti = -torch.sign(A_hat) * torch.sign(diff_his)
+
+        <span class="comment"># 计算调整幅度 M_t (公式 15)</span>
+        M_t = torch.abs(diff_his)
+
+        <span class="comment"># 计算最终修正系数 Phi (公式 16)</span>
+        Phi_ti = <span class="self">self</span>.lambda_scale * torch.exp(D_ti * M_t)
+
+        <span class="comment"># --- 计算最终 Loss ---</span>
+        ratio = torch.ones_like(rewards, requires_grad=<span class="keyword">True</span>)  <span class="comment"># 简化示例</span>
+
+        <span class="comment"># HA-DW Loss (公式 17)</span>
+        surr1 = ratio * A_hat * Phi_ti
+        surr2 = torch.clamp(ratio, <span class="number">1</span> - <span class="number">0.2</span>, <span class="number">1</span> + <span class="number">0.2</span>) * A_hat * Phi_ti
+        loss = -torch.min(surr1, surr2).mean()
+
+        <span class="keyword">return</span> loss</pre>
                         </div>
                     </div>
 
@@ -1530,11 +1759,40 @@
                             </div>
                         </div>
                     </div>
+
+                    <h3 style="margin-top: 35px; margin-bottom: 15px; font-size: 16px; color: var(--primary);" id="method-support">2.4. 我的观点：论文中的实验及结果有没有很好地支持需要验证的科学假设？</h3>
+                    <div class="content-card">
+                        <p>这篇论文理论严谨，但是最终设计的 HA-DW 算法，调参得到的 $\lambda$ 没有与 Theorem 3 进行交叉验证来表明选的超参数确实符合理论推导。</p>
+                        <p>通过与 GRPO、GSPO 和 DAPO 三个基线对比，该方法在所有 benchmark 上都带来了性能提升，说明对于 advantage 的修正能够使得模型训练效果更好。</p>
+                    </div>
+                </section>
+
+                <!-- Conclusion -->
+                <section class="section" id="conclusion">
+                    <h2 class="section-title">3. Conclusion</h2>
+
+                    <h3 style="margin-top: 20px; margin-bottom: 15px; font-size: 16px; color: var(--primary);" id="conclusion-contribution">3.1. 我的观点：这篇论文到底有什么贡献？</h3>
+                    <div class="content-card">
+                        <p><strong style="color: var(--corollary-border);">优点：</strong></p>
+                        <p>这篇论文证明在 Bernoulli、Beta 和 Bounded Gaussian Distribution 的 reward 下，如果存在 non-degenerate 情况，则会出现 group-relative advantage 的估计存在偏差情况。</p>
+
+                        <p style="margin-top: 15px;"><strong style="color: var(--problem-color);">缺点：</strong></p>
+                        <p>1. 作者只给出了 reward 属于 Bernoulli 分布情况下的优化方法（HA-DW），存在一定的局限性，无法直接适用于其他分布情况。（因为 Theorem 3 对于 $\lambda$ 存在的证明依赖 Bernoulli 分布）</p>
+                        <p>2. 作者已经通过 Theorem 3 找到了 $\lambda$ 的合理区间，但是为啥没有直接使用这个理论值，做成自适应的 $\lambda$？而是通过人为设定 task-dependent 超参数 $\eta$ 来实现，导致需要额外的调参过程，限制了这个方法的可扩展性。</p>
+                        <p>3. 作者证明了 bias 的存在，但是没有完善的分析为什么存在这个 bias。</p>
+                    </div>
+
+                    <h3 style="margin-top: 25px; margin-bottom: 15px; font-size: 16px; color: var(--primary);" id="conclusion-future">3.2. 我的理解：下一步如何深入研究？</h3>
+                    <div class="content-card">
+                        <p>1. <a href="https://ku.baidu-int.com/knowledge/HFVrC7hq1Q/pKzJfZczuc/yxUGa6szw9/iM3YtVaSDlF9P8#anchor-docyg-dd45eb20-059c-11f1-935f-a146f918ac55" target="_blank">完善理论框架，扩展到其他 reward 分布的任务下</a></p>
+                        <p>2. 跑 GRPO、GSPO、DAPO 三个 baseline，并复现 HA-DW</p>
+                        <p>3. 设计新算法对 advantage bias 进行修正</p>
+                    </div>
                 </section>
 
                 <footer class="footer">
                     <p>Paper Reading | HA-DW: Your Group-Relative Advantage Is Biased</p>
-                    <p><a href="assets/paper.pdf" target="_blank">PDF</a> · <a href="main.md" target="_blank">Markdown Notes</a></p>
+                    <p><a href="assets/paper.pdf" target="_blank">PDF</a></p>
                 </footer>
             </div>
 
@@ -1575,6 +1833,19 @@
             // Update active state
             document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
             event.target.classList.add('active');
+        }
+
+        // Scroll to theory card
+        function scrollToCard(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Highlight effect
+                el.style.boxShadow = '0 0 0 3px var(--primary)';
+                setTimeout(() => {
+                    el.style.boxShadow = '';
+                }, 1500);
+            }
         }
 
         // Scroll spy
