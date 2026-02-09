@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Blog - Xueji Fang</title>
+    <meta name="author" content="Xueji Fang">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="../images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+    <style>
+      body {
+        background-color: #f5f7fa;
+      }
+      .blog-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+      .blog-header {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+      .blog-header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        color: #333;
+      }
+      .blog-header p {
+        color: #666;
+        font-size: 1.1em;
+      }
+      .filter-tags {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+      }
+      .filter-tag {
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.2s;
+        border: 1px solid #ddd;
+        background: #fff;
+        color: #666;
+      }
+      .filter-tag:hover {
+        border-color: #1a73e8;
+        color: #1a73e8;
+      }
+      .filter-tag.active {
+        background: #1a73e8;
+        color: #fff;
+        border-color: #1a73e8;
+      }
+      .blog-list {
+        min-height: 200px;
+      }
+      .blog-card {
+        background: #fff;
+        border-radius: 8px;
+        padding: 24px;
+        margin-bottom: 20px;
+        border-left: 4px solid #1a73e8;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      }
+      .blog-card.hidden {
+        display: none;
+      }
+      .blog-card h2 {
+        color: #1a73e8;
+        font-size: 1.3em;
+        margin-bottom: 8px;
+      }
+      .blog-card h2 a {
+        color: #1a73e8;
+        text-decoration: none;
+      }
+      .blog-card h2 a:hover {
+        text-decoration: underline;
+      }
+      .blog-card .card-meta {
+        margin-bottom: 10px;
+      }
+      .blog-card .card-tag {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        background: #e8f0fe;
+        color: #1a73e8;
+        margin-right: 8px;
+      }
+      .blog-card p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 0;
+      }
+      .blog-footer {
+        text-align: center;
+        margin-top: 40px;
+        color: #888;
+      }
+      .back-link {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: #1a73e8;
+        text-decoration: none;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+      .no-results {
+        text-align: center;
+        color: #888;
+        padding: 40px;
+        display: none;
+      }
+      .loading {
+        text-align: center;
+        color: #888;
+        padding: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="blog-container">
+      <a href="../" class="back-link">&larr; Back to Home</a>
+
+      <div class="blog-header">
+        <h1>Blog</h1>
+        <p>Research notes and thoughts</p>
+      </div>
+
+      <div class="filter-tags" id="filter-tags">
+        <span class="filter-tag active" data-tag="all">All</span>
+      </div>
+
+      <div class="blog-list" id="blog-list">
+        <div class="loading">Loading...</div>
+      </div>
+
+      <div class="no-results" id="no-results">
+        No posts found for this category.
+      </div>
+
+      <div class="blog-footer">
+        <p>Xueji Fang's Blog</p>
+      </div>
+    </div>
+
+    <script>
+      // Tag display names
+      const tagNames = {
+        'paper-reading': 'Paper Reading',
+        'tutorial': 'Tutorial',
+        'notes': 'Notes'
+      };
+
+      let blogs = [];
+      let currentTag = 'all';
+
+      // Load blogs from JSON
+      fetch('blogs.json')
+        .then(response => response.json())
+        .then(data => {
+          blogs = data;
+          renderFilterTags();
+          renderBlogs();
+        })
+        .catch(err => {
+          document.getElementById('blog-list').innerHTML =
+            '<p style="text-align:center;color:#888;">Failed to load blogs.</p>';
+        });
+
+      // Render filter tags based on blogs
+      function renderFilterTags() {
+        const filterTagsEl = document.getElementById('filter-tags');
+        const allTags = new Set();
+
+        blogs.forEach(blog => {
+          blog.tags.forEach(tag => allTags.add(tag));
+        });
+
+        let html = '<span class="filter-tag active" data-tag="all">All</span>';
+        allTags.forEach(tag => {
+          const displayName = tagNames[tag] || tag;
+          html += `<span class="filter-tag" data-tag="${tag}">${displayName}</span>`;
+        });
+
+        filterTagsEl.innerHTML = html;
+
+        // Add event listeners
+        filterTagsEl.querySelectorAll('.filter-tag').forEach(tagEl => {
+          tagEl.addEventListener('click', () => {
+            filterTagsEl.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+            tagEl.classList.add('active');
+            currentTag = tagEl.dataset.tag;
+            renderBlogs();
+          });
+        });
+      }
+
+      // Render blog cards
+      function renderBlogs() {
+        const blogListEl = document.getElementById('blog-list');
+        const noResultsEl = document.getElementById('no-results');
+
+        const filteredBlogs = currentTag === 'all'
+          ? blogs
+          : blogs.filter(blog => blog.tags.includes(currentTag));
+
+        if (filteredBlogs.length === 0) {
+          blogListEl.innerHTML = '';
+          noResultsEl.style.display = 'block';
+          return;
+        }
+
+        noResultsEl.style.display = 'none';
+
+        let html = '';
+        filteredBlogs.forEach(blog => {
+          const tagsHtml = blog.tags.map(tag => {
+            const displayName = tagNames[tag] || tag;
+            return `<span class="card-tag">${displayName}</span>`;
+          }).join('');
+
+          html += `
+            <div class="blog-card">
+              <h2><a href="${blog.id}/main.html">${blog.title}</a></h2>
+              <div class="card-meta">${tagsHtml}</div>
+              <p>${blog.description}</p>
+            </div>
+          `;
+        });
+
+        blogListEl.innerHTML = html;
+      }
+    </script>
+  </body>
+</html>
