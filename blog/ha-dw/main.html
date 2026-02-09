@@ -1026,6 +1026,8 @@
             <nav class="sidebar-nav">
                 <ul>
                     <li><a href="#basic" class="active" onclick="scrollToSection('basic')">0. Basic Info</a></li>
+                    <li><a href="#notation" onclick="scrollToSection('notation')">0.1 符号定义</a></li>
+                    <li><a href="#grpo-recap" onclick="scrollToSection('grpo-recap')">0.2 GRPO 回顾</a></li>
                     <li><a href="#problem" onclick="scrollToSection('problem')">1. Problem</a></li>
                     <li><a href="#method" onclick="scrollToSection('method')">2. Method</a></li>
                     <li><a href="#conclusion" onclick="scrollToSection('conclusion')">3. Conclusion</a></li>
@@ -1053,6 +1055,146 @@
                         <strong>Resources:</strong> <a href="assets/paper.pdf" target="_blank">PDF</a>
                     </p>
                 </header>
+
+                <!-- Notation -->
+                <section class="section" id="notation">
+                    <h2 class="section-title">0.1 符号定义 Notation</h2>
+
+                    <div class="symbol-grid">
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$t$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Training Step</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">训练步数</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$D$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Training Dataset</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">训练数据集</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$x_t$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Prompt</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">第 $t$ 步从 $D$ 中采样的 prompt</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$G$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Group Size</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">对 $x_t$ 生成的响应数量</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$R$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Total Reward</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">组内总奖励 $R=\sum_{i=1}^G r_{t,i}$</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$\{y_{t,i}\}$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Responses</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">对 $x_t$ 的 $G$ 个响应</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$r_{t,i}$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Reward</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">响应 $y_{t,i}$ 的标量奖励，$r_{t,i}\in \{0, 1\}$</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$\pi_{\theta}$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Policy Model</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">策略模型，即 LLM</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$p_t$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">True Success Prob</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">真实成功概率（难度指标）</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$\hat{p}_t$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Estimated Success Prob</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">组内估计成功率 $\hat{p}_t = \frac{1}{G}\sum_{i=1}^G r_{t,i}$</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$A_{t,i}$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">True Advantage</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">真实优势值 $A_{t,i} = r_{t,i} - p_t$</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$\hat{A}_{t,i}$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Estimated Advantage</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">组内估计优势值 $\hat{A}_{t,i} = r_{t,i} - \hat{p}_t$</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$\mathcal{S}$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Non-degenerate Event</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">非退化事件 $\mathcal{S} = \{1 \le R \le G-1\}$</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$C_t$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Difficulty Anchor</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">演变的难度锚点</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$\lambda_{scale}$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Scaling Factor</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">缩放系数，用于修正 bias</div>
+                            </div>
+                        </div>
+                        <div class="symbol-item">
+                            <div class="symbol" style="font-family: 'KaTeX_Math', serif; font-size: 18px; color: var(--primary); min-width: 40px;">$\Phi_{t,i}$</div>
+                            <div class="symbol-desc">
+                                <div style="font-weight: 500;">Correction Coefficient</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">HA-DW 修正系数</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- GRPO Recap -->
+                <section class="section" id="grpo-recap">
+                    <h2 class="section-title">0.2 A Recap on GRPO</h2>
+
+                    <div class="content-card">
+                        <p>GRPO 的训练目标函数：</p>
+                        <div class="card-math" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto;">
+                            $$\mathcal{J}_{GRPO}(\theta) = \mathbb{E}_{x_t \sim D, \{y_{t,i}\}_{i=1}^G \sim \pi_{\theta_{old}}(\cdot|x_t)} \left[ \frac{1}{G} \sum_{i=1}^{G} \frac{1}{|y_{t,i}|} \sum_{j=1}^{|y_{t,i}|} \left( \min\left( \rho_{t,i,j}(\theta) \hat{A}_{t,i}, \text{clip}(\rho_{t,i,j}(\theta), 1-\varepsilon, 1+\varepsilon) \hat{A}_{t,i} \right) - \beta \mathbb{D}_{KL}(\pi_\theta \| \pi_{ref}) \right) \right]$$
+                        </div>
+                        <p>其中 $|y_{t,i}|$ 是第 $i$ 个回答的长度（token 数），</p>
+                        <div class="card-math" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                            $$\rho_{t,i,j}(\theta) = \frac{\pi_\theta(o_{t,i,j} | x_t, o_{t,i,&lt;j})}{\pi_{\theta_{old}}(o_{t,i,j} | x_t, o_{t,i,&lt;j})}$$
+                        </div>
+                        <p>$\rho_{t,i,j}(\theta)$ 是重要性采样比率，$o_{t,i,j}$ 表示第 $i$ 个回答的第 $j$ 个 token。</p>
+                        <div class="card-math" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                            $$\hat{A}_{t,i} = \frac{r_{t,i} - \text{mean}(\{r_{t,1}, r_{t,2}, \cdots, r_{t,G}\})}{\text{std}(\{r_{t,1}, r_{t,2}, \cdots, r_{t,G}\})}$$
+                        </div>
+                    </div>
+                </section>
 
                 <!-- Problem & Motivation -->
                 <section class="section" id="problem">
