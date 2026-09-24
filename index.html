@@ -242,10 +242,26 @@
       </section>
 
       <footer>
+        <p id="homepage-view-count" hidden></p>
         <p>Stolen from <a href="https://jonbarron.info/">Jon Barron</a>. Big thanks!</p>
       </footer>
     </main>
     <script>
+      if (location.hostname === 'xuejifang.github.io') {
+        fetch('data/page-views.json', { cache: 'no-store' })
+          .then(response => {
+            if (!response.ok) throw new Error('Page view data unavailable');
+            return response.json();
+          })
+          .then(({ views, through }) => {
+            if (!Number.isSafeInteger(views) || views < 1 || !/^\d{4}-\d{2}-\d{2}$/.test(through)) return;
+            const count = document.getElementById('homepage-view-count');
+            count.textContent = `${views.toLocaleString('en-US')} total page views (through ${through})`;
+            count.hidden = false;
+          })
+          .catch(() => {});
+      }
+
       (() => {
         const counter = document.getElementById('astra-view-count');
         const endpoint = 'https://api.fxtwitter.com/Hakim_Fang/status/2096565038744252613';

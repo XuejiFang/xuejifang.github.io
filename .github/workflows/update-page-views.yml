@@ -1,0 +1,41 @@
+name: Update homepage views
+
+on:
+  schedule:
+    - cron: '17 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-homepage-views
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: ${{ vars.GA4_PROPERTY_ID != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - uses: google-github-actions/auth@v3
+        with:
+          credentials_json: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
+      - name: Read GA4 homepage views
+        env:
+          GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
+        run: node scripts/update-page-views.mjs
+      - name: Publish aggregate count
+        run: |
+          git add data/page-views.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update homepage view count"
+          git push
