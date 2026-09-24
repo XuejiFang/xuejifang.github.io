@@ -301,6 +301,11 @@ span.fellow {
   object-fit: contain;
 }
 
+.experience-logo img[src$="logo-westlake.png"] {
+  object-fit: cover;
+  object-position: left center;
+}
+
 .experience-content {
   padding: 10px 0 12px;
   vertical-align: top;
